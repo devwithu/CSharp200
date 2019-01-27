@@ -1,0 +1,42 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.ComponentModel;
+04: using System.Data;
+05: using System.Drawing;
+06: using System.Text;
+07: using System.Windows.Forms;
+08: 
+09: namespace Program002
+10: {
+11:     public partial class Form1 : Form
+12:     {
+13:         //생성자- 가장 먼저 자동 호출된다.
+14:         public Form1() 
+15:         {
+16:             //각 위젯 초기화, 이곳은 건들지 말것.
+17:             InitializeComponent();
+18:             //-----------이곳에 초기화----------------//
+19:             this.txtNum1.Text = "";
+20:             this.txtNum2.Text = "";
+21:             this.txtResult.Text = "";
+22:             this.lbResult.Text = "Ready";
+23:         }
+24:        //btnAdd가 클릭되면 자동호출된다.
+25:         private void btnAdd_Click(object sender, EventArgs e)
+26:         {
+27:             double num1 = double.Parse(this.txtNum1.Text);
+28:             double num2 = double.Parse(this.txtNum2.Text);
+29:             double num = num1 + num2;
+30:             this.txtResult.Text = num.ToString();
+31:             this.lbResult.Text = "+";
+32:         }
+33:         //btnClear가 클릭되면 자동호출된다.
+34:         private void btnClear_Click(object sender, EventArgs e)
+35:         {
+36:             this.txtNum1.Text = "";
+37:             this.txtNum2.Text = "";
+38:             this.txtResult.Text = "";
+39:             this.lbResult.Text = "Ready";
+40:         }
+41:     }
+42: }

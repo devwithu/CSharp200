@@ -1,0 +1,25 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06: 
+07:             Z z1 = new Z(4, 4);
+08:             Console.WriteLine("z1\t{0}",z1);
+09:             Z z2 = new Z(3 ,- 5);
+10:             Console.WriteLine("z2\t{0}", z2);
+11:             //Z1과 내용이 동일하지만 다른 객체
+12:             Z z3 = new Z(z1);
+13:             Console.WriteLine(z3 == z1);  //개체는 같은 수 없다.
+14:             Console.WriteLine(z3.Equals(z1));  //개체는 같은 수 없다.
+15:             Console.WriteLine("{0}의 복사생성자: {1}",z1,z3);
+16:             z3.X = 5;             //x에 5대입
+17:             z3.Y = -9;            //y에 -9대입
+18:             Console.WriteLine("z3\t{0}", z3);
+19:             Z z4 = z1 * z2;
+20:             Console.WriteLine("z4\t{0}", z4);
+21:             Z z5 = z3 / z1;
+22:             Console.WriteLine("z5\t{0}/{1}={2}",z3,z1, z5);
+23:         }
+24:     }
+25: }

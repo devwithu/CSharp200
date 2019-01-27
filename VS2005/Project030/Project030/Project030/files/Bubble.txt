@@ -1,0 +1,28 @@
+01: using System;
+02: namespace Com.JungBo.Logics {
+03:     //1차원배열
+04:     public class Bubble {
+05: 
+06:         public static void AscSort(int[] m){
+07:             int count = m.Length;
+08:             for (int i = 0; i < count - 1; i++){
+09:                 for (int j = 0; j < count - 1 - i; j++){
+10:                     if (m[j] > m[j + 1]){ 
+11:                         //swapping
+12:                         int temp = m[j];
+13:                         m[j] = m[j + 1];
+14:                         m[j + 1] = temp;
+15:                       
+16:                     }//if
+17:                 }//inner for
+18:             }//outter for
+19:         }
+20: 
+21:         public static void Print(int [] m) {
+22:             for (int i = 0; i < m.Length; i++){
+23:                 Console.Write("{0}\t",m[i]);  
+24:             }
+25:             Console.WriteLine();
+26:         }
+27:     }
+28: }

@@ -1,0 +1,36 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: 
+05: namespace Com.Jungbo.Basic{
+06:     //삼항연산자
+07:     public class Program{
+08:         public static void Main(string[] args){
+09:             Console.WriteLine("짝수/홀수를 판별합니다.");
+10: 
+11:             Console.Write("한개의 정수를 입력하세요: ");
+12:             int iNum = int.Parse(Console.ReadLine());//첫 번째 수 입력후 변환
+13: 
+14:             bool isE = Numbers.IsOdd(iNum);//홀수인가?
+15:             if (isE){  //isE==true와 동일
+16:                 Console.WriteLine("{0}은/는 홀수입니다.", iNum); 
+17:             }
+18:             else{
+19:                 Console.WriteLine("{0}은/는 짝수입니다.", iNum);
+20:             }
+21:         }
+22:     }
+23:     public class Numbers{
+24:         //짝수인가
+25:         public static bool IsEven(int num)
+26:         {
+27:             bool isP = (num%2==0) ?true:false;
+28:             return isP;
+29:         }
+30:         //홀수인가
+31:         public static bool IsOdd(int num)
+32:         {
+33:             return (num % 2 == 1) ? true : false;;
+34:         }//
+35:     }
+36: }

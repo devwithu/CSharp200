@@ -1,0 +1,19 @@
+01: using System;
+02: namespace Com.JungBo.Basic{
+03:     public class Program{
+04:         //is
+05:         public static void Main(string[] args){
+06:             string ss = "Hello! My name is Su-mi";
+07:             object obj = ss;//프로모션
+08:             object obj1 = 23; //박싱
+09:             if(obj is string){//인스턴스의 타입
+10:                 string tt = (string)obj;//캐스팅
+11:                 Console.WriteLine(tt);
+12:             }
+13:             if (obj1 is int){//Int32
+14:                 int tt = (int)obj1;//언박싱
+15:                 Console.WriteLine(tt);
+16:             }
+17:         }
+18:     }
+19: }

@@ -1,0 +1,36 @@
+01: using System;
+02: using System.Collections.Generic;//List<int>
+03: namespace Com.JungBo.Logic{
+04:     //지네릭(제네릭)
+05:     public class BitOper{
+06: 
+07:         public const int MASK02 = 1;
+08:         private List<int> twoList = new List<int>();
+09: 
+10:         //10진수를 2진수로 진수변환
+11:         public  void TenToBinary(int n){
+12:             twoList.Clear();
+13:             for (int i = 0; i < 32; i++){
+14:                 //twoList[i]=n& MASK02는 바꾸기
+15:                 //앞쪽으로 붙이기 add는 뒤쪽에 붙이기
+16:                 twoList.Insert(0, n& MASK02);
+17:                 n >>= 1;//쉬프트연산은 음수,양수 무관
+18:             }
+19:         }//
+20:         //overloading
+21:         public string TenToBinary(){
+22: 
+23:             string str=string.Empty;
+24:             int count = twoList.IndexOf(1);
+25:             //숫자0, -0은 count->-1
+26:             if (count > 0){
+27:                 twoList.RemoveRange(0, count);//0부터 count개를 제거
+28:             }
+29:             for (int i = 0; i < twoList.Count; i++){
+30:                 str +=twoList[i];//(int)가 필요없다.
+31:             }
+32:             return str;
+33:             //
+34:         }//
+35:     }//class
+36: }

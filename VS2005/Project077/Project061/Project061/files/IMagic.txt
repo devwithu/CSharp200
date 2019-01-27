@@ -1,0 +1,6 @@
+1: namespace Com.JunBo.Logic {
+2:     public interface IMagic{
+3:         void Print();  //메서드 이름만 선언
+4:         void Make();   //메서드 이름만 선언
+5:     }
+6: }

@@ -1,0 +1,27 @@
+01: using System;
+02: namespace Com.JungBo.Basic{
+03:     public class Program{
+04:         //object
+05:         public static void Main(string[] args){
+06: 
+07:             object obj = new object();
+08:             object obj1 = new object();
+09:             if (typeof(object) == obj.GetType()){
+10: 
+11:                 Console.WriteLine("같은 타입");
+12:             }
+13: 
+14:             Console.WriteLine(obj.ToString());//GetType()호출
+15:             Console.WriteLine(obj.GetType());
+16:             Console.WriteLine(obj.GetHashCode());
+17:             Console.WriteLine(obj1.GetHashCode());
+18:             //모든 객체는 같지않다.
+19:             if (obj.Equals(obj1)){
+20:                 Console.WriteLine("같은 객체");
+21:             }
+22:             else {
+23:                 Console.WriteLine("다른 객체");
+24:             }
+25:         }
+26:     }
+27: }

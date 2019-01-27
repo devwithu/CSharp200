@@ -1,0 +1,13 @@
+01: using System;
+02: using System.Threading;
+03: using Com.JungBo.Proce;
+04: namespace Project107 {
+05:     public class Program {
+06:         public static void Main(string[] args){
+07: 
+08:             ThreadCompete tc = new ThreadCompete();
+09:             tc.Going();
+10:  
+11:         }
+12:     }
+13: }

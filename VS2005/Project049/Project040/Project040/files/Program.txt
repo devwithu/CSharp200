@@ -1,0 +1,14 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             int nums = -1028;
+07: 
+08:             BitOper bits = new BitOper();
+09:             bits.TenToBinary(nums);
+10:             string str=bits.TenToBinary();
+11:             Console.WriteLine("{0}을 이진수로:{1}", nums, str);
+12:         }
+13:     }
+14: }

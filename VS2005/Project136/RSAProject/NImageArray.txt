@@ -1,0 +1,39 @@
+01:  using System;
+02:  using System.Text;//StringBuilder
+03:  namespace Com.JungBo.Logic{
+04:      public class NImageArray{
+05:          int[] lot;
+06:          private int m;//전체 공의 개수 
+07:          public NImageArray(int m){
+08:              Init(m);
+09:          }
+10:          public NImageArray() : this(24) { }
+11:          //2번씩 들어가도록 
+12:          private void Init(int m){
+13:              this.m = m;
+14:              lot = new int[m];
+15:              for (int i = 0; i < lot.Length/2; i++){
+16:                  lot[i] = i;
+17:                  lot[i + lot.Length / 2] = i;
+18:              }
+19:          }
+20:          //두번 섞음-> 잘 섞음
+21:          public void Make(){
+22:              NumberGen<int>.Shuffle(lot);
+23:              NumberGen<int>.Shuffle(lot);
+24:          }
+25:          public void Print(){
+26:              StringBuilder sb = new StringBuilder();
+27:              sb.Append("[");
+28:              for (int i = 0; i < lot.Length - 1; i++){
+29:                  sb.Append(string.Format("{0},", lot[i]));
+30:              }
+31:              sb.Append(
+32:                  string.Format("{0}]", lot[lot.Length - 1]));
+33:              Console.WriteLine(sb.ToString());
+34:          }
+35:          public int[] Getindex{
+36:              get { return lot; }
+37:          }
+38:      }
+39:  }

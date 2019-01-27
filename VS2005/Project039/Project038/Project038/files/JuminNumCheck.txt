@@ -1,0 +1,20 @@
+01: using System;
+02: namespace Com.JungBo.Logic{
+03:     //char<->int Çüº¯È¯
+04:     public class JuminNumCheck{
+05:         //"123456-1234567"-> {1,2,3,4,5,6,1,2,3,4,5,6,7}
+06:         public int[] ToInt(string jumins){
+07:             int[] jumin = new int[jumins.Length - 1];
+08:             string jju = jumins.Replace("-", "");
+09:             char[] cc = jju.ToCharArray();//'1','2','3'
+10:             for (int i = 0; i < cc.Length; i++){
+11:                 //jumin[i] = cc[i] - '0';// '7'-'0'=>7 //55-48
+12:                 //jumin[i] = (int)Char.GetNumericValue(cc[i]);
+13:                 //jumin[i] = int.Parse(cc[i].ToString());
+14:                 //jumin[i] = Convert.ToInt32(cc[i]+"");
+15:                 jumin[i] = Int32.Parse(cc[i].ToString());
+16:             }
+17:             return jumin;
+18:         }//
+19:     }//class
+20: }//

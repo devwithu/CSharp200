@@ -1,0 +1,36 @@
+01: using System;
+02: using System.Drawing;
+03: namespace Com.JungBo.Drawings{
+04:     public class Shape{
+05:         protected Color color;  
+06:         protected float x;     
+07:         protected float y;     
+08:         protected float width; 
+09:         protected float height;
+10:         public Shape():this(0.0f, 0.0f, 10f,10f, Color.Black) {}
+11:         public Shape(float x, float y,float width, float height) 
+12:             : this(x, y,width,height ,Color.Black) { }
+13:         public Shape(float x, float y,
+14:             float width, float height,Color color){
+15:             this.x = x;
+16:             this.y = y;
+17:             this.width = width;
+18:             this.height = height;
+19:             this.color = color;
+20:         }
+21:         public void DrawShape(Graphics g){
+22:             SolidBrush axisXBrush = new SolidBrush(color);
+23:             g.FillEllipse(axisXBrush,x,y,width,height);
+24:         }
+25:         public Color ShapeColor
+26:         {
+27:             get { return color; }
+28:             set { color = value; }
+29:         }
+30:         //(mx,my)씩 이동한다.
+31:         public void Move(float mx, float my){
+32:             this.x += mx;
+33:             this.y += my;
+34:         }
+35:     }
+36: }

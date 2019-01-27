@@ -1,0 +1,27 @@
+01: using System;
+02: using System.Collections;//IComparer
+03: namespace Com.JungBo.School{
+04:     public class YenaGradeComparer:IComparer{
+05:         //IComparer의 Comparer구현-> 두 개체비교
+06:         public int Compare(object x, object y){
+07:             YenaGrade yg1 = x as YenaGrade;
+08:             YenaGrade yg2 = y as YenaGrade;
+09:             //평균이 높은 것에서 낮은 것으로
+10:             if (yg1.Avg > yg2.Avg){
+11:                 return -1; //DES
+12:             }
+13:             else if (yg1.Avg < yg2.Avg){
+14:                 return 1;//ASC
+15:             }
+16:             else {//평균이 같을경우 국어점수로 판단
+17:                 if (yg1.Kor > yg2.Kor){
+18:                     return -1; //DES
+19:                 }
+20:                 else if (yg1.Kor < yg2.Kor){
+21:                     return 1;//ASC
+22:                 }
+23:                 else return 0;
+24:             }
+25:         }//Compare
+26:     }
+27: }

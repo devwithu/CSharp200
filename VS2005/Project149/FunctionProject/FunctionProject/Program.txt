@@ -1,0 +1,26 @@
+01:  using System;
+02:  using Com.JungBo.Maths;
+03:  namespace FunctionProject {
+04:   public class Program {
+05:    public static void Main(string[] args){
+06:      double[] mfunct ={-1,0,1,1 };
+07:      //f(x)= -x^3 + x + 1
+08:      Funct func = new Funct(mfunct);
+09:      double right = 3;
+10:      func.X = right;  //-27+3+1
+11:      Console.WriteLine("f({0})={1}", right, func.Function());
+12:  
+13:      double left = -1;
+14:      func.X = left;  //1-1+1
+15:      Console.WriteLine("f({0})={1}", left, func.Function());
+16:  
+17:      MeanValue mean = new MeanValue(func, left, right);
+18:      mean.Make();
+19:      Console.WriteLine("f(x)=0을 만족시키는 x={0}", mean.MeanVal);
+20:  
+21:      //확인 
+22:      func.X = mean.MeanVal;//구한 근사값을 넣고 확인
+23:      Console.WriteLine("f({0})={1}", mean.MeanVal, func.Function());
+24:    }
+25:   }
+26:  }

@@ -1,0 +1,22 @@
+01: using System;
+02: namespace Com.JungBo.Maths{
+03:     public class Recursion{
+04:        public static  int GCD(int m, int n){
+05:             if (n == m){
+06:                 return m;
+07:             }
+08:             else {
+09:                 if (m > n){
+10:                     return GCD(m - n, n);
+11:                 }
+12:                 else{
+13:                     return GCD(m, n - m);
+14:                 }
+15:             }
+16:         }//GCD
+17:         public static int LCM(int m, int n){
+18:             return (m * n) / GCD(m, n);
+19: 
+20:         }//Lcm : 최소공배수 구하기
+21:     }//class
+22: }//namespace

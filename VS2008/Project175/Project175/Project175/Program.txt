@@ -1,0 +1,27 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic
+03:  {
+04:      public class Program
+05:      {
+06:          public static void Main(string[] args)
+07:          {
+08:              //x + 2y + 4z = 11
+09:              //2x + 5y + 2z = 3
+10:              //4x - y + z = 8
+11:              double[,] A = { { 1, 2, 4 }, { 2, 5, 2 }, { 4, -1, 1 } };
+12:              double[,] Y = { { 11 }, { 3 }, { 8 } };
+13:              MatrixD matA = new MatrixD(A);
+14:              matA.PrintMatrxsA();  //A출력
+15:              Console.WriteLine("A ");
+16:              MatrixD matRA = ~matA;  //~A,A역행렬 출력
+17:              Console.WriteLine("-----------------------");
+18:              Console.WriteLine("A_1 ");
+19:              matRA.PrintMatrxsA();
+20:              Console.WriteLine("------------------------");
+21:              Console.WriteLine("A_1Y 즉 해 ");
+22:              MatrixD mY = new MatrixD(Y);
+23:              MatrixD A_1Y = ~matA * mY; //~A*Y =해
+24:              A_1Y.PrintMatrxsA();
+25:          }
+26:      }
+27:  }

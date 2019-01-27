@@ -1,0 +1,18 @@
+01: using System;
+02: using Com.JungBo.Fund;
+03: namespace Project114 {
+04:  public class Program {
+05:     public static void Main(string[] args){
+06:         //CSV  ->  XML로 변환하기
+07:         string[] fundList ={
+08:         "CJ,65400,-1100",
+09:         "CJ인터넷,16200,200",
+10:         "KT&G, 64800, -1800"};
+11: 
+12:         FundInformWrite fw=new FundInformWrite();
+13:         //xml로 바꿔서 출력
+14:         string fundstring = fw.ToDataXML(fundList);
+15:         Console.WriteLine(fundstring);
+16:     }
+17:  }
+18: }

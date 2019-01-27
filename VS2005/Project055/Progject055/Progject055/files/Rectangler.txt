@@ -1,0 +1,19 @@
+01: using System;
+02: using System.Drawing;
+03: namespace Com.JungBo.Drawings{
+04:     public class Rectangler:Shape{
+05:         public Rectangler(float x, float y, 
+06:             float width, float height, Color color){
+07:             this.x = x;
+08:             this.y = y;
+09:             this.color = color;
+10:             this.width = width;
+11:             this.height = height;
+12:         }
+13:         public void DrawRectangler(Graphics g){
+14:             Pen xPen = new Pen(color, 1);
+15:             g.DrawRectangle(xPen, x, y, width, height);
+16:             xPen.Dispose();
+17:         }
+18:     }
+19: }

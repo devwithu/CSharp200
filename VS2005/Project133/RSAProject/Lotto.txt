@@ -1,0 +1,67 @@
+01:  using System;
+02:  using System.Text;//StringBuilder
+03:  namespace Com.JungBo.Logic {
+04:      public class Lotto{
+05:          private int[] lot;//6개의 서로 다른 번호
+06:          private int m;//전체 공의 개수 45
+07:          private int n; //선택된 공의 수  6
+08:          Random r;//임의의 수를 만드는 클래스
+09:          static int SEED = 17;
+10:  
+11:          public Lotto(int m, int n) {
+12:              Init(m,n);
+13:          }
+14:          public Lotto() :this(45,6){ }
+15:  
+16:          private void Init(int m, int n) {
+17:              this.m = m;
+18:              this.n = n;
+19:              lot = new int[n];
+20:              r = new Random(SEED++  + System.DateTime.Now.Millisecond);
+21:          }
+22:          //임의의 수 만들기 1~45
+23:          private int NumMake() {
+24:              return r.Next(m) + 1;
+25:          }
+26:          //서로 다른 6개의 공 만들기
+27:          public void Make() {
+28:              int count = 0;
+29:              while(count!=lot.Length){
+30:                  int temp = this.NumMake();
+31:                  if(!this.Contains(temp)){
+32:                      lot[count++] = temp;
+33:                  }
+34:              }
+35:          }
+36:          //다시 만들기
+37:          public void ReMake() {
+38:              Init(m,n);
+39:              this.Make();
+40:          }
+41:          //같은 수가 있는가?
+42:          private bool Contains(int num) {
+43:              bool hasS = false;
+44:              for (int i = 0; i < lot.Length; i++) {
+45:                  if(lot[i]==num){
+46:                      hasS = true;
+47:                      break;
+48:                  }
+49:              }
+50:              return hasS;
+51:          }
+52:          public void Print() {
+53:              StringBuilder sb = new StringBuilder();
+54:              sb.Append("[");
+55:              for (int i = 0; i < lot.Length-1; i++){
+56:                  sb.Append(string.Format("{0},",lot[i]));
+57:              }
+58:              sb.Append(
+59:                  string.Format("{0}]", lot[lot.Length - 1]));
+60:              Console.WriteLine(sb.ToString());
+61:          }
+62:          public int[] Lot{
+63:              get { return lot; }
+64:  
+65:          }
+66:      }
+67:  }

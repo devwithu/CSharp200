@@ -1,0 +1,35 @@
+01: using System;
+02: namespace Com.JungBo.Logics {
+03:     //out
+04:     public class YakSu {
+05:         //약수의 개수를 구한다.
+06:         private void CounOfYaksu(int n, out int nums) {
+07:             int count = 0;  //초기화 시킴
+08:             if (n == 1){
+09:                 count = 1;
+10:             }else {
+11:                 for (int i = 1; i <= n; i++){
+12:                     if(n%i==0){
+13:                         count++;
+14:                     }
+15:                 }
+16:             }
+17:             nums = count;   //외부로 내보낸다.
+18:         }//
+19:         public void MakeYaksu(int n) {
+20:             int count;   //초기화 시키지 않음
+21:             //약수를 구한 후 count에 대입
+22:             CounOfYaksu(n, out count);
+23:             int[] m = new int[count];
+24:             for (int i = 1, j=0 ; i <= n; i++){
+25:                 if (n % i == 0){
+26:                     m[j++] = i; 
+27:                 }
+28:             }
+29:             foreach (int  mVal in m){
+30:                 Console.Write("{0}  ", mVal);
+31:             }
+32:             Console.WriteLine();
+33:         }
+34:     }//class
+35: }

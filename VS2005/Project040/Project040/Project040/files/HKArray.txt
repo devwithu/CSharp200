@@ -1,0 +1,34 @@
+01: using System;
+02: namespace Com.JungBo.Maths{
+03:     public class HKArray{
+04:         //같은 크기의 m,n 배열을 서로 바꾸기
+05:         public static void SwapArray(int[]m,int []n) {
+06:             int count = m.Length;
+07:             int[] temp = new int[count];//0으로 초기화
+08:             //m->temp
+09:             Array.Copy(m, temp, count);
+10:             //n->m
+11:             Array.Copy(n, m, count);
+12:             //temp->n
+13:             Array.Copy(temp,n, count);
+14:         }//SwapArray
+15:         public static void PrintArray(int[]m) {
+16:             foreach (int num in m){
+17:                 Console.Write("{0}  ",num);
+18:             }
+19:             Console.WriteLine();
+20:         }//PrintArray
+21: 		
+22:         public static void Clear(int []m, int n) {
+23:             if (n == 0){
+24:                 //0으로 만들기
+25:                 Array.Clear(m, 0, m.Length);
+26:             }
+27:             else {
+28:                 for (int i = 0; i < m.Length; i++){
+29:                     m[i] = n;//n으로 모두 만들기
+30:                 }
+31:             }//else
+32:         }//Clear
+33:     }
+34: }

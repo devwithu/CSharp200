@@ -1,0 +1,41 @@
+01: using System;
+02: using System.Collections;
+03: namespace Com.JungBo.Logic{
+04: public class AlphaDictionary{
+05:     Hashtable table = new Hashtable(10);
+06:     public AlphaDictionary() { 
+07:         table.Clear(); //해쉬테이블 청소
+08:     }
+09:     public void Add(string key, string meaning) {
+10:         table.Add(key, meaning);//추가하기
+11:     }
+12:     public void Delete(string key) {
+13:         table.Remove(key);//지우기
+14:     }
+15:     public int Count() {
+16:         return table.Count;// 해쉬테이블 엘리먼트 개수
+17:     }
+18:     public string[] Keys() {
+19:         string[]keys=new string[table.Count];
+20:         int i=0;
+21:         //해쉬테이블의 키값들을 배열로
+22:         foreach (string key in table.Keys){
+23:             keys[i++] = key;
+24:         }
+25:         return keys;
+26:     }
+27:     public string this[string key] {
+28:         get {
+29:             //해쉬테이블에 키값이 있다면
+30:             if (table.ContainsKey(key)){
+31:             //if (table.Contains(key)){
+32:                 return table[key] as string;
+33:             }
+34:             else {
+35:                 throw new Exception(
+36:                 string.Format("{0}을 찾지못했습니다.",key));
+37:             }
+38:         }
+39:     }
+40: }
+41: }

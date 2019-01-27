@@ -1,0 +1,31 @@
+01: using System;
+02: namespace Com.JungBo.Logics {
+03:     //params
+04:     public class Bubble {
+05:         public static void DescSort(params int[] m){
+06:             int count = m.Length;
+07:             for (int i = 0; i < count - 1; i++){
+08:                 for (int j = 0; j < count - 1 - i; j++){
+09:                     if (m[j] < m[j + 1]){ 
+10:                         //swapping
+11:                         Swap(ref m[j], ref m[j + 1]);
+12:                     }//if
+13:                 }//inner for
+14:             }//outter for
+15: 
+16:             Print(m);
+17:         }//
+18:         //swapping 
+19:         public static void Swap(ref int a, ref int b){
+20:             int temp = a;
+21:             a = b;
+22:             b = temp;
+23:         }
+24:         public static void Print(params int[] m){
+25:             foreach (int num in m){
+26:                  Console.Write("{0}\t",num);  
+27:             }
+28:             Console.WriteLine();
+29:         }
+30:     }
+31: }

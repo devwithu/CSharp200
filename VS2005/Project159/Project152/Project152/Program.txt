@@ -1,0 +1,13 @@
+01:  using System;
+02:  using Com.JungBo.Sorts;
+03:  namespace Project154{
+04:   public class Program{
+05:      public static void Main(string[] args){
+06:          int[] a ={ 5,6,3,7,4,8,2,9 };
+07:          Quick.QuickSort(a);
+08:          Console.WriteLine("------------------");
+09:          double[] b ={ 5, 6, 3, 7, 4, 8, 2, 9 };
+10:          Quick.QuickSort<double>(b);
+11:      }
+12:   }
+13:  }

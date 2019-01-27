@@ -1,0 +1,87 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.ComponentModel;
+04:  using System.Data;
+05:  using System.Drawing;
+06:  using System.Text;
+07:  using System.Windows.Forms;
+08:  
+09:  namespace WindowCalculator{
+10:      public partial class Form1 : Form{
+11:  
+12:          WSMiniCalc.Service cal;
+13:  
+14:          public Form1(){
+15:              InitializeComponent();
+16:              //-----------이곳에 초기화----------------//
+17:              try{
+18:                  cal = new WSMiniCalc.Service();
+19:              }
+20:              catch (Exception ee){
+21:                  MessageBox.Show(ee.Message);
+22:              }
+23:              this.Clear();
+24:          }
+25:          private void Clear(){
+26:              this.txtNum1.Text = "";
+27:              this.txtNum2.Text = "";
+28:              this.txtResult.Text = "";
+29:              this.lbResult.Text = "Ready";
+30:          }
+31:          private void btnAdd_Click(object sender, EventArgs e) {
+32:              try{
+33:                  //Calculator를 호출할 때 문제가 발생할 수도 있다.
+34:                  //Calculator 파라메터에 사칙연산 중 어떤 연산인지 알리는 문자열포함
+35:                  this.txtResult.Text =
+36:                      Calculator(this.txtNum1.Text, this.txtNum2.Text, "+").ToString();
+37:                  this.lbResult.Text = "+";//덧셈
+38:              }
+39:              catch { }//특별히 할 일이 없다.
+40:          }
+41:          private void btnMinus_Click(object sender, EventArgs e){
+42:              try{
+43:                  this.txtResult.Text =
+44:                      Calculator(this.txtNum1.Text, this.txtNum2.Text, "-").ToString();
+45:                  this.lbResult.Text = "-";//뺄셈
+46:              }
+47:              catch { }
+48:          }
+49:          private void btnMulti_Click(object sender, EventArgs e){
+50:              try{
+51:                  this.txtResult.Text =
+52:                      Calculator(this.txtNum1.Text, this.txtNum2.Text, "x").ToString();
+53:                  this.lbResult.Text = "x";//곱셈
+54:              }
+55:              catch { }
+56:          }
+57:          private void btnDivide_Click(object sender, EventArgs e) {
+58:              try{
+59:                  this.txtResult.Text =
+60:                      Calculator(this.txtNum1.Text, this.txtNum2.Text, "/").ToString();
+61:                  this.lbResult.Text = "/";//나눗셈
+62:              }
+63:              catch { }
+64:          }
+65:          private void btnClear_Click(object sender, EventArgs e) {
+66:              this.Clear();//청소
+67:          }
+68:          //string opp 사칙연산 중 어떤 연산인지 알리는 문자열포함
+69:          public double Calculator(string sx, string sy, string opp){
+70:              if (string.IsNullOrEmpty(sx) || string.IsNullOrEmpty(sy)) {
+71:                  MessageBox.Show("공백이 입력되었습니다. 다시 입력하세요.");
+72:                  this.Clear();
+73:                  throw new Exception("공백이 입력되었습니다. 다시 입력하세요.");
+74:              }      
+75:              try{
+76:                  double x = double.Parse(sx.Trim());
+77:                  double y = double.Parse(sy.Trim());
+78:                  return cal.Calculator(x,y,opp);
+79:              }
+80:              catch (Exception){
+81:                  MessageBox.Show("숫자를 입력하세요. 다시 입력하세요.");
+82:                  this.Clear();
+83:                  throw new Exception("숫자를 입력하세요. 다시 입력하세요.");
+84:              }
+85:          }
+86:      }
+87:  }

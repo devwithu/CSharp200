@@ -1,0 +1,24 @@
+01: using System;
+02: 
+03: namespace Com.JungBo.Game{
+04:     //do~while
+05:     public class EachNumber{
+06: 
+07:         public int Sum(int n){
+08:             int total = 0;
+09:             do{
+10:                 total += n % 10;
+11:                 n /= 10;
+12:             } while (n != 0);
+13: 
+14:             return total;
+15:         }//
+16: 
+17:         public void PrintSum(int m){
+18:             for (int i = 0; i <= m; i++){
+19:                 Console.WriteLine("{0}의 각 자리수의 합: {1}",
+20:                     i,Sum(i));
+21:             }
+22:         }//
+23:     }
+24: }

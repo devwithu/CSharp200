@@ -1,0 +1,21 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace Com.JungBo.Basic {
+04:     public class Program {
+05:         public static void Main(string[] args){
+06:             string s = "8.5-03-23-1.0-89-.234";
+07:             JuminNumCheck jumin = new JuminNumCheck();
+08:             int[] ju = jumin.ToInt1(s);
+09:             for (int i = 0; i < ju.Length; i++){
+10:                 Console.Write("{0} ", ju[i]);
+11:             }
+12:             Console.WriteLine();
+13: 
+14:             jumin.ToInt2(s);
+15:             jumin.ToInt3(s);
+16: 
+17:             Test test = new Test();
+18:             test.Show();
+19:         }
+20:     }
+21: }

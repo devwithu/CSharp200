@@ -1,0 +1,53 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.ComponentModel;
+04: using System.Data;
+05: using System.Drawing;
+06: using System.Text;
+07: using System.Windows.Forms;
+08: 
+09: namespace Program002
+10: {
+11:     public partial class Form1 : Form{
+12:         public Form1(){
+13:             InitializeComponent();
+14:             //-----------이곳에 초기화----------------//
+15:             this.Clear();  //메서드호출
+16:         }
+17:         private void Clear(){
+18:             this.txtNum1.Text = "";//텍스트박스 청소
+19:             this.txtNum2.Text = "";
+20:             this.txtResult.Text = "";
+21:             this.lbResult.Text = "Ready";//라벨 초기화
+22:         }
+23:         //숫자형 문자열을 숫자로 형변환, 메서드선언
+24:         private double Calculator(string sx, string sy){
+25:             if (string.IsNullOrEmpty(sx) || string.IsNullOrEmpty(sy)){
+26:                 MessageBox.Show("공백이 입력되었습니다. 다시 입력하세요.");
+27:                 this.Clear();
+28:                 throw new Exception("공백이 입력되었습니다. 다시 입력하세요.");
+29:             }
+30:             try{
+31:                 double x = double.Parse(sx.Trim());
+32:                 double y = double.Parse(sy.Trim());
+33:                 return ( x + y);
+34:             }
+35:             catch{
+36:                 MessageBox.Show("숫자를 입력하세요. 다시 입력하세요.");
+37:                 this.Clear();
+38:                 throw new Exception("숫자를 입력하세요. 다시 입력하세요.");
+39:             }
+40:         }
+41:         private void btnAdd_Click(object sender, EventArgs e){
+42:             try{  //Calculator를 호출할 때 문제가 발생할 수도 있다.
+43:                 double num=Calculator(this.txtNum1.Text, this.txtNum2.Text);
+44:                 this.txtResult.Text = num.ToString();
+45:                 this.lbResult.Text = "+";
+46:             }
+47:             catch { }
+48:         }
+49:         private void btnClear_Click(object sender, EventArgs e){
+50:             this.Clear();//텍스트박스, 라벨 청소와 초기화
+51:         }
+52:     }
+53: }

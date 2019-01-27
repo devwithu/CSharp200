@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaus", "Gaus\Gaus.csproj", "{FD7F3B4A-0128-41FA-A2E3-75275F197D54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD7F3B4A-0128-41FA-A2E3-75275F197D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD7F3B4A-0128-41FA-A2E3-75275F197D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD7F3B4A-0128-41FA-A2E3-75275F197D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD7F3B4A-0128-41FA-A2E3-75275F197D54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

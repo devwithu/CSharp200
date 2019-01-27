@@ -1,0 +1,61 @@
+01:  using System;
+02:  using System.Text;//Encoding
+03:  using System.IO;//StreamReader
+04:  using System.Net;//Dns, IPAddress, 
+05:  using System.Net.Sockets;//TcpListener,NetworkStream
+06:  namespace Com.JungBo.Chat {
+07:      public class Program{
+08:          public static void Main(string[] args){
+09:              EchoServer server = new EchoServer();
+10:              server.Echo();
+11:         }
+12:      }//
+13:      public class EchoServer {
+14:          public const int PORT = 5555;
+15:  
+16:          public void Echo() {
+17:              TcpListener listener=null;
+18:              NetworkStream ns = null;
+19:              StreamReader sr = null;
+20:              TcpClient client = null;
+21:              bool isEnd = false;
+22:              try{
+23:                  IPAddress address = Dns.GetHostEntry("").AddressList[0];
+24:                  //1) 서버소켓을 준비하고 실행시킨다.
+25:                  listener = new TcpListener(address, PORT);
+26:                  listener.Start();
+27:                  Console.WriteLine("server ~~ TcpListener Ready");
+28:                  //클라이언트의 소켓에서 언제 붙을 지 모르므로 계속기다린다.
+29:                  while (!isEnd){  //클라이언트에서 연결이 끊어지면 끝낸다.
+30:                      //2) 서버에 붙은 클라이언트와 통신할 소켓준비
+31:                      client = listener.AcceptTcpClient();
+32:                      Console.WriteLine("while ~~ Accept");
+33:                      //3) 소켓에 있는 메세지를 이동시킬 통로준비
+34:                      ns = client.GetStream();
+35:                      sr = new StreamReader(ns, Encoding.Default);
+36:                      Console.WriteLine("while ~~ Recieve Ready");
+37:                      while (true){  //보낸 메세지를 계속 받기위해
+38:                          string message = string.Empty;
+39:                          //4) 클라이언트가 보낸 메세지 받음
+40:                          if ((message = sr.ReadLine()) != null){
+41:                              Console.WriteLine("[Client Say]:{0}", message);
+42:                          }
+43:                          else{
+44:                              isEnd = true; //서버연결을 끝는다
+45:                              Console.WriteLine("while ~~ Client Bye");
+46:                              break;
+47:                          }//else
+48:                      }//inner while
+49:                  }//outer while
+50:              }catch (Exception ee){
+51:                  System.Console.WriteLine(ee.Message);
+52:              }
+53:              finally {
+54:                  //5) 사용이 끝나면 연결을 끝는다.
+55:                  if(sr!=null)sr.Close();
+56:                  if (client != null) client.Close();
+57:                  listener.Stop();//서버소켓을 닫는다.
+58:              }
+59:          }
+60:      }
+61:  }

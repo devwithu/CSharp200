@@ -1,0 +1,8 @@
+1:  using System;
+2:  namespace Com.JungBo.Logic {
+3:  public class Program{
+4:      public static void Main(string[] args){
+5:          PrimeNumber.PrintOfSmith(4937000, 4938000);
+6:      }
+7:  }
+8:  }

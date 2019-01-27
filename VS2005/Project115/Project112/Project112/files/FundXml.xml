@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<kosdaq>
+  <stock>
+    <stockname>CJ</stockname>
+    <stockprice>65400</stockprice>
+    <prevstockprice>-1100</prevstockprice>
+  </stock>
+  <stock>
+    <stockname>CJ인터넷</stockname>
+    <stockprice>16200</stockprice>
+    <prevstockprice>200</prevstockprice>
+  </stock>
+  <stock>
+    <stockname>CJ홈쇼핑</stockname>
+    <stockprice>64800</stockprice>
+    <prevstockprice>-1800</prevstockprice>
+  </stock>
+  <stock>
+    <stockname>GS</stockname>
+    <stockprice>45000</stockprice>
+    <prevstockprice>400</prevstockprice>
+  </stock>
+  <stock>
+    <stockname>GS건설</stockname>
+    <stockprice>120000</stockprice>
+    <prevstockprice>-4500</prevstockprice>
+  </stock>
+  </kosdaq>

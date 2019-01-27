@@ -1,0 +1,211 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.ComponentModel;
+004:  using System.Data;
+005:  using System.Drawing;
+006:  using System.Text;
+007:  using System.Windows.Forms;
+008:  using System.Net;
+009:  using System.Net.Sockets;
+010:  using System.IO;
+011:  using System.Threading;
+012:  namespace EchoClientWin{
+013:  public partial class Form1 : Form{
+014:  bool 환경보기 = false;
+015:  string dialogName;
+016:  string serverIp;
+017:  int serverport;
+018:  bool isAlive = false;
+019:  //채팅 기본 글꼴 지정
+020:  Font font = new Font("굴림", 10);
+021:  string ss = string.Empty;
+022:  //채팅 글꼴 색상
+023:  Color color = Color.Black;
+024:  //-----------------------
+025:  NetworkStream ns = null;
+026:  StreamWriter sw = null;
+027:  StreamReader sr = null;
+028:  TcpClient client = null;
+029:  public Form1() {
+030:      InitializeComponent();
+031:      //-----------------------------
+032:      // 현재 컴퓨터의 아이피를 기본적으로 보여준다.
+033:      IPHostEntry hostIp = Dns.GetHostByName(Dns.GetHostName());
+034:      // 현재 컴퓨터의 아이피를 기본 아이피로 설정 
+035:      serverIp = hostIp.AddressList[0].ToString();
+036:      // 아이피 상자에 보여줍니다.
+037:      txtIP.Text = serverIp;
+038:  }
+039:  private void ShowMessage(string message) {
+040:      MessageBox.Show(message);
+041:  }
+042:  private void 시작SToolStripMenuItem_Click(
+043:      object sender, EventArgs e){
+044:      this.splitContainer1.Panel1Collapsed = true;
+045:   this.환경보기VToolStripMenuItem.Text = "환경보기(&V)";
+046:  }
+047:  private void 환경보기VToolStripMenuItem_Click(
+048:      object sender, EventArgs e){
+049:      if (this.splitContainer1.Panel1Collapsed){
+050:          this.splitContainer1.Panel1Collapsed = false;
+051:          환경보기 = true;
+052:      }
+053:      else{
+054:          this.splitContainer1.Panel1Collapsed = true;
+055:          환경보기 = false;
+056:      }
+057:      if (환경보기){
+058:   this.환경보기VToolStripMenuItem.Text = "환경감추기(&V)";
+059:      }
+060:      else {
+061:   this.환경보기VToolStripMenuItem.Text = "환경보기(&V)";
+062:      }
+063:  }
+064:  private void btnConn_Click(object sender, EventArgs e){
+065:      dialogName = this.txtName.Text;
+066:      if (string.IsNullOrEmpty(dialogName)){
+067:          ShowMessage("대화명을 입력하세요.");
+068:          return;
+069:      }
+070:      serverIp = this.txtIP.Text;
+071:      if (string.IsNullOrEmpty(serverIp)){
+072:          ShowMessage("주소를 입력하세요.");
+073:          return;
+074:      }
+075:      if (string.IsNullOrEmpty(this.txtPort.Text)){
+076:          ShowMessage("포트를 입력하세요.");
+077:          return;
+078:      }
+079:      serverport = int.Parse(this.txtPort.Text);
+080:      isAlive = true;
+081:      환경보기 = false;
+082:      try {
+083:          this.Echo();//이것이 실패하면 작동안함.
+084:   this.환경보기VToolStripMenuItem.Text = "환경보기(&V)";
+085:          this.txtName.ReadOnly = true;
+086:     this.toolStripStatusLabel2.Text = "On Chatting!!";
+087:          this.isAlive = true;
+088:          AppendMessage(string.Format("[{0}님 입장]",
+089:                                      dialogName));
+090:          this.txtSend.Focus();
+091:      }
+092:      catch(Exception eee) {
+093:          this.txtName.Text = "";
+094:          this.isAlive = false;
+095:      }
+096:  }
+097:  // 쓰기 스트림으로 메세지를 전송합니다. 
+098:  public void SendMessage(string message) {
+099:      try {
+100:          // 쓰기 스트림이 유효한지를 체크합니다. 
+101:          if (sw != null){
+102:              // 누가보냈는지와 메세지 내용을 
+103:              //조합하여 쓰기 스트림에 씁니다. 
+104:              sw.WriteLine("[" + dialogName + "] "
+105:                  + message);
+106:              // 쓰기 스트림에 있는 내용을 방출합니다. 
+107:              sw.Flush();
+108:          }
+109:      }
+110:      catch (Exception ee){
+111:          MessageBox.Show("보내기 실패:" + ee.Message);
+112:      }
+113:  }
+114:  // 화면의 대화창에 메세지를 출력합니다. 
+115:  public void AppendMessage(string msg){
+116:      if( this.txtDialog!=null && this.txtSend!=null){
+117:          // 메세지 추가와 함께 개행되도록 한다. 
+118:          this.txtDialog.AppendText(msg + "\r\n");
+119:          // 메세지창에 포커스를 줌 
+120:          this.txtDialog.Focus();
+121:          // 메세지 추가된 부분까지 스크롤시켜 보여줌 
+122:          this.txtDialog.ScrollToCaret();
+123:      }
+124:  }
+125:  public void Echo() {
+126:      try{
+127:          client = new TcpClient(this.serverIp,
+128:              this.serverport);//소켓
+129:          //Console.WriteLine("client~~서버에 접속");
+130:          ns = client.GetStream();
+131:          //소켓에 쓰기와
+132:          sw = new StreamWriter(ns, Encoding.Default);
+133:          sr = new StreamReader(ns, Encoding.Default);
+134:          //ctrl+c
+135:          //소켓에서 읽는 것과 소켓에 쓰는 것 분리
+136:    Thread receiveThread = new Thread(new ThreadStart(run));
+137:          // 즉시 중지할 수 있도록 백그라운드로 실행 합니다. 
+138:          receiveThread.IsBackground = true;
+139:          receiveThread.Start();
+140:      }
+141:      catch (Exception ee){
+142:          MessageBox.Show("서버 시작 실패");
+143:          throw ee;
+144:      }
+145:  }
+146:  public void run(){
+147:      string message = "start";
+148:      try{
+149:          if(client.Connected && sr!=null){
+150:              while ((message = sr.ReadLine()) != null){
+151:                  AppendMessage(message);
+152:              }
+153:          }
+154:      }
+155:      catch (Exception e){
+156:          //클라이언트의 FORM이 제거되었지만 
+157:          //서버로 보냈던 메세지가 
+158:          //되돌아 오는데 이것을 
+159:          //FORM의 TEXT에 붙이려고 하면 TEXT가 없어
+160:          //에러를 발생시킬 수 있다.
+161:      }
+162:  }
+163:  private void 종료XToolStripMenuItem_Click(object sender,
+164:      EventArgs e){
+165:      try{
+166:          SendMessage(
+167:      string.Format("{0}님이 퇴장했습니다.", dialogName));
+168:          // 읽기 스트림을 닫습니다. 
+169:          sr.Close();
+170:          // 쓰기 스트림을 닫습니다. 
+171:          sw.Close();
+172:          // 네트워크 스트림을 닫습니다. 
+173:          ns.Close();
+174:          // 클라이언트 소켓을 닫습니다. 
+175:          client.Close();
+176:          
+177:      }catch{}finally {
+178:          this.Dispose();
+179:      }
+180:  }
+181:  private void txtSend_KeyDown(object sender,KeyEventArgs e){
+182:      if (Keys.Enter == e.KeyCode){
+183:          string message = this.txtSend.Text;
+184:          SendMessage(message.Trim());
+185:          // 다시 입력할수 있도록 청소
+186:          this.txtSend.Clear();
+187:      }
+188:      else {
+189:          this.toolStripButton1.Visible = true;
+190:      }
+191:  }
+192:  private void txtSend_KeyUp(object sender, KeyEventArgs e){
+193:      this.toolStripButton1.Visible = false;
+194:  }
+195:  private void 글꼴FToolStripMenuItem_Click(
+196:      object sender, EventArgs e) {
+197:     fontDialog1.ShowColor = true;
+198:      DialogResult dr = fontDialog1.ShowDialog();
+199:      if ( dr!= DialogResult.Cancel){
+200:          txtSend.Font = fontDialog1.Font;
+201:          txtSend.ForeColor = fontDialog1.Color;
+202:      }
+203:  }
+204:  private void 배경색ToolStripMenuItem_Click(
+205:      object sender, EventArgs e){
+206:      if (colorDialog1.ShowDialog() == DialogResult.OK){
+207:          txtDialog.BackColor = colorDialog1.Color;
+208:      }
+209:  }
+210:  }
+211:  }

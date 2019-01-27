@@ -1,0 +1,104 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.ComponentModel;
+004:  using System.Data;
+005:  using System.Drawing;
+006:  using System.Text;
+007:  using System.Windows.Forms;
+008:  
+009:  namespace WebBrowserProject01{
+010:  public partial class Form1 : Form{
+011:  public Form1(){
+012:      InitializeComponent();
+013:  }
+014:  private void toolStripTextBox1_KeyPress(object sender,
+015:      KeyPressEventArgs e){
+016:      if ((int)Keys.Enter == e.KeyChar){
+017:          this.webBrowser1.Navigate(this.toolStripTextBox1.Text);
+018:      }
+019:  }
+020:  private void toolStripButton1_Click(object sender, EventArgs e){
+021:      try{
+022:          webBrowser1.GoHome();
+023:          this.toolStripTextBox1.Text = webBrowser1.Url.ToString();
+024:      }
+025:      catch (Exception){}
+026:  }
+027:  private void webBrowser1_Navigated(object sender, 
+028:      WebBrowserNavigatedEventArgs e){
+029:     string s = webBrowser1.Url.ToString();
+030:      this.toolStripTextBox1.Text=s;
+031:      if(!this.toolStripComboBox1.Items.Contains(s)){
+032:          this.toolStripComboBox1.Items.Add(s);
+033:      }
+034:  }
+035:  private void toolStripButton2_Click(object sender, EventArgs e){
+036:      webBrowser1.Refresh();
+037:  }
+038:  private void toolStripButton4_Click(object sender, EventArgs e){
+039:      if(this.webBrowser1.CanGoForward){
+040:          webBrowser1.GoForward();
+041:          this.toolStripTextBox1.Text = webBrowser1.Url.ToString();
+042:      }
+043:  }
+044:  private void toolStripButton3_Click(object sender, EventArgs e){
+045:      webBrowser1.Stop();
+046:  }
+047:  
+048:  private void toolStripButton5_Click(object sender, EventArgs e){
+049:      if (this.webBrowser1.CanGoBack){
+050:          webBrowser1.GoBack();
+051:          this.toolStripTextBox1.Text = webBrowser1.Url.ToString();
+052:      }
+053:  }
+054:  private void webBrowser1_Navigating(object sender, 
+055:      WebBrowserNavigatingEventArgs e){
+056:     this.toolStripButton3.Enabled = true;
+057:  }
+058:  
+059:  private void Form1_Load(object sender, EventArgs e){
+060:      toolStripButton3.Enabled = false;//stop
+061:      toolStripButton5.Enabled = false;//goback
+062:      toolStripButton4.Enabled = false;//goforward
+063:      this.webBrowser1.CanGoBackChanged+=
+064:          new EventHandler(webBrowser1_CanGoBackChanged);
+065:      this.webBrowser1.CanGoForwardChanged+=
+066:          new EventHandler(webBrowser1_CanGoForwardChanged);
+067:  }
+068:  
+069:  private void webBrowser1_DocumentCompleted(object sender,
+070:      WebBrowserDocumentCompletedEventArgs e){
+071:      this.toolStripButton3.Enabled = false;
+072:  }
+073:  private void webBrowser1_CanGoBackChanged(object sender,
+074:      EventArgs e){
+075:      if (webBrowser1.CanGoBack == true){
+076:          toolStripButton5.Enabled = true;
+077:      }
+078:      else{
+079:          toolStripButton5.Enabled = false;
+080:      }
+081:  }
+082:  private void webBrowser1_CanGoForwardChanged(
+083:      object sender,EventArgs e){
+084:      if (webBrowser1.CanGoForward == true){
+085:          toolStripButton4.Enabled = true;
+086:      }
+087:      else{
+088:          toolStripButton4.Enabled = false;
+089:      }
+090:  }
+091:  private void webBrowser1_ProgressChanged(object sender, 
+092:      WebBrowserProgressChangedEventArgs e) {
+093:      long total = e.MaximumProgress;
+094:      long current = e.CurrentProgress;
+095:      this.toolStripProgressBar1.Value=
+096:          (int)(100.0* current/total);
+097:  }
+098:  private void toolStripComboBox1_SelectedIndexChanged(
+099:      object sender, EventArgs e){
+100:      this.webBrowser1.Navigate(
+101:          this.toolStripComboBox1.SelectedItem as string);
+102:  }
+103:      }
+104:  }

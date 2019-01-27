@@ -1,0 +1,19 @@
+01:  01:  using System;
+02:  02:  using Com.JungBo.Maths;
+03:  03:  namespace Com.JungBo.Basic{
+04:  04:      public class Program{
+05:  05:          public static void Main(string[] args){
+06:  06:              int ten = 123;
+07:  07:              string s2 = SimpleBits.TenToBinary(ten);
+08:  08:              Console.WriteLine("10진수 {0}--> 2진수: {1}",
+09:  09:                 ten, s2);
+10:  10:              string s8 = SimpleBits.TenToOcta(ten);
+11:  11:              Console.WriteLine("10진수 {0}--> 8진수: {1}",
+12:  12:                  ten, s8);
+13:  13:  
+14:  14:              string s16 = SimpleBits.TenToHexa(ten);
+15:  15:              Console.WriteLine("10진수 {0}--> 16진수: {1}",
+16:  16:                  ten, s16);
+17:  17:          }
+18:  18:      }
+19:  19:  }

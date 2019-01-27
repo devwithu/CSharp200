@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="Com.JungBo.Game.Program">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Program.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Com.JungBo.Game.Pitcher">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Pitcher.cs</FileName>
+      <HashCode>AAAAAAAABAAA4AAAAAAAAAAAAAAAAAAAAgALAAIAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Com.JungBo.Game.Hitter">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Hitter.cs</FileName>
+      <HashCode>AAAAAAAABAAAoAAAAAAAAAAAAAAAAAAAAgAKAAIAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Com.JungBo.Game.Empire">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Empire.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAgIAAAICAAAAAAACAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Com.JungBo.Game.BaseBallUtil">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>BaseBallUtil.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Com.JungBo.Game.BaseBallGame">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>BaseBallGame.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAgIBAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

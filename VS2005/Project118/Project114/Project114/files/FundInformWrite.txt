@@ -1,0 +1,41 @@
+01: using System;
+02: using System.Text;
+03: namespace Com.JungBo.Fund {
+04:  public class FundInformWrite {
+05:     //CSV 데이터  --> XML
+06:     public string ToDataXML(string fundindex){
+07:         //"CJ,65400,-1100"  -->
+08:         //{"CJ","65400","-1100"}로 변환
+09:         string[] funds = XMLUtil.ToFund(fundindex);
+10:         //아래와 같이 바꾸기
+11:         //<stock>
+12:         //  <stockname>CJ</stockname>
+13:         //  <stockprice>65400</stockprice>
+14:         //  <prevstockprice>-1100</prevstockprice>
+15:         //</stock>
+16:         StringBuilder sb = new StringBuilder();
+17:         sb.Append("<stock> \n");
+18:         sb.Append("\t <stockname>");
+19:         sb.Append(XMLUtil.ToEntity(funds[0]));//"CJ"
+20:         sb.Append("</stockname> \n");
+21:         sb.Append("\t <stockprice>");
+22:         sb.Append(funds[1]);//"65400"
+23:         sb.Append("</stockprice> \n");
+24:         sb.Append("\t <prevstockprice>");
+25:         sb.Append(funds[2]);//"-1100"
+26:         sb.Append("</prevstockprice> \n");
+27:         sb.Append("</stock> \n");
+28:         return sb.ToString();
+29:     }
+30:     public string ToDataXML(string[] fundlist){
+31:         StringBuilder sb = new StringBuilder();
+32:         sb.Append("<?xml version='1.0' encoding='euc-kr'> \n");
+33:         sb.Append("<kosdaq> \n");
+34:         foreach (string fundstr in fundlist){
+35:             sb.Append(ToDataXML(fundstr));
+36:         }
+37:         sb.Append("</kosdaq>");
+38:         return sb.ToString();
+39:     }
+40:  }
+41: }

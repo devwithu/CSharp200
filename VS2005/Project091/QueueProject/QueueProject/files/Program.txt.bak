@@ -1,0 +1,18 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace QueueProject{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             CardQueue que = new CardQueue();
+07:             que.MakeCards();
+08:             for (int i = 0; i < 20;i++ ) {
+09:                 que.PrintCards();
+10:             }
+11:             que.MakeCards();  //새로 큐에 카드넣기
+12:             Console.WriteLine("===================");
+13:             for (int i = 0; i < 20; i++){
+14:                 que.PrintCards();
+15:             }
+16:         }
+17:     }
+18: }

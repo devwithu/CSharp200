@@ -1,0 +1,35 @@
+01: using System;
+02: namespace Com.JunBo.Logic{
+03:     //추상클래스
+04:     public abstract class AbstractMagic{  
+05:         //자식이 public처럼 사용하게
+06:         protected int[,] mabang;//2차원 배열 선언
+07: 
+08:         public AbstractMagic(int n){
+09:             this.mabang = new int[n, n];//생성, 초기화
+10:         }//생성자
+11:         
+12:         //추상메서드->자식이 오버라이드하라
+13:         public abstract void Make();
+14: 
+15:         //row의 합을 구한다.
+16:         protected int SumRow(int row){
+17:             int count = mabang.GetLength(1);
+18:             int total = 0;
+19:             for (int i = 0; i < count; i++){
+20:                 //row는 변함없이 col만 변한다.
+21:                 total += this.mabang[row, i];
+22:             }
+23:             return total;
+24:         }//SumRow
+25:         public virtual void Print(){
+26:             for (int i = 0; i < mabang.GetLength(0); i++){
+27:                 for (int j = 0; j < mabang.GetLength(1); j++){
+28:                     Console.Write("{0}\t", mabang[i, j]);
+29:                 }
+30:                 //row의 합 출력
+31:                 Console.Write("R:{0}\n",SumRow(i));
+32:             }
+33:         }//Print
+34:     }
+35: }

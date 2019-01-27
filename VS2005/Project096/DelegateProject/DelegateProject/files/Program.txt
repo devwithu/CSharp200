@@ -1,0 +1,13 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace Com.JungBo.Basic {
+04:     public class Program {
+05:         public static void Main(string[] args){
+06: 
+07:             StringToFundData stfd = new StringToFundData();
+08:             stfd.FundDataForMarathone();//관심주식 정보보이기
+09:             Console.WriteLine("----------------");
+10:             stfd.FundData("CJ", "KTF");//CJ~KTGxxx가 들어있는것들
+11:         }
+12:     }
+13: }

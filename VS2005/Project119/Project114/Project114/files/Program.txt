@@ -1,0 +1,19 @@
+01: using System;
+02: using System.Xml;//XmlDocument
+03: using Com.JungBo.Fund;
+04: namespace Project114 {
+05:  public class Program {
+06:   public static void Main(string[] args){
+07:       string xmlfname = "../../fundxml20080612081256.xml";
+08:       string xmlfname2 = "../../FundAttribute.xml";
+09:     FundXmlRead fxr = new FundXmlRead();
+10:     XmlDocument doc = fxr.XMLDomRead(xmlfname);
+11:     //Console.WriteLine(doc.OuterXml);//루트 엘리먼트와 자식을 모두 보여줌
+12:     Console.WriteLine(doc.InnerXml);//현재 엘리먼트와 자식을 모두 보여줌
+13:     string s2 = fxr.XMLStringRead(xmlfname2);
+14:     Console.WriteLine(s2);
+15:     string s3 = fxr.XMLFileStreamRead(xmlfname2);
+16:     Console.WriteLine(s3);
+17:   }
+18:  }
+19: }

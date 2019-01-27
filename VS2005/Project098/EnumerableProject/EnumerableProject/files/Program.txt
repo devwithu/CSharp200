@@ -1,0 +1,19 @@
+01: using System;
+02: using Com.JungBo.Infor;
+03: namespace EnumerableProject{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             FundInform inform = new FundInform();
+07:             inform.PrintFunds1();  //펀드정보출력
+08:             Console.WriteLine("-------------");
+09:             inform.PrintFunds2();//펀드정보출력
+10:             Console.WriteLine("-------------");
+11:             inform.PrintFunds3();//펀드정보출력
+12:             Console.WriteLine("-------------");
+13:             //펀드정보출력
+14:             foreach (string var in inform.GetAllFunds()){
+15:                 Console.WriteLine(var);
+16:             }
+17:         }
+18:     }
+19: }

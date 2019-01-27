@@ -1,0 +1,16 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         //ArrayList
+06:         public static void Main(string[] args){
+07: 
+08:             Card cc = "H8";        //암시적 형변환
+09:             Console.WriteLine(cc);
+10:  
+11:             CardList cl = new CardList();
+12:             cl.MakeCards();   //서로 다른 카드 만들기
+13:             cl.PrintCards();//출력
+14:         }
+15:     }
+16: }

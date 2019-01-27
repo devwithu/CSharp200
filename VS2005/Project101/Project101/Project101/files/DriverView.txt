@@ -1,0 +1,62 @@
+01: using System;//Environment
+02: using System.IO;//DriveInfo
+03: namespace Com.JungBo.Infor {
+04:     public class DriverView {
+05:         //내 컴퓨터 드라이브 보이기
+06:         public void ShowDrives(){
+07:             string[] drivers = Environment.GetLogicalDrives();
+08:             Console.WriteLine("Drives");
+09:             foreach (string st in drivers){
+10:                 Console.WriteLine("{0}", st);
+11:             }
+12:         }//
+13:         //내 컴퓨터 드라이브 상세 보이기
+14:         public void ShowDriveInfor(){
+15:             DriveInfo[] drivers = DriveInfo.GetDrives();
+16:             Console.WriteLine("Drives");
+17:             foreach (DriveInfo st in drivers){
+18:                 Console.WriteLine("-----------------");
+19:                 //switch(st.DriveType){
+20:                 //    case DriveType.CDRom:
+21:                 //        PrintDriverInfo(st); break;
+22:                 //    case DriveType.Fixed:
+23:                 //        PrintDriverInfo(st); break;
+24:                 //    default:
+25:                 //        PrintDriverInfo(st); break;
+26:                 //}
+27:                 PrintDriverInfo(st);
+28:             }
+29:         }//
+30:         private void PrintDriverInfo(DriveInfo dinfo) {
+31:             Console.WriteLine("DriveType: {0}", dinfo.DriveType);
+32:             Console.WriteLine("Name: {0}", dinfo.Name);
+33:             Console.WriteLine("RootDirectory: {0}", dinfo.RootDirectory);
+34:             if(dinfo.IsReady){  //드라이버가 준비되었나
+35:                 Console.WriteLine("TotalSize: {0}", dinfo.TotalSize);
+36:                 Console.WriteLine("VolumeLabel: {0}", dinfo.VolumeLabel);
+37:                 Console.WriteLine("DriveFormat: {0}", dinfo.DriveFormat);
+38:             }
+39:         }
+40:         public void ShowComputerInfor() {
+41:             string platform = Environment.OSVersion.Platform.ToString();
+42:             string servicepack=Environment.OSVersion.ServicePack;
+43:             //Major, Minor
+44:             string version=Environment.OSVersion.Version.ToString();
+45:             string versionString=Environment.OSVersion.VersionString;
+46:             string workme=(Environment.WorkingSet/1000).ToString();
+47:             int processcount = Environment.ProcessorCount;
+48:             string netbios = Environment.MachineName;
+49:             string domain = Environment.UserDomainName;
+50:             string dir = Environment.CurrentDirectory;
+51:             Console.WriteLine("Platform : {0}", platform);
+52:             Console.WriteLine("ServicePack : {0}", servicepack);
+53:             Console.WriteLine("Version : {0}", version);
+54:             Console.WriteLine("VersionString : {0}", versionString);
+55:             Console.WriteLine("WorkingSet : {0}KB", workme);
+56:             Console.WriteLine("ProcessorCount : {0}", processcount);
+57:             Console.WriteLine("MachineName : {0}", netbios);
+58:             Console.WriteLine("UserDomainName : {0}", domain);
+59:             Console.WriteLine("CurrentDirectory : {0}", dir);
+60:         }
+61:     }
+62: }

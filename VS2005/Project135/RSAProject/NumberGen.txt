@@ -1,0 +1,33 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:      //섹션 94,97 제네릭 참고 
+04:      public class NumberGen<T>{
+05:          private static int SEED = 17;
+06:          //Generic Method
+07:          public static void Shuffle(T[]cards){
+08:              Random r = new Random(SEED++ 
+09:                  +System.DateTime.Now.Millisecond);
+10:              int count = cards.Length;
+11:              for (int i = 0; i < count; i++){
+12:                  T t = cards[i];
+13:                  int next = r.Next(count);
+14:                  cards[i] = cards[next];
+15:                  cards[next] = t;
+16:              }
+17:          }//
+18:          public static void Reverse(T[] t){
+19:              int count = t.Length;
+20:              for (int i = 0; i < count / 2; i++){
+21:                  T temp = t[i];
+22:                  t[i] = t[count - 1 - i];
+23:                  t[count - 1 - i] = temp;
+24:              }
+25:          }
+26:          public static void Print(T[] n){
+27:              foreach (T tvar in n){
+28:                  Console.Write("{0}\t", tvar);
+29:              }
+30:              Console.WriteLine();
+31:          }
+32:      }//NumberGen class
+33:  }

@@ -1,0 +1,42 @@
+01: using System;
+02: namespace Com.JungBo.Logic{
+03:     //Method void, bool, int
+04:     public class UclidMath{
+05:         //자신을 제외한 모든 약수의 합
+06:         public static int SumDivision(int n){
+07:             int total = 1;
+08:             for (int i = 2; i < n; i++){
+09:                 if (n % i == 0){ //나누어 떨어지면 약수
+10:                     total = total + i; //약수의 합
+11:                 }
+12:             }
+13:             return total;
+14:         }//
+15:         //모든 약수 출력 (단 n>1)
+16:         public static void PrintDivision(int n){
+17:             Console.Write("[{0}, ", 1);
+18:             for (int i = 2; i < n; i++){
+19:                 if (n % i == 0){ //나누어 떨어지면 
+20:                     Console.Write("{0}, ", i);
+21:                 }
+22:             }
+23:             Console.WriteLine("{0}]", n);
+24:         }
+25:         //완전수인가
+26:         public static bool IsPerfect(int n){
+27:             bool isP = false;
+28:             if (n == SumDivision(n)){
+29:                 isP = true;
+30:             }
+31:             return isP;
+32:         }
+33:         //완전수 출력
+34:         public static void PrintPerfect(int n){
+35:             for (int i = 2; i <= n; i++){
+36:                 if (IsPerfect(i)){
+37:                     Console.Write("{0}=", i); PrintDivision(i);
+38:                 }
+39:             }
+40:         }
+41:     }
+42: }

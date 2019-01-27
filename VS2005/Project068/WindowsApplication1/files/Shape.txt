@@ -1,0 +1,48 @@
+01: using System;
+02: using System.Drawing;
+03: namespace Com.JungBo.Drawings{
+04:     public class Shape{
+05:         //--상속관계가 아니면 private처럼된다.
+06:         //protected Color color;
+07:         //protected float x;
+08:         //protected float y;
+09:         //protected float width;
+10:         //protected float height;
+11:         //--상속관계라면 protected와 동일하다.
+12:         protected internal Color color;
+13:         protected internal float x;
+14:         protected internal float y;
+15:         protected internal float width;
+16:         protected internal float height;
+17:         //--다른 어셈블리에 있는 자식도 사용할 수 없다.
+18:         // internal Color color;
+19:         // internal float x;
+20:         // internal float y;
+21:         // internal float width;
+22:         // internal float height;
+23:         public Shape():this(0.0f, 0.0f, 10f,10f, Color.Black) {}
+24:         public Shape(float x, float y,float width, float height) 
+25:             : this(x, y,width,height ,Color.Black) { }
+26:         public Shape(float x, float y,
+27:             float width, float height,Color color){
+28:             this.x = x;
+29:             this.y = y;
+30:             this.width = width;
+31:             this.height = height;
+32:             this.color = color;
+33:         }
+34:         public virtual void Draw(Graphics g){
+35:             SolidBrush axisXBrush = new SolidBrush(color);
+36:             g.FillEllipse(axisXBrush,x,y,width,height);
+37:         }
+38:         public Color ShapeColor{
+39:             get { return color; }
+40:             set { color = value; }
+41:         }
+42:         //(mx,my)씩 이동한다.
+43:         public virtual void Move(float mx, float my){
+44:             this.x += mx;
+45:             this.y += my;
+46:         }
+47:     }
+48: }

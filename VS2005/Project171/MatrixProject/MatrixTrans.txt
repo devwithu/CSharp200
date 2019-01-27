@@ -1,0 +1,62 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:   //모든 기본타입에 적용할수 있도록 한다.
+04:   public class MatrixTrans<T>{
+05:      public static T[] Mat2to1(T[,] t){
+06:  		int row=t.GetLength(0);  //t[x,y] 몇줄
+07:  		int col=t.GetLength(1);  //몇 칼럼
+08:          T[] temp = new T[row * col];
+09:  		for(int i=0;i<row;i++){
+10:  			for(int j=0;j<col;j++){
+11:  				temp[i*col+j]=t[i,j];
+12:  			}
+13:  		}
+14:  		return temp;
+15:  	}//Mat2to1
+16:      public static T[,] Mat1to2(T[] t,int row,int col){
+17:          T[,] a = new T[row, col];
+18:  		int tem=t.Length;
+19:  		for(int i=0;i<tem;i++){
+20:              a[i / col, i % col] = t[i];
+21:  		}
+22:  		return a;
+23:  	}
+24:      public static T[,] Mat2Clone(T[,] t,int row,int col){
+25:          T[,] a = new T[row, col];
+26:          for (int i = 0; i < row; i++){
+27:              for (int j = 0; j < col; j++){
+28:                  a[i, j] = t[i, j];
+29:              }
+30:          }
+31:          return a;
+32:      }//Mat2Clone
+33:      public static T[][] MatToZigZag(T[,] t) {
+34:          int row = t.GetLength(0);
+35:          int col = t.GetLength(1);
+36:          T[][] a = new T[row][];
+37:          for (int i = 0; i < row; i++){
+38:              a[i] = new T[col];
+39:          }
+40:          for (int i = 0; i < row; i++){
+41:              for (int j = 0; j < col; j++){
+42:                  a[i][j] = t[i, j];
+43:              }
+44:          }
+45:          return a;
+46:      }//Mat2to1
+47:      public static void Print(T[,] t){
+48:  		for(int i=0;i<t.GetLength(0);i++){
+49:  			for(int j=0;j<t.GetLength(1);j++){
+50:  				System.Console.Write("{0}  ",t[i,j]);
+51:  			}
+52:  			System.Console.WriteLine();
+53:  		}
+54:  	}//print
+55:      public static void Print(T[] t){
+56:  		for(int i=0;i<t.Length;i++){
+57:  			System.Console.Write("{0}  ",t[i]);
+58:  		}
+59:  		System.Console.WriteLine();
+60:  	}//print
+61:   }//class
+62:  }//name

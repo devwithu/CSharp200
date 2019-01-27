@@ -1,0 +1,18 @@
+01: using System;
+02: using Com.JunBo.Logic;
+03: namespace Com.JunBo.Basic {
+04:     public class Program {
+05:         public static void Main(string[] args){
+06: 
+07:             int[] m ={ 3, 6, 1, 8, 2, 9, 0 };
+08:             BubbleSort.Print<int>(m);
+09:             BubbleSort.SortByBubble<int>(m);
+10:             BubbleSort.Print<int>(m);
+11:             double[]n ={ 3.3, 6.3, 1.3, 8.3, 2.3, 9.3, 0.3 };
+12:             BubbleSort.Print<double>(n);
+13:             BubbleSort.SortByBubble<double>(n);
+14:             BubbleSort.Reverse<double>(n);
+15:             BubbleSort.Print<double>(n);
+16:         }
+17:     }
+18: }

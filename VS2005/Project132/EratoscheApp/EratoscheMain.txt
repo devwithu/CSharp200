@@ -1,0 +1,12 @@
+01:  using System;
+02:  using Com.Jungbo.Logic;
+03:  namespace EratoscheApp{
+04:      public class EratoscheMain{
+05:          public static void Main(string[] args){
+06:              //2~ 2^6 (64)까지의 소수
+07:              EratosTenesChe eratos = new EratosTenesChe(3);
+08:              eratos.ReMake();
+09:              eratos.PrintErotos();
+10:          }
+11:      }
+12:  }

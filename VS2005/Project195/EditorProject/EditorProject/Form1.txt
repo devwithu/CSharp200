@@ -1,0 +1,499 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.ComponentModel;
+004:  using System.Data;
+005:  using System.Drawing;
+006:  using System.Text;
+007:  using System.Windows.Forms;
+008:  using System.IO;
+009:  using System.Drawing.Printing;
+010:  namespace EditorProject{
+011:      public partial class Form1 : Form{
+012:          bool isModified = false;
+013:          StringReader streamToPrint;
+014:          public Form1() {
+015:              InitializeComponent();
+016:          }
+017:          private void Form1_Load(object sender, EventArgs e){
+018:              ToolbarHide(true); 
+019:          }
+020:          private void 툴바숨기기HToolStripMenuItem_Click(object sender, EventArgs e){
+021:              ToolbarHide(false);
+022:          }
+023:          private void ToolbarHide(bool b) {
+024:              this.툴바숨기기HToolStripMenuItem.Visible = b;
+025:              this.툴바보이기SToolStripMenuItem.Visible = !b;
+026:              this.toolStrip1.Visible = b;
+027:          }
+028:          private void 툴바보이기SToolStripMenuItem_Click(object sender, 
+029:              EventArgs e){
+030:              ToolbarHide(true);
+031:          }
+032:          private void 새로만들기NToolStripMenuItem_Click(object sender,
+033:              EventArgs e){
+034:              DoNew();
+035:          }
+036:          private void tsbNew_Click(object sender, EventArgs e){
+037:              DoNew();
+038:          }//
+039:          private void DoNew(){
+040:              //파일을 찾아서 불러올때 isModified=true
+041:              if(this.isModified){
+042:               string message = "이 문서(" + this.Text + ")"
+043:                         +"는 변경되었습니다. 저장하시겠습니까?";
+044:             switch (MessageBox.Show(message, "JungBo Editor ver 0.1", 
+045:                       MessageBoxButtons.YesNoCancel)){
+046:                          case DialogResult.Yes:
+047:                              this.richTb.Text = "";
+048:                              break;
+049:                          case DialogResult.No:
+050:                              this.richTb.Text = "";
+051:                              break;
+052:                          case DialogResult.Cancel:
+053:                              break;
+054:                      }
+055:              }else{
+056:                  richTb.Text = "";
+057:              }
+058:              this.Text = "JungBo Editor ver 0.1";
+059:          }
+060:          public void DoSaveAs(bool showDialog){
+061:              bool canWrite = false; 
+062:              string fname = "";
+063:              if (showDialog){  
+064:                  if (DialogResult.OK == 
+065:                         this.saveFileDialog1.ShowDialog()){  
+066:                      fname = saveFileDialog1.FileName;
+067:                      canWrite = true;
+068:                  }
+069:              }
+070:              else{
+071:                  fname = this.Text;
+072:                  canWrite = true;
+073:              }
+074:              if (canWrite){
+075:                  try{
+076:                      using(FileStream fs= 
+077:                        new FileStream(fname,FileMode.OpenOrCreate)){
+078:                          using(StreamWriter sw=
+079:                              new StreamWriter(fs,Encoding.Default)){
+080:                              sw.Write(this.richTb.Text);
+081:                              sw.Flush();
+082:                              sw.Close();
+083:                          }
+084:                          fs.Close();
+085:                      }
+086:                      this.Text = fname;
+087:                  }
+088:                  catch (Exception ee){
+089:                      MessageBox.Show(ee.Message);
+090:                  }
+091:              }
+092:          }//
+093:          private void DoSave(){
+094:              if (this.Text =="JungBo Editor ver 0.1"){
+095:                  DoSaveAs(true);
+096:              }
+097:              DoSaveAs(false);
+098:              this.isModified = false;
+099:          }//
+100:          private void DoOpen(){
+101:              string fname = "";
+102:              this.richTb.Clear();//청소
+103:              this.openFileDialog1.Filter = 
+104:   "모든 파일(*.*)|*.*|Text 문서(*.txt)|*.txt|XML 문서 (*.xml)|*.xml";
+105:              if (DialogResult.OK == this.openFileDialog1.ShowDialog()){
+106:                  fname = this.openFileDialog1.FileName.ToString();
+107:                  try {
+108:                      StreamReader sr = 
+109:                          new StreamReader(fname, Encoding.Default, true);
+110:                      int totalLine = 0;
+111:                      string strLine = "";
+112:                      while ((strLine = sr.ReadLine()) != null){
+113:                          this.richTb.AppendText(strLine+"\n");
+114:                          totalLine++;
+115:                      }
+116:                      this.Text = fname;//머릿말이 달라진다.
+117:                      richTb.SelectionStart = 0;//
+118:                      richTb.SelectionLength = 0;//
+119:                      sr.Close();
+120:                      int totalStringLength = this.richTb.TextLength;
+121:                      this.toolStripStatusLabel1.Text =
+122:                 string.Format("총 [{0}줄 {1}자]",totalLine,totalStringLength);
+123:                  }
+124:                  catch (Exception ee)
+125:                  {
+126:                      MessageBox.Show(ee.Message);
+127:                  }
+128:              }
+129:          }
+130:          private void DoEnd() {
+131:              DialogResult dr = 
+132:                  MessageBox.Show("작업하시던 것 저장하시겠습니까?",
+133:                  "저장?", MessageBoxButtons.YesNo);
+134:              if (dr == DialogResult.Yes){
+135:                  DoSave();
+136:              }
+137:              
+138:          }
+139:          private void 열기OToolStripMenuItem_Click(object sender, EventArgs e){
+140:              DoOpen();
+141:          }
+142:          private void tsbOpen_Click(object sender, EventArgs e){
+143:              DoOpen();
+144:          }
+145:          //--------------------------------------------------------------------
+146:          private void tbsSave_Click(object sender, EventArgs e) {
+147:              DoSave();
+148:          }
+149:          private void 저장ToolStripMenuItem_Click(object sender, EventArgs e){
+150:              DoSave();
+151:          }
+152:          private void sToolStripMenuItem_Click(object sender, EventArgs e){
+153:              this.DoSaveAs(true);
+154:          }
+155:          private void 끝내기XToolStripMenuItem_Click(object sender, EventArgs e){
+156:              this.DoEnd();
+157:              this.Close();
+158:          }
+159:          private void tsbExit_Click(object sender, EventArgs e) {
+160:              this.DoEnd();
+161:              this.Close();
+162:          }
+163:          
+164:          private void 실행취소UToolStripMenuItem_Click(object sender, EventArgs e)
+165:          {
+166:              if (richTb.CanUndo)
+167:              {
+168:                  this.richTb.Undo();
+169:              }
+170:          }
+171:  
+172:          private void 잘라내기TToolStripMenuItem_Click(object sender, EventArgs e)
+173:          {
+174:              this.richTb.Cut();
+175:          }
+176:  
+177:          private void 복사CToolStripMenuItem_Click(object sender, EventArgs e)
+178:          {
+179:              this.richTb.Copy();
+180:          }
+181:  
+182:          private void 삭제LToolStripMenuItem_Click(object sender, EventArgs e)
+183:          {
+184:              this.richTb.Clear();
+185:          }
+186:  
+187:          private void 붙이기PToolStripMenuItem_Click(object sender, EventArgs e)
+188:          {
+189:              this.richTb.Paste();
+190:          }
+191:  
+192:          private void 자동줄바꿈WToolStripMenuItem_Click(object sender, EventArgs e)
+193:          {
+194:              if (자동줄바꿈WToolStripMenuItem.Checked == true)
+195:              {
+196:                  this.richTb.WordWrap = false;
+197:                  자동줄바꿈WToolStripMenuItem.Checked = false;
+198:              }
+199:              else if (자동줄바꿈WToolStripMenuItem.Checked == false)
+200:              {
+201:                  this.richTb.WordWrap = true;
+202:                  자동줄바꿈WToolStripMenuItem.Checked = true;
+203:              }
+204:          }
+205:  
+206:          private void 글꼴FToolStripMenuItem_Click(object sender, EventArgs e)
+207:          {
+208:              if (DialogResult.OK == this.fontDialog1.ShowDialog())
+209:              {
+210:                  this.richTb.Font = this.fontDialog1.Font;
+211:              }
+212:              this.richTb.Update();
+213:          }
+214:  
+215:          private void 색깔CToolStripMenuItem_Click(object sender, EventArgs e)
+216:          {
+217:              if (DialogResult.OK == this.colorDialog1.ShowDialog())
+218:              {
+219:                  this.richTb.ForeColor = this.colorDialog1.Color;
+220:              }
+221:              this.richTb.Update();
+222:          }
+223:  
+224:          private void 모두선택AToolStripMenuItem_Click(object sender, EventArgs e)
+225:          {
+226:              this.richTb.SelectAll();
+227:          }
+228:  
+229:          private void 찾기FToolStripMenuItem_Click(object sender, EventArgs e)
+230:          {
+231:              
+232:          }
+233:  
+234:          private void 시간날짜DToolStripMenuItem_Click(object sender, EventArgs e)
+235:          {
+236:              string times = System.DateTime.Now.ToLongDateString();
+237:              this.richTb.Text += String.Format("{0}\t", times);
+238:          }
+239:  
+240:          private void 선택SToolStripMenuItem_Click(object sender, EventArgs e)
+241:          {
+242:              this.richTb.Select();
+243:          }
+244:  
+245:          private void 상태표시줄SToolStripMenuItem_Click(object sender, EventArgs e)
+246:          {
+247:              if (this.상태표시줄SToolStripMenuItem.Checked == true)
+248:              {
+249:                  this.statusStrip1.Visible = false;
+250:                  this.상태표시줄SToolStripMenuItem.Checked = false;
+251:              }
+252:              else if (this.상태표시줄SToolStripMenuItem.Checked == false)
+253:              {
+254:                  statusStrip1.Visible = true;
+255:                  this.상태표시줄SToolStripMenuItem.Checked = true;
+256:              }
+257:          }
+258:  
+259:          private void 메모장정보AToolStripMenuItem_Click(object sender, EventArgs e)
+260:          {
+261:              AboutBoxes about = new AboutBoxes();
+262:              about.Show();
+263:          }
+264:  
+265:          private void tsbBold_Click(object sender, EventArgs e)
+266:          {
+267:              FontStyle styles = this.richTb.Font.Style;
+268:              if (richTb.SelectionFont.Bold)
+269:              {
+270:                  styles &= ~FontStyle.Bold;
+271:              }
+272:              else
+273:              {
+274:                  styles |= FontStyle.Bold;
+275:              }
+276:              SetFontStyle(styles);
+277:          }
+278:  
+279:          private void tsbItalic_Click(object sender, EventArgs e)
+280:          {
+281:              FontStyle styles = this.richTb.Font.Style;
+282:              if (richTb.SelectionFont.Italic)
+283:              {
+284:                  styles &= ~FontStyle.Italic;
+285:              }
+286:              else
+287:              {
+288:                  styles |= FontStyle.Italic;
+289:              }
+290:              SetFontStyle(styles);
+291:          }
+292:          private void tsbUnderLine_Click(object sender, EventArgs e)
+293:          {
+294:              FontStyle styles = this.richTb.Font.Style;
+295:              if (richTb.SelectionFont.Underline)
+296:              {
+297:                  styles &= ~FontStyle.Underline;
+298:              }
+299:              else
+300:              {
+301:                  styles |= FontStyle.Underline;
+302:              }
+303:              SetFontStyle(styles);
+304:          }
+305:          private void SetFontStyle(FontStyle styles)
+306:          {
+307:              Font f = new Font(this.richTb.Font.FontFamily, this.richTb.Font.Size,styles );
+308:              this.richTb.Font = f;
+309:              this.richTb.Update(); 
+310:          }
+311:  
+312:          private void tsbHelp_Click(object sender, EventArgs e)
+313:          {
+314:              AboutBoxes about = new AboutBoxes();
+315:              about.Show();
+316:          }
+317:  
+318:          private void tsbLine_Click(object sender, EventArgs e)
+319:          {
+320:  
+321:          }
+322:  
+323:          private void 이동GToolStripMenuItem_Click(object sender, EventArgs e)
+324:          {
+325:              MoveLineForm search = new MoveLineForm();
+326:              search.Show(this);//owner
+327:          }
+328:  
+329:  
+330:          public void MoveToWantedLine(int lines)
+331:          {
+332:              int currentPos = this.richTb.Text.IndexOf("\n");
+333:              int movingLine = 0;
+334:              bool IsMoved = false;
+335:              while (currentPos > -1 && !IsMoved)
+336:              {
+337:                  movingLine++;
+338:                  if (lines == movingLine)
+339:                  {
+340:                      richTb.SelectionStart = currentPos - 1;
+341:                      KeyLocation();
+342:                      IsMoved = true;
+343:                  }
+344:                  currentPos = richTb.Text.IndexOf("\n", currentPos + 1);
+345:              }
+346:              if (!IsMoved)
+347:              {
+348:                  if (lines == movingLine + 1)
+349:                      richTb.SelectionStart = richTb.Text.Length;
+350:                  else
+351:                      MessageBox.Show("전체 줄 수보다 큰 수를 입력했습니다.");
+352:              }
+353:              richTb.Focus();//이것을 해줘야함.....
+354:              //richTb.Update();
+355:          }
+356:  
+357:          private void KeyLocation()
+358:          {
+359:              try
+360:              {
+361:                  int ColCount = 1;
+362:                  int RowCount = 1;
+363:                  int Pos;
+364:                  //To Set Column 
+365:                  if (richTb.SelectionStart > -1)
+366:                  {
+367:                      Pos = richTb.Text.LastIndexOf("\n", richTb.SelectionStart);
+368:                      if (Pos > -1)
+369:                      {
+370:                          //If the cursor is at CRLF
+371:                          if (Pos != richTb.SelectionStart)
+372:                              ColCount = richTb.SelectionStart - Pos;
+373:                          else
+374:                          {
+375:                              //Col position is diff between PrevEnter and CurPos
+376:                              Pos = richTb.Text.LastIndexOf("\n", richTb.SelectionStart - 1);
+377:                              ColCount = richTb.SelectionStart - Pos;
+378:                          }
+379:                      }
+380:                      else
+381:                      {
+382:                          ColCount = richTb.SelectionStart + 1;
+383:                      }
+384:                      while (Pos > -1)
+385:                      {
+386:                          RowCount++;
+387:                          Pos = richTb.Text.LastIndexOf("\n", Pos - 1);
+388:                      }
+389:                  }
+390:                  this.toolStripStatusLabel2.Text = string.Format("현재 [{0}줄 {1}번째]", RowCount, ColCount);
+391:              }
+392:              catch (Exception)
+393:              {
+394:              }
+395:          }
+396:  
+397:          private void richTb_MouseClick(object sender, MouseEventArgs e)
+398:          {
+399:              KeyLocation();
+400:          }
+401:  
+402:          private void richTb_KeyUp(object sender, KeyEventArgs e)
+403:          {
+404:              KeyLocation();
+405:          }
+406:  
+407:          private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+408:          {
+409:              DialogResult dr = MessageBox.Show("정말끝내시겠습니까?","끝",MessageBoxButtons.YesNo);
+410:              if (dr == DialogResult.Yes)
+411:              {
+412:                  e.Cancel = false;
+413:              }
+414:              else {
+415:                  e.Cancel = true;
+416:              }
+417:          }
+418:  
+419:          private void 페이지설정UToolStripMenuItem_Click(object sender, EventArgs e)
+420:          {
+421:              printDocument1.DocumentName = this.Text == "JungBo Editor ver 0.1" ? "Untitle.txt" : this.Text;
+422:              pageSetupDialog1.Document = printDocument1;
+423:              pageSetupDialog1.ShowDialog();
+424:          }
+425:  
+426:          private void 인쇄PToolStripMenuItem_Click(object sender, EventArgs e)
+427:          {
+428:              printDialog1.AllowPrintToFile = true;
+429:              printDocument1.DocumentName = this.Text == "JungBo Editor ver 0.1" ? "Untitle.txt" : this.Text;
+430:              try
+431:              {
+432:                  streamToPrint = new StringReader(this.richTb.Text);
+433:                
+434:                  try
+435:                  {
+436:  
+437:                      printDocument1.Print();
+438:                  }
+439:                  finally
+440:                  {
+441:                      streamToPrint.Close();
+442:                  }
+443:              }
+444:              catch (Exception ex)
+445:              {
+446:                  MessageBox.Show(ex.Message);
+447:              }
+448:          }
+449:  
+450:          private void 페이지미리보기VToolStripMenuItem_Click(
+451:              object sender, EventArgs e){
+452:              printDialog1.AllowPrintToFile = true;
+453:              printDocument1.DocumentName = 
+454:             this.Text == "JungBo Editor ver 0.1" ? "Untitle.txt" : this.Text;
+455:              printPreviewDialog1.Document = printDocument1;
+456:              streamToPrint = new StringReader(this.richTb.Text);
+457:              printPreviewDialog1.ShowDialog();
+458:          }
+459:  
+460:          private void document_PrintPage(object sender,
+461:      System.Drawing.Printing.PrintPageEventArgs ev){
+462:              //MSDN 소스 이용
+463:              Font printFont = this.Font;
+464:  
+465:              float linesPerPage = 0;
+466:              float yPos = 0;
+467:              int count = 0;
+468:              float leftMargin = ev.MarginBounds.Left;
+469:              float topMargin = ev.MarginBounds.Top;
+470:              string line = null;
+471:  
+472:              //페이지당 라인수 계산
+473:              linesPerPage = ev.MarginBounds.Height /
+474:                 printFont.GetHeight(ev.Graphics);
+475:  
+476:              //한 줄씩 출력
+477:              while (count < linesPerPage &&
+478:                 ((line = streamToPrint.ReadLine()) != null)){
+479:                  yPos = topMargin + (count *
+480:                     printFont.GetHeight(ev.Graphics));
+481:                
+482:                  ev.Graphics.DrawString(line, printFont, 
+483:         Brushes.Black,leftMargin, yPos, new StringFormat());
+484:                  count++;
+485:              }
+486:              //출력할 페이지가 더 있는가
+487:              if (line != null)
+488:                  ev.HasMorePages = true;
+489:              else
+490:                  ev.HasMorePages = false;
+491:          }
+492:          private void tbsPageSetting_Click(object sender, EventArgs e){
+493:              페이지미리보기VToolStripMenuItem_Click(null,null);
+494:          }
+495:          private void tbsPrint_Click(object sender, EventArgs e){
+496:              인쇄PToolStripMenuItem_Click(null,null);
+497:          }
+498:      }
+499:  }

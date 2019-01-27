@@ -1,0 +1,35 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: 
+05: namespace Com.JungBo.Logics {
+06:     //foreach
+07:     public class Bubble {
+08: 
+09:         public static void AscSort(int[] m){
+10:             int count = m.Length;
+11:             for (int i = 0; i < count - 1; i++){
+12:                 for (int j = 0; j < count - 1 - i; j++){
+13:                     if (m[j] > m[j + 1]){ 
+14:                         //swapping
+15:                         Swap(ref m[j], ref m[j + 1]);
+16:                     }//if
+17:                 }//inner for
+18:             }//outter for
+19:         }
+20:         //swapping 
+21:         public static void Swap(ref int a, ref int b){
+22:             int temp = a;
+23:             a = b;
+24:             b = temp;
+25:         }
+26:         //for-->foreach
+27:         public static void Print(int [] m) {
+28:             foreach (int num in m){
+29:                  //num = 5;  반복변수에 대입 불가능
+30:                  Console.Write("{0}\t",num);  
+31:             }
+32:             Console.WriteLine();
+33:         }//
+34:     }
+35: }

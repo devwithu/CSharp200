@@ -1,0 +1,122 @@
+001:  using System;
+002:  namespace Com.JungBo.Logic{
+003:      public abstract class AbstractMagic:IMagic{
+004:          protected int[,] mabang;//2차원 배열 선언
+005:          protected int top;//n-1
+006:          public AbstractMagic(int n){
+007:              Init(n);
+008:          }
+009:          protected virtual void Init(int n){
+010:              this.top = n - 1;
+011:              this.mabang = new int[n, n];//생성, 초기화
+012:          }
+013:          public abstract void Make();
+014:          
+015:          public bool IsCheck(){
+016:              bool isC = true;
+017:              int count = top + 1;
+018:              int[] ic = new int[2 * count + 2];
+019:              for (int k = 0; k < count; k++)
+020:              {
+021:                  ic[k] = SumRow(k);
+022:                  ic[k + count] = SumCol(k);
+023:              }//
+024:              ic[2 * count] = SumDiago();
+025:              ic[2 * count + 1] = SumAntiDiago();
+026:  
+027:              for (int i = 1; i < ic.Length; i++)
+028:              {
+029:                  if (ic[0] != ic[i])
+030:                  {
+031:                      isC = false;
+032:                      break;
+033:                  }
+034:              }
+035:              return isC;
+036:          }//
+037:          public int SumRow(int row)
+038:          {
+039:              int count = this.top + 1;
+040:              int total = 0;
+041:              for (int i = 0; i < count; i++)
+042:              {
+043:                  total += this.mabang[row, i];
+044:              }
+045:              return total;
+046:          }
+047:          public int SumCol(int col)
+048:          {
+049:              int count = this.top + 1;
+050:              int total = 0;
+051:              for (int i = 0; i < count; i++)
+052:              {
+053:                  total += this.mabang[i, col];
+054:              }
+055:              return total;
+056:          }
+057:          public int SumDiago()
+058:          { //대각선
+059:              int count = this.top + 1;
+060:              int total = 0;
+061:              for (int i = 0; i < count; i++)
+062:              {
+063:                  total += this.mabang[i, i];
+064:              }
+065:              return total;
+066:          }
+067:          public int SumAntiDiago()
+068:          {//역대각선
+069:              int count = this.top + 1;
+070:              int total = 0;
+071:              for (int i = 0; i < count; i++)
+072:              {
+073:                  total += this.mabang[i, count - i - 1];
+074:              }
+075:              return total;
+076:          }
+077:  
+078:          public virtual void Print()
+079:          {
+080:              int count = top + 1;
+081:  
+082:              for (int i = 0; i < count; i++)
+083:              {
+084:                  for (int j = 0; j < count; j++)
+085:                  {
+086:                      Console.Write("{0}\t", mabang[i, j]);
+087:                  }
+088:                  Console.WriteLine();
+089:              }
+090:              Console.WriteLine("Successs?  {0}",
+091:                                           this.IsCheck());
+092:          }
+093:  
+094:          public virtual void Prints()
+095:          {
+096:              int count = top + 1;
+097:  
+098:              for (int i = 0; i < count; i++)
+099:              {
+100:                  for (int j = 0; j < count; j++)
+101:                  {
+102:                      Console.Write("\t{0}", mabang[i, j]);
+103:                  }
+104:                  Console.Write("\tR:{0}\n", SumRow(i));
+105:              }
+106:              Console.Write("A:{0}", SumAntiDiago());
+107:              for (int j = 0; j < count; j++)
+108:              {
+109:  
+110:                  Console.Write("\tC:{0}", SumCol(j));
+111:  
+112:              }
+113:              Console.Write("\tD:{0}\n", SumDiago());
+114:  
+115:              Console.WriteLine("Successs?  {0}",
+116:                                           this.IsCheck());
+117:          }
+118:          
+119:  
+120:  
+121:      }
+122:  }

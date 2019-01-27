@@ -1,0 +1,16 @@
+01:  using System;
+02:  using Com.JungBo.Logic;
+03:  namespace Project154{
+04:   public class Program{
+05:      public static void Main(string[] args){
+06:          IReduceFraction irdf1 = new IReduceFraction(30, 60);
+07:          IReduceFraction irdf2 = new IReduceFraction(6, 20);
+08:          IReduceFraction irdf3 = irdf1 + irdf2;
+09:          IReduceFraction irdf4 = irdf1 - irdf2;
+10:          Console.WriteLine(irdf1.ToString());
+11:          Console.WriteLine(irdf2.ToString());
+12:          Console.WriteLine(irdf3.ToString());
+13:          Console.WriteLine(irdf4.ToString());
+14:      }
+15:   }
+16:  }

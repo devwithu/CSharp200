@@ -1,0 +1,41 @@
+01:  using System;
+02:  namespace Com.JungBo.Maths {
+03:   public class MeanValue {
+04:      public const double END = 0.00000000000001;
+05:      private Funct funct;
+06:      private double left;//left
+07:      private double right;
+08:      private double meanVal;
+09:      public MeanValue(Funct ff, double l, double r) {
+10:          funct = ff;
+11:          this.left = l;
+12:          this.right = r;
+13:      }
+14:      public void Make(){
+15:          //left와 right가 거의(END) 같아 질때까지
+16:          while (Math.Abs(left - right) > END){
+17:              meanVal = (right + left) / 2.0;
+18:              Console.WriteLine("l={0}, r={1}, c={2}",
+19:                                left, right, meanVal);
+20:              funct.X = left;
+21:              double tl = funct.Function();//left값 구하기
+22:              funct.X = right;
+23:              double tr = funct.Function();//right 값 구하기
+24:              funct.X = meanVal;//중간값
+25:              double tc = funct.Function();
+26:              if (tl * tc < 0){ //f(left)*f(meanVal)<0 
+27:                  right = meanVal;//meanVal가 right
+28:              }
+29:              else if (tl * tc > 0){//f(left)*f(meanVal)>0 
+30:                  left = meanVal;//meanVal가 left
+31:              }else if(tc==0){
+32:                  break;
+33:              }
+34:          }
+35:      }
+36:      //중간값을 이용한 근
+37:      public double MeanVal{
+38:          get { return meanVal; }
+39:      }
+40:   }
+41:  }

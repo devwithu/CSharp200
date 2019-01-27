@@ -1,0 +1,60 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:      // 블랙잭 게임
+04:      public class CardValue{
+05:          private int cardVal;  // Card Value
+06:          private Card card;
+07:          private int aCount;// A 이면, 카운트를 올린다.        
+08:          public CardValue(Card card){
+09:              this.card = card;
+10:          }
+11:          public CardValue(){
+12:              cardVal = 0;
+13:              aCount = 0;
+14:          }
+15:          public int ACount{
+16:              get { return aCount; }
+17:              set { aCount = value; }
+18:          }
+19:          public Card Card{
+20:              get { return card; }
+21:              set { card = value; }
+22:          }
+23:          public int CardVal{
+24:              get {
+25:                  Make();                
+26:                  return cardVal; 
+27:              }
+28:              //set { cVal = value; }
+29:          }
+30:          // Make Value
+31:          private void Make(){
+32:              string cardStr = card.CardValue;
+33:              char cardChar = cardStr[1];  // "H8" -> '8'
+34:              // 문자를 수로 바꾼다.
+35:              cardVal = ToInt(cardChar);
+36:          }//Make
+37:  
+38:          // BlackJack 용으로 T 이후엔 전부 10 이다. 
+39:          // A 일 경우, 값이 2 개 선택해야 하므로 함수를 호출해 값을 넣는다.
+40:          private int ToInt(char c){
+41:              int temp = 0;
+42:              switch (c){
+43:                  case '2':
+44:                  case '3':
+45:                  case '4':
+46:                  case '5':
+47:                  case '6':
+48:                  case '7':
+49:                  case '8':
+50:                  case '9': temp = c - '0'; break;
+51:                  case 'A': temp = 0; aCount++; break;
+52:                  case 'T': 
+53:                  case 'J': 
+54:                  case 'Q':
+55:                  case 'K': temp = 10; break;
+56:              }
+57:              return temp;
+58:          }//ToInt
+59:      }
+60:  }

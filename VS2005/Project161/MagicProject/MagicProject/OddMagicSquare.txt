@@ -1,0 +1,129 @@
+001:  using System;
+002:  namespace Com.JungBo.Logic{
+003:      public class OddMagicSquare{
+004:          private int[,] mabang;//2차원 배열 선언
+005:          private int top;//n-1
+006:          public OddMagicSquare() :this(3){ }//기본생성자
+007:          public OddMagicSquare(int n) {
+008:              this.Init(n);
+009:          }//생성자
+010:          public void Init(int n) {
+011:              this.top = n - 1;
+012:              this.mabang = new int[n, n];//생성, 초기화
+013:          }
+014:          //마방진 겟 프로퍼티
+015:          public int[,] Mabang{
+016:              get { return mabang; }
+017:          }
+018:          public void Make() {
+019:              int x = 0;
+020:              int y = top / 2;
+021:              mabang[x, y] = 1;
+022:              for (int i = 2; i <= (top+1)*(top+1); i++){
+023:                  int tempX = x;
+024:                  int tempY = y;
+025:                  if (x - 1 < 0){
+026:                      x = top;
+027:                  }
+028:                  else {
+029:                      x--;
+030:                  }
+031:                  if (y - 1 < 0){
+032:                      y = top;
+033:                  }
+034:                  else{
+035:                      y--;
+036:                  }
+037:  
+038:                  if(mabang[x,y]!=0){
+039:                      x = tempX + 1;
+040:                      y = tempY;
+041:                  }
+042:                  mabang[x, y] = i;
+043:              }
+044:          }//Make
+045:          //마방진 완성?
+046:          public bool IsCheck() {
+047:              bool isC = true;
+048:              int count=top+1;
+049:              int[] ic = new int[2 * count + 2];
+050:              for (int k = 0; k < count; k++){
+051:                  ic[k] = SumRow(k);         //한 행의 합
+052:                  ic[k + count] = SumCol(k); //한 열의 합
+053:              }//
+054:              ic[2 * count] = SumDiago();    //대각선 합 
+055:              ic[2 * count + 1] = SumAntiDiago();//역 대각선 합
+056:              //2 * count + 2개 값이 모두 동일한가?
+057:              for (int i = 1; i < ic.Length; i++) {
+058:                  if(ic[0]!=ic[i]){
+059:                      isC = false;
+060:                      break;
+061:                  }
+062:              }
+063:              return isC;
+064:          }//
+065:          //한 행의 합
+066:          public int SumRow(int row) {
+067:              int count = this.top + 1;
+068:              int total = 0;
+069:              for (int i = 0; i < count; i++){
+070:                  total += this.mabang[row, i];
+071:              }
+072:              return total;
+073:          }
+074:          //한 열의 합
+075:          public int SumCol(int col){
+076:              int count = this.top + 1;
+077:              int total = 0;
+078:              for (int i = 0; i < count; i++){
+079:                  total += this.mabang[i, col];
+080:              }
+081:              return total;
+082:          }
+083:          //대각선의 합
+084:          public int SumDiago() { //대각선
+085:              int count = this.top + 1;
+086:              int total = 0;
+087:              for (int i = 0; i < count; i++){
+088:                  total += this.mabang[i, i]; 
+089:              }
+090:              return total;
+091:          }
+092:          //역대각선의 합
+093:          public int SumAntiDiago(){//역대각선
+094:              int count = this.top + 1;
+095:              int total = 0;
+096:              for (int i = 0; i < count; i++){
+097:                  total += this.mabang[i, count - i - 1];
+098:              }
+099:              return total;
+100:          }
+101:          //마방진 출력
+102:          public void Print(){
+103:              int count = top + 1;
+104:              for (int i = 0; i < count; i++){
+105:                  for (int j = 0; j < count; j++){
+106:                      Console.Write("{0}\t", mabang[i, j]);
+107:                  }
+108:                  Console.WriteLine();
+109:              }
+110:              Console.WriteLine("Successs?  {0}",IsCheck());
+111:          }//Print
+112:          //행열대각선역대각선의 합과 마방진 출력
+113:          public void Prints(){
+114:              int count = top + 1;
+115:              for (int i = 0; i < count; i++){
+116:                  for (int j = 0; j < count; j++){
+117:                      Console.Write("\t{0}", mabang[i, j]);
+118:                  }
+119:                  Console.Write("\tR:{0}\n", SumRow(i));
+120:              }
+121:              Console.Write("A:{0}", SumAntiDiago());
+122:              for (int j = 0; j < count; j++) {
+123:                  Console.Write("\tC:{0}", SumCol(j));
+124:              }
+125:              Console.Write("\tD:{0}\n", SumDiago());
+126:              Console.WriteLine("Successs?  {0}",IsCheck());
+127:          }//Prints 
+128:      }//class
+129:  }//namespace

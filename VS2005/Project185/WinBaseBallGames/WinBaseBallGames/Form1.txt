@@ -1,0 +1,131 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.ComponentModel;
+004:  using System.Data;
+005:  using System.Drawing;
+006:  using System.Text;
+007:  using System.Windows.Forms;
+008:  using Com.JungBo.Game;
+009:  namespace WinBaseBallGames{
+010:  public partial class Form1 : Form{
+011:      string ballstr = " Play Ball!!";
+012:      Pitcher pit=new Pitcher();
+013:      Hitter hit = new Hitter();
+014:      Empire emp = new Empire();
+015:      int[] num=new int[3];
+016:      int count=0;//세 번호
+017:      int gameiter = 1;//10번 이내에 3스트라이크
+018:      public Form1(){
+019:          InitializeComponent();
+020:          BtnVisible(false);
+021:          NewGame(true);
+022:      }
+023:      private void NewGame(bool b) {
+024:          this.lbResult.Text = ballstr;
+025:          this.btnHitting.Visible = !b;
+026:          this.btnNewGame.Visible = b;
+027:      }
+028:      private void btnNewGame_Click(object sender, EventArgs e){
+029:          this.txtBallLists.Clear();//심판 판정 리스트 지우기
+030:          pit.ReMake();//투수 공 던지기
+031:          emp.Pit = pit.Ball;//심판에게 투수 공 저장
+032:          this.lbResult.Text = ballstr;
+033:          BaseBallUtil.Fill(num, -1); //-1로 초기화
+034:          BtnVisible(true);//버는 모두 보이기 0~9
+035:          NewGame(false); //
+036:          gameiter = 1;
+037:          count = 0;
+038:      }
+039:  
+040:      private void btnHitting_Click(object sender, EventArgs e){
+041:          hit.MakeNum(num);//타자가 공을 친다.
+042:          emp.Hit = hit.Ball;//심판에서 타자공 저장
+043:          if (gameiter <10){
+044:              if (emp.Strike() == 3){
+045:                  MessageBox.Show("You Win");
+046:                  NewGame(true);
+047:              }
+048:              else {
+049:                  string ballres= string.Format("[{0}Strike - {1}Ball]"
+050:             , emp.Strike(), emp.Ball());
+051:                  string youhit=string.Format("[{0}-{1}-{2}]"
+052:             , hit.Ball[0], hit.Ball[1], hit.Ball[2]);
+053:                  this.txtBallLists.AppendText(string.Format("{0}번{1} :",
+054:                      gameiter,youhit)+ ballres+"\n");
+055:                  this.lbResult.Text = ballres;
+056:                  gameiter++;
+057:              }
+058:          }
+059:          else {
+060:              MessageBox.Show("You Lose");
+061:              NewGame(true);
+062:              lbResult.Text = string.Format("Pitcher Ball: [{0}-{1}-{2}]"
+063:                  ,pit.Ball[0],pit.Ball[1],pit.Ball[2]);
+064:          }
+065:          count = 0;
+066:          BtnVisible(true);
+067:      }
+068:      private int ToNum(string msg) {
+069:          return int.Parse(msg.Substring(msg.Length - 1));
+070:      }
+071:      private void SetNums(int number, Button btn) {
+072:         if(count==0){
+073:              num[0]=number;
+074:              btn.Visible = false;
+075:          }
+076:          else if (count == 1){
+077:              num[1] = number;
+078:              btn.Visible = false;
+079:          }
+080:          else if (count == 2){
+081:              num[2] = number;
+082:              btn.Visible = false;
+083:          }
+084:          count++;
+085:      }
+086:      private void BtnVisible(bool b) {
+087:          btn0.Visible = b;
+088:          btn1.Visible = b;
+089:          btn2.Visible = b;
+090:          btn3.Visible = b;
+091:          btn4.Visible = b;
+092:          btn5.Visible = b;
+093:          btn6.Visible = b;
+094:          btn7.Visible = b;
+095:          btn8.Visible = b;
+096:          btn9.Visible = b;
+097:      }
+098:      private void btn1_Click(object sender, EventArgs e){
+099:          if (sender as Button == btn1){
+100:              SetNums(ToNum(this.btn1.Text), this.btn1);
+101:          }
+102:          else if (sender as Button == btn2){
+103:              SetNums(ToNum(this.btn2.Text), this.btn2);
+104:          }
+105:          else if (sender as Button == btn3){
+106:              SetNums(ToNum(this.btn3.Text), this.btn3);
+107:          }
+108:          else if (sender as Button == btn4){
+109:              SetNums(ToNum(this.btn4.Text), this.btn4);
+110:          }
+111:          else if (sender as Button == btn5){
+112:              SetNums(ToNum(this.btn5.Text), this.btn5);
+113:          }
+114:          else if (sender as Button == btn6){
+115:              SetNums(ToNum(this.btn6.Text), this.btn6);
+116:          }
+117:          else if (sender as Button == btn7) {
+118:              SetNums(ToNum(this.btn7.Text), this.btn7);
+119:          }
+120:          else if (sender as Button == btn8){
+121:              SetNums(ToNum(this.btn8.Text), this.btn8);
+122:          }
+123:          else if (sender as Button == btn9){
+124:              SetNums(ToNum(this.btn9.Text), this.btn9);
+125:          }
+126:          else if (sender as Button == btn0){
+127:              SetNums(ToNum(this.btn0.Text), this.btn0);
+128:          }
+129:      }
+130:    }
+131:  }

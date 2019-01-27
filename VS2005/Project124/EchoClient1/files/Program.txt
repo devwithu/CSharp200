@@ -1,0 +1,52 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.Text;
+04:  using System.IO;
+05:  using System.Net;
+06:  using System.Net.Sockets;
+07:  namespace Com.JungBo.Chat{
+08:      public class Program{
+09:          public static void Main(string[] args){
+10:              EchoClient client = new EchoClient();
+11:              client.Echo();
+12:          }
+13:      }
+14:  
+15:      public class EchoClient{
+16:          public const int PORT = 5555;
+17:          public const string IP = "192.168.0.101";
+18:  
+19:          public void Echo(){
+20:              NetworkStream ns = null;
+21:              StreamWriter sw = null;
+22:              TcpClient client = null;
+23:  
+24:              try{
+25:                  //1) 클라이언트 소켓을 준비한다.
+26:                  client = new TcpClient(IP, PORT);//소켓
+27:                  Console.WriteLine("client~~서버에 접속");
+28:                  //2) 소켓에 있는 메세지를 이동시킬 통로준비
+29:                  ns = client.GetStream();
+30:                  sw = new StreamWriter(ns, Encoding.Default);
+31:                  string ss = string.Empty;
+32:                  //ctrl+c
+33:                  Console.WriteLine("입력하세요");
+34:                  //3) 키보드로 메세지 읽기
+35:                  while((ss=Console.ReadLine())!=null){
+36:                      //4) 서버로 메세지 보내기(소켓에 메세지 달기)
+37:                      sw.WriteLine(ss);//서버로 보내기
+38:                      sw.Flush();
+39:                  }
+40:              }
+41:              catch (Exception  ee){
+42:                  System.Console.WriteLine(ee.Message);
+43:  
+44:              }
+45:              finally {
+46:                  //5) 사용 후 닫기
+47:                  sw.Close();
+48:                  client.Close();
+49:              }
+50:          }
+51:      }
+52:  }

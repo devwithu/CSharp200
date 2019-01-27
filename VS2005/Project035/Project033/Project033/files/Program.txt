@@ -1,0 +1,11 @@
+01: using System;
+02: using Com.JungBo.Logics;
+03: namespace Com.JungBo.Basic {
+04:     public class Program {
+05:         public static void Main(string[] args){
+06: 
+07:             YakSu yak = new YakSu();
+08:             yak.MakeYaksu(500);
+09:         }
+10:     }
+11: }

@@ -1,0 +1,43 @@
+01: using System;
+02: namespace Com.JungBo.Logic {
+03:     public class StringToFundData {
+04:         //펀드 일일정보
+05: string[] fundM ={
+06: "CJ,65300,-2000",   "CJ인터넷,16200,-100", "CJ홈쇼핑,63500,-1400",
+07: "GS,43000,-2600", "GS건설,114500,-4000", "KCC,426000,-12500",
+08: "KT,45000,0", "KT&G,89500,-600","KTF,27700,350",
+09: "LG,73600,-1100","LG디스플레이,40800,-900","LG생활건강,218000,3500"};
+10: 
+11:     //관심주식
+12:    string[] kosdaq ={"삼성전자","신한지주","POSCO",
+13:                     "현대차","한국전력","KTF",
+14:                     "KT","NHN","하이닉스","SK"};
+15: 
+16:     //관심주식을 찾아서 출력
+17:     public void FundDataForMarathone(){
+18:         char[] splits={','};
+19:         foreach (string fundStr in fundM){
+20:             foreach (string sdaq in kosdaq){
+21:                 //,를 기준으로 나눔
+22:                 //"CJ,65300,-2000"-> "CJ", "65300" , "-2000"
+23:                 string[] qnames = fundStr.Split(splits);
+24:                 //관심주식을 펀드 일일정보에서 찾는다. 
+25:                 if ((fundStr.Substring(0, qnames[0].Length))
+26:                                       .CompareTo(sdaq) == 0){
+27:                     Console.WriteLine(fundStr);
+28:                 }
+29:             }
+30:         }
+31:     }//FundDataForMarathone
+32:     public void FundData(string groupFName, string groupLName){
+33:         foreach (string fundStr in fundM){
+34:             //사전식 비교 0~9, A, B~Z, a,b 순으로 커짐
+35:             //'A'-'a'는 음수, 'KT'-'kkR'은 양수
+36:             if (fundStr.CompareTo(groupFName)>0 
+37:                 && fundStr.CompareTo(groupLName)<0){
+38:                 Console.WriteLine(fundStr);
+39:             }
+40:         }
+41:     }//FundData
+42:   }//class
+43: }//namespace

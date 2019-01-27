@@ -1,0 +1,19 @@
+01: using System;
+02: using System.Drawing;
+03: namespace Com.JungBo.Drawings{
+04:     public class Circle:Shape{
+05:         public Circle(float x, float y,
+06:             float width, float height, Color color)
+07:             : base(x, y, width, height, color) { }
+08:         public Circle(float x, float y,
+09:             float width, float height)
+10:             : base(x, y, width, height) { }
+11: 
+12:         public  void DrawCircle(Graphics g){
+13:             Pen xPen = new Pen(color, 1);
+14:             g.DrawArc(xPen,new RectangleF(x, y, 
+15:               width, height), 0.0f, 360.0f);
+16:             xPen.Dispose();
+17:         }
+18:     }
+19: }

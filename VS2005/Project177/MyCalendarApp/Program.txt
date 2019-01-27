@@ -1,0 +1,11 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:      public class Program{
+04:          public static void Main(string[] args){
+05:              MyCarendar mycal=new MyCarendar();
+06:              mycal.PrintCalendar(2008);
+07:              int howlong = mycal.HowLongDay(1979, 6, 27, 2008, 8, 16);
+08:              Console.WriteLine(howlong);
+09:          }
+10:      }
+11:  }

@@ -1,0 +1,64 @@
+01:  using System;
+02:  using System.Text;//StringBuilder
+03:  namespace Com.JungBo.Logic{
+04:  	public class ImageArray{
+05:  		int []  lot ;
+06:          private int m;//전체 공의 개수
+07:          Random r;
+08:          static int SEED = 17;
+09:          public ImageArray(int m){
+10:              Init(m);
+11:          }
+12:          public ImageArray() : this(24) { }
+13:          //0도 가능하므로 -1로 초기화
+14:          private void Init(int m) {
+15:              this.m = m;
+16:              lot = new int[m];
+17:              for (int i = 0; i < lot.Length; i++){
+18:                  lot[i] = -1;
+19:              }
+20:              r = new Random(SEED++ +System.DateTime.Now.Millisecond);
+21:          }
+22:          private int NumMake() {
+23:              return r.Next(m/2); //0<=m/2 <6
+24:          }
+25:          //같은 수가 두개씩 임의의 위치에 만들기
+26:          public void Make() {
+27:              int count = 0;
+28:              while(count!=lot.Length){
+29:                  int temp = this.NumMake();
+30:                  //0, 1개면 더 받을 수 있다.
+31:                  if (NumCount(temp)<2){
+32:                      lot[count++] = temp;
+33:                  }
+34:              }
+35:          }
+36:          public void ReMake() {
+37:              Init(m);
+38:              this.Make();
+39:          }
+40:          //같은 수가 몇개 있는가?
+41:          private int NumCount(int num) {
+42:              int hasS = 0;
+43:              for (int i = 0; i < lot.Length; i++){
+44:                  if(lot[i]==num){
+45:                      hasS++;
+46:                  }
+47:              }
+48:              return hasS;
+49:          }
+50:          public void Print() {
+51:              StringBuilder sb = new StringBuilder();
+52:              sb.Append("[");
+53:              for (int i = 0; i < lot.Length-1; i++){
+54:                  sb.Append(string.Format("{0},",lot[i]));
+55:              }
+56:              sb.Append(
+57:                  string.Format("{0}]", lot[lot.Length - 1]));
+58:              Console.WriteLine(sb.ToString());
+59:          }
+60:          public int[] Getindex{
+61:              get { return lot; }
+62:          }
+63:  	}
+64:  }

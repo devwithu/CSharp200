@@ -1,0 +1,11 @@
+01:  using System;
+02:  using Com.JungBo.Maths;
+03:  namespace Project151{
+04:      public class Program{
+05:          public static void Main(string[] args){
+06:              PowerSeries sin = new PowerSeries();
+07:              sin.PrintSinValue();
+08:              //sin.PrintCosValue();
+09:          }
+10:      }
+11:  }

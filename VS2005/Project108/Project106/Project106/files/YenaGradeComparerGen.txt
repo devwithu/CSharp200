@@ -1,0 +1,13 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Collections;//IComparer
+04: namespace Com.JungBo.School{
+05:  public class YenaGradeComparerGen<T>:IComparer<T>
+06:  where T : YenaGrade{
+07:     public int Compare(T x, T y){
+08:         if(x.CompareTo(y)<0){return -1;} 
+09:         else if (x.CompareTo(y) > 0){return 1;}
+10:         else {return 0;}
+11:     }//Compare
+12:  }
+13: }

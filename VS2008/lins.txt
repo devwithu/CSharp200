@@ -1,0 +1,57 @@
+1 DeleteQuery 
+
+var result = stdb.Student.Single(rr => rr.Student_ID == id);
+stdb.Student.DeleteOnSubmit(result);
+stdb.SubmitChanges(ConflictMode.FailOnFirstConflict);
+
+2. ExitId
+
+var result = stdb.Student.Single(o => o.Student_ID == id);
+result.Student_chk = 'Y';
+stdb.SubmitChanges(ConflictMode.FailOnFirstConflict);
+
+3. Fill
+ var sts= (from c in stdb.Student
+         where c.Student_chk=='N'
+          select c).ToList();
+
+4. FillByAll
+var sts = (from c in stdb.Student
+               select c).ToList();
+
+5. FillByExitId
+List<Student> sts = (from c in stdb.Student
+                 where c.Student_ID == id
+                 && c.Student_chk == 'Y'
+                 select c).ToList<Student>();
+
+6. FillByNameLike
+List<Student> sts = (from c in stdb.Student
+    where c.Student_Name.Contains(id)
+     && c.Student_chk == 'N'
+      select c).ToList<Student>();
+7. FillByStudentId
+ List<Student> sts = (from c in stdb.Student
+         where c.Student_ID == id
+       && c.Student_chk=='N'
+        select c).ToList<Student>();
+8. InsertQuery
+var stu = new  Student
+  {
+        Student_ID=id,
+        Student_Name= name,
+        Student_Phone = phone,
+        Student_Address=address,
+        Student_chk='N',
+        Student_InDate=DateTime.Now
+  };
+stdb.Student.InsertOnSubmit(stu);//insert ½ÇÇà
+stdb.SubmitChanges(ConflictMode.FailOnFirstConflict);
+9. UpdateQuery
+var result = stdb.Student.Single(o => o.Student_ID == id);
+     result.Student_Name = name;
+     result.Student_Phone = phone;
+     result.Student_Address = address;
+     result.Student_InDate = DateTime.Now;
+   stdb.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                

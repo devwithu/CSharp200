@@ -1,0 +1,61 @@
+01:  using System;
+02:  using System.Globalization;
+03:  namespace Com.JungBo.Logic {
+04:      public class LivingDateTime{
+05:  private DateTime birthDay;
+06:  private DateTime toDay;
+07:  public LivingDateTime(DateTime birthDay, DateTime toDay) {
+08:      this.birthDay = birthDay;
+09:      this.toDay = toDay;
+10:  }
+11:  //생일을 초기화 하고 오늘 날짜를 오늘로 초기화
+12:  public LivingDateTime(DateTime birthDay){
+13:      this.birthDay = birthDay;
+14:      toDay = DateTime.Now;
+15:  }
+16:  //생일을 초기화 하고 오늘 날짜를 오늘로 초기화
+17:  public LivingDateTime(int year, int month, int day){
+18:      birthDay= new DateTime(year, month, day,
+19:                             new GregorianCalendar());
+20:      toDay = DateTime.Now;
+21:  }
+22:  public DateTime ToDay{
+23:      get { return toDay; }
+24:      set { toDay = value; }
+25:  }
+26:  public void SetToDay(int year,int month, int day){
+27:     toDay= new DateTime(year, month, day, 
+28:                            new GregorianCalendar());
+29:  }
+30:  public int HowLong() {
+31:      TimeSpan howSpan = toDay - birthDay;
+32:      return howSpan.Days;
+33:  }
+34:  //다음날
+35:  public void NextDay() {
+36:      //다시 받아야 한다.-->기본타입이기 때문
+37:      toDay = toDay.AddDays(1);
+38:  }
+39:  //하루전
+40:  public void PerviousDay(){
+41:      toDay = toDay.AddDays(-1);
+42:  }
+43:  /*
+44:  * 바이오리듬은 1906년 독일의 의사 W. 프리즈가 
+45:  * 환자의 임상연구 토대  주기PSI 학설
+46:  *신체 : 23, 감성 : 28, 지성 : 33, 지각 : 38
+47:  */
+48:  public double Physical() {
+49:      return Math.Sin(2.0 * Math.PI * HowLong() / 23.0);
+50:  }
+51:  public double Emotial(){
+52:      return Math.Sin(2.0 * Math.PI * HowLong() / 28.0);
+53:  }
+54:  public double Intellectual(){
+55:      return Math.Sin(2.0 * Math.PI * HowLong() / 33.0);
+56:  }
+57:  public double Perceptive(){
+58:      return Math.Sin(2.0 * Math.PI * HowLong() / 38.0);
+59:  }
+60:      }
+61:  }

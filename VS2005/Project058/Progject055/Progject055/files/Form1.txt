@@ -1,0 +1,47 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.ComponentModel;
+04: using System.Data;
+05: using System.Drawing;
+06: using System.Text;
+07: using System.Windows.Forms;
+08: using System.Drawing.Drawing2D;
+09: using Com.JungBo.Drawings;
+10: namespace Progject055{
+11:     public partial class Form1 : Form{
+12:         CableCar car;
+13:         public Form1(){
+14:             InitializeComponent();
+15:             //------------------아래에 소스놓을 것.
+16:             car = new CableCar(30,this.Height/2,Color.Black);
+17:         }
+18:         protected override void OnPaint(PaintEventArgs pe){
+19:             Graphics g = pe.Graphics;
+20:             g.SmoothingMode = SmoothingMode.HighQuality;
+21:             //상대원점  만들기
+22:             g.TranslateTransform(0, 0);
+23:             //-----------------
+24:             Render(g);
+25:             DrawShape(g);
+26:             //-----------------
+27:             base.OnPaint(pe);
+28:         }
+29:         public void DrawShape(Graphics g){
+30:             car.Draw(g);
+31:             car.Go(10, 0);
+32:         }
+33:         private void Render(Graphics g){
+34: 
+35:             g.FillRectangle(
+36:               new SolidBrush(Color.Wheat),
+37:              0, 0, this.Width, this.Height);
+38:             Liner liner = new Liner(30, this.Height / 2-16, 
+39:               this.Width - 20, this.Height / 2-16, Color.Red);
+40:             liner.Draw(g);
+41:         }
+42:         private void timer1_Tick(object sender, EventArgs e){
+43:             this.Invalidate();
+44:         }
+45: 
+46:     }
+47: }

@@ -1,0 +1,33 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:      //같으면 땡, 다르면 끝(아주 간단한 족보)
+04:      public class CardValue{
+05:          public static int CVal(Card c1, Card c2) {
+06:              int sum = 0;
+07:              int cv1 = ToVal(c1);
+08:              int cv2 = ToVal(c2);
+09:              if (cv1 == cv2){
+10:                  //1+1->1땡->100점
+11:                  sum = cv1 * 100;
+12:              }
+13:              else {
+14:                  //1+10 -> 1끝-> 점수 10
+15:                  sum = ((cv1 + cv2) % 10) * 10;
+16:              }
+17:              return sum;
+18:          }//
+19:          public static int ToVal(Card c1) {
+20:              int val = 0;
+21:              //"H5"  h[1]='5'   '0'
+22:              switch(c1.CardValue[1]){
+23:                  case 'A': val = 1; break;
+24:                  case 'T': 
+25:                  case 'J': 
+26:                  case 'Q':
+27:                  case 'K': val = 10; break;
+28:                  default: val = c1.CardValue[1] - '0'; break;
+29:              }
+30:              return val;
+31:          }//
+32:      }
+33:  }

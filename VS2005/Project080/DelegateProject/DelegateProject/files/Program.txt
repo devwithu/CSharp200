@@ -1,0 +1,53 @@
+01: using System;
+02: namespace Com.JunBo.Basic {   
+03:     //델리게이트 선언
+04:     public delegate void Attack();
+05:     public delegate void DoIt(String str);
+06:     
+07:     public class Zilot {
+08: 
+09:         public void Ziler(){
+10:             Console.WriteLine("날카롭게 찔러!");
+11:         }
+12:         public void Ziler(string str){
+13:             Console.WriteLine("{0}(으)로 찔러!",str);
+14:         }
+15:     }
+16:     public class Dragon {
+17: 
+18:         public void Boom(){
+19:             Console.WriteLine("폭탄던져!");
+20:         }
+21:         public void Boom(string str){
+22:             Console.WriteLine("{0}(를)을 던져!", str);
+23:         }
+24:     }
+25: 
+26:     public class Program{
+27:         public static void Main(string[] args){
+28:             
+29:             Zilot z88 = new Zilot();
+30:             Attack act3 = new Attack(z88.Ziler);
+31:             act3();
+32: 
+33:             Zilot z1 = new Zilot();
+34:             Zilot z2 = new Zilot();
+35: 
+36:             Dragon g1 = new ----00-=(Dragon();
+37:             Dragon g2 = new Dragon();
+38: 
+39:             //멀티 델리게이트
+40:             Attack act1 = new Attack(z1.Ziler);
+41:             act1 += new Attack(z2.Ziler);
+42:             act1 += new Attack(g1.Boom);
+43:             act1 += new Attack(g2.Boom);
+44:             act1 -= new Attack(g2.Boom);
+45:             act1();
+46:             //아규먼트가 있는 델리게이트
+47:             DoIt doit = new DoIt(z1.Ziler);
+48:             doit += new DoIt(g1.Boom);
+49:             doit("칼");
+50: 
+51:         }
+52:     }
+53: }

@@ -1,0 +1,63 @@
+01:  using System;
+02:  namespace Com.JungBo.Game{
+03:   public class Hitter{
+04:      private int[] lott;//배열선언
+05:      private int m;
+06:      public Hitter(int m) {
+07:          this.m = m;
+08:      }
+09:      public Hitter() : this(3) { }
+10:      //타자가 친공
+11:      public int[] Ball {
+12:          get { return this.lott; }
+13:      }
+14:      private void Init(int m) {
+15:          lott = new int[m]; //배열생성, 초기화-->0
+16:          BaseBallUtil.Fill(lott, -1);
+17:      }
+18:      //콘솔로 한 수 입력받기
+19:      public int MakeNum() {
+20:          int temp = 0;
+21:          try { 
+22:              temp=int.Parse(Console.ReadLine());
+23:          }
+24:          catch {
+25:              temp=0;
+26:          }
+27:          return temp;
+28:      }//
+29:      //세 수 입력받기
+30:      public void MakeNum(params int[] num){
+31:          for (int i = 0; i < num.Length; i++){
+32:              lott[i] = num[i];
+33:          }
+34:      }//
+35:      //콘솔에서 서로 다른 세 수 입력받기
+36:      private void Make() {
+37:          Console.WriteLine("서로다른 세수를 입력하세요.");
+38:          MakeNum(this.MakeNum(), this.MakeNum(), this.MakeNum());
+39:          while (Contain()) {
+40:              Console.WriteLine("다시 서로다른 세수를 입력하세요.");
+41:              MakeNum(this.MakeNum(), this.MakeNum(), this.MakeNum());
+42:          }
+43:          Console.WriteLine("서로 다른 수가 입력되었습니다.");
+44:      }//
+45:      public void ReMake(){
+46:          Init(m);
+47:          this.Make();
+48:      }//
+49:      //같은 수를 콘솔에서 입력받았는가?
+50:      public bool Contain(){ 
+51:          bool isC = false;
+52:          for (int i = 0; i < lott.Length; i++){
+53:              for (int j = 0; j< lott.Length ; j++){
+54:                  if(i!=j && lott[i]==lott[j]){
+55:                      isC = true;
+56:                      break;
+57:                  }
+58:              }
+59:          }
+60:          return isC;
+61:      }//
+62:    }
+63:  }

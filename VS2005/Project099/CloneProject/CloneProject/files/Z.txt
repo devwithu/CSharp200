@@ -1,0 +1,103 @@
+001: using System;
+002: namespace Com.JungBo.Maths{
+003:     //ICloneable 깊은 복사   섹션 53
+004:     public class Z:ICloneable{
+005:         //중요한 데이터-> 멤버필드
+006:         private double x;
+007:         private double y;
+008:         //외부에서 입력받아 초기화
+009:         public Z(double x, double y){
+010:             this.x = x;
+011:             this.y = y;
+012:         }
+013:         //생성자 오버로딩->이미 존재하는 것을 이용
+014:         public Z():this(0.0, 0.0){}
+015:         //생성자 오버로딩-> 복사생성자
+016:         public Z(Z z):this(z.X,z.Y){}
+017:         //프로퍼티
+018:         public double X {
+019:             get { return x; }
+020:             set { this.x = value; }
+021:         }
+022: 
+023:         public double Y{
+024:             get { return y; }
+025:             set { this.y = value; }
+026:         }
+027: 
+028:         //중요한 데이터 변경없이 보여주기
+029:         public override string ToString(){
+030:             if (y < 0){
+031:                 return string.Format("({0} - {1}i)",
+032:                     x,Math.Abs(y));
+033:             }
+034:             else{
+035:                 return string.Format("({0} + {1}i)",
+036:                     x,  y);
+037:             }
+038:         }
+039: 
+040:         public static Z operator +(Z z1, Z z2){
+041:             return new Z(z1.X + z2.X, z1.Y + z2.Y);
+042:         }//
+043: 
+044:         public static Z operator -(Z z1, Z z2){
+045:             return new Z(z1.X - z2.X, z1.Y - z2.Y);
+046:         }//
+047: 
+048:         public static Z operator *(Z z1, Z z2){
+049:             return new Z(z1.X * z2.X - z1.Y * z2.Y,
+050:                          z1.X * z2.Y +z2.X * z1.Y);
+051:         }//
+052: 
+053:         public static Z operator *(double c, Z z1){
+054:             return new Z(c * z1.X, c * z1.Y);
+055:         }//
+056: 
+057:         public static Z operator ~(Z z1){
+058:             return new Z(z1.X, -z1.Y);
+059:         }//
+060: 
+061:         public static Z operator /(Z z1, Z z2){
+062:             Z zt = z2 * (~z2);
+063:             Z newZ=z1*(~z2);
+064:             return  newZ/zt.X;
+065:         }//
+066: 
+067:         public static Z operator /(Z z1, double c){
+068:             return new Z(z1.X / c, z1.Y / c);
+069:         }//
+070: 
+071:         public static double ZAbs(Z az) {
+072:             Z zz=az*(~az);
+073:             return Math.Sqrt(zz.X);
+074:         }
+075:         //Equals 오버라이딩
+076:         public override bool Equals(object obj){
+077:             Z cp = obj as Z;
+078:             if (x == cp.X && y == cp.Y){
+079:                 return true;
+080:             }
+081:             else{
+082:                 return false;
+083:             }
+084:         }//
+085:         public override int GetHashCode(){
+086:             return base.GetHashCode() + 37;
+087:         }//
+088:         //항상 ==와 != 같이 필요
+089:         public static bool operator ==(Z z1, Z z2){
+090:             //같다면
+091:             return z1.Equals(z2);
+092:         }//
+093:         //항상 ==와 != 같이 필요
+094:         public static bool operator !=(Z z1, Z z2){
+095:             //같지 않다면
+096:             return !z1.Equals(z2);
+097:         }//
+098:         //값은 같지만 다른 개체
+099:         public object Clone(){
+100:             return new Z(this.x, this.y);
+101:         }
+102:     }//class
+103: }

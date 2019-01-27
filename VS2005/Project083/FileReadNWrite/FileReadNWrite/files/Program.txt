@@ -1,0 +1,17 @@
+01: using System;
+02: using Com.JungBo.IO;
+03: namespace FileReadNWrite{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06: 
+07:             FileReading fr = new FileReading();
+08:             //fr.FileReads("../../FileReading.cs");
+09:             //fr.FileWrites("../../bb.txt");
+10:             fr.FileReads("../../bb.txt");
+11:             //FileWriting fw = new FileWriting();
+12:             //fr.FileReads("../../FileReading.cs");
+13:             //fw.FileReads("../../bb.txt");
+14:             //fw.FileWrites("../../bb.txt");
+15:         }
+16:     }
+17: }

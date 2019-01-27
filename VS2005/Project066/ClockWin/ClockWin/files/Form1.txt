@@ -1,0 +1,53 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.ComponentModel;
+04: using System.Data;
+05: using System.Drawing;
+06: using System.Text;
+07: using System.Windows.Forms;
+08: using System.Drawing.Drawing2D;
+09: using Com.JungBo.Drawings;
+10: namespace ClockWin {
+11:     public partial class Form1 : Form {
+12: 
+13:         bool isNew = false;
+14:         public Form1(){
+15:             InitializeComponent();
+16:         }
+17:         protected override void OnPaint(PaintEventArgs pe){
+18:             Graphics g = pe.Graphics;
+19:             g.SmoothingMode =SmoothingMode.HighQuality;
+20:             //상대원점  만들기
+21:             g.TranslateTransform(0,0);
+22:             //-----------------
+23:             Render(g);
+24:             DrawShape(g);
+25:             //-----------------
+26:             base.OnPaint(pe);
+27:         }
+28: 
+29:         public void DrawShape(Graphics g){
+30:             MakeShapes ms = new MakeShapes(this.Width, this.Height);
+31:             ms.Make(isNew);
+32:             ms.ShapeList.PrintShape(g);
+33:         }
+34:         private void Render(Graphics g) {
+35:             
+36:              g.FillRectangle(
+37:                new SolidBrush(Color.White),
+38:               //new SolidBrush(FromRGB(r.Next(0,colors.GetLength(0)))),
+39:               0, 0, this.Width, this.Height);
+40:         }
+41: 
+42:         private void btnReDraw_Click(object sender, EventArgs e){
+43:             isNew = false;
+44:             this.Invalidate();
+45:         }
+46: 
+47:         private void btnDrawNew_Click(object sender, EventArgs e){
+48:             isNew = true;
+49:             this.Invalidate();
+50:         }
+51:        
+52:     }
+53: }

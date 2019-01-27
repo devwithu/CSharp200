@@ -1,0 +1,28 @@
+01: using System;
+02: using System.IO;
+03: namespace Com.JungBo.Infor{
+04:     public class FileSearcher{
+05:         public void InforView(string fname)  {
+06:             //현재 디렉토리의 하위디렉토리
+07:             string[] dirs = Directory.GetDirectories(fname);
+08: 
+09:             foreach (string dir in dirs){
+10:                 DirectoryInfo direcs = new DirectoryInfo(dir);
+11:                 //디렉토리 정보
+12:                 Console.WriteLine("------------------------------");
+13:                 Console.WriteLine("이름 : {0}", direcs.Name);
+14:                 Console.WriteLine("속성 : {0}", direcs.Attributes);
+15:                 Console.WriteLine("상세이름 : {0}", direcs.FullName);
+16:                 //Console.WriteLine("작성일 : {0}", direcs.CreationTime);
+17:                 //더이상 하위 디렉토리를 갖지 않으면
+18:                 if (!Directory.Exists(dir)){
+19:                     return;//끝 - 끝나는 조건이 명시되어야 한다.
+20:                 }
+21:                 else {   //주의 하위 디렉토리를 모두 보여준다.
+22:                     //하위 디렉토리가 있다면 자신을 호출 -재귀
+23:                     InforView(dir);
+24:                 }
+25:             }
+26:         }
+27:     }//class
+28: }

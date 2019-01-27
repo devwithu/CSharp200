@@ -1,0 +1,33 @@
+01: using System;
+02: using System.Threading;
+03: public class CakeEater {
+04: 	private CakePlate cake;
+05:     private string name;
+06:     Thread eaterThread;
+07:     public string Name{
+08:         get { return name; }
+09:         set { name = value; }
+10:     }
+11: 	public CakeEater(CakePlate cake){
+12: 		setCakePlate(cake);
+13: 	}
+14: 	public void setCakePlate(CakePlate cake){
+15: 		this.cake=cake;
+16: 	}
+17: 	public CakePlate getCakePlate(){
+18: 		return cake;
+19: 	}
+20: 	public void run(){
+21: 		for(int i=0;i<50;i++){
+22:             Console.Write("{0}: ", name); 
+23:             cake.eatBread();//»§¸ÔÀÚ
+24: 		}
+25: Console.WriteLine("{0}:»§À» ´Ù ¸Ô¾úÀ¸´Ï ½¬ÀÚ.",name);
+26: 	}
+27:     public void Start(string name){
+28:         this.name = name;
+29:       eaterThread = new Thread(new ThreadStart(run));
+30:         eaterThread.Name = name;
+31:         eaterThread.Start();
+32:     }
+33: }

@@ -1,0 +1,11 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:      public class LeapYearMain{
+04:          public static void Main(string[] args){
+05:              CalendarUsingDateTime ly =
+06:                     new CalendarUsingDateTime();
+07:              //ly.PrintCalendar(2008,10);
+08:              ly.PrintCalendar(2008);
+09:          }
+10:      }
+11:  }

@@ -1,0 +1,30 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using Com.JungBo.School;
+04: namespace Project104 {
+05:     public class Program {
+06:         public static void Main(string[] args){
+07:             YenaGrade[] yg = new YenaGrade[5];
+08:             yg[0] = new YenaGrade(30, 60, 100);
+09:             yg[1] = new YenaGrade(90, 70, 80);
+10:             yg[2] = new YenaGrade(40, 90, 60);
+11:             yg[3] = new YenaGrade(60, 67, 89);
+12:             yg[4] = new YenaGrade(100, 100, 80);
+13:             //좋은성적에서 낮은 성적으로 DESC
+14:             YenaGradeComparerGen<YenaGrade> ygcomp = 
+15:                         new YenaGradeComparerGen<YenaGrade>();
+16: 
+17:             List<YenaGrade> list = new List<YenaGrade>(yg);
+18:             Print(list);
+19:             Console.WriteLine("========After==============");
+20:             //list.Sort();//성적순 정렬   CompareTo
+21:             list.Sort(ygcomp);  //comparer
+22:             Print(list);
+23:         }
+24:         public static void Print(List<YenaGrade> list){
+25:             foreach (YenaGrade ygrade in list){
+26:                 Console.WriteLine(ygrade);
+27:             }
+28:         }
+29:     }
+30: }

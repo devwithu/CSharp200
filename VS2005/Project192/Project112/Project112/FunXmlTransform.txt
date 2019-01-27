@@ -1,0 +1,50 @@
+01:  using System;
+02:  using System.Text;
+03:  using System.Xml;
+04:  using System.IO;
+05:  using System.Xml.Xsl;
+06:  namespace Com.JungBo.Fund {
+07:   public class FunXmlTransform {
+08:       //이것만 책에 넣을 것.
+09:       public void TransToHtml(string xml, string xsl, string html) {
+10:           XslCompiledTransform transform 
+11:                      = new XslCompiledTransform();
+12:           try{
+13:               transform.Load(xsl);
+14:               transform.Transform(xml, html);
+15:           }
+16:           catch (Exception  ee){ 
+17:               Console.WriteLine(ee.Message);
+18:           }
+19:       }//
+20:       public void TransToHtml(XmlDocument doc, string xsl, string html){
+21:           XslCompiledTransform transform
+22:                      = new XslCompiledTransform();
+23:           //xsl 읽기
+24:           transform.Load(xsl);
+25:           StringReader sr = null;
+26:           XmlReader xmlReader = null;
+27:           XmlWriter xmlWriter = null;
+28:           try{
+29:               //xml 읽기
+30:               sr = new StringReader(doc.OuterXml);
+31:               xmlReader = XmlReader.Create(sr);
+32:               //html 저장용
+33:               XmlWriterSettings setting = new XmlWriterSettings();
+34:               setting.ConformanceLevel = ConformanceLevel.Auto;
+35:               xmlWriter = XmlWriter.Create(html, setting);
+36:               //변환
+37:               transform.Transform(xmlReader, xmlWriter);
+38:           }
+39:           catch (Exception ee){
+40:               Console.WriteLine(ee.Message);
+41:           }
+42:           finally {//반드시 닫기
+43:               xmlWriter.Close();
+44:               xmlReader.Close();
+45:               sr.Close();
+46:           }
+47:       }
+48:   }
+49:  }
+50:  

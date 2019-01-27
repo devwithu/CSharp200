@@ -1,0 +1,78 @@
+01: using System;
+02: using System.Text;//StringBuilder
+03: namespace Com.JungBo.School{
+04:   public class YenaGrade 
+05:       : ICloneable ,IComparable<YenaGrade>{
+06:     private double kor;
+07:     private double eng;
+08:     private double math;
+09:     private double total;
+10:     private double avg;
+11: 
+12:     public YenaGrade(double kor, double eng, double math) {
+13:         this.kor = kor;
+14:         this.eng = eng;
+15:         this.math = math;
+16:         GetAvg();
+17:     }
+18:     public YenaGrade() : this(0.0, 0.0, 0.0) { }
+19: 
+20:     private void GetTotal() {
+21:         this.total = (this.kor + this.eng + this.math);
+22:     }
+23:     private void GetAvg() {
+24:         GetTotal();
+25:         this.avg= this.total / 3.0;
+26:     }
+27:     public double Kor{
+28:         get { return kor; }
+29:         set { kor = value;GetAvg();}
+30:     }
+31:     public double Eng{
+32:         get { return eng; }set { eng = value;}
+33:     }
+34:     public double Math{
+35:         get { return math; }
+36:         set { math = value;GetAvg();}
+37:     }
+38:     public double Total{
+39:         get {return total; }
+40:     }
+41:     public double Avg{
+42:         get {return avg; }
+43:     }
+44:     public override string ToString(){
+45:         GetAvg();
+46:         StringBuilder sb = new StringBuilder();
+47:         //.## 소수점 2자리
+48:         sb.Append(string.Format("[국어 {0:.##},", this.kor))
+49:         .Append(string.Format("영어 {0:.##},", this.eng))
+50:         .Append(string.Format("수학 {0:.##},", this.math))
+51:         .Append(string.Format("총점 {0:.##},", this.Total))
+52:         .Append(string.Format("평균 {0:.##}]", this.Avg));
+53:         return sb.ToString();
+54:     }//
+55:     //깊은 복사
+56:     public  object Clone(){
+57:         return new YenaGrade(this.kor,this.eng,this.math);
+58:     }
+59:     //IComparable 구현
+60:     public int CompareTo(YenaGrade yg2){
+61:         if (avg > yg2.Avg){
+62:             return -1; //DES
+63:         }
+64:         else if (avg< yg2.Avg){
+65:             return 1;//ASC
+66:         }
+67:         else{//평균이 같을경우 국어점수로 판단
+68:             if (kor > yg2.Kor){
+69:                 return -1; //DES
+70:             }
+71:             else if (kor < yg2.Kor){
+72:                 return 1;//ASC
+73:             }
+74:             else return 0;
+75:         }
+76:     }
+77:   }
+78: }

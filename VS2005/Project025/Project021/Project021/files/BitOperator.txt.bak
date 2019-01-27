@@ -1,0 +1,28 @@
+01: using System;
+02: 
+03: namespace Com.JungBo.Middle.Oper{
+04:     public class BitOperator{
+05:         //0~15 사이의 수를 16진수로 바꾸기
+06:         public string Tosixteen(int m){
+07:             string s = "";
+08:             switch (m){
+09:                 case 10: s = "A"; break;
+10:                 case 11: s = "B"; break;
+11:                 case 12: s = "C"; break;
+12:                 case 13: s = "D"; break;
+13:                 case 14: s = "E"; break;
+14:                 case 15: s = "F"; break;
+15:                 default: s = string.Concat(m); break;
+16:             }
+17:             return s;
+18:         }//Tosixteen
+19:         //10진수를 16진수로 바꿔 출력
+20:         public void PrintSixteen() {
+21:             for (int i = 0; i < 16; i++){
+22:                 string s = Tosixteen(i);
+23:                 Console.Write("{0}   ",s);
+24:             }
+25:             Console.WriteLine();
+26:         }//PrintSixteen
+27:     }
+28: }

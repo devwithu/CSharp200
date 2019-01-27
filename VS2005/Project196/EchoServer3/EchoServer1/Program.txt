@@ -1,0 +1,86 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.Text;
+04:  using System.IO;
+05:  using System.Net;
+06:  using System.Net.Sockets;
+07:  using System.Threading;
+08:  using Com.JungBo.Chat;
+09:  namespace Com.JungBo.Chat{
+10:  public class Program{
+11:      public static void Main(string[] args){
+12:          EchoServer server = new EchoServer();
+13:          server.Echo();
+14:     }
+15:  }
+16:  public class EchoServer {
+17:      public const int PORT = 9000;
+18:      public void Echo() {
+19:          TcpListener listener=null;
+20:          try{
+21:              //서버 자신의 IP를 찾는다.
+22:           IPAddress address = Dns.GetHostEntry("").AddressList[0];
+23:              //서버소켓을 준비한다. 
+24:              listener = new TcpListener(address, PORT);
+25:              //서버소켓을 시작한다.
+26:              listener.Start();
+27:              Console.WriteLine("server 1~~ready");
+28:              //클라이언트가 붙을 때까지 기다린다.
+29:              while(true){
+30:                  //클라이언트가 붙으면 담당 소켓을 생성한다.
+31:                  TcpClient client =  listener.AcceptTcpClient();
+32:                  Console.WriteLine("while 2~~Accept");
+33:                  //클라이언트하나당 하나의 쓰레드
+34:                  Thread t = new Thread(
+35:                      new ParameterizedThreadStart(ProcessClient));
+36:                  //쓰레드에 소켓을 넘긴다.
+37:                  t.Start(client);  //아규먼트가 있는 쓰레드
+38:              }
+39:          }
+40:          catch (Exception ee){
+41:              System.Console.WriteLine(ee.Message);
+42:              
+43:          }
+44:      }
+45:      //클라이언트 하나당 담당 쓰레드에서 소켓에 쓰고 
+46:      //소켓에서 메세지를 가져온다.
+47:  public  void ProcessClient(object o){
+48:      //Start 메서드에서 받은 개체
+49:      TcpClient client =  o as TcpClient;  
+50:      NetworkStream ns = null;
+51:      StreamReader sr = null;
+52:      StreamWriter sw = null;
+53:      string clientname = "";
+54:      try{
+55:          //소켓에서 네트워크 스트림을 얻는다.
+56:          ns = client.GetStream();
+57:          Socket socket = client.Client;
+58:          clientname = socket.RemoteEndPoint.ToString();
+59:          Console.WriteLine(clientname+"이 붙었습니다.");
+60:          //소켓에서 메세지를 가져온다.
+61:          sr = new StreamReader(ns, Encoding.Default);
+62:          //소켓에 메세지를 쓴다.
+63:          sw = new StreamWriter(ns, Encoding.Default);
+64:          while (true){
+65:              //소켓에서 메세지를 가져온다.
+66:              string message = sr.ReadLine();
+67:              //소켓에 메세지를 쓴다.
+68:              sw.WriteLine("[server: {0}]", message);
+69:              sw.Flush();
+70:              string dstes = 
+71:              DateTime.Now.ToString("[yyyy-MM-dd:hh-mm-ss]: ");
+72:              Console.Write(dstes);
+73:              Console.WriteLine(message);
+74:          }
+75:      }
+76:      catch (Exception){
+77:          Console.WriteLine(clientname + "이 떨어졌습니다.");
+78:      }
+79:      finally{
+80:          sw.Close();
+81:          sr.Close();
+82:          client.Close();
+83:      }
+84:  }
+85:  }
+86:  }

@@ -1,0 +1,14 @@
+01:  using System;
+02:  using Com.JungBo.Logic;
+03:  namespace Project152{
+04:   public class Program{
+05:      public static void Main(string[] args){
+06:          int n = 5;
+07:          int r = 3;
+08:          Console.WriteLine("{0}P{1} ={2} ",
+09:              n,r,Recursion.Permutation(n,r));
+10:          Console.WriteLine("{0}C{1} ={2} ",
+11:              n, r, Recursion.Combinatiion(n, r));
+12:      }
+13:   }
+14:  }

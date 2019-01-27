@@ -1,0 +1,15 @@
+01:  using System;
+02:  namespace Com.JungBo.Logics{
+03:      public class Program{
+04:          public static void Main(string[] args){
+05:              BitOperator bitopp = new BitOperator();
+06:              int ten = 123;
+07:              bitopp.MakeTo2(ten);
+08:              bitopp.Show2();
+09:              bitopp.MakeTo8(ten);
+10:              bitopp.Show8();
+11:              bitopp.MakeTo16(ten);
+12:              bitopp.Show16();
+13:          }
+14:      }
+15:  }

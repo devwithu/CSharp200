@@ -1,0 +1,57 @@
+01:  using System;
+02:  using System.Text;
+03:  using System.IO;
+04:  using System.Net;
+05:  using System.Net.Sockets;
+06:  namespace Com.JungBo.Chat{
+07:      public class Program{
+08:          public static void Main(string[] args){
+09:              EchoClient client = new EchoClient();
+10:              client.Echo();
+11:          }
+12:      }
+13:  
+14:      public class EchoClient{
+15:          public const int PORT = 5555;
+16:          public const string IP = "192.168.0.103";
+17:  
+18:          public void Echo(){
+19:              NetworkStream ns = null;
+20:              StreamReader sr = null;
+21:              StreamWriter sw = null;
+22:              TcpClient client = null;
+23:              try{
+24:                  //1) 클라이언트 소켓을 준비한다.
+25:                  client = new TcpClient(IP, PORT);//소켓
+26:                  Console.WriteLine("client~~서버에 접속");
+27:                  //2) 소켓에 있는 메세지를 이동시킬 통로준비
+28:                  ns = client.GetStream();
+29:                  //3) 소켓에서 모니터로 읽기위한 스트림
+30:                  sr = new StreamReader(ns, Encoding.Default);
+31:                  //4) 모니터에서 소켓으로 메세지를 보내기 위한 스트림
+32:                  sw = new StreamWriter(ns, Encoding.Default);
+33:                  string ss = string.Empty;
+34:                  //ctrl+c
+35:                  Console.WriteLine("입력하세요");
+36:                  //5) 키보드로 메세지를 입력한다.
+37:                  while((ss=Console.ReadLine())!=null){
+38:                      //6) 서버로 보낸다.
+39:                      sw.WriteLine(ss);//서버로 보내기
+40:                      sw.Flush();
+41:                      //7) 서버에서 돌아온 메세지를 받는다.
+42:                      string message = sr.ReadLine();//서버에서 받기
+43:                      Console.WriteLine(message);//내화면에 출력
+44:                  }
+45:              }
+46:              catch (Exception  ee){
+47:                  System.Console.WriteLine(ee.Message);
+48:  
+49:              }
+50:              finally {
+51:                  sw.Close();
+52:                  sr.Close();
+53:                  client.Close();
+54:              }
+55:          }
+56:      }
+57:  }

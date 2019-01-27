@@ -1,0 +1,11 @@
+01: using System;
+02: using Com.JungBo.Games;
+03: namespace StructProject{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             MineConsole mc = new MineConsole();
+07:             mc.Make();
+08:             mc.Print();
+09:         }
+10:     }
+11: }

@@ -1,0 +1,28 @@
+01: using System;
+02: //네임스페이스 사용하기
+03: namespace Com.JungBo.Logic{
+04:     
+05:     public class UclidMath{
+06:         //자신을 제외한 모든 약수의 합
+07:         public static int SumDivision(int n){
+08:             int total = 1;
+09:             for (int i = 2; i < n; i++){
+10:                 //나누어 떨어지면 약수
+11:                 if (n % i == 0) { 
+12:                     total = total+i; //약수의 합
+13:                 }
+14:             }
+15:             return total;
+16:         }//
+17:         //모든 약수 출력 (단 n>1)
+18:         public static void PrintDivision(int n){
+19:             Console.Write("[{0}, ",1);
+20:             for (int i = 2; i < n; i++){
+21:                 if (n % i == 0){ //나누어 떨어지면 
+22:                     Console.Write("{0}, ", i);
+23:                 }
+24:             }
+25:             Console.WriteLine("{0}]",n);
+26:         }
+27:     }
+28: }

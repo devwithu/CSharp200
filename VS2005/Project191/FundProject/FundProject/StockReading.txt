@@ -1,0 +1,130 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.Text;
+004:  using System.IO;
+005:  using System.Net;
+006:  using System.Collections;
+007:  using System.Xml;
+008:  namespace FundProject{
+009:  public class StockReading{
+010:  //xxx.html 웹 문서를 읽어서 원하는 부분만 파일로 저장한다.
+011:  //<div id='dataDisplay'부분을 찾아서 저장
+012:  List<string> stockTables = new List<string>();
+013:  //주식정보를 담는 테이블을 저장한다.
+014:  List<string> stringTables = new List<string>();
+015:  
+016:  public List<string> StringTables{
+017:      get { return stringTables; }
+018:  }
+019:  public int Count {
+020:      get { return StringTables.Count; }
+021:  }
+022:  //xxx.html 웹 문서를 읽어서 원하는 부분만 파일로 저장한다.
+023:  //<div id='dataDisplay'부분을 찾아서 stockTables에 저장
+024:  public void ReadNWriteStock3(string url){
+025:      WebRequest request = null;
+026:      WebResponse response = null;
+027:      try{
+028:          request = WebRequest.Create(url);
+029:          response = request.GetResponse();
+030:          string message = string.Empty;
+031:          using (StreamReader sr =
+032:              new StreamReader(response.GetResponseStream(),
+033:                                           Encoding.Default)){
+034:              string ss = DateTime.Now.ToString("yyyyMMddhhmmss");
+035:              Console.WriteLine("Reading!!----");
+036:              while ((message = sr.ReadLine()) != null){
+037:                  // <div id="dataDisplay"
+038:                  if (message.Contains("<div id=\"dataDisplay\"")){
+039:                      //다음줄
+040:                      message = sr.ReadLine();
+041:                      stockTables.Add(message.Trim());
+042:                  }
+043:              }
+044:              Console.WriteLine("Reading End");
+045:              sr.Close();
+046:          }
+047:      }
+048:      catch (Exception ee){
+049:          Console.WriteLine(ee.Message);
+050:      }
+051:  }//
+052:  //<table xxx>
+053:  //       어쩌구 1
+054:  //   <table yyyy1>
+055:  //       주식정보 1
+056:  //   </table>
+057:  //      저쩌구 1
+058:  //   <table yyyy2>
+059:  //       주식정보 2
+060:  //   </table>
+061:  //      저쩌구 2
+062:  //   <table yyyy3>
+063:  //       주식정보 3
+064:  //   </table>
+065:  //      어쩌구 2
+066:  //</table>
+067:  //에서 <table yyyy1>주식정보 1</table>부분을 아래와 같이 뽑아온다.
+068:  //<table border="0" cellspacing="2" cellpadding="0" width="100%">
+069:  //<tr height="20">
+070:  //<td width="57%" style="padding-left:4px" valign="top">CJ</td>
+071:  //<td width="20%" align="right" style="padding-right:2px" valign="top">66,500</td>
+072:  //<td width="6%" align="right" valign="top" style="padding-top:5px">
+073:  //<img src='/images/icon/tri_blue_down.gif' align='absmidde'>
+074:  //</td>
+075:  //<td width="17%" align="right" style="padding-right:4px" valign="top">
+076:  //<FONT COLOR=000fff>1,500</FONT>
+077:  //</td>
+078:  //</tr>
+079:  //</table>
+080:   public void StockTables(){
+081:      //xxx 이후 문장을 얻는다.
+082:      string str = stockTables[0].Substring("<table".Length);
+083:      //yyyy1  table을 찾는다.
+084:      int sindex = str.IndexOf("<table");
+085:      //<table yyyy1과 이후문장을 얻는다. 
+086:      str = str.Substring(sindex);
+087:      //<table yyyy1 위치를 찾고
+088:      sindex = str.IndexOf("<table");
+089:      //어쩌구 1제거
+090:      str = str.Substring(sindex);
+091:      sindex = str.IndexOf("<table");
+092:      //<table yyyy1과 쌍을 이루는 </table찾기
+093:      int eindex = str.IndexOf("</table");
+094:      //<table xxx>와 쌍을 이루는 끝 </table을 찾는다.
+095:      int lastindex = str.LastIndexOf("</table");
+096:      //마지막 </table을 제거한다. 어쩌구 2와 </table>제거
+097:      str = str.Substring(0, lastindex); //
+098:      //   <table yyyy1>
+099:      //       주식정보 1
+100:      //   </table>
+101:      string fstr = str.Substring(sindex, eindex - sindex
+102:                                  + ("</table>".Length));
+103:      //그 이후 문장
+104:      string lstr = str.Substring(eindex - sindex 
+105:                                 + ("</table>".Length));
+106:      StringTables.Add(fstr);
+107:      sindex = lstr.IndexOf("<table");
+108:      eindex = lstr.IndexOf("</table");
+109:      //저쩌구 2를 제거한다.
+110:      lstr = lstr.Substring(sindex);
+111:      while (lstr.Length > 0) {
+112:          //아래와 같이 쌍을 이루는 문장을 얻는다.
+113:          //   <table yyyykkk>
+114:          //       주식정보 kkk
+115:          //   </table>
+116:          //       저쩌구 kkk
+117:          sindex = lstr.IndexOf("<table");
+118:          eindex = lstr.IndexOf("</table");
+119:          if (sindex < 0 || eindex < 0) { break; }
+120:          fstr = lstr.Substring(sindex, eindex - sindex 
+121:                                 + ("</table>".Length));
+122:          lstr = lstr.Substring(eindex - sindex 
+123:                                + ("</table>".Length));
+124:          StringTables.Add(fstr);
+125:          //저쩌구 kkk를 제거한다.
+126:          lstr = lstr.Substring(sindex);
+127:      }
+128:   }
+129:    }
+130:  }

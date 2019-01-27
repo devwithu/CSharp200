@@ -1,0 +1,67 @@
+01: using System;
+02: using System.Collections;   //ArrayList 때문에 using
+03: namespace Com.JungBo.Logic{
+04: 
+05:     //readonly 사용법, static 생성자
+06:     public class CardList{
+07: 
+08:          //중요한 데이터 멤버
+09:         ArrayList list = new ArrayList(10);//처음 Capacity 10
+10: 
+11:         // 카드 순서 (♠ > ◆ > ♥ > ♣)
+12:         public static readonly string[] DECK ={ "S", "D", "H", "C" };
+13:         public static readonly string[] SUIT 
+14:         ={ "A","2","3","4","5","6","7","8","9","T","J","Q","K" };
+15:         public static readonly int CARDMAX = 40;
+16:         public readonly int MAXVALUE = 2000;
+17:         public const int MINVALUE = -2000;
+18: 
+19:         //생성자
+20:         public CardList() {
+21:            MAXVALUE = DECK.Length*SUIT.Length;//readonly 대입
+22:            //MINVALUE = -8000;   //const는 대입 불가
+23:         }
+24:         //static 생성자
+25:         static CardList(){
+26:             CARDMAX = DECK.Length * SUIT.Length; //  static readonly 대입
+27:         }
+28: 
+29:         public void MakeCard() {
+30:             list.Clear();//list 비우기
+31:             foreach (string deck in DECK){
+32:                 foreach (string suit in SUIT){
+33:                     //SA,S2, S3, .... 대입
+34:                     //list에 채우기
+35:                     list.Add(string.Concat(deck,suit));
+36:                 }
+37:             }
+38:         }//
+39: 
+40:         public void PrintCard1() {
+41:             //list에 있는 string 개수 Count
+42:             for (int i = 0; i < list.Count; i++){
+43:                 //list안에 들어가면 object로 프로모션
+44:                 //그러므로 캐스팅 필요 as
+45:                 string cards = list[i] as string;
+46: 
+47:                 Console.Write("{0}  ",cards);
+48:                 if((i+1)%SUIT.Length==0){
+49:                     Console.WriteLine();
+50:                 }
+51:             }
+52:         }
+53:         //get indexer
+54:         public string this[int index]{
+55:             get{
+56:                 if (index < 0 || index >= list.Count){
+57:                     //예외발생시키기
+58:                     throw
+59:                  new IndexOutOfRangeException("범위를 넘어섰습니다.");
+60:                 }
+61:                 else{
+62:                     return list[index] as string;
+63:                 }
+64:             }
+65:         }//indexer
+66:     }
+67: }

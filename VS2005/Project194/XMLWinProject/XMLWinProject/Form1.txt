@@ -1,0 +1,118 @@
+001:  using System;
+002:  using System.Data;
+003:  using System.Windows.Forms;
+004:  using System.Xml;
+005:  namespace XMLWinProject{
+006:   public partial class Form1 : Form{
+007:      DataSet ds = new DataSet("FundXML");
+008:      public Form1(){
+009:          InitializeComponent();
+010:      }
+011:      private void btnXmlView_Click(object sender, EventArgs e){
+012:          DialogResult dr = this.openFileDialog1.ShowDialog();
+013:          if(dr==DialogResult.OK){
+014:              XmlDataDocument doc = new XmlDataDocument();
+015:              MessageBox.Show(this.openFileDialog1.FileName);
+016:              doc.DataSet.ReadXml(this.openFileDialog1.FileName);
+017:              ds = doc.DataSet;
+018:              this.dataGridView1.DataSource = ds.Tables[0];
+019:          }
+020:      }
+021:      private void btnDataSet_Click(object sender, EventArgs e){
+022:          ds = new DataSet("FundXML");//새로 준비
+023:          DialogResult dr = this.openFileDialog1.ShowDialog();
+024:          if (dr == DialogResult.OK) {
+025:              MessageBox.Show(this.openFileDialog1.FileName);
+026:              ds.ReadXml(this.openFileDialog1.FileName);
+027:              this.dataGridView1.DataSource = ds.Tables[0];
+028:          }
+029:      }
+030:      //DataSet을 이용하여 저장
+031:      private void button2_Click(object sender, EventArgs e){
+032:          DialogResult dr = this.saveFileDialog1.ShowDialog();
+033:          if (dr == DialogResult.OK){
+034:              MessageBox.Show(this.saveFileDialog1.FileName);
+035:              ds.WriteXml(this.saveFileDialog1.FileName);
+036:          }
+037:      }
+038:      private void btnSave_Click(object sender, EventArgs e){
+039:          ds = new DataSet("FundXML");//새로 준비
+040:          DialogResult dr = this.openFileDialog1.ShowDialog();
+041:          if (dr == DialogResult.OK){
+042:              MessageBox.Show(this.openFileDialog1.FileName);
+043:              using (XmlTextReader xtr
+044:            = new XmlTextReader(this.openFileDialog1.FileName)){
+045:                 ds.ReadXml(xtr);
+046:                 this.dataGridView1.DataSource = ds.Tables[0];
+047:              }
+048:          }
+049:      }
+050:      //재귀를 이용하여 트리를 만든다.
+051:      private void TreeXML(string msg, XmlNode node,
+052:          TreeNodeCollection treenode){
+053:          //노드를 붙여서 트리모양의 노드로 만들기
+054:          TreeNode newTreeNode = treenode.Add(node.Name);
+055:          //노드는 엘리먼트, 어트리뷰트, 텍스트, PI, XML선언, 코멘트
+056:          //등 모든 것이 노드다. 노드의 종류를 확인한다. 
+057:          switch (node.NodeType) {
+058:              case XmlNodeType.ProcessingInstruction:
+059:              case XmlNodeType.XmlDeclaration:
+060:     newTreeNode.Text = "<?" + node.Name + " " + node.Value + "?>";
+061:                  break;
+062:              case XmlNodeType.Document:
+063:                  newTreeNode.Text = msg;
+064:                  break;
+065:              case XmlNodeType.Element:
+066:                  newTreeNode.Text = "<" + node.Name + ">";
+067:                  break;
+068:              case XmlNodeType.Attribute:
+069:                  newTreeNode.Text = "(속성 :" + node.Name + ")";
+070:                  break;
+071:              case XmlNodeType.Text:
+072:              case XmlNodeType.CDATA:
+073:                  newTreeNode.Text = node.Value;
+074:                  break;
+075:              case XmlNodeType.Comment:
+076:                  newTreeNode.Text = "<!--" + node.Value + "-->";
+077:                  break;
+078:          }
+079:          //속성이 있다면 속성을 ()에 붙인다.
+080:          if (node.Attributes != null){
+081:              foreach (XmlAttribute attribute in node.Attributes){
+082:                  TreeXML("", attribute, newTreeNode.Nodes);
+083:              }
+084:          }
+085:          //엘리먼트
+086:          foreach (XmlNode childNode in node.ChildNodes){
+087:              TreeXML("", childNode, newTreeNode.Nodes);
+088:          }
+089:      }
+090:      private void btnSearch_Click(object sender, EventArgs e){
+091:          openFileDialog2.Filter = "xml문서(*.xml)|*.xml";
+092:          string fname = "";
+093:      if (this.openFileDialog2.ShowDialog() == DialogResult.OK){
+094:          fname = this.openFileDialog2.FileName;
+095:      }
+096:          //XML 트리를 청소
+097:          treeForXml.Nodes.Clear();
+098:          MessageBox.Show(fname);
+099:          //Dom으로 XML문서 읽기
+100:          XmlDocument doc = new XmlDocument();
+101:          try{
+102:              doc.Load(fname);
+103:          }
+104:          catch (Exception err){
+105:              MessageBox.Show(err.Message);
+106:              return;
+107:          }
+108:          //Dom을 넘김
+109:          TreeXML("<KOSDAQ Fund>", doc, treeForXml.Nodes);
+110:      }
+111:      private void btnExpand_Click(object sender, EventArgs e){
+112:          treeForXml.Nodes[0].ExpandAll();
+113:      }
+114:      private void btnFold_Click(object sender, EventArgs e){
+115:          treeForXml.Nodes[0].Collapse();
+116:      }
+117:   }
+118:  }

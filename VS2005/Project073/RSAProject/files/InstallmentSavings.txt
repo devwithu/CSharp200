@@ -1,0 +1,17 @@
+01: using System;
+02: namespace Com.JungBo.Logic{
+03:     //원리합계
+04: 	public class InstallmentSavings{
+05: 		//적금구하기
+06: 		public static double Savings(double a, double r,int n){
+07: 			double tot=0;
+08: 			double temp=a;   //a(1+r)^n
+09: 			int year=n*12;   //1년은 12달
+10: 			for(int i=0;i<year;i++){
+11: 				temp*=(1+r/100.0/12.0);  //4.6/100/12
+12: 				tot+=temp;
+13: 			}
+14: 			return tot;
+15: 		}
+16: 	}
+17: }

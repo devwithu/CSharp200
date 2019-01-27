@@ -1,0 +1,12 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:      public class Program{
+04:          public static void Main(string[] args){
+05:              int[] m ={ 0,1,2,3,4,5,0,1,2,3,4,5};
+06:              NumberGen<int>.Shuffle(m);
+07:              NumberGen<int>.Print(m);
+08:              NumberGen<int>.Shuffle(m);
+09:              NumberGen<int>.Print(m);
+10:          }
+11:      }
+12:  }

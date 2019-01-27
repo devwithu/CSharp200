@@ -1,0 +1,95 @@
+01: using System;
+02: using System.Collections;   //ArrayList 때문에 using
+03: using System.Collections.Generic; //List
+04: namespace Com.JungBo.Logic{
+05: 
+06:     //readonly 사용법, static 생성자
+07:     public class CardList{
+08: 
+09:          //중요한 데이터 멤버
+10:         ArrayList list = new ArrayList(10);//처음 Capacity 10
+11: 
+12:         // 카드 순서 (♠ > ◆ > ♥ > ♣)
+13:         public static readonly string[] DECK ={ "S", "D", "H", "C" };
+14:         public static readonly string[] SUIT 
+15:         ={ "A","2","3","4","5","6","7","8","9","T","J","Q","K" };
+16:         public static readonly int CARDMAX = 40;
+17:         public readonly int MAXVALUE = 2000;
+18:         public const int MINVALUE = -2000;
+19: 
+20:         //생성자
+21:         public CardList() {
+22:            MAXVALUE = DECK.Length*SUIT.Length;//readonly 대입
+23:            //MINVALUE = -8000;   //const는 대입 불가
+24:         }
+25:         //static 생성자
+26:         static CardList(){
+27:             CARDMAX = DECK.Length * SUIT.Length; //  static readonly 대입
+28:         }
+29: 
+30:         public void MakeCard() {
+31:             list.Clear();//list 비우기
+32:             foreach (string deck in DECK){
+33:                 foreach (string suit in SUIT){
+34:                     //SA,S2, S3, .... 대입
+35:                     //list에 채우기
+36:                     list.Add(string.Concat(deck,suit));
+37:                 }
+38:             }
+39:         }//
+40: 
+41:         public void PrintCard() {
+42:             //list에 있는 string 개수 Count
+43:             for (int i = 0; i < list.Count; i++){
+44:                 //list안에 들어가면 object로 프로모션
+45:                 //그러므로 캐스팅 필요 as
+46:                 string cards = list[i] as string;
+47: 
+48:                 Console.Write("{0}  ",cards);
+49:                 if((i+1)%SUIT.Length==0){
+50:                     Console.WriteLine();
+51:                 }
+52:             }
+53:         }
+54:         //get indexer
+55:         public string this[int index]{
+56:             get{
+57:                 if (index < 0 || index >= list.Count){
+58:                     //예외발생시키기
+59:                     throw
+60:                  new IndexOutOfRangeException("범위를 넘어섰습니다.");
+61:                 }
+62:                 else{
+63:                     return list[index] as string;
+64:                 }
+65:             }
+66:         }//indexer
+67:         //
+68:         List<Card> cclist = new List<Card>(10);
+69:         public void MakeCards(){
+70:             cclist.Clear();//list 비우기
+71:             foreach (string deck in DECK){
+72:                 foreach (string suit in SUIT){
+73:                     //SA,S2, S3, .... 대입
+74:                     //cclist에 채우기
+75:                     //string --> Card로 암시적 형변환
+76:                     cclist.Add(string.Concat(deck, suit));
+77:                     //아래와 동일
+78:                     //cclist.Add(new Card(string.Concat(deck, suit)));
+79:                 }
+80:             }
+81:         }//
+82:         public void PrintCards(){
+83:             //list에 있는 string 개수 Count
+84:             for (int i = 0; i < cclist.Count; i++){
+85:                 string cards = (string)cclist[i];
+86:                 //명시적형변환에서 예외발생
+87:                 //string cards = cclist[i] as string;
+88:                 Console.Write("{0}  ", cards);
+89:                 if ((i + 1) % SUIT.Length == 0){
+90:                     Console.WriteLine();
+91:                 }
+92:             }
+93:         }
+94:     }
+95: }

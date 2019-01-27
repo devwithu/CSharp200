@@ -1,0 +1,21 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06: 
+07:             int[] m ={ 5,3,2,7,8,9,1,6,4};
+08:             int[] n=new int[m.Length];
+09:             //m과 동일한 배열을 n에 깊은 복사
+10:             Array.Copy(m, n, m.Length);
+11:             int[] kk = new int[m.Length];
+12:             //-1로 초기화
+13:             HKArray.Clear(kk, ClearType.THEOTHER,- 1);
+14:             HKArray.PrintArray(kk);
+15:             HKArray.Sort(m, SortType.ASC);
+16:             HKArray.PrintArray(m);
+17:             HKArray.Sort(n, SortType.DESC);
+18:             HKArray.PrintArray(n);
+19:         }
+20:     }
+21: }

@@ -1,0 +1,149 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  namespace Com.JungBo.Logic {
+004:      public class RSA{
+005:          private int p=7;    //소수1
+006:          private int q=11;   //소수 2
+007:          private int n;      //소수1x소수2
+008:          private int phiN;   //(소수1-1)x(소수-2)
+009:          private int e;      //공개키
+010:          private int d;      //개인키
+011:          private static int SEED = 127;//시작값 111?
+012:  
+013:          List<int> eList = new List<int>();
+014:          List<int> dList = new List<int>();
+015:  
+016:          public RSA() {}
+017:          
+018:          public int N{get { return n; }}
+019:          public int E{get { return e; }}
+020:          //소수1x소수2
+021:          private void MakeN() { 
+022:              this.n=p*q;
+023:              Console.WriteLine("n= {0}", n);
+024:          }
+025:          //(소수1-1)x(소수-2)
+026:          private void MakePhiN(){
+027:              this.phiN = (p - 1) * (q - 1);
+028:              Console.WriteLine("phiN= {0}", phiN);
+029:          }
+030:          //RSA 암호화
+031:          public void Make() {
+032:              MakePQ();
+033:              MakeN();//n만들기
+034:              MakePhiN();
+035:              MakeEs();
+036:              ShowEs();
+037:              SelectE();
+038:              MakeDs();
+039:              SelectD();
+040:          }
+041:          //서로 다른 두 소수 만들기 섹션 59
+042:          private void MakePQ(){
+043:              Random r = new Random();
+044:              int distance = SEED/2;
+045:              int tP = r.Next(SEED - distance, SEED);
+046:              while (!PrimeNumber.IsPrime(tP)){
+047:                  tP = r.Next(SEED - distance, SEED); ;
+048:              }
+049:              this.p = tP;
+050:  
+051:              int tQ = r.Next(SEED, SEED + distance);
+052:              while (!PrimeNumber.IsPrime(tQ) || p == tQ) {
+053:                  tQ = r.Next(SEED, SEED + distance);
+054:              }
+055:              this.q = tQ;
+056:              //-------------------개발후 지우기
+057:              Console.WriteLine("p= {0}", p);
+058:              Console.WriteLine("q= {0}", q);
+059:              //-------------------개발후 지우기
+060:          }
+061:          private void MakeEs(){
+062:              eList.Clear();   //모두 지워기
+063:              for (int i = 2; i < phiN; i++){
+064:                  //e는 p나 q가 아니다.또한 i와 phiN는 서로소
+065:                  if (i != p && i != q && (i<phiN)&&
+066:                         UclidMath.GCD(i, this.phiN) == 1){
+067:                      eList.Add(i);
+068:                  }
+069:              }
+070:          }//
+071:          //
+072:          private void ShowEs(){
+073:              Console.WriteLine("p={0}, q={1}",p,q);
+074:              int count = eList.Count;
+075:              Console.Write("E [");
+076:              for (int i = 0; i < count-1; i++){
+077:                  Console.Write("{0}, ",eList[i]);
+078:              }
+079:              Console.WriteLine("{0}]",eList[count-1]);
+080:          }
+081:          private void SelectE(){
+082:              int count = eList.Count;
+083:              Lotto lot = new Lotto(count, 1);
+084:              lot.Make();
+085:              //임의의 하나 선택
+086:              e = eList[lot.Lot[0] - 1];
+087:          }
+088:          //SelectD()뒤에만 사용할 수 있다.
+089:          private void ShowDs(){
+090:              int count = dList.Count;
+091:              if (count == 0) { return; }
+092:              Console.Write("D [");
+093:              for (int i = 0; i < count - 1; i++){
+094:                  Console.Write("{0}, ", dList[i]);
+095:              }
+096:              Console.WriteLine("{0}]", dList[count - 1]);
+097:          }
+098:          //개인 키 구하기
+099:          private void MakeDs(){
+100:              dList.Clear();
+101:              for (int i = 2; i < this.phiN; i++){
+102:               //ed 동치 1,  mod(phi(N))
+103:               if ( e!=i && (e * i) % phiN == 1) {
+104:                  dList.Add(i);
+105:               }
+106:              }
+107:          }
+108:          //개인 키 선택하기
+109:          private void SelectD() {
+110:              int count = dList.Count;
+111:              int iters = 0;
+112:              while(count==0){
+113:                  iters++;
+114:                  MakeDs();
+115:                  count = dList.Count;
+116:                  if(iters==10){
+117:                      SelectE();//만족하는 e에대한 d
+118:                      //가 없을 때 다시 e를 선택하고 
+119:                      //그것에 대한 d를 얻는다.
+120:                      iters = 0;
+121:                  }
+122:              }
+123:              d = dList[0];
+124:              //-------------------개발후 지우기
+125:              Console.WriteLine("e={0}", e);
+126:              ShowDs();
+127:              Console.WriteLine("d={0}",d);
+128:              //---------------------------
+129:          }
+130:          //모두 암호화
+131:          public int[] ToPS(int[] ps) {
+132:              int[] ims = new int[ps.Length];
+133:  
+134:              for (int i = 0; i < ps.Length; i++){
+135:                  ims[i] = ToP(ps[i]);
+136:              }
+137:  
+138:              return ims;
+139:          }
+140:          //한개 암호화
+141:          private int ToP(int c) {
+142:              int temp = 1;
+143:              for (int i = 0; i < d; i++){
+144:                  temp = (temp * c) % n;
+145:              }
+146:              return temp;
+147:          }
+148:      }
+149:  }

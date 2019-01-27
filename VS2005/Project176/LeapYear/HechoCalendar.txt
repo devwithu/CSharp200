@@ -1,0 +1,111 @@
+001:  using System;
+002:  namespace Com.JungBo.Logic{
+003:      public class HechoCalendar{
+004:          //2007/10/1 ->2006/21/31
+005:          public int TotalDay(int year){
+006:              int tDay = 0;
+007:              for (int i = 1; i < year; i++){
+008:                  if (this.IsLeapYear(i)){
+009:                      tDay += 366;
+010:                  }
+011:                  else {
+012:                      tDay += 365;
+013:                  }
+014:              }
+015:              return tDay;
+016:          }
+017:          //2007/10/1 ->2006/21/31-->2007/9
+018:          public int TotalDay(int year,int month){
+019:              int tDay = TotalDay(year);//2006/21/31
+020:              for (int i = 1; i < month; i++){
+021:                  tDay += Days(year, i);
+022:              }
+023:              return tDay;
+024:          }//
+025:          public int TotalDay(int year, int month,int day){
+026:              int tDay = TotalDay(year,month);
+027:              return tDay+day;
+028:          }//
+029:          public void PrintCalendar(int year, int month)
+030:          {
+031:              Console.WriteLine("--{0}년 -- {1}월------", year, month);
+032:              String s = "일\t월\t화\t수\t목\t금\t토";
+033:              Console.WriteLine(s);
+034:              //-1:경과일 1:월요일대한 기준 
+035:              int startOfWeek = (TotalDay(year,month,1)-1+1)%7;
+036:              for (int i = 0; i < startOfWeek; i++){
+037:                  Console.Write("\t");
+038:                  
+039:              }
+040:              for(int i = 1; i <= Days(year,month); i++){
+041:                  Console.Write("{0,2}\t", i);
+042:                  if ((startOfWeek + i) % 7 == 0){
+043:                      Console.WriteLine();
+044:                  }
+045:              }
+046:              Console.WriteLine(); 
+047:          }
+048:          //년도 찍으면 1월부터 12까지
+049:          public void PrintCalendar(int year){   
+050:              for (int month = 1; month <= 12; month++){
+051:                  PrintCalendar(year, month);
+052:              }
+053:          }
+054:          //섹션 21
+055:          public bool IsLeapYear(int year){
+056:              bool isL = false;
+057:              //A-B+c
+058:              if (((year % 4 == 0) && (year % 100 != 0)) 
+059:                  || (year % 400 == 0)){
+060:                  isL = true;
+061:              }
+062:              return isL;
+063:          }
+064:          //섹션 21
+065:          public void PrintLeapYear(int sy, int ey){
+066:              for (int i = sy; i <= ey; i++){
+067:                  if (this.IsLeapYear(i)){
+068:                      Console.WriteLine("{0}는 윤년입니다.", i);
+069:                  }
+070:              }
+071:          }
+072:          //섹션 26
+073:          public int Days(int year, int money){
+074:              int tDay = 0;
+075:              if (this.IsLeapYear(year)){   // 조심할점
+076:                  // 1.fall through -->break;
+077:                  switch (money) {
+078:                      case 1:
+079:                      case 3:
+080:                      case 5:
+081:                      case 7:
+082:                      case 8:
+083:                      case 10:
+084:                      case 12: tDay = 31; break;
+085:                      case 4:
+086:                      case 6:
+087:                      case 9:
+088:                      case 11: tDay = 30; break;
+089:                      case 2: tDay = 29; break;
+090:                  }
+091:              }
+092:              else {
+093:                  switch (money){
+094:                      case 1:
+095:                      case 3:
+096:                      case 5:
+097:                      case 7:
+098:                      case 8:
+099:                      case 10:
+100:                      case 12: tDay = 31; break;
+101:                      case 4:
+102:                      case 6:
+103:                      case 9:
+104:                      case 11: tDay = 30; break;
+105:                      case 2: tDay = 28; break;
+106:                  }
+107:              }
+108:              return tDay;
+109:          }
+110:      }//IsLeapYear
+111:  }

@@ -1,0 +1,21 @@
+01: using System;
+02: using System.Text;//StringBuilder
+03: namespace Com.JungBo.Fund {
+04: //컨텐트의 엔터티
+05: public class XMLUtil {
+06:     //5개의 엔터티로 변환
+07:     public static string ToEntity(string strs) {
+08:         StringBuilder sb = new StringBuilder(strs);
+09:         sb.Replace("&", "&amp;");
+10:         sb.Replace(">", "&gt;");
+11:         sb.Replace("<", "&lt;");
+12:         sb.Replace("\"", "&quot;");
+13:         sb.Replace("\'", "&apos;");
+14:         return sb.ToString();
+15:     }
+16:     public static string[] ToFund(string fundstr) {
+17:         char[] deli ={ ','};
+18:         return fundstr.Split(deli);
+19:     }
+20: }//
+21: }

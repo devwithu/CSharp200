@@ -1,0 +1,19 @@
+01: using System;
+02: using System.Collections;//IComparer
+03: namespace Com.JungBo.School{
+04:     public class YenaGradeComparer:IComparer{
+05:         public int Compare(object x, object y){
+06:             YenaGrade yg1 = x as YenaGrade;
+07:             YenaGrade yg2 = y as YenaGrade;
+08:             if(yg1.CompareTo(yg2)<0){
+09:                 return -1;  //yg2가 작다.
+10:             }
+11:             else if (yg1.CompareTo(yg2) > 0){
+12:                 return 1;   //yg2가 크다
+13:             }
+14:             else {
+15:                 return 0;
+16:             }
+17:         }//Compare
+18:     }
+19: }

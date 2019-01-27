@@ -1,0 +1,309 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.ComponentModel;
+004:  using System.Drawing;
+005:  using System.Data;
+006:  using System.Text;
+007:  using System.Windows.Forms;
+008:  using System.Drawing.Drawing2D;
+009:  using Com.Kaoni.First;
+010:  using System.Globalization;
+011:  using Com.JungBo.Logic;
+012:  namespace XYProject2{
+013:      public partial class XYControl : UserControl{
+014:  private float orginX = 0.0f;
+015:  private float orginY=0.0f;
+016:  Rectangle rect; //컨트롤 크기
+017:  private float pixH = 100.0f;//max값에 대한 픽섹
+018:  float HeightR = 2.0f;//+y,-y 두곳
+019:  LivingDateTime bio;
+020:  DateTime dt;
+021:  Calendar cal;
+022:  int lastOfDay;
+023:  float steps;
+024:  bool isFirst = true;
+025:  
+026:  PointFs physical = new PointFs(Color.Red);
+027:  //PointFs emotion = new PointFs(Color.Blue);
+028:  //PointFs intelec = new PointFs(Color.Brown);
+029:  
+030:  public XYControl(){
+031:      InitializeComponent();
+032:      rect = this.ClientRectangle;//컨트롤을 나타내는 사각형
+033:      this.orginX = rect.Left + 100.0f;  //상대적 x원점
+034:      this.orginY = rect.Top + (rect.Height) / 2;//상대적 y원점
+035:      this.BackColor = Color.White;//배경색을 흰색으로
+036:      this.Remove();//List에 있는 모든 점들을 제거하는 메서드 호출
+037:  }
+038:  
+039:  //public void DrawX(Graphics g){
+040:  //    Pen xPen = new Pen(Color.Brown, 1);//갈색, 두깨1
+041:  //    float stX = this.orginX- 50.0f;
+042:  //    float stY = this.orginY;
+043:  //    float endX = rect.Right-  20.0f;
+044:  //    float endY = this.orginY;
+045:  //    g.DrawLine(xPen, new PointF(stX, stY),new PointF(endX, endY));
+046:  //    g.DrawLine(xPen, new PointF(endX - 10, endY-5),
+047:  //        new PointF(endX, endY)); //-->활살촉
+048:  //    g.DrawLine(xPen, new PointF(endX - 10, endY +5), 
+049:  //        new PointF(endX, endY));//-->
+050:  //    Pen axisXPen = new Pen(Color.DarkSlateGray, 1);
+051:  //    Font axisXFont = new Font("Arial", 9);
+052:  //    SolidBrush axisXBrush = new SolidBrush(Color.SteelBlue);
+053:  
+054:  //    g.DrawString("X", axisXFont, axisXBrush, endX - 10, endY + 10);
+055:     
+056:  //    xPen.Dispose();
+057:  //    axisXBrush.Dispose();
+058:  //    axisXFont.Dispose();
+059:  //    axisXPen.Dispose();
+060:  //    //--------------------Day출력 rotate 이용예제-------------------
+061:  //    GraphicsPath gpY = new GraphicsPath();
+062:  //    Matrix rotateMatrix = new Matrix();
+063:  //    rotateMatrix.RotateAt(0,new PointF(stX, stY + 100));
+064:  
+065:  //    gpY.AddString("Day", new FontFamily("Arial"),
+066:  //        (int)FontStyle.Regular, 10, new PointF(endX-100f, endY+20), 
+067:  //        new StringFormat());
+068:  //    gpY.Transform(rotateMatrix);
+069:  //    g.FillPath(Brushes.Black, gpY);
+070:  
+071:  //    gpY.Dispose();
+072:  //    rotateMatrix.Dispose();
+073:  //    //----------------------------------------------
+074:  //}
+075:  //public void DrawY(Graphics g){
+076:  //    Pen xPen = new Pen(Color.Brown, 1);
+077:  //    float stX = this.orginX;
+078:  //    float stY = rect.Top + 50.0f;
+079:  //    float endX = this.orginX;
+080:  //    float endY = rect.Bottom - 50.0f;
+081:  //    g.DrawLine(xPen, new PointF(stX, stY),new PointF(endX, endY));
+082:  //    g.DrawLine(xPen, new PointF(endX - 5, stY + 10), 
+083:  //        new PointF(endX, stY)); //-->활살촉
+084:  //    g.DrawLine(xPen, new PointF(endX + 5, stY+10), 
+085:  //        new PointF(endX, stY)); //>
+086:  //    Pen axisXPen = new Pen(Color.DarkSlateGray, 1);
+087:  //    Font axisXFont = new Font("Arial", 9);
+088:  //    SolidBrush axisXBrush = new SolidBrush(Color.SteelBlue);
+089:  //    g.DrawString("Y", axisXFont, axisXBrush, stX - 20, stY );
+090:  //    xPen.Dispose();
+091:  //    axisXBrush.Dispose();
+092:  //    axisXFont.Dispose();
+093:  //    axisXPen.Dispose();
+094:  //    //---------------------Amplitude출력
+095:  //    GraphicsPath gpY = new GraphicsPath();
+096:  //    Matrix rotateMatrix = new Matrix();
+097:  //    rotateMatrix.RotateAt(-90, new PointF(stX , stY+100));
+098:  //    gpY.AddString("Amplitude", new FontFamily("Arial"),
+099:  //        (int)FontStyle.Regular, 10,new PointF(endX, 100f),
+100:  //        new StringFormat());
+101:  //    gpY.Transform(rotateMatrix);
+102:  //    g.FillPath(Brushes.Black, gpY);
+103:  //    gpY.Dispose();
+104:  //    rotateMatrix.Dispose();
+105:  //    //-----------------------------------
+106:  //}
+107:  ////바이오리듬에 오늘 표시
+108:  //public void DrawToDay(Graphics g){
+109:  //    Pen xPen = new Pen(Color.Black, 2);
+110:  //    bio.SetToDay(dt.Year, dt.Month, dt.Day);//오늘 날짜 설정
+111:  //    float stX = this.orginX + steps * bio.ToDay.Day;
+112:  //    float stY = rect.Top + 100.0f;
+113:  //    float endX = this.orginX + steps * bio.ToDay.Day;
+114:  //    float endY = rect.Bottom - 100.0f;
+115:  //    g.DrawLine(xPen, new PointF(stX, stY), 
+116:  //        new PointF(endX, endY));
+117:  //    xPen.Dispose();
+118:  //}
+119:  //우측상단에 바이오리듬 내용 출력
+120:  //public void DrawNotice(Graphics g, float stX, float stY, 
+121:  //    float endX, float endY, Color c, String st){
+122:  //    Pen xPen = new Pen(c, 1);
+123:  //    Font axisXFont = new Font("Arial", 9);
+124:  //    SolidBrush axisXBrush = new SolidBrush(c);
+125:  //    g.DrawLine(xPen, new PointF(stX, stY), 
+126:  //        new PointF(endX, endY));
+127:  //    g.DrawString(st, axisXFont, axisXBrush, endX, endY - 5);
+128:  //    axisXFont.Dispose();
+129:  //    axisXBrush.Dispose();
+130:  //    xPen.Dispose();
+131:  //}//
+132:  public void DrawPhysical(Graphics g) {
+133:      Pen xPen = new Pen(Color.Red, 1);
+134:      float stX = this.orginX;
+135:      float stY = this.orginY;
+136:      //바이오리듬을 위해 날짜를 변경시킨다.
+137:      bio.SetToDay(dt.Year, dt.Month, 1);
+138:      bio.PerviousDay();//0
+139:      float xy = stY - pixH * ((float)bio.Physical());//전날좌표
+140:      physical.Add(new PointF(stX, xy));
+141:      for (int i = 1; i <= lastOfDay; i++){
+142:          //바이오리듬을 위해 날짜를 변경시킨다
+143:          bio.SetToDay(dt.Year, dt.Month, i);
+144:          xy = stY - pixH * ((float)bio.Physical());//현재
+145:          physical.Add(new PointF(stX + steps * i, xy));
+146:      }
+147:      physical.Draw(g);//List에 저장된 모든 Point를 연결한다.
+148:      xPen.Dispose();
+149:      //우측상단에 Physical 내용 출력
+150:      float endX = rect.Right - 20.0f;
+151:      float endY = rect.Top;
+152:      //DrawNotice(g, endX - 100, endY + 50, endX - 90,
+153:      //    endY + 50, Color.Red, "Physical");
+154:     
+155:  }
+156:  //public void DrawEmotial(Graphics g){
+157:  //    Pen xPen = new Pen(Color.Blue, 1);
+158:  //    float stX = this.orginX;
+159:  //    float stY = this.orginY;
+160:  //    bio.SetToDay(dt.Year, dt.Month, 1);
+161:  //    bio.PerviousDay();//0
+162:  //    float xy = stY - pixH * ((float)bio.Emotial());//현재
+163:  //    emotion.Add(new PointF(stX, xy));
+164:  //    for (int i = 1; i <= lastOfDay; i++){
+165:  //        bio.SetToDay(dt.Year, dt.Month, i);
+166:  //        xy = stY - pixH * ((float)bio.Emotial());//현재
+167:  //        emotion.Add(new PointF(stX + steps * i, xy));
+168:  //    }
+169:  //    emotion.Draw(g);//List에 저장된 모든 Point를 연결한다.
+170:  //    xPen.Dispose();
+171:  //    //우측상단에 Emotial 내용 출력
+172:  //    float endX = rect.Right - 20.0f;
+173:  //    float endY = rect.Top;
+174:  //    DrawNotice(g, endX - 100, endY + 70, endX - 90, 
+175:  //        endY + 70, Color.Blue, "Emotial");
+176:  //}
+177:  //public void DrawIntellectual(Graphics g)
+178:  //{
+179:  //    Pen xPen = new Pen(Color.Brown, 1);
+180:  //    float stX = this.orginX;
+181:  //    float stY = this.orginY;
+182:  //    bio.SetToDay(dt.Year, dt.Month, 1);
+183:  //    bio.PerviousDay();//0
+184:  //    float xy = stY - pixH * ((float)bio.Intellectual());//현재
+185:  //    intelec.Add(new PointF(stX, xy));
+186:  //    for (int i = 1; i <= lastOfDay; i++){
+187:  //        bio.SetToDay(dt.Year, dt.Month, i);
+188:  //        xy = stY - pixH * ((float)bio.Intellectual());//현재
+189:  //        intelec.Add(new PointF(stX + steps * i, xy));
+190:  //    }
+191:  //    intelec.Draw(g);//List에 저장된 모든 Point를 연결한다.
+192:  //    xPen.Dispose();
+193:  //    //우측상단에 Intellectual 내용 출력
+194:  //    float endX = rect.Right - 20.0f;
+195:  //    float endY = rect.Top;
+196:  //    DrawNotice(g, endX - 100, endY + 90, endX - 90, 
+197:  //        endY + 90, Color.Brown, "Intellectual");
+198:  //}
+199:  
+200:  //public void DrawVerX(Graphics g,float stX,float stY) {
+201:  //    Pen xPen = new Pen(Color.Brown, 1);
+202:  //    float endY = stY + 10.0f;
+203:  //    g.DrawLine(xPen, new PointF(stX, stY), 
+204:  //        new PointF(stX, endY));
+205:  //    xPen.Dispose();
+206:  //}
+207:  //public void DrawVerY(Graphics g, float stX, float stY){
+208:  //    Pen xPen = new Pen(Color.Brown, 1);
+209:  //    float endX = stX + 10.0f;
+210:  //    g.DrawLine(xPen, new PointF(stX, stY), 
+211:  //        new PointF(endX, stY));
+212:  //    xPen.Dispose();
+213:  //}
+214:  //public void DrawLineVer(Graphics g) {
+215:  //    Pen xPen = new Pen(Color.SpringGreen, 1);
+216:  //    float stX = this.orginX;
+217:  //    float stY = this.orginY;
+218:  //    float stY2 = rect.Top+50;
+219:     
+220:  //    float Height = rect.Height - 100f;
+221:  //    float Width = rect.Width - 150.0f;
+222:  //    Pen axisXPen = new Pen(Color.DarkSlateGray, 1);
+223:  //    Font axisXFont = new Font("Arial", 6);
+224:  //    SolidBrush axisXBrush = new SolidBrush(Color.SteelBlue);
+225:  //    for (int i = 1; i <= lastOfDay; i++){
+226:  //        DrawVerX(g, stX + i * steps, stY - 5f);
+227:  //        string stV = i.ToString("#");
+228:  //        g.DrawString(stV, axisXFont, axisXBrush, 
+229:  //            i * steps + stX - 5, stY + 5);
+230:  //    }
+231:  //    for (float i = 1f; i <= Height-20; i++){
+232:  //        if (i % 10 == 0) {
+233:  //            DrawVerY(g, stX - 5f, stY2 + i );
+234:  //         g.DrawString((Height/(HeightR) - i).ToString("##0"),
+235:  //          axisXFont, axisXBrush, stX - 25, (stY2  + i ));
+236:  //        }
+237:  //    }
+238:  //    xPen.Dispose();//생성된(new로) 객체들 반드시 Dispose
+239:  //    axisXBrush.Dispose();
+240:  //    axisXFont.Dispose();
+241:  //    axisXPen.Dispose();
+242:  //}
+243:  private void XYControl_Load(object sender, EventArgs e){
+244:      DateInit(false);
+245:  }
+246:  private void DateInit(bool bs){
+247:      this.label1.Visible = !bs;
+248:      this.label2.Visible = !bs;
+249:      this.dateTimePicker1.Visible = !bs;
+250:      this.dateTimePicker2.Visible = !bs;
+251:  }
+252:  private void Remove(){
+253:      //---List에 있는 모든 점들을 제거한다.
+254:      physical.Remove();
+255:     // emotion.Remove();
+256:      //intelec.Remove();
+257:  }
+258:  protected override void OnPaint(PaintEventArgs pe){
+259:      this.Remove();//List에 포함된 Point를 모두 제거한다.
+260:      //변경된 List의 Point를 새롭게 그린다.
+261:      int bYear = this.dateTimePicker1.Value.Year;
+262:      int bMonth = this.dateTimePicker1.Value.Month;
+263:      int bDay = this.dateTimePicker1.Value.Day;
+264:      //생일날짜 세팅
+265:      bio = new LivingDateTime(bYear, bMonth, bDay);
+266:      //오늘날짜 세팅
+267:      dt = new DateTime(this.dateTimePicker2.Value.Year
+268:         , this.dateTimePicker2.Value.Month,
+269:         this.dateTimePicker2.Value.Day,
+270:         new GregorianCalendar());
+271:      //그 문화에 알맞은 칼렌다.
+272:      cal = CultureInfo.InvariantCulture.Calendar;
+273:      lastOfDay = cal.GetDaysInMonth(dt.Year, dt.Month, 
+274:          Calendar.CurrentEra);
+275:      steps = (rect.Width - 140.0f) / lastOfDay;
+276:      Graphics g = pe.Graphics;
+277:      if(!isFirst){
+278:          this.DrawPhysical(g);//신체지수
+279:      }
+280:      //if (isFirst){//처음 로딩될 때 보여주는 화면
+281:      //    //this.DrawX(g);//x좌표
+282:      //    //this.DrawY(g);//y좌표
+283:      //    //this.DrawLineVer(g);//눈금 tic
+284:      //}
+285:      //else{
+286:      // //Invalidate 호 다시 호출하여 모두 보여준다.
+287:      //    //this.DrawX(g);//x좌표
+288:      //    //this.DrawY(g);//y좌표
+289:      //    //DrawToDay(g);
+290:      //    //this.DrawLineVer(g);//눈금 tic
+291:      //    this.DrawPhysical(g);//신체지수
+292:      //    //this.DrawEmotial(g);//감정지수
+293:      //    //this.DrawIntellectual(g);//지성지수
+294:      //}
+295:      //--------------------------
+296:      base.OnPaint(pe);
+297:  }
+298:  private void dateTimePicker1_ValueChanged(object sender,
+299:      EventArgs e){
+300:      this.Invalidate();//OnPaint를 자동으로 호출한다.
+301:      this.isFirst = false;
+302:  }
+303:  private void dateTimePicker2_ValueChanged(object sender,
+304:      EventArgs e) {
+305:      this.Invalidate();//OnPaint를 자동으로 호출한다.
+306:      this.isFirst = false;
+307:  }
+308:      }
+309:  }

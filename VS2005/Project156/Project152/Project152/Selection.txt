@@ -1,0 +1,44 @@
+01:  using System;
+02:  namespace Com.JungBo.Sorts{
+03:    public class Selection{
+04:      public static  void SelectSort(int[] select){
+05:          int count = select.Length;
+06:          int min=0;//최소값
+07:          int minindex=0;//최소값 위치
+08:          SortUtil.Print(select);//정렬 과정 보기
+09:          for (int i = 0; i < count - 1; i++){
+10:                  minindex = i;
+11:                  min = select[i];
+12:              for (int j = i + 1; j < count; j++){
+13:                  if (min > select[j]){
+14:                      min = select[j];//최소값
+15:                      minindex = j;//최소값 위치
+16:                  }
+17:              }
+18:            //i번째 값을 최소값과 스왑한다.
+19:            SortUtil.Swap(ref select[i],ref select[minindex]);
+20:            SortUtil.Print(select);
+21:          }
+22:      }
+23:        public static void SelectSort<T>(T[] select) 
+24:                                  where T : IComparable{
+25:          int count = select.Length;
+26:          T min ;//최소값
+27:          int minindex = 0;//최소값 위치
+28:          SortUtil.Print(select);//정렬 과정 보기
+29:          for (int i = 0; i < count - 1; i++){
+30:              minindex = i;
+31:              min = select[i];
+32:              for (int j = i + 1; j < count; j++){
+33:                  if (min.CompareTo(select[j])>0){
+34:                      min = select[j];//최소값
+35:                      minindex = j;//최소값 위치
+36:                  }
+37:              }
+38:            //i번째 값을 최소값과 스왑한다.
+39:            SortUtil.Swap(ref select[i], ref select[minindex]);
+40:            SortUtil.Print(select);
+41:          }
+42:      }
+43:    }
+44:  }

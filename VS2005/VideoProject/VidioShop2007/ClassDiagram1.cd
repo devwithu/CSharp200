@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="굴림" Size="9" />
+  <Class Name="VidioShop2007.AddMemberForm" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>AddMemberForm.cs</FileName>
+      <HashCode>EAAAAAAAACAKABEAAgCIAIICAAAAAUAAQAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.FoundException" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>FoundException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.LoginDao" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>LoginDao.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.LoginForm" Collapsed="true">
+    <Position X="5.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>LoginForm.cs</FileName>
+      <HashCode>AAAAAAAAMCAAABAAAACAAAACgCAACAAAAAAAAQBAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.MemberFindForm" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MemberFindForm.cs</FileName>
+      <HashCode>MAAwAAABESACAB0rAwCAQICCCyAgA0AAQCAAEEAAAQQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.MFFDao" Collapsed="true">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MFFDao.cs</FileName>
+      <HashCode>AAAiAAAAAQAAAAAABAAAAAAAAAAAAAEAIAAAAAAAAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.NotFoundException" Collapsed="true">
+    <Position X="9" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>NotFoundException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.PassChangeForm" Collapsed="true">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PassChangeForm.cs</FileName>
+      <HashCode>IAAgQAACACAIABAAAACIAIACAAAAAEAAAAAAAQAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.PChangeDao" Collapsed="true">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PChangeDao.cs</FileName>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.QueryHelper" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>QueryHelper.cs</FileName>
+      <HashCode>CIgGAAAAEkAIKAAqBAiAAgAiAAAQAAGgEAggAAEBABA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.VideoSearchDao" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>VideoSearchDao.cs</FileName>
+      <HashCode>IIAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.VideoSearchInfoForm" Collapsed="true">
+    <Position X="5.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>VideoSearchInfoForm.cs</FileName>
+      <HashCode>QQAwEKAAASAAABgBCYCgAIDCC4CgRUEggCACIAQAAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.VLendDao" Collapsed="true">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>VLendDao.cs</FileName>
+      <HashCode>CIAgAAAAAiAACAAAAAgAEgAAAAAQAAEAEAAABAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.VLendForm" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>VLendForm.cs</FileName>
+      <HashCode>/yEAAAKCALIoQFgggACAkSI6AggbCREQ1GAIQQCVgQI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VidioShop2007.VSMainForm" Collapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>VSMainForm.cs</FileName>
+      <HashCode>AgAAAAkAACAAAwEAgE6AgF8CAAAAAACAAAAAABEAAEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

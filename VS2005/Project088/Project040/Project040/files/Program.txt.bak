@@ -1,0 +1,44 @@
+01: using System;
+02: using System.Collections;  //반드시 using한다.
+03: namespace Com.JungBo.Basic{
+04:  public class Program{
+05:   public static void Main(string[] args){
+06: 
+07:     ArrayList list = new ArrayList();
+08:     Hashtable table = new Hashtable();
+09:     Queue que = new Queue();
+10:     Stack stack = new Stack();
+11:     //청소
+12:     list.Clear();table.Clear(); que.Clear();  stack.Clear();
+13:     for (int i = 0; i < 26; i++){
+14:         list.Add(((char)(i+'A'))+"");
+15:         table.Add(i, ((char)(i + 'A')) + "");//키가 0~25
+16:         que.Enqueue(((char)(i + 'A')) + "");
+17:         stack.Push(((char)(i + 'A')) + "");
+18:         
+19:     }
+20:     Print(list); Console.Write("엘리먼트 개수: {0}\n",list.Count);
+21:     Print(que); Console.Write("엘리먼트 개수: {0}\n", que.Count);
+22:     Print(stack); Console.Write("엘리먼트 개수: {0}\n", stack.Count);
+23: 
+24:     //인덱서를 이용하기
+25:     string msg1 = list[5] as string; //인덱스 5
+26:     Console.Write("{0}  엘리먼트 개수: {1}\n",msg1, list.Count);
+27:     string msg4 = table[5] as string;  //키 5
+28:     Console.Write("{0}  엘리먼트 개수: {1}\n", msg4, table.Count);
+29: 
+30:     //인덱스를 사용못함 다음, 다음~~~만 사용
+31:     string msg2 = que.Dequeue() as string;
+32:     Console.Write("{0}  엘리먼트 개수: {1}\n", msg2, que.Count);
+33:     string msg3 = stack.Pop() as string;
+34:     Console.Write("{0}  엘리먼트 개수: {1}\n", msg3, stack.Count);
+35:     }
+36: 
+37:     public static void Print(ICollection colect) {
+38:     foreach (string str in colect){
+39:         Console.Write("{0} ", str);
+40:     }
+41:     Console.WriteLine();
+42:   }//
+43:  }
+44: }

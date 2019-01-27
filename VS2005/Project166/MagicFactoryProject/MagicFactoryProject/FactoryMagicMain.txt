@@ -1,0 +1,21 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:      public class FactoryMagicMain{
+04:          public static void Main(string[] args){
+05:              Console.WriteLine("마방진 숫자를 입력하세요 (n>=3)");
+06:              IMagic magic = null;
+07:              try{
+08:                  int n = int.Parse(Console.ReadLine());
+09:                  magic = MagicFactory.Factory(n);
+10:                  magic.Make();
+11:                  magic.Prints();
+12:              }catch (NotMatchMagicException nme){
+13:                  Console.WriteLine(nme.Message);
+14:              }catch (Exception e){
+15:                  Console.WriteLine(e.Message);
+16:              }finally {
+17:                  Console.WriteLine("MagicSquare End!");
+18:              }
+19:          }
+20:      }
+21:  }

@@ -1,0 +1,18 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:   public class Program{
+04:    public static void Main(string[] args){
+05:      LivingDateTime living = new LivingDateTime(1979, 6, 22);
+06:      living.SetToDay(2008, 8, 17);
+07:      //몇일 살았나
+08:      Console.WriteLine(living.HowLong());
+09:      living.NextDay();
+10:      Console.WriteLine(living.HowLong());
+11:      living.PerviousDay();
+12:      Console.WriteLine(living.HowLong());
+13:      Console.WriteLine(living.Emotial());
+14:      Console.WriteLine(living.Intellectual());
+15:      Console.WriteLine(living.Perceptive());
+16:    }
+17:   }
+18:  }

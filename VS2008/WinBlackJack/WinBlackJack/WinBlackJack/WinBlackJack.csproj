@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11480A68-9E4A-4D77-9905-6BC0E37E8F70}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WinBlackJack</RootNamespace>
+    <AssemblyName>WinBlackJack</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlackJack.cs" />
+    <Compile Include="Card.cs" />
+    <Compile Include="CardList.cs" />
+    <Compile Include="CardUtil.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gamer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="image\Thumbs.db" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="image\back.gif" />
+    <Content Include="image\C10.gif" />
+    <Content Include="image\C2.gif" />
+    <Content Include="image\C3.gif" />
+    <Content Include="image\C4.gif" />
+    <Content Include="image\C5.gif" />
+    <Content Include="image\C6.gif" />
+    <Content Include="image\C7.gif" />
+    <Content Include="image\C8.gif" />
+    <Content Include="image\C9.gif" />
+    <Content Include="image\CA.gif" />
+    <Content Include="image\CJ.gif" />
+    <Content Include="image\CK.gif" />
+    <Content Include="image\CQ.gif" />
+    <Content Include="image\D10.gif" />
+    <Content Include="image\D2.gif" />
+    <Content Include="image\D3.gif" />
+    <Content Include="image\D4.gif" />
+    <Content Include="image\D5.gif" />
+    <Content Include="image\D6.gif" />
+    <Content Include="image\D7.gif" />
+    <Content Include="image\D8.gif" />
+    <Content Include="image\D9.gif" />
+    <Content Include="image\DA.gif" />
+    <Content Include="image\DJ.gif" />
+    <Content Include="image\DK.gif" />
+    <Content Include="image\DQ.gif" />
+    <Content Include="image\H10.gif" />
+    <Content Include="image\H2.gif" />
+    <Content Include="image\H3.gif" />
+    <Content Include="image\H4.gif" />
+    <Content Include="image\H5.gif" />
+    <Content Include="image\H6.gif" />
+    <Content Include="image\H7.gif" />
+    <Content Include="image\H8.gif" />
+    <Content Include="image\H9.gif" />
+    <Content Include="image\HA.gif" />
+    <Content Include="image\HA2.gif" />
+    <Content Include="image\HJ.gif" />
+    <Content Include="image\HK.gif" />
+    <Content Include="image\HQ.gif" />
+    <Content Include="image\S10.gif" />
+    <Content Include="image\S2.gif" />
+    <Content Include="image\S3.gif" />
+    <Content Include="image\S4.gif" />
+    <Content Include="image\S5.gif" />
+    <Content Include="image\S6.gif" />
+    <Content Include="image\S7.gif" />
+    <Content Include="image\S8.gif" />
+    <Content Include="image\S9.gif" />
+    <Content Include="image\SA.gif" />
+    <Content Include="image\SJ.gif" />
+    <Content Include="image\SK.gif" />
+    <Content Include="image\SQ.gif" />
+    <Content Include="image\연금술사1.jpg" />
+    <Content Include="image\연금술사2.jpg" />
+    <Content Include="image\지미니.jpg" />
+    <None Include="Resources\SQ.gif" />
+    <None Include="Resources\SK.gif" />
+    <None Include="Resources\SJ.gif" />
+    <None Include="Resources\SA.gif" />
+    <None Include="Resources\S10.gif" />
+    <None Include="Resources\S9.gif" />
+    <None Include="Resources\S8.gif" />
+    <None Include="Resources\S7.gif" />
+    <None Include="Resources\S6.gif" />
+    <None Include="Resources\S5.gif" />
+    <None Include="Resources\S4.gif" />
+    <None Include="Resources\S3.gif" />
+    <None Include="Resources\S2.gif" />
+    <None Include="Resources\HQ.gif" />
+    <None Include="Resources\HK.gif" />
+    <None Include="Resources\HJ.gif" />
+    <None Include="Resources\HA.gif" />
+    <None Include="Resources\HA2.gif" />
+    <None Include="Resources\H10.gif" />
+    <None Include="Resources\H9.gif" />
+    <None Include="Resources\H8.gif" />
+    <None Include="Resources\H7.gif" />
+    <None Include="Resources\H6.gif" />
+    <None Include="Resources\H5.gif" />
+    <None Include="Resources\H4.gif" />
+    <None Include="Resources\H3.gif" />
+    <None Include="Resources\H2.gif" />
+    <None Include="Resources\DQ.gif" />
+    <None Include="Resources\DK.gif" />
+    <None Include="Resources\DJ.gif" />
+    <None Include="Resources\DA.gif" />
+    <None Include="Resources\D10.gif" />
+    <None Include="Resources\D9.gif" />
+    <None Include="Resources\D8.gif" />
+    <None Include="Resources\D7.gif" />
+    <None Include="Resources\D6.gif" />
+    <None Include="Resources\D5.gif" />
+    <None Include="Resources\D4.gif" />
+    <None Include="Resources\D3.gif" />
+    <None Include="Resources\D2.gif" />
+    <None Include="Resources\CQ.gif" />
+    <None Include="Resources\CK.gif" />
+    <None Include="Resources\CJ.gif" />
+    <None Include="Resources\CA.gif" />
+    <None Include="Resources\C10.gif" />
+    <None Include="Resources\C9.gif" />
+    <None Include="Resources\C8.gif" />
+    <None Include="Resources\C7.gif" />
+    <None Include="Resources\C6.gif" />
+    <None Include="Resources\C5.gif" />
+    <None Include="Resources\C4.gif" />
+    <None Include="Resources\C3.gif" />
+    <None Include="Resources\C2.gif" />
+    <None Include="Resources\back.gif" />
+    <None Include="Resources\지미니.jpg" />
+    <None Include="Resources\연금술사2.jpg" />
+    <None Include="Resources\연금술사1.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,33 @@
+01: using System;
+02: using Com.JungBo.Games;
+03: namespace Project084{
+04:     public class Program{
+05:         static void Main(string[] args){
+06: 
+07:             Block bk;  //구조체 선언
+08:             bk.bState = BombState.BOMB;
+09:             bk.oState = OpenState.CLOSE;
+10:             bk.down = false;
+11: 
+12:             Block ck = bk;  
+13:             //구조체는 기본타입이다.
+14:             //그러므로 값에 의한 복사다.
+15:             ck.bState = BombState.SEVEN;
+16:             Console.WriteLine(bk.bState);
+17:             Console.WriteLine(ck.bState);
+18: 
+19:             Block[] b = new Block[3];
+20:             b[0] = ck;//BombState.SEVEN;
+21:             b[1] = ck; //BombState.SEVEN;
+22:             b[2] = ck; //BombState.SEVEN;
+23:             ck.bState = BombState.THREE;
+24:             //값에 의한 대입이므로 ck를 변경해도
+25:             //복사된 값들이 변경되지 않는다.
+26:             Console.WriteLine(b[1].bState);
+27:             //개체 생성도 가능하다. 그러나 기본타입이다.
+28:             Block bb = new Block();
+29:             bb.bState = BombState.SEVEN;
+30: 
+31:         }
+32:     }
+33: }

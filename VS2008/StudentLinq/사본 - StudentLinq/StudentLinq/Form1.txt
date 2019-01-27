@@ -1,0 +1,89 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.ComponentModel;
+04:  using System.Data;
+05:  using System.Drawing;
+06:  using System.Linq;
+07:  using System.Text;
+08:  using System.Windows.Forms;
+09:  namespace StudentLinq{
+10:      public partial class Form1 : Form{
+11:  public Form1(){
+12:      InitializeComponent();
+13:  }
+14:  //linq 사용을 위한 컨텍스트 연결
+15:  StudentDataContext stdb = new StudentDataContext();
+16:  //SELECT * FROM STUDENT
+17:  private void btnShowAll_Click(object sender, EventArgs e){
+18:      IEnumerable<Student> sts= (from c in stdb.Student
+19:                           select c).ToList();
+20:      this.dataGridView1.DataSource = sts;
+21:  }
+22:  //SELECT * FROM STUDENT
+23:  private void btnShowAll2_Click(object sender, EventArgs e){
+24:      List<Student> sts = (from c in stdb.Student
+25:                           select c).ToList();
+26:      this.dataGridView1.DataSource = sts;
+27:  }
+28:  //SELECT * FROM STUDENT
+29:  private void btnShowAll3_Click(object sender, EventArgs e){
+30:      //VARIABLE  변수
+31:      var sts = (from c in stdb.Student
+32:                           select c).ToList();
+33:      this.dataGridView1.DataSource = sts;
+34:  }
+35:  private void Form1_Load(object sender, EventArgs e){
+36:      try{
+37:          //SELECT STUDENT_ID FROM STUDENT
+38:          List<string> sts = (from c in stdb.Student
+39:                               select c.Student_ID).ToList();
+40:          //STUDENT_ID를 콤보박스에 대입
+41:          this.comboBox1.DataSource = sts;
+42:      }
+43:      catch (Exception ee){
+44:  
+45:          MessageBox.Show(ee.Message);
+46:      }
+47:  }
+48:  //SELECT * FROM STUDENT WHERE STUDENT_ID=@STUDENT_ID
+49:  //결과가 1개의 ROW
+50:  private void comboBox1_SelectedIndexChanged(
+51:                          object sender, EventArgs e){
+52:      try{
+53:          string id = this.comboBox1.SelectedItem as string;
+54:          //1개의 ROW에 해당하는 개체-->Single<Student>()
+55:          Student st = (from c in stdb.Student
+56:                        where c.Student_ID == id.Trim()
+57:                        select c).Single<Student>();
+58:          //각 텍스트박스에 해당 값 대입
+59:          this.txtName.Text = st.Student_Name;
+60:          this.txtPhone.Text = st.Student_Phone;
+61:          this.txtAddress.Text = st.Student_Address;
+62:          this.txtIndate.Text = st.Student_InDate.ToString();
+63:      }
+64:      catch (Exception ee){
+65:          MessageBox.Show(ee.Message);
+66:      }
+67:  }
+68:  //SELECT * FROM STUDENT WHERE STUDENT_ID=@STUDENT_ID
+69:  //그리드뷰에 대입
+70:  private void btnId_Click(object sender, EventArgs e){
+71:      var sts = (from c in stdb.Student
+72:                 where c.Student_ID == this.txtIdSearch.Text.Trim()
+73:                 select c).ToList();
+74:      this.dataGridView1.DataSource = sts;
+75:  }
+76:  //SELECT STUDENT_NAME FROM STUDENT
+77:  //WHERE STUDENT_ID=@STUDENT_ID
+78:  private void btnName_Click(object sender, EventArgs e){
+79:      try{
+80:          this.txtNameResult.Text = (from c in stdb.Student
+81:                where c.Student_ID == this.txtIdSearch.Text
+82:                select c.Student_Name).Single().ToString();
+83:      }
+84:      catch (Exception ee){
+85:          MessageBox.Show(ee.Message);
+86:      }
+87:  }//
+88:      }
+89:  }

@@ -1,0 +1,29 @@
+01: using System;
+02: //continue
+03: namespace Com.JungBo.Basic{
+04:     public class Numbers{
+05:         //짝수의 합
+06:         public static int SumOfEven(int num){
+07:             int total = 0;
+08:             for (int i = 2; i <=num; i=i+2){
+09:                 if(i%2==0){//짝수면 
+10:                     total = total + i;//합하자
+11:                 }
+12:             }
+13:             return total;
+14:         }
+15:         //홀수의합
+16:         public static int SumOfOdd(int num){
+17:             int total = 0;
+18:             for (int i = 1; i <= num; i++){
+19:                 if (i % 2 == 1) {//i%2!=0 동일,홀수면 
+20:                     total = total + i;//합하자
+21:                 }
+22:                 else { //짝수면
+23:                     continue; //i 다음스텝에서 계속
+24:                 }
+25:             }
+26:             return total;
+27:         }
+28:     }
+29: }

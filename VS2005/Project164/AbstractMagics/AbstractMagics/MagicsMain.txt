@@ -1,0 +1,17 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:      public class MagicsMain{
+04:          public static void Main(string[] args){
+05:              AbstractMagic ods=
+06:              //OddMagicSquare ods = new OddMagicSquare(3);
+07:             // FourMagicSquare ods = new FourMagicSquare(4);
+08:              //SixMagicSquare ods = new SixMagicSquare();
+09:            //new FourMagicSquare(4);
+10:            new OddMagicSquare(3);
+11:            //new SixMagicSquare();
+12:              ods.Make();
+13:              ods.Prints();
+14:  
+15:          }
+16:      }
+17:  }

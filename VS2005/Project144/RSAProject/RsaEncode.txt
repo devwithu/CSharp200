@@ -1,0 +1,40 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:      public class RsaEncode{
+04:          //공개키
+05:          private int n;
+06:          private int e;
+07:          private int[] cp;
+08:  
+09:          public RsaEncode(int n,int e) {
+10:              this.n = n;
+11:              this.e = e;
+12:          }
+13:          //한개 C구하기(한자 암호화)
+14:          public int ToC(int p){
+15:              int temp = 1;
+16:              for (int i = 0; i < e; i++){
+17:                  temp = (temp * p) % n;
+18:              }
+19:              return temp;
+20:          }
+21:          //모두 암호화
+22:          public void SetP(int [] sp) {
+23:              cp = new int[sp.Length];
+24:              for (int i = 0; i < sp.Length; i++){
+25:                  cp[i] = ToC(sp[i]);
+26:              }
+27:          }
+28:          public int[] GepC() {
+29:              int []ccp = new int[cp.Length];
+30:              Array.Copy(cp, ccp, cp.Length);
+31:              return ccp;
+32:          }
+33:          public void PrintAlpha(){
+34:              for (int i = 0; i < cp.Length; i++){
+35:                  Console.Write(cp[i] + "\t");
+36:              }
+37:              Console.WriteLine();
+38:          }
+39:      }
+40:  }

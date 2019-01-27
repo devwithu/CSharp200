@@ -1,0 +1,43 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: //등차수열 2 * i + 1
+05: namespace Com.JungBo.Basic{
+06:     public class Program{
+07:         public static void Main(string[] args){
+08:             Console.WriteLine("삼각형을 출력합니다.");
+09:             Console.Write("정수 한개를 입력하세요: ");
+10:             int iNum = int.Parse(Console.ReadLine());//첫 번째 수 입력후 변환
+11:             Asterisk.ShowStageTree(iNum);
+12:             Console.WriteLine();
+13:             Asterisk.ShowStageV(iNum);
+14:         }
+15:     }
+16:     public class Asterisk{
+17:         public static void ShowStageTree(int n){
+18:             for (int i = 0; i < n; i++){
+19:                 for (int k = 0; k < n - i - 1; k++){
+20:                     Console.Write(" ");
+21:                 }//in for
+22:                 for (int j = 0; j < 2 * i + 1; j++){
+23:                     Console.Write("X");
+24:                 }//in for
+25:                 Console.WriteLine();
+26:             }//out for
+27:         }//
+28:         public static void ShowStageV(int n){
+29:             for (int i = 0; i < n; i++){
+30:                 for (int k = 0; k < n - i - 1; k++){
+31:                     Console.Write("X");
+32:                 }//in for
+33:                 for (int j = 0; j < 2 * i + 1; j++){
+34:                     Console.Write(" ");
+35:                 }//in for
+36:                 for (int k = 0; k < n - i - 1; k++){
+37:                     Console.Write("X");
+38:                 }//in for
+39:                 Console.WriteLine();
+40:             }//out for
+41:         }//
+42:     }
+43: }

@@ -1,0 +1,49 @@
+01: using System;
+02: using System.Net;  //WebRequest, WebResponse
+03: using System.IO;   //Stream
+04: using System.Drawing;
+05: using System.Drawing.Imaging;//ImageFormat
+06: namespace Com.JungBo.WIO {
+07: public class WebFiles {
+08:     //웹을 읽어서 스트림으로 만든다.
+09:     public Stream ReadNWriteStock(string url){
+10:         WebRequest request = null;
+11:         WebResponse response = null;
+12:         Stream stream = null;
+13:         try{
+14:             request = WebRequest.Create(url);
+15:             response = request.GetResponse();
+16:             stream = response.GetResponseStream() ;
+17:         }
+18:         catch (Exception ee){
+19:             Console.WriteLine(ee.Message);
+20:         }
+21:         return stream;
+22:     }//
+23:     //스트림을 이미지로 바꾼다.
+24:     public Bitmap StreamToBitmap(Stream stream){
+25:         Bitmap bit = new Bitmap(stream);
+26:         return bit;
+27:     }//
+28:     //웹에서 이미지를 받는다.
+29:     public Bitmap DownloadBitmap(string url){
+30:         WebClient web = new WebClient();
+31:         byte[] downs = web.DownloadData(url);
+32:         Bitmap bit = null;
+33:         using (MemoryStream ms= new MemoryStream(downs)){
+34:            bit = new Bitmap(ms);
+35:         }
+36:         return bit;
+37:     }//
+38:     //이미지를 저장한다.
+39:     public void SaveMemoryStream(Bitmap bit, string FileName) {
+40:         MemoryStream ms = new MemoryStream();
+41:         //ImageFormat이용 이미지종류를 다르게 할 수 있다.
+42:         bit.Save(ms, ImageFormat.Bmp);
+43:         using (FileStream outStream = File.OpenWrite(FileName)) {
+44:             ms.WriteTo(outStream);  //이미지 저장
+45:             outStream.Close();
+46:         }
+47:     }
+48: }
+49: }

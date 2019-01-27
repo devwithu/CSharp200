@@ -1,0 +1,107 @@
+001:  using System;
+002:  namespace Com.JungBo.Maths{
+003:      public class SimpleBits{
+004:          public const int MASK02 = 1;
+005:          public const int MASK08 = 7; // 111
+006:          public const int MASK083 = 3;//  11
+007:          public const int MASK16 = 15;//1111
+008:  
+009:          //10진수를 2진수로 진수변환
+010:          public static string TenToBinary(int n){
+011:              string s = string.Empty;
+012:              for (int i = 0; i < 32; i++){
+013:                  int aa = n & MASK02;
+014:                  s = aa + s;
+015:                  n >>= 1;//쉬프트연산은 음수,양수 무관
+016:              }
+017:              s = s.Substring(s.IndexOf("1"));
+018:              return s;
+019:          }//
+020:          //1에 대한 보수
+021:          public static string BosuForOne(int n){
+022:              string s = string.Empty;
+023:              for (int i = 0; i < 32; i++){
+024:                  int aa = (n & MASK02) ^ MASK02;
+025:                  //기본타입+string-->string이 된다.
+026:                  s = string.Concat(aa, s);
+027:                  n >>= 1;
+028:              }
+029:              s = s.Substring(s.IndexOf("1"));
+030:              return s;
+031:          }//
+032:          //2에 대한 보수
+033:          public static string BosuForTwo(int n){
+034:              string s = string.Empty;
+035:              bool first = false;
+036:              for (int i = 0; i < 32; i++){
+037:                  int aa = 0;
+038:                  if ((n & MASK02) == 1 && !first){
+039:                      aa = (n & MASK02);
+040:                      first = true;
+041:                  }
+042:                  else if (first){//first==true
+043:                      aa = (n & MASK02) ^ MASK02;
+044:                  }
+045:                  s = string.Concat(aa, s);
+046:                  n >>= 1;
+047:              }
+048:              s = s.Substring(s.IndexOf("1"));
+049:              return s;
+050:          }//
+051:          //0이 몇개 있는가 00000123 -->5
+052:          private static int Location(string sixchars) {
+053:              int count = 0;
+054:              for (int i = 0; i < sixchars.Length; i++){
+055:                  if (sixchars[i] == '0'){
+056:                      count++;
+057:                  }
+058:                  else{
+059:                      break;
+060:                  }
+061:              }
+062:              return count;
+063:          }
+064:          //10진수를 16진수로 진수변환
+065:          public static string TenToHexa(int n){
+066:              string s = "";
+067:              for (int i = 0; i < 8; i++){
+068:                  int aa = n & MASK16;
+069:                  s = Tosixteen(aa) + s;
+070:                  n >>= 4;
+071:              }
+072:              s = s.Substring(Location(s));
+073:              return s;
+074:          }//
+075:          //0~15 사이의 수를 16진수로 바꾸기
+076:          private static string Tosixteen(int m){
+077:              string s = "";
+078:              switch (m){
+079:                  case 10: s = "A"; break;
+080:                  case 11: s = "B"; break;
+081:                  case 12: s = "C"; break;
+082:                  case 13: s = "D"; break;
+083:                  case 14: s = "E"; break;
+084:                  case 15: s = "F"; break;
+085:                  default: s = m.ToString(); break;
+086:              }
+087:              return s;
+088:          }
+089:          //10진수를 8진수로 진수변환
+090:          public static string TenToOcta(int n) {
+091:              string s = "";
+092:              for (int i = 0; i < 32 / 3 + 1; i++){
+093:                  int aa = 0;
+094:                  if (i < 32 / 3){
+095:                      aa = n & MASK08;
+096:                  }
+097:                  else{
+098:                      aa = n & MASK083;
+099:                  }
+100:                  s = aa + s;
+101:                  n >>= 3;
+102:              }
+103:              s = s.Substring(Location(s));
+104:              return s;
+105:          }//
+106:      }
+107:  }

@@ -1,0 +1,12 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:      public class Program{
+04:          public static void Main(string[] args){
+05:              Lotto lotto = new Lotto(45, 6);
+06:              lotto.Make();//처음 만들기
+07:              lotto.Print();
+08:              lotto.ReMake();//새로 만들기
+09:              lotto.Print();
+10:          }
+11:      }
+12:  }

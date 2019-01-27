@@ -1,0 +1,33 @@
+01: using System;
+02: using System.IO;
+03: namespace Com.JungBo.Infor {
+04:     public class DirectoryWorking {
+05:         public void Make(string fdir, string todir){
+06:             if (!Directory.Exists(fdir) || Directory.Exists(todir)){
+07:                 Console.WriteLine(
+08: "옮길 디렉토리가 없거나 옮겨질 디렉토리가 이미 존재합니다.");
+09:                 return;
+10:             }
+11:             //디렉토리를 새로 만들고
+12:             //파일을 옮기고 원래 파일을 삭제
+13:             Directory.Move(fdir,todir);
+14:             string[]mofiles=Directory.GetFiles(todir);
+15:             foreach (string mofile in mofiles){
+16:                 Console.WriteLine(mofile);
+17:             }
+18:         }
+19:         public void ViewDirectories(string st){
+20:             string[] direcs = Directory.GetDirectories(st);
+21:             Console.WriteLine("Directories in {0} ", st);
+22:             foreach (string dir in direcs){
+23:                 ViewDirecInfors(dir);
+24:             }
+25:         }
+26:         private void ViewDirecInfors(string sdir){
+27: if (!Directory.Exists(sdir) ) { return; }
+28: Console.WriteLine("작성일 : {0}", Directory.GetCreationTime(sdir));
+29: Console.WriteLine("최근사용일 : {0}", Directory.GetLastAccessTime(sdir));
+30: Console.WriteLine("최근변경일 : {0}", Directory.GetLastWriteTime(sdir));
+31:         }
+32:     }
+33: }

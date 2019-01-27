@@ -1,0 +1,130 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.Text;
+004:  using System.IO;
+005:  using System.Net;
+006:  using System.Net.Sockets;
+007:  using System.Threading;
+008:  using System.Collections;
+009:  namespace Com.JungBo.Chat{
+010:      public class Program{
+011:          public static void Main(string[] args){
+012:              EchoServer server = new EchoServer();
+013:              server.Echo();
+014:         }
+015:      }
+016:      public class EchoServer {
+017:          public const int PORT = 9000;
+018:          private TcpListener listener = null;
+019:          public static ArrayList handleList = new ArrayList(10);
+020:          public EchoServer() {
+021:              handleList.Clear();
+022:          }
+023:          public void Echo() {
+024:              try{
+025:                  IPAddress address = Dns.GetHostEntry("").AddressList[0];
+026:                  listener = new TcpListener(address, PORT);
+027:                  listener.Start();
+028:                  System.Console.WriteLine("Server Ready 1-------");
+029:                  while(true){
+030:                      //클라이언트 하나당 소켓 하나
+031:                      TcpClient client = listener.AcceptTcpClient();
+032:                      //클라이언트 쓰레드 처리 담당 핸들러
+033:                      EchoHandler handler = new EchoHandler(this, client);
+034:                      handleList.Add(handler);
+035:                      handler.Start();
+036:                  }
+037:                  
+038:              }
+039:              catch (Exception ee){
+040:                  System.Console.WriteLine("2-------------------");
+041:                  System.Console.WriteLine(ee.Message);
+042:                  
+043:              }finally{
+044:                  System.Console.WriteLine("3-------------------");
+045:                  listener.Stop();
+046:              }
+047:          }
+048:          public void Add(EchoHandler handle){
+049:              lock (handleList.SyncRoot){
+050:                  handleList.Add(handle);
+051:              }
+052:          }
+053:          public void Remove(EchoHandler handle){
+054:              lock (handleList.SyncRoot){
+055:                  handleList.Remove(handle);
+056:              }
+057:          }
+058:          public void broadcast(String str){
+059:              lock(handleList.SyncRoot){
+060:                  string dstes = DateTime.Now.ToString("[yyyy-MM-dd:hh-mm-ss]: ");
+061:                  Console.Write(dstes);
+062:                  Console.WriteLine(str);
+063:                  //클라이언트 쓰레드 처리 담당 핸들러 
+064:                  foreach (EchoHandler echohand in handleList){
+065:                      EchoHandler echosay = echohand as EchoHandler;
+066:                      if (echosay!=null) {
+067:                          //모든 클라이언트에게 메세지 보내기
+068:                          echosay.SendMessage(str);
+069:                      }
+070:                  }
+071:              }//ArrayList에 락(동기화)
+072:          }
+073:      }
+074:      public class EchoHandler{
+075:          EchoServer server;
+076:          TcpClient client;
+077:          NetworkStream ns = null;
+078:          StreamReader sr = null;
+079:          StreamWriter sw = null;
+080:          String str = string.Empty;
+081:          string clientname;
+082:          public EchoHandler(EchoServer server, TcpClient client) {
+083:              this.server = server;
+084:              this.client = client;
+085:              try{
+086:                  ns = client.GetStream();
+087:                  Socket socket = client.Client;
+088:                  clientname = socket.RemoteEndPoint.ToString();
+089:                  Console.WriteLine(clientname + "님 입장.");
+090:                  //소켓에서 메세지 읽기
+091:                  sr = new StreamReader(ns, Encoding.Default);
+092:                  //소켓에 메세지 쓰기
+093:                  sw = new StreamWriter(ns, Encoding.Default);
+094:              }
+095:              catch (Exception ee){
+096:                  Console.WriteLine("연결에 실패했습니다.");
+097:              }
+098:          }
+099:          //다른 클라이언트에게 메세지 보내기
+100:          public void SendMessage(string message){
+101:              sw.WriteLine("[server: {0}]", message);
+102:              sw.Flush();
+103:          }
+104:          //쓰레드 생성하기
+105:          public void Start(){
+106:              Thread t = new Thread(
+107:                          new ThreadStart(ProcessClient));
+108:              t.Start();
+109:          }
+110:          //모든 클라이언트에게 메세지를 보낸다.
+111:          public void ProcessClient(){
+112:              try{
+113:                  while ((str = sr.ReadLine()) != null){
+114:                      server.broadcast(str);
+115:                  }
+116:              }
+117:              catch (Exception){
+118:                  Console.WriteLine(clientname + "님 퇴장.");
+119:                  sw.Flush();
+120:              }
+121:              finally{
+122:                  //클라이언트가 대화에게 나가면 연결 끊기
+123:                  server.Remove(this);
+124:                  sw.Close();
+125:                  sr.Close();
+126:                  client.Close();
+127:              }
+128:          }
+129:      }//
+130:  }

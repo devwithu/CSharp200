@@ -1,0 +1,1616 @@
+1DAY 
+
+$10~$20의 가격을 가지고 있는 도서의 목록을 얻어보자.
+
+ 도서아이디, 도서이름, 가격
+
+
+1) 테이블과 칼럼을 정하자.
+
+SELECT title_id, title, price
+FROM titles
+
+2) 조건을 만족하는 값을 얻어오자.
+
+SELECT title_id, title, price
+FROM titles
+--WHERE price >= 10 AND price <= 20
+WHERE price BETWEEN 10 AND 20
+
+
+
+도서 타입이 business와 psychology 인 도서 중에서 loyalty가 
+10%를 초과하는 도서의 목록을 얻어보자.
+
+도서아이디, 도서타입, 로열티
+
+SELECT title_id, type, royalty
+FROM titles
+
+
+2Day
+
+1994년에 출판된 도서의 정보를 얻어보자.
+
+도서아이디 도서이름 출판일자
+
+
+1) 테이블 명세서, 데이터베이스 다이어그램을 통해 테이블과 테이블 간의 관계를 파악한다.
+
+2) 관련 업무로부터 위 정보를 얻을 수 있는 테이블과 칼럼을 선택한다.
+
+SELECT title_id, title, pubdate
+FROM titles
+
+3) 조건을 만족하는 Query문을 완성한다.
+
+SELECT title_id, title, pubdate
+FROM titles
+--WHERE pubdate >= '1994-01-01 00:00:00.000'  AND pubdate <=  '1994-12-31 23:59:59.000'	
+--WHERE pubdate BETWEEN '1994-01-01 00:00:00.000' AND '1994-12-31 23:59:59.000'	
+--WHERE YEAR(pubdate) = 1994
+WHERE DATEPART(yyyy, pubdate) = 1994
+
+4) 최적의 Query문을 선택한다.
+
+SELECT title_id, title, pubdate
+FROM titles
+--WHERE YEAR(pubdate) = 1994
+WHERE DATEPART(yyyy, pubdate) = 1994
+
+
+요리와 관련된 도서 중에서 가격이 $10이상인 도서의 정보를 얻어보자.
+
+도서아이디,도서이름,도서분류,가격
+
+SELECT title_id, title, type, price
+FROM titles
+WHERE price >= 10 
+--AND type LIKE '%cook'
+--AND (type = 'mod_cook' OR type = 'trad_cook')
+AND type IN ('mod_cook' ,  'trad_cook')
+
+
+SELECT title_id, title, type, price
+FROM titles
+WHERE price >= 10 
+AND type IN ('mod_cook',  'trad_cook')
+ 
+
+도서 타입별 평균 도서 가격의 정보를 얻어보자.
+
+도서타입  평균가격
+
+SELECT type, ROUND(AVG(price), 1)
+FROM titles
+WHERE price IS NOT NULL   
+GROUP BY type
+
+
+
+연월별로 출간된 도서의 수량을 파악해 보자. 결과는 아래와 같다.
+출간도서수량이 많은 순서대로 정렬해서 나타내 보자.
+요리책은 제외되며, 출간도서 수량이 5권 이상인 경우만 얻어보자.
+
+연월          출간도서수량
+1991-06          6
+1994-02          2
+..
+
+SELECT YEAR(pubdate), MONTH(pubdate), COUNT(title_id)
+FROM titles
+WHERE type NOT IN ('mod_cook' ,  'trad_cook')
+GROUP BY YEAR(pubdate), MONTH(pubdate)
+HAVING  COUNT(title_id) >= 5
+ORDER BY COUNT(title_id) DESC
+
+
+3Day
+
+출판사별로 출간한 도서의 최고 가격 정보를 얻어보자.
+
+출판사id, 도서의 최고가격, 도서이름
+
+SELECT *
+FROM (SELECT title_id, title, price, 
+                   RANK() OVER(PARTITION BY pub_id ORDER  BY price DESC) as rnk, pub_id
+            FROM titles) price_rank
+WHERE rnk =1
+
+
+
+전체 도서 중에서 최고 가격의 도서 정보를 얻어보자.
+
+도서아이디,도서이름,가격
+
+1) 최고 가격이  얼마냐?
+
+SELECT MAX(price)
+FROM titles
+
+$22.95
+
+2) 최고 가격에 해당하는 도서의 이름은?
+
+SELECT title
+FROM titles
+WHERE price = 22.95
+
+
+SELECT title
+FROM titles
+WHERE price = (SELECT MAX(price)
+                          FROM titles)
+
+
+함수를 이용해 보자.
+
+SELECT title
+FROM (SELECT title_id, title, price, RANK() OVER(ORDER  BY price) as rnk
+            FROM titles) price_rank
+WHERE rnk <= 3
+
+
+
+평균 가격보다 높은 도서의 정보를 얻자.
+
+
+도서아이디, 도서이름, 가격
+
+SELECT title_id, title, price
+FROM titles
+WHERE price > (SELECT AVG(price)
+                          FROM titles)
+
+
+도서타입별 평균 가격보다 높은 도서의 정보를 얻자.
+
+SELECT title_id, title, titles.type, price
+FROM (SELECT type, AVG(price) avg_price
+            FROM titles
+            GROUP BY type) avgprice, titles	
+WHERE avgprice.type = titles.type
+AND price > avg_price
+
+
+도서 가격을 아래와 같이 분류해 보자.
+
+전체 가격의 상위 10%  --  S
+전체 가격의 상위 11% ~ 30%  --  A
+전체 가격의 상위 31% ~ 50%  --  B
+전체 가격의 상위 51% ~ 80%  --  C
+기타 81% ~ 100% -- D
+
+         
+도서아이디,도서이름, 가격, 등급
+
+
+SELECT title_id, title, price, NTILE(10) OVER (ORDER BY price DESC) as 'Bucket',
+              CASE WHEN NTILE(10) OVER (ORDER BY price DESC)  = 1 THEN 'S'
+                         WHEN NTILE(10) OVER (ORDER BY price DESC) <= 3 THEN 'A'
+                         WHEN NTILE(10) OVER (ORDER BY price DESC) <= 5 THEN 'B'
+                         WHEN NTILE(10) OVER (ORDER BY price DESC) <= 8 THEN 'C'
+                         ELSE 'D'
+              END
+FROM titles
+WHERE price IS NOT NULL
+
+
+4Day
+
+도서의 정보를 보자. 도서이름은 'Straight Talk About Computers'이다.
+
+출판사이름
+
+도서를 출간하지 않은 출판사의 정보도 함께 얻어보자.
+
+SELECT pub_name, title
+--FROM titles t RIGHT OUTER JOIN publishers p
+FROM publishers p LEFT OUTER JOIN titles t
+ON t.pub_id = p.pub_id
+
+
+SELECT title, pub_name
+FROM titles t INNER JOIN publishers p
+ON t.pub_id = p.pub_id
+
+
+
+
+
+SELECT *
+FROM publishers
+
+테이블: titles, publishers
+칼럼: title, pub_name
+
+SELECT pub_id
+FROM titles
+WHERE title = 'Straight Talk About Computers'
+
+1389
+
+SELECT pub_name
+FROM publishers
+WHERE pub_id = 1389
+
+Algodata Infosystems
+
+
+SELECT pub_name
+FROM publishers
+WHERE pub_id = (SELECT pub_id
+                             FROM titles
+                             WHERE title = 'Straight Talk About Computers')
+
+
+SELECT title, pub_name
+FROM titles t JOIN publishers p
+ON t.pub_id = p.pub_id
+WHERE title = 'Straight Talk About Computers'
+
+
+출판사에 일하는 사원의 정보를 얻어보자.
+
+사번,사원이름,직무이름
+
+SELECT emp_id, lname, job_desc
+FROM employees e, jobs j
+WHERE j.job_id = e.job_id 
+
+
+도서와 저자의 정보를 얻어보자.
+
+도서이름, 저자이름
+
+SELECT title, au_lname
+FROM titles t, authors a, titleauthor ta
+WHERE t.title_id = ta.title_id
+AND a.au_id =ta.au_id
+
+SELECT title, au_lname
+FROM titles t JOIN  titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id =ta.au_id
+
+
+현재 할인을 하고 있는 상점에서 판매되는 도서의 정보를 얻어보자.
+
+상점이름, 도서이름, 할인정보
+
+SELECT stor_name, title, price, discounttype, discount
+FROM titles t JOIN sales sa
+ON t.title_id = sa.title_id
+JOIN stores st
+ON st.stor_id = sa.stor_id
+JOIN discounts d
+ON st.stor_id = d.stor_id
+
+
+책을 한권도 출간하지 않은 저자는 누구인가?
+
+SELECT a.au_id, au_lname
+FROM authors a LEFT OUTER JOIN titleauthor ta
+ON a.au_id = ta.au_id
+WHERE ta.au_id IS NULL
+EXCEPT
+SELECT a.au_id, au_lname
+FROM authors a INNER JOIN titleauthor ta
+ON a.au_id = ta.au_id
+
+
+SELECT au_lname
+FROM authors
+WHERE au_id IN (SELECT au_id
+                             FROM authors
+                             EXCEPT
+                             SELECT au_id
+                             FROM titleauthor)
+
+
+SELECT au_lname
+FROM authors a LEFT OUTER JOIN titleauthor ta
+ON a.au_id = ta.au_id
+WHERE ta.au_id IS NULL
+
+
+연산자를 이용해서 동일한 결과를 얻어보자.
+
+
+5Day
+
+도서를 중심으로 저자와 출판사의 정보를 찾아보자.
+한번도 책을 집필하지 않은 저자와 출간하지 않은 출판사의 정보도 얻어보자.
+
+도서아이디,도서이름,저자이름,출판사이름
+
+SELECT t.title_id, title, au_lname, au_fname, pub_name
+FROM titles t, titleauthor ta, authors a, publishers p
+WHERE t.title_id = ta.title_id
+AND a.au_id = ta.au_id
+AND p.pub_id = t.pub_id
+
+
+SELECT ISNULL(t.title_id, ''), title, au_lname, au_fname, pub_name
+FROM titles t INNER JOIN titleauthor ta
+ON t.title_id = ta.title_id
+RIGHT OUTER JOIN authors a
+ON a.au_id = ta.au_id
+FULL OUTER JOIN publishers p
+ON p.pub_id = t.pub_id
+
+
+현재 근무하고 있는 사원의 정보를 얻어보고자 한다.
+현재 출판사로 배정받지 않은 사원의 정보도 얻어보자.
+--출판사별로 근속연수가 높은 사원 2명의 정보를 얻어보자.
+
+사번, 사원이름, 출판사이름, 재직기간(년)
+
+SELECT emp_id, lname, pub_name, DATEDIFF(yy, hire_date, GETDATE()),
+          RANK() OVER(PARTITION BY pub_name ORDER BY DATEDIFF(yy, hire_date, GETDATE()) DESC), RANK() OVER(PARTITION BY pub_name ORDER BY hire_date) FROM employee e LEFT OUTER JOIN publishers p
+ON p.pub_id = e.pub_id 
+
+
+SELECT emp_id, lname, pub_name, DATEDIFF(yy, hire_date, GETDATE()),
+          RANK() OVER(PARTITION BY pub_name ORDER BY DATEDIFF(yy, hire_date, GETDATE()) DESC), CONVERT(CHAR(8),  GETDATE() - hire_date,111),RANK() OVER(PARTITION BY pub_name ORDER BY hire_date) FROM employee e LEFT OUTER JOIN publishers p
+ON p.pub_id = e.pub_id 
+
+
+CHECK  (([emp_id] like '[A-Z][A-Z][A-Z][1-9][0-9][0-9][0-9][0-9][FM]' 
+
+or [emp_id] like '[A-Z]-[A-Z][1-9][0-9][0-9][0-9][0-9][FM]'))
+
+
+F-C16315M
+
+
+INSERT INTO table_name (column_name1, column_name2 ..)
+VALUES (value1, value2 ..)
+
+
+([pub_id] = '1756' or ([pub_id] = '1622' or ([pub_id] = '0877' or ([pub_id] = '0736' or [pub_id] = '1389'))) or [pub_id] like '99[0-9][0-9]')
+
+
+INSERT INTO publishers
+VALUES('9901', 'RealWeb', 'SEOUL', NULL, 'South Korea') 
+
+INSERT INTO publishers (pub_id, pub_name)
+VALUES('9903', 'Hankyung')
+
+신규 도서의 정보를 추가해 보자.
+
+
+이름:SQL SERVER 2005
+
+출판사: RealWeb
+
+
+저자: 자기 (저자에 자신의 정보를 추가하자)
+
+
+기타 제약조건을 파악하고 추가해 보자.
+
+
+INSERT INTO authors(au_id, au_lname, au_fname, phone, contract)
+VALUES('123-12-1234', 'Tae Geun', 'Kim', '', 'True')
+
+
+([au_id] like '[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]')
+
+
+INSERT INTO titles (title_id, title, type, pub_id, pubdate)
+VALUES('IT1001', 'SQL SERVER 2005', 'IT', '9901', DEFAULT)
+
+
+CREATE TABLE [dbo].[titles_imsi](
+	[title_id] [dbo].[tid] NOT NULL,
+	[title] [varchar](80) NOT NULL,
+	[type] [char](12) NOT NULL,
+	[pub_id] [char](4) NULL,
+	[price] [money] NULL,
+	[pubdate] [datetime] NOT NULL)
+
+SELECT *
+FROM titles_imsi
+
+
+CREATE TABLE test (
+NO int PRIMARY KEY IDENTITY,
+NAME VARCHAR(10))
+
+INSERT INTO test
+VALUES ('TEST')
+
+
+SELECT *
+FROM test
+
+INSERT INTO test
+SELECT name FROM test
+
+
+INSERT INTO title_imsi(title_id)
+SELECT CASE type 
+                  WHEN 'business' THEN 'BU'
+                  WHEN 'mod_cook' THEN 'MC'
+                  ELSE ''
+              END
+FROM titles
+                       
+
+
+6Day
+
+'HR'이름으로 데이터베이스를 생성한다.
+
+다음과 같은 구조의 테이블을 생성하는 스크립트를 작성하세요.
+
+사원 테이블은 다음의 항목을 저장합니다.
+사번은 누구나 가지고 있으며 중복되지 않습니다.
+이름은 반드시 있어야 합니다.
+주소를 저장합니다.
+부서번호는 부서 테이블의 부서 번호를 참조합니다.
+입사일은 기본으로 오늘 날짜를 입력 받도록 합니다.
+회사에서 제공하는 메일을 받아볼지 여부는 Y나 N만 받아들이도록 합니다.
+
+
+부서 테이블은 다음의 항목을 저장합니다.
+부서번호는 반드시 할당되면 중복되지 않습니다. 
+부서번호는 시작 값을 10으로 하며, 10씩 증가합니다.
+부서이름은 반드시 있어야 합니다.
+부서위치는 SEOUL, INCHON, KYUNGGI 지역만을 입력 받습니다.
+
+------------------------------------------------------------------------------------------------------------------
+
+위 조건을 만족하는 테이블과 제약조건을 생성하고, 예제 데이터를 추가하는 스크립트를 작성하세요. 스크립트에는 스크립트 이름, 작성자, 작성일, 설명 및 수정 사항을 반영할 수 있도록 적절한 주석을 넣어두시기 바랍니다. 작성된 스크립트를 실행하여 정상적으로 생성되는지 테스트 하세요. 
+
+create_emp_dept.sql
+
+
+
+--***************************************************************************
+-- Copyright (c) 1997 - 2001 Microsoft Corporation.
+-- All Rights Reserved
+--
+-- @File: instdist.sql
+--
+-- Purpose:
+--  replication procedures for distribution database
+--  
+-- Notes:
+--
+-- History:
+--
+--     @Version: Yukon
+--
+-- @EndHeader@
+--
+--***************************************************************************
+
+
+7Day
+
+1. 도서의 정보를 관리하는 테이블을 생성하고 조건을 만족하는 데이터를 추가하는 작업을 해 보자.
+
+이 테이블은 기존 도서(titles) 테이블로 부터 통계 목적으로 분야별 연간 판매량이 많은 상위 3권의 
+정보를 저장해 두고자 한다.
+
+관리하고자 하는  항목은 다음과 같다.
+
+도서아이디,도서제목,타입,연간판매수량(ytd_sales)
+
+
+CREATE  .. OK
+
+INSERT
+
+INSERT INTO book_highsales
+SELECT title_id, title, type, ytd_sales
+FROM (SELECT title_id, title, type, ytd_sales, 
+                           RANK() OVER (PARTITION BY type ORDER BY ytd_sales DESC) rnk
+             FROM titles
+             WHERE ytd_sales IS NOT NULL) r
+WHERE r.rnk <= 3
+
+SELECT *
+FROM book_highsales
+
+TRUNCATE TABLE book_highsales
+
+
+
+2. 주문량이 적은 하위 20%의 도서에 대해 도서 가격을 10% 인하하도록 해 보자.
+
+
+UPDATE titles
+SET price = ROUND(price - (price * 0.1), 2)
+WHERE title_id IN (SELECT title_id
+                              FROM ( SELECT title_id,  NTILE(10) OVER (ORDER BY SUM(qty)) bucket
+                                           FROM sales
+                                           GROUP BY title_id) b
+                              WHERE b.bucket <= 2)
+
+
+1.
+SELECT title_id,  SUM(qty)
+FROM sales
+GROUP BY title_id
+ORDER BY SUM(qty)
+
+2.
+SELECT title_id,  NTILE(10) OVER (ORDER BY SUM(qty)) bucket
+FROM sales
+GROUP BY title_id
+
+3.
+SELECT title_id
+FROM ( SELECT title_id,  NTILE(10) OVER (ORDER BY SUM(qty)) bucket
+             FROM sales
+             GROUP BY title_id) b
+WHERE b.bucket <= 2
+
+4.
+SELECT title_id, price, price - (price * 0.1)
+FROM titles
+WHERE title_id IN (SELECT title_id
+                              FROM ( SELECT title_id,  NTILE(10) OVER (ORDER BY SUM(qty)) bucket
+                                           FROM sales
+                                           GROUP BY title_id) b
+                              WHERE b.bucket <= 2)
+
+
+
+8Day
+
+클러스터 인덱스는 Primary Key로 지정된 칼럼에 설정하면 (일반적으로) 좋은 효과를 얻을 수 있다.
+
+예. 
+SELECT title
+FROM titles 
+WHERE title_id = ..
+
+
+비 클러스터 인덱스는 조건을 만족하는 데이터가 전체 데이터에서 차지하는 비율이 낮을수록 좋다.
+
+SELECT title
+FROM titles
+WHERE type = 'business'
+
+
+500/10,000   1,000/10,000
+
+5~10%
+
+
+인덱스 조별 과제
+
+1) 결과에 영향을 주는 SET 옵션 : 2조
+
+2) SQL SERVER 2005에서 제공하는 INDEX의 새로운 기능 : 3조
+
+3) 쿼리 유형별 인덱스 적용 : 1조
+
+
+9Day
+
+View
+
+도서와 관련된 전체 정보를 제공해 주는 View를 생성해 보자.
+
+도서아이디, 도서이름, 저자이름, 출판사이름, 가격, 출판일자, 도서소개
+
+SELECT t.title_id, title, au_lname, au_fname, pub_name, price, pubdate, notes
+FROM titles t JOIN titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id = ta.au_id
+JOIN publishers p
+ON p.pub_id = t.pub_id
+WHERE title LIKE '%computer%'
+AND price < 20
+
+
+SELECT *
+FROM titles_vw
+WHERE title LIKE '%computer%'
+AND price < 20
+
+
+
+CREATE VIEW view_name
+AS SELECT ..
+
+CREATE VIEW titles_vw
+AS SELECT t.title_id, title, au_lname, au_fname, pub_name, price, pubdate, notes
+FROM titles t JOIN titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id = ta.au_id
+JOIN publishers p
+ON p.pub_id = t.pub_id
+
+
+도서 주문 내역 중에서 1994년에 주문 내역에 대한 정보만을 보여주는 VIEW를 생성해 보자.
+
+CREATE VIEW sales_1994
+AS
+SELECT stor_id, ord_date, qty, title_id
+FROM sales
+WHERE YEAR(ord_date) = 1994
+
+
+임의의 주문 정보를 하나 추가해 보자. 주문 날자를 1994년으로 설정하자.
+
+View sales_1994는 추가된 주문 정보를 확인할 수 있는가?
+
+INSERT INTO sales
+VALUES(6380, 6872, '1994-09-14', 10, 'Net 30', 'TC7777')
+
+SELECT *
+FROM sales_1994
+
+
+title_vw를 수정해 보자.
+
+현재 할인을  하고 있는 도서의 정보도 함께 제공해 주는 View를 만들자.
+
+SELECT t.title_id, au_lname, au_fname, pub_name
+FROM titles t JOIN titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id = ta.au_id
+JOIN publishers p
+ON p.pub_id = t.pub_id
+JOIN sales sa
+ON t.title_id = sa.title_id
+====================================
+
+SELECT stor_id, stor_name
+FROM discounts d JOIN store s
+ON s.stor_id = d.stor_id
+WHERE stor_id IS NOT NULL
+
+JOIN stores s
+ON s.stor_id = sa.stor_id
+LEFT OUTER JOIN discounts d
+ON s.stor_id = d.stor_id
+SELECT t.title_id AS title_id, au_lname, au_fname
+FROM titles t  JOIN titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id = ta.au_id
+
+SELECT s.stor_id AS stor_id, stor_name, title_id, discounttype
+FROM discounts d JOIN stores s
+ON s.stor_id = d.stor_id
+JOIN sales sa
+ON s.stor_id = sa.stor_id
+
+ALTER VIEW title_vw
+AS
+SELECT book.title_id, au_lname, au_fname, price, discounttype, discount
+FROM (SELECT t.title_id AS title_id, au_lname, au_fname, price 
+FROM titles t  JOIN titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id = ta.au_id) book 
+LEFT OUTER JOIN
+(SELECT s.stor_id AS stor_id, stor_name, title_id, discounttype, discount
+FROM discounts d JOIN stores s
+ON s.stor_id = d.stor_id
+JOIN sales sa
+ON s.stor_id = sa.stor_id) dc
+ON book.title_id = dc.title_id
+
+
+오후 1:18 2008-02-22
+
+저장 프로시져
+
+
+CREATE 	PROCEDURE procedure_name
+AS
+execute_statements..
+
+
+1) 실행문에서 실행될 SQL문을 작성한다.
+
+SELECT *
+FROM titles;
+
+2) Stored Procedure로 만든다.
+
+USE pubs
+GO
+CREATE PROCEDURE info_title
+AS
+    SELECT *
+    FROM titles;
+
+
+작성된 저장 프로시져 info_title 수정해서 특정 도서를 검색하여 결과를 나타낼 수 있도록 해 보자.
+
+1) 
+SELECT *
+FROM titles
+WHERE title LIKE '%computer%';
+
+
+2) 
+USE pubs
+GO
+ALTER PROCEDURE info_title
+    @title VARCHAR(80)
+AS
+    SELECT *
+    FROM titles
+    WHERE title LIKE '%'+@title+'%';
+
+EXEC info_title  'computer'
+
+
+도서의 출간년도를 입력받아 해당 연도에 출간된 도서의 정보를 얻어보자.
+
+예. 1992년부터 1994년 사이에 출간된 도서의 정보
+
+EXEC year_title 1992, 1994
+
+도서아이디, 도서이름, 가격, 출간일자
+
+
+1) 조건을 만족하는 Query문을 작성한다.
+
+SELECT title_id, title, price, pubdate
+FROM titles
+WHERE YEAR(pubdate) BETWEEN 1992 AND 1994;
+
+2) 조건을 매개변수로 처리하는 저장 프로시져를 작성한다.
+
+CREATE PROCEDURE year_title
+    @syear int, @eyear int
+AS
+    SELECT title_id, title, price, pubdate
+    FROM titles
+    WHERE YEAR(pubdate) BETWEEN @syear AND @eyear;
+
+USE AdventureWorks;
+GO
+IF OBJECT_ID ( 'Production.usp_GetList', 'P' ) IS NOT NULL 
+    DROP PROCEDURE Production.usp_GetList;
+GO
+CREATE PROCEDURE Production.usp_GetList @product varchar(40) 
+    , @maxprice money 
+    , @listprice money OUTPUT
+AS
+    SELECT p.name AS Product, p.ListPrice AS 'List Price'
+    FROM Production.Product p
+    JOIN Production.ProductSubcategory s 
+      ON p.ProductSubcategoryID = s.ProductSubcategoryID
+    WHERE s.name LIKE @product AND p.ListPrice < @maxprice;
+-- Populate the output variable @listprice.
+SET @listprice = (SELECT MAX(p.ListPrice)
+        FROM Production.Product p
+        JOIN  Production.ProductSubcategory s 
+          ON p.ProductSubcategoryID = s.ProductSubcategoryID
+        WHERE s.name LIKE @product AND p.ListPrice < @maxprice);
+-- Populate the output variable @compareprice.
+
+GO
+DECLARE @listprice money
+EXEC Production.usp_GetList '%Bikes%', 700,
+@listprice OUTPUT
+
+PRINT @listprice
+  
+
+저자의 이름을 입력받아 해당 저자가 출간한 도서의 정보를 얻어보자.
+
+EXEC usp_author_title 'Green'  
+
+도서이름, 가격, 출판일자, 출판사
+
+해당 저자의 도서 중 가장 많이 판매된 도서도 함께 나타내 보자.  OUTPUT
+
+
+1) 실행 내용을 Query로 작성한다.
+
+SELECT title, price, pub_name
+FROM titleview
+WHERE au_lname LIKE '%Green%'
+
+SELECT title, au_ord, au_lname, price, pubdate, pub_name
+FROM authors, titles, titleauthor, publishers
+WHERE authors.au_id = titleauthor.au_id
+   AND titles.title_id = titleauthor.title_id            
+   AND publishers.pub_id = titles.pub_id
+   AND au_lname LIKE '%Green%'
+
+
+SELECT title_id, SUM(qty)
+FROM sales
+GROUP BY title_id
+
+SELECT title
+FROM (SELECT titles.title_id, RANK() OVER (ORDER BY SUM(qty) DESC) rnk
+            FROM titles JOIN titleauthor
+            ON  titles.title_id = titleauthor.title_id   
+            JOIN authors 
+            ON authors.au_id = titleauthor.au_id
+            JOIN sales
+            ON titles.title_id = sales.title_id
+            WHERE au_lname LIKE '%Green%'
+            GROUP BY titles.title_id) list JOIN titles
+ON titles.title_id = list.title_id 
+WHERE rnk = 1
+
+SELECT titles.title_id, qty
+            FROM titles JOIN titleauthor
+            ON  titles.title_id = titleauthor.title_id   
+            JOIN authors 
+            ON authors.au_id = titleauthor.au_id
+            JOIN sales
+            ON titles.title_id = sales.title_id
+
+
+
+
+2) 매개변수를 적용하여 저장 프로시져를 만든다.
+
+CREATE PROC usp_author_title
+    @name VARCHAR(20), @title VARCHAR(50) OUTPUT
+AS
+   SELECT title, au_ord, au_lname, price, pubdate, pub_name
+   FROM authors, titles, titleauthor, publishers
+   WHERE authors.au_id = titleauthor.au_id
+   AND titles.title_id = titleauthor.title_id            
+   AND publishers.pub_id = titles.pub_id
+   AND au_lname LIKE '%'+@name+'%';
+
+SET @title = (SELECT title
+                    FROM (SELECT titles.title_id, RANK() OVER (ORDER BY SUM(qty) DESC) rnk
+                                FROM titles JOIN titleauthor
+                                ON  titles.title_id = titleauthor.title_id   
+                                JOIN authors 
+                                ON authors.au_id = titleauthor.au_id
+                                JOIN sales
+                                ON titles.title_id = sales.title_id
+                                WHERE au_lname LIKE '%'+@name+'%'
+                                GROUP BY titles.title_id) list JOIN titles
+                    ON titles.title_id = list.title_id 
+                    WHERE rnk = 1);
+
+DECLARE @title VARCHAR(50)
+EXEC usp_author_title  'Green', @title OUTPUT
+PRINT @title
+ 
+
+SQL SERVER SQL 정리 주제.
+
+1. 단일 테이블을 이용한 기본 Query
+2. SQL 함수
+3. JOIN
+4. DML (제약조건)
+5. TABLE 
+6. INDEX
+7. VIEW
+8. 저장 프로시져
+9. 사용자 정의 함수
+10. 트랜잭션
+11. 트리거
+
+
+쿼리 유형별 인덱스 적용
+
+테이블에 CLUSTER INDEX와 NON CLUSTER INDEX가 있는 경우 
+NON CLUSTER INDEX로 설정된 칼럼을 대상으로  아래와 같은 질의문을 수행한 결과
+실행 계획을 살펴보자.
+
+1) WHERE column_name LIKE 'D%'
+WHERE column_name LIKE '%D%'
+
+
+2) WHERE column_name IS NULL
+
+3) WHERE column_name != value
+
+
+JOIN
+
+select title, type, price
+from titles
+where title like 'B%'
+
+select title, type, price
+from titles
+where title like '%B%'
+
+select title, type, price
+from titles
+where price is null
+
+select title, type, price
+from titles
+where price != 17.99
+
+select title_id, royalty
+from roysched
+where title_id like 'BU%'
+
+select title_id, royalty
+from roysched
+where title_id like '%BU%'
+
+sp_helpindex titles
+
+select title,title_id, price
+from titles 
+where title_id like 'B%'
+
+select title, title_id, price
+from titles
+where title_id like '%B%'
+
+
+
+
+procedure를 이용하여 titles 테이블에 50만건의 데이터를 추가해 보자.
+
+
+ EXEC popu_titles(30000)
+
+
+INSERT INTO titles
+SELECT * FROM titles
+
+
+참고사항
+title_id에 추가되는 값은 type+일련번호 의 형태로 입력된다.
+
+예. BU1001, MC1002, PC1003, BU1004, ...
+
+declare @ l_cnt int 
+set @l_cnt = 1
+
+type 이 business 라면 bu + @l_cnt
+
+set @l_cnt = @l_cnt  + 1;
+
+INSERT INTO title_id, title FROM titles
+SELECT   , title FROM titles;
+
+
+도서 테이블(titles)의 title_id 칼럼의 identity 속성을 이용하여 일련번호를 생성시켜 가면서
+많은 양의 데이터를 추가해 보자.
+
+
+1. 도서 테이블과 구조가 동일한 테이블을 생성한다.
+
+이 경우 도서아이디에 대해 identity 속성을 지정한다.
+
+cluster index를 도서 아이디에 지정하자.
+
+
+
+CREATE TABLE title_big (
+title_id INT IDENTITY PRIMARY KEY CLUSTERED,
+title VARCHAR(80),
+type CHAR(12),
+pub_id CHAR(4),
+price money,
+pub_date datetime)
+
+
+2. 기존 도서 테이블(titles)로부터 도서 관련 정보를 얻어오자.
+
+이 데이터를 바탕으로 반복해서 데이터를 추가하는 작업을 하자.
+
+10만건을 목표로 해서 데이터를 추가해 보자.
+
+CREATE PROC popu_title_big
+   @p_cnt  INT
+AS
+  DECLARE @i INT
+  SET @i =0
+  BEGIN 
+       WHILE @i < @p_cnt
+       BEGIN
+              INSERT INTO title_big
+             SELECT title,  type, pub_id, price, pubdate FROM titles
+             
+             SET @i = @i + 1
+       END
+  END
+
+EXEC popu_title_big 1000
+
+
+
+
+
+CREATE PROC popu_title
+   @l_cnt INT
+AS
+    DECLARE @name CHAR(2)
+    DECLARE @l_sum INT
+    DECLARE @l_no INT
+
+    SET @l_sum = 0;
+    SET @l_no = 1000;
+
+
+    SET @l_sum = @l_sum + @l_no;
+   
+   -- INSERT INTO titles
+    SELECT CASE type 
+                                            WHEN 'business' THEN 'BU'
+		            WHEN 'mod_cook' THEN 'MC'
+		            WHEN 'popular_comp' THEN 'PC'
+		            WHEN 'psychology' THEN 'PS'
+                                            WHEN 'trad_cook' THEN 'TC'
+                                            ELSE
+                                                            'UD'
+                   END +  CAST(@l_sum AS VARCHAR)
+                   title_id, title, type, pub_id, price, advance, royalty, ytd_sales, notes, pubdate
+    FROM titles;    
+
+   SET @l_no = @l_no + 1;
+     
+
+
+CREATE PROC popu_title
+   @l_cnt INT
+AS
+   
+   -- INSERT INTO titles
+    SELECT CASE type 
+                                            WHEN 'business' THEN 'BU'
+		            WHEN 'mod_cook' THEN 'MC'
+		            WHEN 'popular_comp' THEN 'PC'
+		            WHEN 'psychology' THEN 'PS'
+                                            WHEN 'trad_cook' THEN 'TC'
+                                            ELSE
+                                                            'UD'
+                   END +  CAST(@@IDENTITY AS VARCHAR)
+                   title_id, title, type, pub_id, price, advance, royalty, ytd_sales, notes, pubdate
+    FROM titles;    
+
+
+
+use pubs
+go
+CREATE PROC spInsertJob
+  @job_desc varchar(50),
+  @min_lvl tinyint,
+  @max_lvl tinyint,
+  @job_id smallint OUTPUT
+AS
+  INSERT INTO jobs
+  VALUES (
+    @job_desc, @min_lvl, @max_lvl)
+
+
+
+SELECT @job_id = @@IDENTITY
+
+
+DECLARE @myIdent smallint
+EXEC spInsertJob @job_desc = 'Consulting', @min_lvl = '100', @max_lvl = '250', 
+     @job_id = @myIdent OUTPUT
+
+SELECT * FROM jobs WHERE job_id = @myIdent 
+
+
+
+도서 테이블에 신규 데이터를 추가하는 저장 프로시져를 만들어 보자.
+
+도서 아이디 (title_id) 는 type + 일련번호로 구성되도록 한다.  예. 'BU1000'
+
+나머지 칼럼은 제약 조건을 만족하는 조건으로 입력된다.
+
+
+CREATE PROC spInsertTitle
+    @title VARCHAR(80),
+    @type CHAR(12),
+    @pubdate DATETIME
+AS
+  DECLARE @tid01 CHAR(2)
+  DECLARE @tid02 CHAR(6)
+
+  SET @tid01 = SELECT 
+                               CASE @type
+                                    WHEN 'business'  THEN 'BU'
+                                    WHEN 'mod_cook' THEN 'MC'
+                                    WHEN 'popular_comp' THEN 'PC'
+                                    WHEN 'psychology' THEN 'PS'
+                                    WHEN 'trad_cook' THEN 'TC'
+                                               ELSE  'UD'
+                               END
+
+   SET @tid02 = SELECT MAX(title_id) FROM titles  BU1000
+
+   SET @tid02 = CAST (CAST (SUBSTR(@tid02,3,4) AS INT) + 1 AS CHAR(4)) 
+
+   PRINT @tid01 + @tid02
+   
+
+  INSERT INTO titles (title_id, title, type, pubdate)
+  VALUES(  @tid01 + @tid02 , @title, @type, @pubdate)
+
+
+
+
+   EXEC spFactorial(5)
+
+   5*4*3*2*1 연산 결과..
+
+   1) LOOP
+
+   2) 재귀호출
+
+
+ ALTER PROC factorial
+   @p_cnt INT
+AS
+   DECLARE @l_result INT
+   SET @l_result = 1
+   IF @p_cnt > 1
+      BEGIN
+         WHILE (@p_cnt > 1)
+            BEGIN
+               SET @l_result = @l_result * @p_cnt
+               SET @p_cnt = @p_cnt - 1
+            END
+         PRINT @l_result   
+      END
+    ELSE
+      PRINT @p_cnt
+
+DECLARE @p_cnt INT
+EXEC factorial @p_cnt = 10
+
+
+
+오후 3:00 2008-02-26
+
+
+사용자 정의 함수 (UDF: User Define Function)
+
+
+CREATE FUNCTION function_name
+          RETURNS datatype
+AS
+     BEGIN
+          RETURN (value);
+     END;
+
+
+pubs 데이터베이스에 sales 테이블에 몇 건의 주문을 발생시켜 보자.
+
+오늘 주문 내역을 확인하고자 한다.
+
+
+INSERT INTO sales VALUES('6380', '6873', getdate(), 10, 'Net 60', 'PC1035')
+
+SELECT *
+FROM sales
+WHERE ord_date  = getdate()
+
+0건
+
+SELECT *
+FROM sales
+WHERE CAST(ord_date AS CHAR(12)) = CAST(getdate() AS CHAR(12))
+
+--건
+
+CREATE FUNCTION dayOnly
+   (@date datetime)
+   RETURNS CHAR(12)
+AS
+  BEGIN
+     RETURN CAST(@date AS CHAR(12)) 
+  END
+
+
+SELECT *
+FROM sales
+WHERE dbo.dayOnly(ord_date) = dbo.dayOnly(getdate())
+
+
+
+도서에 대한 할인을 적용하는 함수 discountPrice를 만들어 보자.
+
+5년이내 출간된 도서는 5%
+10년이내 출간된 도서는 10%
+그외 20% 할인을 적용하고자  한다.
+
+
+
+위 할인율을 적용한 함수를 생성해 보자.
+
+SELECT title, pubdate, price, dbo.discountPrice(price, pubdate) AS discountPrice
+FROM titles
+
+ALTER FUNCTION discountPrice
+    (@price money, @pubdate datetime)
+   RETURNS  money
+AS
+BEGIN
+   DECLARE @result money
+   IF DATEDIFF(YEAR,  @pubdate, getdate()) <= 5  
+       SET @result =  FlOOR(CAST( @price - (@price * 0.05) AS INT))
+   ELSE IF DATEDIFF(YEAR,  @pubdate, getdate()) <= 10  
+       SET @result = FlOOR(CAST( @price - (@price * 0.1) AS INT))
+   ELSE
+       SET @result = FlOOR(CAST( @price - (@price * 0.2) AS INT))
+
+   RETURN @result
+END 
+  
+
+
+CASE적용한 Query
+
+SELECT title, pubdate, price,  CASE 
+                                                           WHEN DATEDIFF(YEAR,  pubdate, getdate()) <= 5 THEN 
+                                                                  ROUND((price - (price * 0.05)),2) 
+                                                           WHEN DATEDIFF(YEAR,  pubdate, getdate()) <= 10 THEN 
+                                                                  price - (price * 0.1) 
+                                                            ELSE
+                                                                   price - (price * 0.2)
+                                                      END AS discountPrice
+FROM titles
+
+
+오후 1:12 2008-02-27
+
+
+
+저자의 이름을 입력하면 해당 저자의 누적수익을 구하는 저장 프로시져를 만들어 보자.
+
+EXEC spAuthorEarning  author_name
+
+저자아이디,저자이름,수익(인세)
+
+수익  계산시 고려할 점
+
+도서의  가격, 판매수량(주문수량), 인세율, 공저인 경우 royalty의 지분
+
+
+1) User Defined Function  fnAuthorEarning을 정의하자.
+
+
+CREATE FUNCTION  fnAuthorEarning	
+    (@price money, @qty int)
+    RETURNS int
+AS
+    DECLARE @l_sum money
+    DECLARE @result
+    BEGIN
+         SET @l_sum = @price * @qty
+         ..
+         RETURN @result
+    END
+
+
+
+1-1. 특정 저자가 집필한 모든 도서의 판매 금액의 합계를 계산해 보자.
+
+SELECT t.title_id as title_id,  SUM(price * qty)
+FROM titles t JOIN titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id = ta.au_id
+JOIN sales s
+ON t.title_id = s.title_id
+WHERE a.au_id = '274-80-9391'
+GROUP BY t.title_id
+
+BU7832, 269.85
+
+1-2. 판매 수량에 따른 인세를 적용하여 도서마다 정해지는 royalty를 파악하고, 
+자신이 받는 인세가 얼마인지 계산해 보자.
+
+SELECT title_id, royalty
+FROM
+(SELECT t.title_id as title_id, SUM(qty) as sumQty
+FROM titles t JOIN titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id = ta.au_id
+JOIN sales s
+ON t.title_id = s.title_id
+WHERE a.au_id = '274-80-9391'
+GROUP BY t.title_id) re JOIN roysched r
+ON re.title_id = r.title_id
+WHERE sumqty BETWEEN lorange AND hirange
+
+BU7832, 10
+
+1-3. 공동 저자의 경우 자신이 받는 몫을 확인해 보자.
+
+SELECT title_id, royaltyper
+FROM authors a JOIN titleauthor ta
+ON a.au_id = ta.au_id
+WHERE a.au_id = '274-80-9391'
+
+BU7832, 100
+
+
+
+SELECT SUM(total * (royalty*0.01 ) * (royaltyper*0.01))
+FROM 
+(
+SELECT re.title_id as title_id, royalty, total
+FROM
+(SELECT t.title_id, SUM(qty) AS sumQty, SUM(price * qty) AS total
+FROM titles t JOIN titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id = ta.au_id
+JOIN sales s
+ON t.title_id = s.title_id
+WHERE a.au_id = '274-80-9391'
+GROUP BY t.title_id) re JOIN roysched r
+ON re.title_id = r.title_id
+WHERE sumqty BETWEEN lorange AND hirange
+) T2
+JOIN
+(
+SELECT title_id, royaltyper
+FROM authors a JOIN titleauthor ta
+ON a.au_id = ta.au_id
+WHERE a.au_id = '274-80-9391'
+) T3
+ON T2.TITLE_ID= T3.TITLE_ID
+
+
+2) 저장 프로시져로 작성해 보자.  사용자 정의 함수를 적용할 수 있는 부분을 어디인가?
+
+
+1    SELECT SUM(total * (royalty*0.01 ) * (royaltyper*0.01))
+1    SELECT SUM(dbo.fnEarning(total, royalty, royaltyper))
+
+CREATE FUNCTION fnEarning
+    (@total money, @royalty smallint, @royaltyper tinyint)
+   RETURNS money
+AS
+  BEGIN
+     DECLARE @result money
+     SET @result = @total * (@royalty*0.01 ) * (@royaltyper*0.01)
+     RETURN @result 
+  END
+
+
+
+SELECT SUM(dbo.fnEarning(total, royalty, royaltyper))
+FROM 
+(
+     SELECT re.title_id as title_id, royalty, total
+     FROM
+          (SELECT t.title_id, SUM(qty) AS sumQty, SUM(price * qty) AS total
+           FROM titles t JOIN titleauthor ta
+           ON t.title_id = ta.title_id
+           JOIN authors a
+           ON a.au_id = ta.au_id
+           JOIN sales s
+           ON t.title_id = s.title_id
+           WHERE a.au_id = '274-80-9391'
+           GROUP BY t.title_id) re JOIN roysched r
+           ON re.title_id = r.title_id
+           WHERE sumqty BETWEEN lorange AND hirange
+) T2
+JOIN
+(
+     SELECT title_id, royaltyper
+     FROM authors a JOIN titleauthor ta
+     ON a.au_id = ta.au_id
+     WHERE a.au_id = '274-80-9391'
+) T3
+ON T2.TITLE_ID= T3.TITLE_ID
+
+
+CREATE PROCEDURE spAuthorEarning 
+   (@au_id VARCHAR(20))
+AS
+DECLARE @result money
+SET @result =  (SELECT SUM(dbo.fnEarning(total, royalty, royaltyper))
+FROM 
+(
+     SELECT re.title_id as title_id, royalty, total
+     FROM
+          (SELECT t.title_id, SUM(qty) AS sumQty, SUM(price * qty) AS total
+           FROM titles t JOIN titleauthor ta
+           ON t.title_id = ta.title_id
+           JOIN authors a
+           ON a.au_id = ta.au_id
+           JOIN sales s
+           ON t.title_id = s.title_id
+           WHERE a.au_id = @au_id
+           GROUP BY t.title_id) re JOIN roysched r
+           ON re.title_id = r.title_id
+           WHERE sumqty BETWEEN lorange AND hirange
+) T2
+JOIN
+(
+     SELECT title_id, royaltyper
+     FROM authors a JOIN titleauthor ta
+     ON a.au_id = ta.au_id
+     WHERE a.au_id = @au_id
+) T3
+ON T2.TITLE_ID= T3.TITLE_ID)
+PRINT @result
+
+EXEC spAuthorEarning @au_id = '274-80-9391'
+                                                           
+    
+오후 4:07 2008-02-27
+
+
+Transaction
+
+USE pubs
+GO
+BEGIN TRAN
+INSERT INTO jobs VALUES('Delivery', 100, 150)
+
+
+
+무결성 제약 위반 시 발생하는 에러 번호를 찾아보자.
+
+
+도서에 대한 재고 정보를 관리할 수 있는 테이블을 생성해 보자.
+
+재고 정보를 나타내는 칼럼은 양의 정수만을 받도록 제약 조건을 만들어 보자.
+
+
+발생한 트랜잭션
+
+1) 도서에 대한 주문 처리를 한다. 
+
+2) 정상 주문 처리가 되었다면  주문 수량 만큼 해당 도서의 재고 수량도 조정된다.
+
+3) 이 때 재고 수량보다 많은 주문 수량이 발생한다면 트랜잭션을 ROLLBACK 처리하고,
+
+ 그렇지 않다면 COMMIT 처리하는 프로시져를 만들자.
+
+
+무결성 제약 위반 시 발생하는 에러 번호를 찾아보자.
+
+USE pubs
+go
+BEGIN TRY
+    DELETE FROM publishers WHERE pub_id = 0736
+END TRY
+BEGIN CATCH
+    SELECT ERROR_NUMBER() AS ErrorNumber
+END CATCH
+
+도서에 대한 재고 정보를 관리할 수 있는 테이블을 생성해 보자.
+재고 정보를 나타내는 칼럼은 양의 정수만을 받도록 제약 조건을 만들어 보자.
+
+CREATE TABLE stock (
+title_id VARCHAR(20) PRIMARY KEY,
+qty SMALLINT)
+go
+ALTER TABLE stock ADD CONSTRAINT stock_qty_ck CHECK (qty >= 0)
+go
+INSERT INTO stock VALUES('PS1372', 20);
+INSERT INTO stock VALUES('TC7777', 50);
+INSERT INTO stock VALUES('BU1032', 40);
+go
+SELECT * FROM stock
+
+
+발생한 트랜잭션
+
+1) 도서에 대한 주문 처리를 한다. 
+
+2) 정상 주문 처리가 되었다면  주문 수량 만큼 해당 도서의 재고 수량도 조정된다.
+
+3) 이 때 재고 수량보다 많은 주문 수량이 발생한다면 트랜잭션을 ROLLBACK 처리하고,
+
+ 그렇지 않다면 COMMIT 처리하는 프로시져를 만들자.
+
+
+INSERT INTO sales 
+VALUES('6380', '9002', getdate(), 30, 'Net 30', 'PS1372')
+go
+UPDATE stock 
+SET qty = qty - 30
+WHERE title_id = 'PS1372'
+
+
+CREATE PROC orderStock
+  @stor_id CHAR(4),
+  @ord_num VARCHAR(20),
+  @qty SMALLINT,
+  @payterms VARCHAR(12),
+  @title_id VARCHAR(10)
+AS
+   DECLARE @err_num SMALLINT
+   BEGIN TRAN
+        BEGIN TRY
+               INSERT INTO sales 
+               VALUES(@stor_id, @ord_num, getdate(), @qty, @payterms, @title_id);
+        
+               UPDATE stock 
+               SET qty = qty - @qty
+               WHERE title_id = @title_id;
+        END TRY
+        
+        BEGIN CATCH
+               SELECT @err_num = ERROR_NUMBER()
+        END CATCH
+    
+    IF (@err_num = 547)
+         ROLLBACK TRAN;    
+    ELSE
+         BEGIN
+                 COMMIT TRAN;
+                 SELECT qty FROM stock s JOIN titles t ON t.title_id = s.title_id WHERE t.title_id = @title_id; 
+         END     
+        
+
+
+  EXEC orderStock @stor_id = '6380', @ord_num = '9002', @qty= 10 , @payterms = 'Net 30', @title_id = 'PS1372'
+
+  EXEC orderStock @stor_id = '6380', @ord_num = '9003', @ord_date = getdate(), @qty= 50 , @payterms = 'Net 30', @title_id = 'PS1372'
+
+
+
+
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

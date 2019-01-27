@@ -1,0 +1,63 @@
+01: using System;
+02: using System.Collections;//ArrayList
+03: namespace Com.JungBo.Maths{
+04:     //throw 섹션 54에서 인덱서 변경
+05:     public class ZLists{
+06: 
+07:         private ArrayList list = new ArrayList();
+08:         //list안에 것 모두 제거
+09:         public ZLists() {
+10:             list.Clear();
+11:         }
+12:         //list에 복소수 z 추가하기
+13:         public void Add(Z z) {
+14:             list.Add(z);
+15:         }
+16:         //list에 있는 복소수 z 제거
+17:         public void Remove(Z z) {
+18:             list.Remove(z);
+19:         }
+20:         //list의 index번째 삭제
+21:         public void RemoveAt(int index) {
+22:             list.RemoveAt(index);
+23:         }
+24:         //인덱서 : 예외발생추가
+25:         public Z this[int index]{
+26:             get{
+27:                 if (index < 0 || index >= list.Count){
+28:                     //예외발생시키기
+29:                     throw 
+30:                  new IndexOutOfRangeException("범위를 넘어섰습니다.");
+31:                 }
+32:                 else{
+33:                     return list[index] as Z;
+34:                 }
+35:             }
+36:             set{
+37:                 if (index < 0 || index > list.Count){
+38:                     throw 
+39:                  new IndexOutOfRangeException("범위를 넘어섰습니다.");
+40:                 } if (index == list.Count){
+41:                     this.Add(value);
+42:                 }
+43:                 else{
+44:                     list[index] = value;
+45:                 }
+46:             }
+47:         }
+48:         //list에 z와 동일한 것이 있는가?
+49:         public bool Contains(Z z) {
+50:             return list.Contains(z);
+51:         }
+52:         //list에 있는 복소수 출력
+53:         public void PrintZList() {
+54:             foreach (Z zvar in list){
+55:                 Console.WriteLine(zvar);
+56:             }
+57:         }
+58:         //list에 있는 복소수 개수
+59:         public int Count {
+60:             get { return list.Count; }
+61:         }
+62:     }
+63: }

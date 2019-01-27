@@ -1,0 +1,62 @@
+01: using System;
+02: namespace Com.JunBo.Logic{
+03:     //2차원배열
+04:     public class OddMagicSquare{
+05:         private int[,] mabang;//2차원 배열 선언
+06: 
+07:         public OddMagicSquare(int n) {
+08:             this.mabang = new int[n, n];//생성, 초기화
+09:         }//생성자
+10: 
+11:         public void Make() {
+12:             int top = mabang.GetLength(0)-1;  //열의 수
+13:             int x = 0;        //맨위
+14:             int y = top / 2;  //중앙
+15:             mabang[x, y] = 1;
+16:             for (int i = 2; i <= (top + 1) * (top+1); i++){
+17:                 int tempX = x;
+18:                 int tempY = y;
+19: 
+20:                 if (x - 1 < 0){  //윗벽
+21:                     x = top;     //아래쪽
+22:                 }
+23:                 else {
+24:                     x--;
+25:                 }
+26:                 if (y - 1 < 0){   //왼쪽벽
+27:                     y = top;      //오른쪽
+28:                 }
+29:                 else{
+30:                     y--;
+31:                 }
+32:                 //이미 존재하는가?
+33:                 if(mabang[x,y]!=0){
+34:                     x = tempX + 1;   //원위치에서 한칸아래
+35:                     y = tempY;       //원위치
+36:                 }
+37:                 mabang[x, y] = i;
+38:             }
+39: 
+40:         }//Make
+41:         //row의 합을 구한다.마방진 체크로직 일부
+42:         private int SumRow(int row){
+43:             int count = mabang.GetLength(1);
+44:             int total = 0;
+45:             for (int i = 0; i < count; i++){
+46:                 //row는 변함없이 col만 변한다.
+47:                 total += this.mabang[row, i];
+48:             }
+49:             return total;
+50:         }
+51:         //마방진을 출력한다.
+52:         public void Print(){
+53:             for (int i = 0; i < mabang.GetLength(0); i++){
+54:                 for (int j = 0; j < mabang.GetLength(1); j++){
+55:                     Console.Write("{0}\t", mabang[i, j]);
+56:                 }
+57:                 //row의 합 출력
+58:                 Console.Write("R:{0}\n",SumRow(i));
+59:             }
+60:         }//Print
+61:     }//class
+62: }//namespace

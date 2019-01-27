@@ -1,0 +1,141 @@
+001:  using System;
+002:  namespace Com.JungBo.Logic {
+003:      public class PrimeNumber{
+004:          public static bool IsPrime(int n){
+005:              bool isP = true;
+006:              for (int i = 2; i <= (int)(Math.Sqrt(n)); i++){
+007:                  if (n % i == 0){
+008:                      isP = false;
+009:                      break;
+010:                  }
+011:              }
+012:              return isP;
+013:          }//
+014:          public static void PrintPrime(int n){
+015:              int count = 0;
+016:              for (int i = 2; i <= n; i++){
+017:                  if (IsPrime(i))
+018:                  {//IsPrime(i)==true 동일
+019:                      Console.Write("{0}\t", i);
+020:                      count++; //count=count+1과 동일
+021:                  }
+022:              }
+023:              Console.WriteLine();
+024:              Console.WriteLine("2부터 {0}까지 약수: {1}개",
+025:                  n, count);
+026:          }
+027:          //소인수 분해
+028:          public static void PrintOfDivision(int num){
+029:  		    int i=2;
+030:  		    while(num!=1){
+031:      			
+032:  			    if(num%i==0){
+033:  				    if(num/i==1){
+034:  					    Console.WriteLine("{0}",i);
+035:      					
+036:  				    }else{
+037:  					    Console.Write("{0} X ",i);
+038:  				    }
+039:  				    num/=i;
+040:  			    }else{
+041:  				    i++;	
+042:  			    }
+043:  		    }
+044:  	    }//
+045:          //소인수 분해
+046:          public static void PrintOfDivisions(
+047:                                     int startNum, int endNum){
+048:              for (int i = startNum; i <= endNum; i++){
+049:                  Console.Write("{0}= ", i); PrintOfDivision(i);
+050:              }
+051:          }
+052:          //각 자리수의 합 123-> 6
+053:          public static int SumOfNum(int num){
+054:              char[] cn = num.ToString().ToCharArray();
+055:              int total = 0;
+056:              for (int i = 0; i < cn.Length; i++)
+057:              {
+058:                  total += (cn[i] - '0');
+059:              }
+060:              return total;
+061:          }//
+062:  
+063:          //소인수 분해 후 각자리수합 -> 2*17 -> 2+1+7
+064:          public static int SumOfDivision(int num){
+065:  		    int i=2;
+066:  		    int total=0;
+067:  		    while(num!=1){
+068:  			    if(num%i==0){
+069:  				    total+=SumOfNum(i);
+070:  				    num/=i;
+071:  			    }else{
+072:  				    i++;	
+073:  			    }
+074:  		    }
+075:  		    return total;
+076:  	    }//
+077:          //스미스 수
+078:          public static  void PrintOfSmith(int startNum, int endNum){
+079:  		    for(int i=startNum;i<=endNum;i++){
+080:                  if (!IsPrime(i) && (SumOfNum(i) == SumOfDivision(i)))
+081:                  {
+082:  				    Console.Write("{0}= ",i);PrintOfDivision(i);
+083:  			    }
+084:  		    }
+085:  	    }
+086:         
+087:   /*메르센 소수
+088:   3, 7, 31, 127, 8191, 131071, 524287,2147483647
+089:   */
+090:          public static  void PrintMersenne(){
+091:  	        int i=2;
+092:  	        int j=1;
+093:  	        int merse=1;
+094:              while (merse<int.MaxValue){
+095:  		        merse=(int)Math.Pow(2,i)-1;
+096:  
+097:                  Console.Write("{0}:\t ", i);
+098:                  if (IsPrime(merse)){
+099:                      Console.WriteLine(
+100:                      "{0}번째 메르센 소수 : 2^{1}-1={2}", j, i, merse);
+101:                      j++;
+102:                  }
+103:                  else{
+104:                      Console.Write("{0}= ", merse);
+105:                      PrintOfDivision(merse);
+106:                  }
+107:                  i++;
+108:  	        }
+109:          }//
+110:          public static void PrintTwinPrime(int startNum, int endNum){
+111:  		    for(int i=startNum;i<=endNum;i++){
+112:                  if (IsPrime(i) &&IsPrime(i + 2)) {
+113:                      Console.WriteLine("({0},{1})",i,(i+2));
+114:  			    }
+115:  		    }
+116:  	    }
+117:          public static void PrintCousinPrime(int startNum, int endNum){
+118:  		    for(int i=startNum;i<=endNum;i++){
+119:                  if (IsPrime(i) && IsPrime(i + 4)){
+120:  				    Console.WriteLine("({0},{1})",i,(i+4));
+121:  			    }
+122:  		    }
+123:  	    }
+124:          //or Six Prime
+125:          public static void PrintSexyPrime(int startNum, int endNum){
+126:  		    for(int i=startNum;i<=endNum;i++){
+127:                  if (IsPrime(i) && IsPrime(i + 6)){
+128:  				    Console.WriteLine("({0},{1})",i,(i+6));
+129:  			    }
+130:  		    }
+131:  	    }
+132:          //or Three Six Prime
+133:          public static void PrintThrimePrime(int startNum, int endNum){
+134:  		    for(int i=startNum;i<=endNum;i++){
+135:                  if (IsPrime(i) && IsPrime(i + 6) && IsPrime(i + 12)){
+136:                      Console.WriteLine("({0},{1},{2})", i, (i + 6), (i + 12));
+137:  			    }
+138:  		    }
+139:  	    }
+140:      }
+141:  }

@@ -1,0 +1,39 @@
+01:  using System;
+02:  namespace Com.JungBo.Game{
+03:   public class BaseBallGame{
+04:      private Pitcher pit;//투수
+05:      private Hitter hit;//타자
+06:      private Empire em;//심판
+07:      public BaseBallGame(){
+08:          pit = new Pitcher();
+09:          hit = new Hitter();
+10:          em = new Empire();
+11:      }
+12:      public void Play(){
+13:          bool isWin = false;
+14:          pit.ReMake(); //투수 공 던지기
+15:          em.Pit = pit.Ball;//심판에게 투수공 저장
+16:          //BaseBallUtil.Print(em.Pit);//투수공 보기
+17:          int count = 1;
+18:          while (count <= 10){
+19:              hit.ReMake();//타자 공 치기
+20:              em.Hit = hit.Ball;//심판에게 타자 공 저장
+21:              if (em.Strike() == 3){
+22:                  Console.WriteLine("You Win in {0}",count);
+23:                  isWin = true;
+24:                  break;
+25:              }
+26:              else{
+27:                 string msg="반복회수{2}: {0}Strike!!  {1}Ball!!";
+28:                 Console.WriteLine(msg,em.Strike(),em.Ball(),count);
+29:                 isWin = false;
+30:              }
+31:              count++;
+32:          }
+33:          if (!isWin){
+34:              Console.WriteLine("You Lose, Pitcher is ");
+35:              BaseBallUtil.Print(em.Pit);
+36:          }
+37:      }//
+38:   }
+39:  }

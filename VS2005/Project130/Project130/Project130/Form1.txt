@@ -1,0 +1,17 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.ComponentModel;
+04:  using System.Data;
+05:  using System.Drawing;
+06:  using System.Text;
+07:  using System.Windows.Forms;
+08:  namespace Project130{
+09:      public partial class Form1 : Form{
+10:          public Form1(){
+11:              InitializeComponent();
+12:          }
+13:          private void btnShowAll_Click(object sender, EventArgs e){
+14:              this.studentTableAdapter.Fill(this.studentDataSet.Student);
+15:          }
+16:      }
+17:  }

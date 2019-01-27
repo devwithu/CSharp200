@@ -1,0 +1,18 @@
+01: using System;
+02: using Com.JungBo.Logics;
+03: namespace Com.JungBo.Basic {
+04:     public class Program {
+05:         public static void Main(string[] args){
+06:             Console.WriteLine("개수변경---------");
+07:             int a = 3; int b = 5; int c = 2;
+08:             Bubble.Print(a, b, c);
+09:             Bubble.DescSort(a, b, c);
+10: 
+11:             int[] mm ={ 6,3,8,9,2,1,4,7,5};  //배열에도 사용가능
+12:             Console.WriteLine("정렬전---------");
+13:             Bubble.Print(mm);
+14:             Console.WriteLine("정렬후---------");
+15:             Bubble.DescSort(mm);
+16:         }
+17:     }
+18: }

@@ -1,0 +1,59 @@
+01: using System;
+02: using System.Collections.Generic;
+03: namespace Com.JungBo.Logic{
+04:     public class CardDictionary{
+05: 
+06:         public static readonly string[] DECK ={ "S", "D", "H", "C" };
+07:         public static readonly string[] SUIT =
+08: { "A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K" };
+09: 
+10:         Dictionary<int, Card> dic
+11:             = new Dictionary<int, Card>(10);
+12: 
+13:         public int Count{
+14:             get { return dic.Count; }
+15:         }
+16:         //인덱서
+17:         public Card this[int index]{
+18:             get{
+19:                 if (index >= 0 && index < Count) {
+20:                     return dic[index];
+21:                 }
+22:                 else{
+23:                     throw new IndexOutOfRangeException(
+24:                         "카드 개수를 벗어났습니다.");
+25:                 }
+26:             }
+27:         }
+28:         public void MakeCards(){
+29:             dic.Clear();
+30:             int i = 0;
+31:             foreach (string deck in DECK){
+32:                 foreach (string suit in SUIT){
+33:                     //string --> Card로 암시적 형변환
+34:                     dic.Add(i++, string.Concat(deck, suit));
+35:                 }
+36:             }
+37:         }//
+38:         public void PrintCards(){
+39:             for (int i = 0; i < dic.Count; i++){
+40:                 Card cards = dic[i];//인덱서
+41: 
+42:                 Console.Write("{0}  ", cards);
+43:                 if ((i + 1) % SUIT.Length == 0){
+44:                     Console.WriteLine();
+45:                 }
+46:             }
+47:         }
+48:         //로직에서 설명  : 카드를 섞는다.
+49:         public void Suffle(){
+50:             Random r = new Random();
+51:             for (int i = 0; i < dic.Count; i++){
+52:                 int temp = r.Next(0, dic.Count);
+53:                 Card cTemp = dic[temp];
+54:                 dic[temp] = dic[i];
+55:                 dic[i] = cTemp;
+56:             }
+57:         }//Suffle()
+58:     }
+59: }

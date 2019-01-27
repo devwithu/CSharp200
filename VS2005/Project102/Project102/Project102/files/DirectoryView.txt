@@ -1,0 +1,38 @@
+01: using System;
+02: using System.IO;//DriveInfo
+03: namespace Com.JungBo.Infor {
+04:     public class DirectoryView {
+05: 
+06:         public void ViewDetailDirectory(string st){
+07:             DirectoryInfo direcs = new DirectoryInfo(st);
+08:             DirectoryInfo[] dirinfos = direcs.GetDirectories();
+09:             Console.WriteLine("Directory in my " + st);
+10:             foreach (DirectoryInfo dir in dirinfos){
+11:                 Console.WriteLine("-----------------");
+12:                 ViewDirecInfors(dir);
+13:             }
+14:         }
+15:         private void ViewDirecInfors(DirectoryInfo dir) {
+16:             if (dir == null || !dir.Exists) { return; }
+17:             Console.WriteLine("이름 : {0}", dir.Name);
+18:             Console.WriteLine("속성 : {0}", dir.Attributes);
+19:             Console.WriteLine("상세이름 : {0}", dir.FullName);
+20:             Console.WriteLine("작성일 : {0}", dir.CreationTime);
+21:             Console.WriteLine("최근사용일 : {0}", dir.LastAccessTime);
+22:             Console.WriteLine("최근변경일 : {0}", dir.LastWriteTime);
+23:             Console.WriteLine("바로위경로 : {0}", dir.Parent);
+24:             Console.WriteLine("루트 : {0}", dir.Root);
+25:             Console.WriteLine("확장자 : {0}", dir.Extension);
+26:             //switch(dir.Attributes){
+27:             //    case FileAttributes.Hidden:
+28:             //        ...
+29:             //        break;
+30:             //    ...
+31:             //    default:
+32:             //        ...
+33:             //        break;
+34:             //}
+35:         }
+36:        
+37:     }
+38: }

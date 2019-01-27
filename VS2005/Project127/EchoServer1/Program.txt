@@ -1,0 +1,64 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.Text;
+04:  using System.IO;
+05:  using System.Net;
+06:  using System.Net.Sockets;
+07:  namespace Com.Kaoni.Echo{
+08:      public class Program{
+09:          public static void Main(string[] args){
+10:              EchoServer server = new EchoServer();
+11:              server.Echo();
+12:         }
+13:      }
+14:  
+15:      public class EchoServer {
+16:          public const int PORT = 5555;
+17:  
+18:          public void Echo() {
+19:              TcpListener listener=null;
+20:              NetworkStream ns = null;
+21:              StreamReader sr = null;
+22:              StreamWriter sw = null;
+23:              TcpClient client = null;
+24:              try
+25:              {
+26:                  IPAddress address = Dns.GetHostEntry("").AddressList[0];
+27:                  //1) 서버소켓 준비하기 시작하기
+28:                  listener = new TcpListener(address, PORT);
+29:                  listener.Start();
+30:                  Console.WriteLine("server 1~~ready");
+31:  
+32:                  while(true){
+33:                      Console.WriteLine("while 2~~ready");
+34:                      //2) 클라이언트가 서버소켓에 접속하면 담당 소켓생성
+35:                      client = listener.AcceptTcpClient();
+36:                      Console.WriteLine("while 3~~Accept");
+37:                      //3) 소켓에 있는 메세지를 이동시킬 통로준비
+38:                      ns = client.GetStream();
+39:                      //4) 소켓에서 모니터로 읽기
+40:                      sr = new StreamReader(ns, Encoding.Default);
+41:                      //5) 모니터에서 소켓에 쓰기
+42:                      sw = new StreamWriter(ns, Encoding.Default);
+43:                      while (true) {
+44:                          //6) 소켓에서 문자열 읽기
+45:                          string message = sr.ReadLine();
+46:                          //7) 소켓에 문자열 돌려보내기(echo)
+47:                          sw.WriteLine("[server: {0}]", message);
+48:                          sw.Flush();
+49:                      }
+50:                  }
+51:              }
+52:              catch (Exception ee){
+53:                  System.Console.WriteLine(ee.Message);
+54:              }
+55:              finally {
+56:                  //8) 사용후 닫기
+57:                  sw.Close();
+58:                  sr.Close();
+59:                  client.Close();
+60:                  //listener.Stop();
+61:              }
+62:          }
+63:      }
+64:  }

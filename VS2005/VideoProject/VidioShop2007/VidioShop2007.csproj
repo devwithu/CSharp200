@@ -1,0 +1,200 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{242DBFF9-6AB9-49A5-9AF2-B936910E6538}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VidioShop2007</RootNamespace>
+    <AssemblyName>VidioShop2007</AssemblyName>
+    <PublishUrl>http://localhost/VidioShop2007/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddMemberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMemberForm.Designer.cs">
+      <DependentUpon>AddMemberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PassChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PassChangeForm.Designer.cs">
+      <DependentUpon>PassChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PChangeDao.cs" />
+    <Compile Include="QueryHelper.cs" />
+    <Compile Include="VideoSearchDao.cs" />
+    <Compile Include="FoundException.cs" />
+    <Compile Include="LoginDao.cs" />
+    <Compile Include="MemberFindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberFindForm.Designer.cs">
+      <DependentUpon>MemberFindForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MFFDao.cs" />
+    <Compile Include="NotFoundException.cs" />
+    <Compile Include="VideoSearchInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VideoSearchInfoForm.Designer.cs">
+      <DependentUpon>VideoSearchInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VLendDao.cs" />
+    <Compile Include="VLendForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VLendForm.Designer.cs">
+      <DependentUpon>VLendForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VSMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VSMainForm.Designer.cs">
+      <DependentUpon>VSMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddMemberForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AddMemberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberFindForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MemberFindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassChangeForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PassChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoSearchInfoForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>VideoSearchInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VLendForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>VLendForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VSMainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>VSMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Image\aa38.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\bullet.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\folder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\yksyks4623_5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="videoshop.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="videoshop_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>videoshop.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.1.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2005 Express Edition</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

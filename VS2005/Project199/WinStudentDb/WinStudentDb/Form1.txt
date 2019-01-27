@@ -1,0 +1,215 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.ComponentModel;
+004:  using System.Data;
+005:  using System.Drawing;
+006:  using System.Text;
+007:  using System.Windows.Forms;
+008:  namespace WinStudentDb{
+009:      public partial class Form1 : Form{
+010:          public Form1(){
+011:              InitializeComponent();
+012:          }
+013:          //구룹박스를 감춘다.라디오 버튼을 누르면 구룹박스가 보인다.
+014:          private void Form1_Load(object sender, EventArgs e){
+015:              this.gbShowAll.Visible = false;
+016:              this.gbInsert.Visible = false;
+017:              this.gbExit.Visible = false;
+018:          }
+019:          //모든 학생보이기 구룹박스를 보인다.
+020:          private void rdShowAll_CheckedChanged(
+021:              object sender, EventArgs e){
+022:              if (rdShowAll.Checked){
+023:                  this.gbShowAll.Visible = true;
+024:              }
+025:              else{
+026:                  this.gbShowAll.Visible = false;
+027:              }
+028:          }
+029:          //등록, 변경을 위한 구룹박스를 보인다.
+030:          private void rdInsert_CheckedChanged(
+031:              object sender, EventArgs e){
+032:              if (rdInsert.Checked){
+033:                  this.gbInsert.Visible = true;
+034:                  this.gbInsert.Location = new Point(21, 101);
+035:              }
+036:              else{
+037:                  this.gbInsert.Visible = false;
+038:              }
+039:          }
+040:          //탈퇴, 삭제를 위한 구룹박스를 보인다.
+041:          private void rdExit_CheckedChanged(
+042:                     object sender, EventArgs e) {
+043:              if (rdExit.Checked) {
+044:                  this.gbExit.Visible = true;
+045:                  this.gbExit.Location = new Point(21, 101);
+046:              }
+047:              else{
+048:                  this.gbExit.Visible = false;
+049:              }
+050:          }
+051:  //데이터그리드 뷰에서 다른 학생을 선택하면 
+052:  //변경된 데이터를 텍스트박스에 보인다.
+053:  private void dataGridView1_SelectionChanged(
+054:      object sender, EventArgs e){
+055:      try {
+056:      this.txtId.Text = this.dataGridView1[0, 
+057:      this.dataGridView1.SelectedCells[0].RowIndex].Value as string;
+058:      this.txtName.Text = this.dataGridView1[1, 
+059:      this.dataGridView1.SelectedCells[0].RowIndex].Value as string;
+060:      this.txtPhone.Text = this.dataGridView1[2, 
+061:      this.dataGridView1.SelectedCells[0].RowIndex].Value as string;
+062:      this.txtAddress.Text = this.dataGridView1[3,
+063:      this.dataGridView1.SelectedCells[0].RowIndex].Value as string;
+064:      this.txtExitId.Text = this.dataGridView1[0, 
+065:      this.dataGridView1.SelectedCells[0].RowIndex].Value as string;
+066:      }
+067:      catch { }
+068:  }
+069:          //탈퇴안한 모든 학생 보이기
+070:          private void btnShowAll_Click(object sender, EventArgs e){
+071:              this.studentTableAdapter.Fill(
+072:                  this.studentDataSet.Student);
+073:          }
+074:          //등록한다.
+075:          private void btnInsert_Click(object sender, EventArgs e){
+076:              string id = this.txtId.Text;
+077:              string name = this.txtName.Text;
+078:              string phone = this.txtPhone.Text;
+079:              string address = this.txtAddress.Text;
+080:              if (string.IsNullOrEmpty(id) ||
+081:                  string.IsNullOrEmpty(name) ||
+082:                  string.IsNullOrEmpty(phone) ||
+083:                  string.IsNullOrEmpty(address)){
+084:                  MessageBox.Show("공백이 추가될 수 없습니다.");
+085:                  return;
+086:              }
+087:              int count = 0;
+088:              try{
+089:                  count = studentTableAdapter.InsertQuery(
+090:                      id, name, phone, address);
+091:                  studentTableAdapter.FillByStudentId(
+092:                      studentDataSet.Student, id);
+093:                  MessageBox.Show("성공적으로 학생을 추가 했습니다.");
+094:              }
+095:              catch {
+096:                  MessageBox.Show("학생추가에 실패했습니다.");
+097:              }
+098:          }
+099:          //아이디로 학생을 찾는다.
+100:          private void btnSearch_Click(object sender, EventArgs e){
+101:              string id = this.txtId.Text;
+102:              if (string.IsNullOrEmpty(id) ){
+103:                  MessageBox.Show("공백이 추가될 수 없습니다.");
+104:                  return;
+105:              }
+106:              try{
+107:                  studentTableAdapter.FillByStudentId(
+108:                      studentDataSet.Student, id);
+109:                  int count = 
+110:                studentTableAdapter.GetDataByStudentId(id).Rows.Count;
+111:                  if(count<=0){
+112:                      throw new Exception("찾는 학생이 없습니다.");
+113:                  }
+114:              }
+115:              catch(Exception ee){
+116:                  MessageBox.Show(ee.Message);
+117:              }
+118:          }
+119:          //학생정보를 변경한다.
+120:          private void btnUpdate_Click(object sender, EventArgs e){
+121:              string id = this.txtId.Text;
+122:              string name = this.txtName.Text;
+123:              string phone = this.txtPhone.Text;
+124:              string address = this.txtAddress.Text;
+125:              if (string.IsNullOrEmpty(id) ||
+126:                  string.IsNullOrEmpty(name) ||
+127:                  string.IsNullOrEmpty(phone) ||
+128:                  string.IsNullOrEmpty(address)){
+129:                  MessageBox.Show("공백이 올 수 없습니다.");
+130:                  return;
+131:              }
+132:              int count = 0;
+133:              try{
+134:                  count = studentTableAdapter.UpdateQuery(
+135:                      name, phone, address,id);
+136:                  studentTableAdapter.FillByStudentId(
+137:                      studentDataSet.Student, id);
+138:                  MessageBox.Show("성공적으로 학생정보를 변경 했습니다.");
+139:              }
+140:              catch{
+141:                  MessageBox.Show("학생정보를 변경에 실패했습니다.");
+142:              }
+143:          }
+144:          //이름으로 찾는다. 이름 중 한 글자를 넣어도 찾을 수 있다.
+145:          private void btnLikeName_Click(object sender, EventArgs e){
+146:              string name = this.txtName.Text;
+147:              if (string.IsNullOrEmpty(name)){
+148:                  MessageBox.Show("공백이 추가될 수 없습니다.");
+149:                  return;
+150:              }
+151:              try{
+152:                  studentTableAdapter.FillByNameLike(
+153:                      studentDataSet.Student, "%"+name+"%");
+154:                  int count = studentTableAdapter.GetDataByNameLike(
+155:                              "%" + name + "%").Rows.Count;
+156:                  if (count <= 0){
+157:                      throw new Exception("찾는 학생이 없습니다.");
+158:                  }
+159:              }
+160:              catch (Exception ee){
+161:                  MessageBox.Show(ee.Message);
+162:              }
+163:          }
+164:          //탈퇴시킨다. DB에는 남아있고 chk='Y'로 표시한다.
+165:          private void btnExitId_Click(object sender, EventArgs e){
+166:              string id = this.txtId.Text;
+167:              if (string.IsNullOrEmpty(id)){
+168:                  MessageBox.Show("공백이 추가될 수 없습니다.");
+169:                  return;
+170:              }
+171:              try{
+172:                  studentTableAdapter.ExitId(id);
+173:                  int count = 
+174:                  studentTableAdapter.GetDataByExitId(id).Rows.Count;
+175:                  if (count <= 0){
+176:                      throw new Exception("탈퇴에 실패했습니다.");
+177:                  }
+178:                  MessageBox.Show("성공적으로 탈퇴했습니다.");
+179:              }
+180:              catch (Exception ee){
+181:                  MessageBox.Show(ee.Message);
+182:              }
+183:              this.studentTableAdapter.Fill(
+184:                  this.studentDataSet.Student);
+185:          }
+186:          //학생을 삭제한다. DB에 남지 않는다.
+187:          private void btnDelInfo_Click(object sender, EventArgs e){
+188:              string id = this.txtId.Text;
+189:              if (string.IsNullOrEmpty(id)){
+190:                  MessageBox.Show("공백이 추가될 수 없습니다.");
+191:                  return;
+192:              }
+193:              try{
+194:                  studentTableAdapter.DeleteQuery(id);
+195:                  int count = 
+196:                  studentTableAdapter.GetDataByStudentId(id).Rows.Count;
+197:                  if (count > 0){
+198:                      throw new Exception("삭제에 실패했습니다.");
+199:                  }
+200:                  MessageBox.Show("성공적으로 삭제되었습니다.");
+201:              }
+202:              catch (Exception ee){
+203:                  MessageBox.Show(ee.Message);
+204:              }
+205:              this.studentTableAdapter.Fill(
+206:                  this.studentDataSet.Student);
+207:          }
+208:          //모든 학생을 보인다.
+209:          private void btnExWith_Click(object sender, EventArgs e){
+210:              this.studentTableAdapter.FillByAll(
+211:                  this.studentDataSet.Student);
+212:          }
+213:      }
+214:  }
+215:  

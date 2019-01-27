@@ -1,0 +1,13 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:      public class IterfMagicsMain{
+04:          public static void Main(string[] args){
+05:              IMagic im =
+06:                  //new OddMagicSquare(5);
+07:                  //new FourMagicSquare(8);
+08:                  new SixMagicSquare(6);
+09:              im.Make();
+10:              im.Print();
+11:          }
+12:      }
+13:  }

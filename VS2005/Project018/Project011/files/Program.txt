@@ -1,0 +1,11 @@
+01: using System;
+02: using Com.JungBo.Logic;//using 필수
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             int iNum = 10000;
+07:             Console.WriteLine("{0}까지의 완전수: ",iNum);
+08:             UclidMath.PrintPerfect(iNum);
+09:         }
+10:     }
+11: }

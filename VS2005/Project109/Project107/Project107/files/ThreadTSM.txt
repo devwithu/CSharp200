@@ -1,0 +1,41 @@
+01: using System;
+02: using System.Threading; //Thread
+03: namespace Com.JungBo.Proce {
+04: public class ThreadT {
+05:     public void Go(){
+06:         for (int i = 0; i < 3000; i++){
+07:             Console.Write("T");
+08:         }
+09:     }
+10: }//
+11: public class ThreadS {
+12:     public void Go(){
+13:         for (int i = 0; i < 3000; i++){
+14:             Console.Write("S");
+15:         }
+16:     }
+17: }//
+18: public class ThreadM {
+19:     public void Go(){
+20:         for (int i = 0; i < 3000; i++){
+21:             Console.Write("M");
+22:         }
+23:     }
+24: }//
+25: public class ThreadCompete {
+26:     public void Going() {
+27:         //개체생성
+28:         ThreadT t = new ThreadT();
+29:         ThreadS s = new ThreadS();
+30:         ThreadM m = new ThreadM();
+31:         //쓰레드에 위임
+32:         Thread t1 = new Thread(new ThreadStart(t.Go));
+33:         Thread t2 = new Thread(new ThreadStart(s.Go));
+34:         Thread t3 = new Thread(new ThreadStart(m.Go));
+35:         //쓰레드 레디 ->CLR의 관리하여 Run
+36:         t1.Start();
+37:         t2.Start();
+38:         t3.Start();
+39:     }
+40: }
+41: }//네임스페이스

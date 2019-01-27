@@ -1,0 +1,70 @@
+01:  using System;
+02:  namespace Com.JungBo.Sorts{
+03:   public class Quick{
+04:    private static void QuickSort(int[] nums,int start,int end){
+05:      int left = start;
+06:      int right = end;
+07:      int mid = nums[(start + end) / 2];
+08:      do{
+09:          
+10:          //A
+11:          while ((nums[left] < mid) && (left < end)){
+12:              left++;
+13:          }
+14:          while ((mid < nums[right]) && (right > start)){
+15:              right--;
+16:          }
+17:          Console.WriteLine("A:  {0}-{1}",left,right);
+18:          //B
+19:          if (left <= right){
+20:              SortUtil.Swap(ref nums[left], ref nums[right]);
+21:              SortUtil.Print(nums);
+22:              left++;
+23:              right--;
+24:          }
+25:          Console.WriteLine("B:  {0}-{1}", left, right);
+26:      } while (left < right);
+27:      //C
+28:      if (start < right){
+29:          QuickSort(nums, start, right);
+30:      }
+31:      //D
+32:      if (left < end){
+33:          QuickSort(nums, left, end);
+34:      }
+35:    }
+36:    public static void QuickSort(int[] a){
+37:      QuickSort(a, 0, a.Length - 1);
+38:    }
+39:    private static void QuickSort<T>(T[] nums, 
+40:               int start, int end)  where T : IComparable{
+41:       int left = start;
+42:       int right = end;
+43:       T mid = nums[(start + end) / 2];
+44:       do{
+45:           SortUtil.Print<T>(nums);
+46:           while ((nums[left].CompareTo( mid)<0)&&(left<end)){
+47:               left++;
+48:           }
+49:           while ((mid.CompareTo(nums[right]))<0&&(right>start)){
+50:               right--;
+51:           }
+52:           if (left <= right){
+53:               SortUtil.Swap(ref nums[left], ref nums[right]);
+54:               left++;
+55:               right--;
+56:           }
+57:       } while (left < right);
+58:       if (start < right){
+59:           QuickSort<T>(nums, start, right);
+60:       }
+61:       if (left < end){
+62:           QuickSort<T>(nums, left, end);
+63:       }
+64:    }
+65:    public static void QuickSort<T>(T[] a)
+66:                              where T : IComparable{
+67:       QuickSort<T>(a, 0, a.Length - 1);
+68:    }
+69:   }//Quick
+70:  }

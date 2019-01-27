@@ -1,0 +1,38 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         //ArrayList
+06:         public static void Main(string[] args){
+07: 
+08:             CardList cl = new CardList();
+09: 
+10:             //배열에 readonly 써도 값은 변경됨
+11:             //CardList.SUIT[3] = "kk";  //4->kk로 변경됨
+12:             //Console.WriteLine(CardList.SUIT[3]);
+13: 
+14: 
+15:             //배열이 아니면 외부에서 새로운 대입 불가
+16:             //CardList.CARDMAX = 10000000; 
+17:             //cl.MAXVALUE = 100000;
+18:             //CardList.MINVALUE = -30000;
+19: 
+20: 
+21:             cl.MakeCard();   //서로 다른 카드 만들기
+22:             cl.PrintCard1();//출력
+23:             Console.WriteLine("----------------------");
+24: 
+25:             //덱의크기*슈트의 크기=4*13
+26:             int count = CardList.CARDMAX;
+27: 
+28:             for (int i = 0; i < count; i++){
+29:                 //cl[i] indexer 이용
+30:                 Console.Write("{0}  ",cl[i]);  
+31:                 //if ((i + 1) % (cl.MAXVALUE / 4) == 0){
+32:                 if((i+1)% (CardList.CARDMAX/4)==0){
+33:                     Console.WriteLine();
+34:                 }
+35:             }//
+36:         }
+37:     }
+38: }

@@ -1,0 +1,11 @@
+01: using System;
+02: using Com.JunBo.Logic;
+03: namespace Com.JunBo.Basic {
+04:     public class Program {
+05:         public static void Main(string[] args){
+06:             OddMagicSquare odd = new OddMagicSquare(5);
+07:             odd.Make();
+08:             odd.Print();
+09:         }
+10:     }
+11: }

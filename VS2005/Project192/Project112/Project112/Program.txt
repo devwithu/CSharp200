@@ -1,0 +1,15 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.Text;
+04:  using Com.JungBo.Fund;
+05:  namespace Project112 {
+06:      public class Program {
+07:          public static void Main(string[] args){
+08:              FunXmlTransform fxt = new FunXmlTransform();
+09:              string xml = "../../fund.xml";
+10:              string xsl = "../../fund.xslt";
+11:              string html = "../../fund.html";
+12:              fxt.TransToHtml(xml, xsl, html);
+13:          }
+14:      }
+15:  }

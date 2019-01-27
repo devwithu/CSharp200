@@ -1,0 +1,41 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: //중첩 for문
+05: namespace Com.JungBo.Basic{
+06:     public class Program{
+07:         public static void Main(string[] args){
+08:             Console.WriteLine("계단을 출력합니다.");
+09:             Console.Write("정수 한개를 입력하세요: ");
+10:             int iNum = int.Parse(Console.ReadLine());//첫 번째 수 입력후 변환
+11:             
+12:             Console.WriteLine("계단 내려가기");
+13:             Asterisk.ShowStageDown(iNum);
+14:             Console.WriteLine("계단 올라가기");
+15:             Asterisk.ShowStageUp(iNum);
+16:         }
+17:     }
+18: 
+19:     public class Asterisk{
+20:         public static void ShowStageDown(int n){
+21:             for (int i = 0; i < n; i++){
+22:                 for (int j = 0; j <= i; j++){
+23:                     Console.Write("X");
+24:                 }//in for
+25:                 Console.WriteLine();
+26:             }//out for
+27:         }//
+28: 
+29:         public static void ShowStageUp(int n){
+30:             for (int i = 0; i < n; i++){
+31:                 for (int k = 0; k < n - i - 1; k++){
+32:                     Console.Write(" ");
+33:                 }//in for 1
+34:                 for (int j = 0; j <= i; j++){
+35:                     Console.Write("X");
+36:                 }//in for 2
+37:                 Console.WriteLine();
+38:             }//out for
+39:         }//
+40:     }
+41: }

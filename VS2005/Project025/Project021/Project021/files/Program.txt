@@ -1,0 +1,13 @@
+01: using System;
+02: using Com.JungBo.Middle.Oper;
+03: 
+04: namespace Com.JungBo.Basic{
+05:     public class Program{
+06:         public static void Main(string[] args){
+07:             BitOperator bito = new BitOperator();
+08:             Console.WriteLine("15를 16진수로? {0}",bito.Tosixteen(15));
+09:             Console.WriteLine("0~16을 16진수로 바꾸기");
+10:             bito.PrintSixteen();
+11:         }
+12:     }
+13: }

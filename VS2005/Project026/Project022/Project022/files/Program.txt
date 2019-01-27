@@ -1,0 +1,18 @@
+01: using System;
+02: using Com.JungBo.Logics;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             Console.WriteLine("원하는 달의 날짜수를 보여드립니다.");
+07:             Console.WriteLine("원하는 년도와 달을 입력하세요.");
+08:             Console.Write("년도: ");
+09:             int year = int.Parse(Console.ReadLine());
+10:             Console.Write("달: ");
+11:             int month = int.Parse(Console.ReadLine());
+12:             HechoCalendar hc = new HechoCalendar();
+13:             int days=hc.Days(year,month);
+14:             Console.WriteLine("{0}년 {1}월에는 {2}이 있습니다.",
+15:                 year,month, days );
+16:         }
+17:     }
+18: }

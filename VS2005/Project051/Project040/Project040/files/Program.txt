@@ -1,0 +1,19 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             Z z1 = new Z(3, 2);
+07:             Z z2 = new Z(3 ,- 5);
+08:             //Z1과 내용이 동일하지만 다른 객체
+09:             Z z3 = new Z(z1);
+10:             Console.WriteLine(z3);
+11:             z3.X = 5;             //x에 5대입
+12:             z3.Y = -9;            //y에 -9대입
+13: 
+14:             Console.WriteLine(z1);
+15:             Console.WriteLine(z2);
+16:             Console.WriteLine(z3);
+17:         }
+18:     }
+19: }

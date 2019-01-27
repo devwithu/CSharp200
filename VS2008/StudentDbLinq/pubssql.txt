@@ -1,0 +1,275 @@
+1. $10~$20의 가격을 가지고 있는 도서의 목록을 얻어보자.
+	1) 테이블 정하자.
+SELECT  title_id, title, type, pub_id, price, 
+advance, royalty, ytd_sales, notes, pubdate
+FROM     titles
+	2) 칼럼(도서아이디, 도서이름, 가격)을 정하자.
+SELECT title_id, title, price 
+FROM titles
+	3) 조건을 만족하는 값을 얻어오자.
+SELECT title_id, title, price
+FROM titles
+WHERE price >= 10 AND price <= 20
+	4) 다른 방법을 찾아보자.
+SELECT title_id, title, price
+FROM titles
+WHERE price BETWEEN 10 AND 20
+
+2. 도서 타입이 business와 psychology 인 도서 중에서 loyalty가 
+10%를 초과하는 도서의 목록을 얻어보자.
+	1) 테이블, 칼럼(도서아이디, 도서타입, 로열티)을  정하자.
+SELECT title_id, type, royalty
+FROM titles
+	2) 조건을 만족하는 값을 얻어오자.
+SELECT  title_id, type, royalty
+FROM     titles
+WHERE  (royalty > 10)
+
+3. 1994년에 출판된 도서의 정보(도서아이디, 도서이름, 출판일자)를 얻어보자.
+	1) 테이블 명세서, 데이터베이스 다이어그램을 통해 테이블과 테이블 간의 관계를 파악한다.
+
+	2) 관련 업무로부터 위 정보를 얻을 수 있는 테이블과 칼럼을 선택한다.
+SELECT title_id, title, pubdate
+FROM titles
+	3) 조건을 만족하는 Query문을 완성한다. 
+	(PUBDATE가 1994년 경우를찾는다. : 1994-06-12 오전 12:00:00)
+		
+SELECT title_id, title, pubdate
+FROM titles
+WHERE pubdate >= '1994-01-01 00:00:00.000'  AND pubdate <=  '1994-12-31 23:59:59.000'	
+
+SELECT title_id, title, pubdate
+FROM titles
+WHERE pubdate BETWEEN '1994-01-01 00:00:00.000' AND '1994-12-31 23:59:59.000'		
+
+SELECT title_id, title, pubdate
+FROM titles
+WHERE YEAR(pubdate) = 1994
+
+SELECT title_id, title, pubdate
+FROM titles
+WHERE DATEPART(yyyy, pubdate) = 1994
+
+
+4. 요리와 관련된 도서 중에서 가격이 $10이상인 도서의 정보를 얻어보자.
+	1) 테이블, 칼럼(도서아이디,도서이름,도서분류,가격)을  정하자.
+SELECT title_id, title, type, price
+FROM titles
+	2) 조건을 만족하는 Query문을 완성한다. 
+SELECT title_id, title, type, price
+FROM titles
+WHERE price >= 10 AND type LIKE '%cook'
+
+SELECT title_id, title, type, price
+FROM titles
+WHERE price >= 10 
+AND (type = 'mod_cook' OR type = 'trad_cook')
+
+SELECT title_id, title, type, price
+FROM titles
+WHERE price >= 10 
+AND type IN ('mod_cook' ,  'trad_cook')
+
+
+5. 도서 타입별 평균 도서 가격의 정보를 얻어보자.
+	1) 테이블, 칼럼(도서타입  평균가격)을  정하자.
+
+	2) 조건을 만족하는 Query문을 완성한다. 
+SELECT type, ROUND(AVG(price), 1)
+FROM titles
+WHERE price IS NOT NULL   
+GROUP BY type
+
+6. 연월별로 출간된 도서의 수량을 파악해 보자. 결과는 아래와 같다.
+연월          출간도서수량
+1991-06          6
+1994-02          2
+..
+	1) 출간도서수량이 많은 순서대로 정렬해서 나타내 보자.
+
+SELECT  YEAR(pubdate) AS Expr1, MONTH(pubdate) AS Expr2, COUNT(title_id) AS Expr3
+FROM     titles
+GROUP BY YEAR(pubdate), MONTH(pubdate)
+ORDER BY Expr3 DESC
+
+	2) 요리책은 제외되며, 출간도서 수량이 5권 이상인 경우만 얻어보자.
+SELECT YEAR(pubdate), MONTH(pubdate), COUNT(title_id)
+FROM titles
+WHERE type NOT IN ('mod_cook' ,  'trad_cook')
+GROUP BY YEAR(pubdate), MONTH(pubdate)
+HAVING  COUNT(title_id) >= 5
+ORDER BY COUNT(title_id) DESC
+
+7. 출판사별로 출간한 도서의 최고 가격 정보를 얻어보자.
+
+	1) 테이블, 칼럼(출판사id, 도서의 최고가격, 도서이름)을  정하자.
+	2) 출판사별로 출간한 도서의 가격을 얻어보자.
+SELECT title_id, title, price, 
+                   RANK() OVER(PARTITION BY pub_id ORDER  BY price DESC) as rnk, pub_id
+            FROM titles
+	3) 출판사별로 출간한 도서의 최고 가격 정보를 얻어보자.
+SELECT *
+FROM (SELECT title_id, title, price, 
+                   RANK() OVER(PARTITION BY pub_id ORDER  BY price DESC) as rnk, pub_id
+            FROM titles) price_rank
+WHERE rnk =1
+
+8. 전체 도서 중에서 최고 가격의 도서 정보를 얻어보자.
+	1) 테이블, 칼럼(도서아이디,도서이름,가격)을  정하자.
+	2) 최고 가격을 구하자.
+SELECT MAX(price)
+FROM titles
+	3) 최고 가격에 해당하는 도서의 이름을 구하자.
+SELECT title
+FROM titles
+WHERE price = (SELECT MAX(price)
+                          FROM titles)
+9. 평균 가격보다 높은 도서의 정보를 얻자.
+
+	1) 테이블, 칼럼(도서아이디, 도서이름, 가격)을  정하자.
+	2) 도서의 평균가격을 구하자.
+SELECT AVG(price)
+FROM titles
+	3) 평균 가격보다 높은 도서의 정보를 얻자.
+SELECT title_id, title, price
+FROM titles
+WHERE price > (SELECT AVG(price)
+                          FROM titles)
+	4) 도서타입별 평균 가격을 구하자.
+SELECT  type, AVG(price) AS avg_price
+FROM     titles
+GROUP BY type
+	5) 도서타입별 평균 가격보다 높은 도서의 정보를 얻자.
+
+SELECT title_id, title, titles.type, price
+FROM (SELECT type, AVG(price) avg_price
+            FROM titles
+            GROUP BY type) avgprice, titles	
+WHERE avgprice.type = titles.type
+AND price > avg_price
+
+10. 도서 가격을 아래와 같이 분류해 보자.
+전체 가격의 상위 10%  --  S
+전체 가격의 상위 11% ~ 30%  --  A
+전체 가격의 상위 31% ~ 50%  --  B
+전체 가격의 상위 51% ~ 80%  --  C
+기타 81% ~ 100% -- D
+
+	1) 테이블, 칼럼(도서아이디,도서이름, 가격, 등급)을  정하자.
+	2) 조건을 만족하는 Query문을 완성한다. 
+
+         SELECT title_id, title, price, NTILE(10) OVER (ORDER BY price DESC) as 'Bucket',
+              CASE WHEN NTILE(10) OVER (ORDER BY price DESC)  = 1 THEN 'S'
+                         WHEN NTILE(10) OVER (ORDER BY price DESC) <= 3 THEN 'A'
+                         WHEN NTILE(10) OVER (ORDER BY price DESC) <= 5 THEN 'B'
+                         WHEN NTILE(10) OVER (ORDER BY price DESC) <= 8 THEN 'C'
+                         ELSE 'D'
+              END
+FROM titles
+WHERE price IS NOT NULL
+
+11. 출판사와 출판사에서 편찬한 도서의 제목을 구하자.
+
+SELECT  t.title, p.pub_name
+FROM     titles AS t INNER JOIN
+               publishers AS p ON t.pub_id = p.pub_id
+
+12. 도서를 출간하지 않은 출판사의 정보도 함께 얻어보자.
+ 도서를 출간하지 않은 출판사가 있어서 
+publishers(출판사)가 titles보다 많을 수 있다. 
+SELECT pub_name, title
+FROM publishers p LEFT OUTER JOIN titles t
+ON t.pub_id = p.pub_id
+
+13. 'Straight Talk About Computers'의 저자 이름을 구하자.
+	1) 'Straight Talk About Computers'의 저자 아이디를 구하자.
+SELECT pub_id
+FROM titles
+WHERE title = 'Straight Talk About Computers'
+저자 아이디:  1389
+	2) 저자 아이디를 이용하여 저자 이름을 구한다.
+SELECT pub_name
+FROM publishers
+WHERE pub_id = 1389
+	3) 'Straight Talk About Computers'의 저자 이름을 구하자.
+SELECT pub_name
+FROM publishers
+WHERE pub_id = (SELECT pub_id
+                             FROM titles
+                             WHERE title = 'Straight Talk About Computers')
+	4) 조인을 이용하자. (INNER JOIN과 JOIN은 동일하다.)
+SELECT  t.title, p.pub_name
+FROM     titles AS t INNER JOIN
+               publishers AS p ON t.pub_id = p.pub_id
+WHERE  (t.title = 'Straight Talk About Computers')
+
+14. 출판사에 일하는 사원의 정보를 얻어보자.
+	1) 테이블, 칼럼(사번,사원이름,직무이름)을  정하자.
+	2) 조건을 만족하는 Query문을 완성한다. 
+SELECT  e.emp_id, e.lname, j.job_desc
+FROM     employee AS e INNER JOIN
+               jobs AS j ON e.job_id = j.job_id
+15. 도서와 저자의 정보를 얻어보자.
+	1) 테이블, 칼럼(도서이름, 저자이름)을  정하자.
+	2) 조건을 만족하는 Query문을 완성한다. 
+
+SELECT title, au_lname
+FROM titles t, authors a, titleauthor ta
+WHERE t.title_id = ta.title_id
+AND a.au_id =ta.au_id
+	3) 조인을 이용하자. 
+SELECT title, au_lname
+FROM titles t JOIN  titleauthor ta
+ON t.title_id = ta.title_id
+JOIN authors a
+ON a.au_id =ta.au_id
+	4) 도서제목과 저자(이름 성)를 구하자.
+SELECT  t.title, a.au_lname +'  ' + a.au_fname AS au_name
+FROM     titles AS t INNER JOIN
+               titleauthor AS ta ON t.title_id = ta.title_id INNER JOIN
+               authors AS a ON a.au_id = ta.au_id
+
+
+16. 현재 할인을 하고 있는 상점에서 판매되는 도서의 정보를 얻어보자.
+	1) 테이블, 칼럼(상점이름, 도서이름, 할인정보)을  정하자.
+	2) 조건을 만족하는 Query문을 완성한다. 
+
+SELECT  st.stor_name, t.title, t.price, d.discounttype, d.discount
+FROM     titles AS t INNER JOIN
+               sales AS sa ON t.title_id = sa.title_id INNER JOIN
+               stores AS st ON st.stor_id = sa.stor_id INNER JOIN
+               discounts AS d ON st.stor_id = d.stor_id
+
+17. 책을 한권도 출간하지 않은 저자는 누구인가?
+SELECT  a.au_lname
+FROM     authors AS a LEFT OUTER JOIN
+               titleauthor AS ta ON a.au_id = ta.au_id
+WHERE  (ta.au_id IS NULL)
+(참고)
+
+SELECT au_id, au_lname
+FROM authors
+WHERE au_id IN (SELECT au_id
+                             FROM authors
+                             EXCEPT
+                             SELECT au_id
+                             FROM titleauthor)
+18. 책을 한권도 출간하지 않은 출판사?
+	1) 출판사와 도서제목들
+SELECT  publishers.pub_name, titles.title
+FROM     publishers INNER JOIN
+               titles ON publishers.pub_id = titles.pub_id
+
+	2) 도서 제목이 없는(출판하지 않은) 출판사
+SELECT  publishers.pub_name
+FROM     publishers LEFT OUTER JOIN
+               titles ON publishers.pub_id = titles.pub_id
+WHERE  (titles.title IS NULL)
+
+19. 근무년수와 고용일을 기준으로 근로자 정보를 출력하자.
+SELECT emp_id, lname, pub_name, DATEDIFF(yy, hire_date, GETDATE()) as '근무 년수',
+          RANK() OVER(PARTITION BY pub_name 
+ORDER BY DATEDIFF(yy, hire_date, GETDATE()) DESC) '근무 년수별 순위', 
+RANK() OVER(PARTITION BY pub_name ORDER BY hire_date) '고용 년도별 순위'
+ FROM employee e LEFT OUTER JOIN publishers p
+ON p.pub_id = e.pub_id 

@@ -1,0 +1,36 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         
+06:         public static void Main(string[] args){
+07: 
+08:             ZLists zlist = new ZLists();
+09: 
+10:             zlist.Add(new Z(1, 2));
+11:             zlist.Add(new Z(3, 3));
+12:             zlist.Add(new Z(5, 7));
+13:             zlist.Add(new Z(9, 8));
+14:             zlist.Add(new Z(2, 6));
+15: 
+16:             zlist.PrintZList();
+17: 
+18:             bool isC = zlist.Contains(new Z(5, 7));
+19:             Console.WriteLine(isC);
+20: 
+21:             zlist.Remove(new Z(5, 7));
+22:             zlist.PrintZList();
+23: 
+24:             Console.WriteLine("--------------------");
+25:             //indexer ÀÌ¿כ
+26:             Z z3=zlist[3];
+27:             Console.WriteLine(z3);
+28:             zlist[4] = new Z(4,-8);
+29:             Console.WriteLine("--------------------");
+30:             zlist.PrintZList();
+31:             zlist[4] = new Z(-5, -8);
+32:             Console.WriteLine("--------------------");
+33:             zlist.PrintZList();
+34:         }
+35:     }
+36: }

@@ -1,0 +1,32 @@
+01: using System;
+02: using System.Threading;
+03: public class CakePlate {
+04:  private int breadCount=0;   //접시위 빵의 개수
+05:  public CakePlate() {}
+06:  public  void makeBread(){
+07:   lock(this){
+08:     if(breadCount>=10){
+09: 	    try{
+10: 		Console.WriteLine("빵이 남는다. 기다리자.");
+11:             Monitor.Wait(this);//빵을 먹을 때까지 기다린다.
+12: 	    }catch(Exception){}
+13:     }
+14:     breadCount++;//빵이 10개가 안되면 더 만들자.
+15:     Console.WriteLine("빵을 1개 더 만듬  총 "+breadCount+"개");
+16:     Monitor.PulseAll(this);//중지했던 일을 다시 시작
+17:   }
+18:  }
+19:  public  void eatBread(){
+20:   lock(this){
+21:     if(breadCount<1){
+22: 	    try{
+23: 		Console.WriteLine("빵이 모자라 기다림.");
+24:             Monitor.Wait(this);//빵을 만들 때까지 기다린다.
+25: 	    }catch(Exception){}
+26:     }
+27:     breadCount--;//빵이 있으니 먹자.
+28:     Console.WriteLine("빵을 1개 먹음  총 "+breadCount+"개");
+29:     Monitor.PulseAll(this);//중지했던 일을 다시 시작
+30:   }
+31:  }
+32: }

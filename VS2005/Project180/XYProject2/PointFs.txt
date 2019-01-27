@@ -1,0 +1,43 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.Drawing;
+04:  namespace Com.JungBo.Logic{
+05:      public class PointFs{
+06:          //지네릭(제네릭)
+07:          private List<PointF> pointList = new List<PointF>();
+08:          //구조체--> value
+09:          private Color colors;
+10:          public PointFs(Color c) {
+11:              this.colors = c;
+12:          }
+13:          public Color Colors{
+14:              get { return colors; }
+15:              set { colors = value; }
+16:          }
+17:          private int penWidth;
+18:          public int PenWidth{
+19:              get { return penWidth; }
+20:              set { penWidth = value; }
+21:          }
+22:          public List<PointF> PointList{
+23:              get { return pointList; }
+24:          }
+25:          public PointF this[int index]{
+26:              get { return pointList[index]; }
+27:          }
+28:          public void Add(PointF c) {
+29:              pointList.Add(c);
+30:          }
+31:          public void Remove(){
+32:              pointList.Clear();
+33:          }
+34:          public void Draw(Graphics g){
+35:              int count=pointList.Count;
+36:              Pen xPen = new Pen(colors, penWidth);
+37:              for (int i = 0; i < count - 1; i++){
+38:                  g.DrawLine(xPen, pointList[i], pointList[i + 1]);
+39:              }
+40:              xPen.Dispose();
+41:          }
+42:      }
+43:  }

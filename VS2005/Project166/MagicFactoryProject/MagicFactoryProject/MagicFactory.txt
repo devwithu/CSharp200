@@ -1,0 +1,23 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:      public class MagicFactory{
+04:          public static IMagic Factory(int n) {
+05:              AbstractMagic magic = null;
+06:              if(n==1 || n==2 ){
+07:                  string s = string.Format(
+08:                   "{0}X{0} 마방진은 존재하지 않습니다.",n);
+09:                  throw new NotMatchMagicException(s);
+10:              }
+11:              else if(n%2==1){
+12:                  magic = new OddMagicSquare(n);
+13:              }
+14:              else if (n % 4 == 0){
+15:                  magic = new FourMagicSquare(n);
+16:              }
+17:              else if (n % 4 == 2){
+18:                  magic = new SixMagicSquare(n);
+19:              }
+20:              return magic;
+21:          }//Factory
+22:      }
+23:  }

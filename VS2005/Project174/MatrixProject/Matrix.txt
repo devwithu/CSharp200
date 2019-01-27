@@ -1,0 +1,176 @@
+001:  using System;
+002:  namespace Com.JungBo.Logic{
+003:   public class Matrix{
+004:  private double[,] matrxsA;//A
+005:  private double[,] reversA;//A_1
+006:  private double[,] calculs;//A|E|Y
+007:  private double[,] matrxsY;//Y
+008:  private double[,] reversY;//A_1Y
+009:  public Matrix(int n, int m){
+010:      matrxsA = new double[n, n];
+011:      reversA = new double[n, n];
+012:      calculs = new double[n, 2 * n + m];
+013:      matrxsY = new double[n, m];
+014:      reversY = new double[n, m];
+015:  }
+016:  public Matrix(int n): this(n, 1){}
+017:  //깊은복사-->일대일
+018:  public void SetMatrxsA(double[,] mats){
+019:      matrxsA = MatrixTrans<double>.Mat2Clone(mats);
+020:  }
+021:  public void SetMatrxsY(double[,] mats){
+022:     matrxsY = MatrixTrans<double>.Mat2Clone(mats);
+023:  }
+024:  public void SetMatrixs(double[,] matA, double[,] matY){
+025:      this.SetMatrxsA(matA);//A에 깊은 복사
+026:      this.SetMatrxsY(matY);//Y에 깊은 복사
+027:      //------------------------------------
+028:      int row = calculs.GetLength(0);
+029:      int col = calculs.GetLength(1);
+030:      int m = matrxsY.GetLength(1);
+031:      //A | E | Y 세팅
+032:      for (int i = 0; i < row; i++) {
+033:          //A 세팅
+034:          for (int j = 0; j < row; j++){
+035:              calculs[i, j] = matrxsA[i, j];
+036:          }
+037:          //E 세팅 대각선 1넣기
+038:          calculs[i, i + row] = 1;
+039:          //Y 세팅
+040:          for (int k = 0; k < m; k++){
+041:              calculs[i, k + 2*row] = matrxsY[i,k];
+042:          }
+043:      }
+044:  }
+045:  public void Make() {
+046:      //정방형 행렬만 역행렬을 구할 수 있다.
+047:      int row = calculs.GetLength(0);
+048:      int col = calculs.GetLength(1);
+049:      for (int k = 0; k < row; k++){
+050:          double max = 0.0;//행에서 가장 큰 값을 구하기
+051:          int pivotRow = k;//가장 큰 값이 있는 행의위치 찾기
+052:          for (int j = k; j < row; j++){
+053:          //x에서 pivot을 선택하면 y에 대한 pivot,그다음 z
+054:          //그러므로 칼럼을 바꿔가며 확인한다.
+055:              double tempMax=Math.Abs(calculs[j,k]);
+056:              if (max < tempMax){
+057:                  max = tempMax;
+058:                  //행에서 가장 큰 값을 찾아 행의 위치저장
+059:                  pivotRow = j;
+060:              }
+061:          }
+062:          //피봇행과 현재위치가 같다면 바꾸지 않는다.
+063:          if(k!=pivotRow){
+064:              Console.WriteLine("{0}행을 피봇이 있는 {1}행과 바꾼다.",
+065:                  k + 1, pivotRow+1);
+066:              PrintCalculs();
+067:              Console.WriteLine("-----------------------");
+068:              //한줄을 피봇줄과 바꾼다.
+069:              for (int j = 0; j < col; j++){//모든 열을 바꿔야 한다.
+070:                  Swap(ref calculs[k, j], ref calculs[pivotRow, j]);
+071:              }
+072:          }
+073:          double pivot  = calculs[k, k];//피봇은 (0,0),(1,1),(2,2)에 있다.
+074:          PrintCalculs();
+075:          Console.WriteLine("{0}행 {0}렬을 1로 만들기 위해 피봇"+
+076:            " {1}(으)로 나누고 그 행도 모두 나눈다.", (k + 1), pivot);
+077:          Console.WriteLine("------------------------------");
+078:          for (int j = k; j < col; j++){
+079:              calculs[k, j] /= pivot;//행에서 가장 큰 값을 1로 바꾼다.
+080:          }
+081:          PrintCalculs();
+082:          Console.WriteLine("-------------------");
+083:          for (int i = 0; i < row; i++){
+084:              if (i != k){
+085:                  double delta = calculs[i, k];
+086:                  Console.WriteLine("{0}행에 {1}를 곱하여 {2}행을 뺀다.",
+087:                      (k + 1), delta, (i + 1));
+088:                  for (int j = k; j < col; j++){
+089:                      calculs[i, j] -=  delta* calculs[k, j];
+090:                  }
+091:                  PrintCalculs();
+092:                  Console.WriteLine("----------------");
+093:              }
+094:          }
+095:      }
+096:      MakeReverse();
+097:      MakeReversY();
+098:  }
+099:  private void MakeReverse(){
+100:      int row = reversA.GetLength(0);
+101:      int col = reversA.GetLength(1);
+102:      for (int i = 0; i < row; i++){
+103:          for (int j = 0; j < col; j++){
+104:              reversA[i, j] = calculs[i, j + row];
+105:          }
+106:      }
+107:  }
+108:  private void MakeReversY(){
+109:      int row = matrxsY.GetLength(0);
+110:      int col = matrxsY.GetLength(1);
+111:      for (int i = 0; i < row; i++){
+112:          for (int j = 0; j < col; j++){
+113:              reversY[i, j] = calculs[i, j + 2 * row];
+114:          }
+115:      }
+116:  }
+117:  public void Swap(ref double a, ref double b){
+118:      double temp = a;
+119:      a = b;
+120:      b = temp;
+121:  }//
+122:  public void PrintCalculs(){
+123:      int row = calculs.GetLength(0);
+124:      int col = calculs.GetLength(1);
+125:      for (int i = 0; i < row; i++){
+126:          for (int j = 0; j < col; j++){
+127:              System.Console.Write("{0}\t", calculs[i, j]);
+128:          }
+129:          System.Console.WriteLine();
+130:      }
+131:  }//
+132:  public void PrintReversA(){
+133:      int row = reversA.GetLength(0);
+134:      int col = reversA.GetLength(1);
+135:      for (int i = 0; i < row; i++){
+136:          for (int j = 0; j < col; j++){
+137:              System.Console.Write("{0}\t", reversA[i, j]);
+138:          }
+139:          System.Console.WriteLine();
+140:      }
+141:  }//
+142:  public void PrintMatrxsY(){
+143:      int row = matrxsY.GetLength(0);
+144:      int col = matrxsY.GetLength(1);
+145:      for (int i = 0; i < row; i++){
+146:          for (int j = 0; j < col; j++){
+147:              System.Console.Write("{0}\t", matrxsY[i, j]);
+148:          }
+149:          System.Console.WriteLine();
+150:      }
+151:  }//
+152:  public void PrintReverseY()
+153:  {
+154:      int row = matrxsY.GetLength(0);
+155:      int col = matrxsY.GetLength(1);
+156:      for (int i = 0; i < row; i++)
+157:      {
+158:          for (int j = 0; j < col; j++)
+159:          {
+160:              System.Console.Write("{0}\t", reversY[i, j]);
+161:          }
+162:          System.Console.WriteLine();
+163:      }
+164:  }//
+165:  public void PrintMatrxsA(){
+166:      int row = matrxsA.GetLength(0);
+167:      int col = matrxsA.GetLength(1);
+168:      for (int i = 0; i < row; i++){
+169:          for (int j = 0; j < col; j++){
+170:              System.Console.Write("{0}\t", matrxsA[i, j]);
+171:          }
+172:          System.Console.WriteLine();
+173:      }
+174:  }//
+175:   }
+176:  }

@@ -1,0 +1,50 @@
+01: using System;
+02: using System.Collections;//ArrayList
+03: namespace Com.JungBo.Maths{
+04:     //indexer
+05:     public class ZLists{
+06: 
+07:         private ArrayList list = new ArrayList();
+08:         //list안에 것 모두 제거
+09:         public ZLists() {
+10:             list.Clear();
+11:         }
+12:         //list에 복소수 z 추가하기
+13:         public void Add(Z z) {
+14:             list.Add(z);
+15:         }
+16:         //list에 있는 복소수 z 제거
+17:         public void Remove(Z z) {
+18:             list.Remove(z);
+19:         }
+20:         //list의 index번째 삭제
+21:         public void RemoveAt(int index) {
+22:             list.RemoveAt(index);
+23:         }
+24:         //인덱서
+25:         public Z this[int index] {
+26:             //get 인덱서
+27:             get {
+28:                 return list[index] as Z;
+29:             }
+30:             //set 인덱서
+31:             set {
+32:                 this.Add(value);   
+33:             }
+34:         }
+35:         //list에 z와 동일한 것이 있는가?
+36:         public bool Contains(Z z) {
+37:             return list.Contains(z);
+38:         }
+39:         //list에 있는 복소수 출력
+40:         public void PrintZList() {
+41:             foreach (Z zvar in list){
+42:                 Console.WriteLine(zvar);
+43:             }
+44:         }
+45:         //list에 있는 복소수 개수
+46:         public int Count {
+47:             get { return list.Count; }
+48:         }
+49:     }
+50: }

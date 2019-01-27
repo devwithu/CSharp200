@@ -1,0 +1,15 @@
+01:  using System;
+02:  namespace Com.JungBo.Maths{
+03:      public class YenaMath{
+04:          //sqrt(a,x), x는 추측값 
+05:          //예) Sqrt(10,3) root(10) 구하기 시작값 3
+06:          public static double Sqrt(double a, double x) {
+07:              if (x <= 0 || a <= 0) { 
+08:                  throw new Exception("시작값은 양수입니다."); }
+09:              for (int i = 0; i < 20; i++){
+10:                  x = (x + a / x)/2.0;
+11:              }
+12:              return x;
+13:          }
+14:      }
+15:  }

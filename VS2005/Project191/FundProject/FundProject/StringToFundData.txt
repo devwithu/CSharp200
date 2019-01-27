@@ -1,0 +1,73 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.Data;
+04:  using System.Xml;
+05:  using System.IO;
+06:  namespace FundProject {
+07:      public class StringToFundData {
+08:    //FundData단위로 저장
+09:    public List<FundData> ToFundData(List<string> fls){
+10:      List<FundData> fld = new List<FundData>();
+11:      foreach (string  str in fls){
+12:          fld.Add(ToFundData(str));
+13:      }
+14:      return fld;
+15:    }
+16:    //주식 정보를 뽑아서 FundData로 만든다
+17:    public FundData ToFundData(string funds){
+18:      string fundName = string.Empty;
+19:      string fundPrice = string.Empty;
+20:      string prevPrice = string.Empty;//음수면 전날보다 내려감
+21:      int opp = funds.Contains("tri_blue_down.gif") ? -1 : 1;
+22:      int idFIndex = funds.IndexOf("<td");
+23:      int idLIndex = funds.IndexOf("</td>");
+24:      //<td     >CJ  에서 <td     제거-->  >CJ 
+25:      string idstring = funds.Substring(idFIndex, idLIndex - idFIndex);
+26:      funds = funds.Substring(idLIndex + ("</td>".Length));
+27:      int idgtTag = idstring.IndexOf(">");//>찾기
+28:      //한글문제 valign="top">CJ인터넷            </td>
+29:      idstring = idstring.Trim().Substring(idgtTag + (">").Length);//>제거
+30:      fundName = idstring;
+31:      idFIndex = funds.IndexOf("<td");
+32:      idLIndex = funds.IndexOf("</td>");
+33:      idstring = funds.Substring(idFIndex, idLIndex - idFIndex);
+34:      funds = funds.Substring(idLIndex + ("</td>".Length));
+35:      idgtTag = idstring.IndexOf(">");//>찾기
+36:      idstring = idstring.Substring(idgtTag + 1);//>제거
+37:      fundPrice = idstring;
+38:      idFIndex = funds.ToUpper().IndexOf("<FONT");
+39:      idLIndex = funds.ToUpper().IndexOf("</FONT>");
+40:      idstring = funds.Substring(idFIndex, idLIndex - idFIndex);
+41:      idgtTag = idstring.IndexOf(">");//>찾기
+42:      idstring = idstring.Substring(idgtTag + 1);//>제거
+43:      prevPrice = opp > 0 ? idstring : "-" + idstring;
+44:      FundData fd = new FundData(fundName, fundPrice, prevPrice);
+45:      return fd;
+46:    }
+47:    public void WriteXmlToString(List<FundData> fld, string filepath){
+48:      XmlWriterSettings settings = new XmlWriterSettings();
+49:      settings.Encoding = System.Text.Encoding.UTF8;
+50:      settings.Indent = true;
+51:      XmlWriter xmlWriter = XmlWriter.Create(filepath, settings);
+52:      xmlWriter.WriteStartElement("kosdaq");
+53:      foreach (FundData fdd in fld){
+54:          xmlWriter.WriteStartElement("stock");
+55:              
+56:              xmlWriter.WriteStartElement("stockname");
+57:              xmlWriter.WriteString(fdd.FundName);
+58:              xmlWriter.WriteEndElement();
+59:  
+60:              xmlWriter.WriteStartElement("stockprice");
+61:              xmlWriter.WriteString(fdd.FundPrice.ToString());
+62:              xmlWriter.WriteEndElement();
+63:  
+64:              xmlWriter.WriteStartElement("prevstockprice");
+65:              xmlWriter.WriteString(fdd.PrevPrice.ToString());
+66:              xmlWriter.WriteEndElement();
+67:          xmlWriter.WriteEndElement();
+68:      }
+69:      xmlWriter.WriteEndElement();
+70:      xmlWriter.Close();
+71:    }
+72:   }
+73:  }

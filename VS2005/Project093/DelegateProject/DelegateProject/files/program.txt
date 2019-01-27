@@ -1,0 +1,19 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using Com.JungBo.Logic;
+04: namespace Com.JunBo.Basic{
+05:     public class Program{
+06:         public static void Main(string[] args) {
+07: 
+08:             int[] m ={ 3, 6, 1, 8, 2, 9, 0 };
+09:             NumberGen.Print<int>(m);
+10:             NumberGen.Shuffle<int>(m);
+11:             NumberGen.Print<int>(m);
+12: 
+13:             double[] n ={ 3.3, 6.3, 1.3, 8.3, 2.3, 9.3, 0.3 };
+14:             NumberGen.Print<double>(n);
+15:             NumberGen.Shuffle<double>(n);
+16:             NumberGen.Print<double>(n);
+17:         }
+18:     }
+19: }

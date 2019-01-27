@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project067", "Project067\Project067.csproj", "{25D2FFD2-9D0D-4C13-915E-435AB29E3839}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeParent", "ShapeParent\ShapeParent.csproj", "{9D324705-92C1-4096-96D3-4708A75A0F09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeChild", "ShapeChild\ShapeChild.csproj", "{6A7C8C32-6945-4FE9-8B55-E2C2584AAE7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25D2FFD2-9D0D-4C13-915E-435AB29E3839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25D2FFD2-9D0D-4C13-915E-435AB29E3839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25D2FFD2-9D0D-4C13-915E-435AB29E3839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25D2FFD2-9D0D-4C13-915E-435AB29E3839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D324705-92C1-4096-96D3-4708A75A0F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D324705-92C1-4096-96D3-4708A75A0F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D324705-92C1-4096-96D3-4708A75A0F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D324705-92C1-4096-96D3-4708A75A0F09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A7C8C32-6945-4FE9-8B55-E2C2584AAE7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A7C8C32-6945-4FE9-8B55-E2C2584AAE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A7C8C32-6945-4FE9-8B55-E2C2584AAE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A7C8C32-6945-4FE9-8B55-E2C2584AAE7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

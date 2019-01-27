@@ -1,0 +1,44 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: 
+05: namespace Com.JungBo.Basic{
+06:     public class Program{
+07:         public static void Main(string[] args){
+08:             Console.WriteLine("5칙 연산입니다.");
+09:             Console.WriteLine("숫자 연산자 숫자순");
+10: 
+11:             Console.Write("첫번째 수를 입력하세요(정수): ");
+12:             int iNum1 = int.Parse(Console.ReadLine());
+13: 
+14:             Console.Write("+,-,*,/,% 중 원하는 연산자 입력: ");
+15:             string opp = Console.ReadLine();
+16: 
+17:             Console.Write("두번째 수를 입력하세요(정수): ");
+18:             int iNum2 = int.Parse(Console.ReadLine());
+19:             //개체생성
+20:             OperationCalculator oppCal 
+21:                                = new OperationCalculator();
+22:             //메서드호출
+23:             int iNum3 = oppCal.Calculator(iNum1,iNum2,opp);
+24:             Console.WriteLine("{0} {1} {2}={3}", 
+25:                                         iNum1,opp, iNum2, iNum3);
+26:         }
+27:     }
+28: 
+29:     public class OperationCalculator {
+30:         //메서드 선언
+31:         public int Calculator(int x, int y, string opp){
+32:             int z = 0;//사칙연산결과를 저장할 임시 변수
+33:             //사칙연산이 어떤 것인가 선택
+34:             switch (opp){
+35:                 case "+": z = x + y; break;
+36:                 case "-": z = x - y; break;
+37:                 case "x": z = x * y; break;
+38:                 case "/": z = x / y; break;
+39:                 case "%": z = x % y; break;
+40:             }
+41:             return z;//사칙연산에 알맞은 값을 리턴한다.
+42:         }
+43:     }
+44: }

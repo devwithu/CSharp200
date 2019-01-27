@@ -1,0 +1,55 @@
+01: using System;
+02: using System.Drawing;
+03: namespace Com.JungBo.Drawings{
+04:     public class MakeShapes{
+05:         byte[,] colors = {{255, 0, 0}, {0, 255, 0}, {0, 0, 255},
+06: 		{255, 255, 0}, {255, 0, 255}, {0, 255, 255},
+07: 		{0, 128, 255}, {0, 255, 128}, {255, 0, 128}, 
+08: 		{128, 0, 255}, {255, 128, 0}, {128, 255, 0}};
+09:         
+10:         ShapeList shlist = new ShapeList();
+11: 
+12:         Random r;
+13:         static int SEED = 37;
+14:         int maxWidth;
+15:         int maxHeight;
+16:         public MakeShapes(int maxWidth, int maxHeight){
+17:             r = new Random(SEED++ + DateTime.Now.Millisecond);
+18:             this.maxWidth = maxWidth;
+19:             this.maxHeight = maxHeight;
+20:         }
+21:         //shlist 겟 프로퍼티
+22:         public ShapeList ShapeList{
+23:             get{
+24:                 return shlist;
+25:             }
+26:         }
+27:         public void Make(bool isNew){
+28:             shlist.IsNew = isNew;
+29:             shlist.Clear(); //청소
+30:             for (int i = 0; i < 30; i++){
+31:               Shape sh = new Shape(r.Next(maxWidth), r.Next(maxHeight),
+32:                     r.Next(1, 50), r.Next(1, 50),
+33:                     FromRGB(r.Next(0, colors.GetLength(0))));
+34:               DoubleCricle dsh = new DoubleCricle(r.Next(maxWidth),
+35:                     r.Next(maxHeight),r.Next(1, 50), r.Next(1, 50),
+36:                     FromRGB(r.Next(0, colors.GetLength(0))));
+37:               Circle c1 = new Circle(r.Next(maxWidth), r.Next(maxHeight),
+38:                     r.Next(1, 50), r.Next(1, 50),
+39:                     FromRGB(r.Next(0, colors.GetLength(0))));
+40:               Rectangler rtg = new Rectangler(r.Next(maxWidth), 
+41:                     r.Next(maxHeight), r.Next(1, 50), r.Next(1, 50),
+42:                     FromRGB(r.Next(0, colors.GetLength(0))));
+43:                 shlist.Add(sh);  
+44:                 shlist.Add(dsh);
+45:                 shlist.Add(c1);
+46:                 shlist.Add(rtg);
+47:             }
+48:         }
+49:         private Color FromRGB(int m){
+50:             Color col = Color.FromArgb(colors[m, 0],
+51:                 colors[m, 1], colors[m, 2]);
+52:             return col;
+53:         }
+54:     }
+55: }

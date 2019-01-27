@@ -1,0 +1,64 @@
+01:  using System;
+02:  namespace Com.JungBo.Maths{
+03:      //Taylor 급와 응용 섹션 22
+04:      public class PowerSeries{
+05:          //Taylor 섹션 22
+06:          public static double Taylor(double x){
+07:              double sum = 1.0;
+08:              double temp = 1.0;
+09:              for (double i = 1.0; i <= 40.0; i++){
+10:                  temp *= (x / i);
+11:                  sum += temp;
+12:              }
+13:              return sum;
+14:          }// Taylor 급수
+15:          //테일러 코사인 급수
+16:          public double TaylorCos(double x){
+17:              double sum = 1;
+18:              double temp = 1.0;
+19:              for (int i = 1; i <= 40; i++){
+20:                  temp *= (x / i);
+21:                  switch (i % 4){
+22:                      case 1:
+23:                      case 3: break;
+24:                      case 2: sum += (-1) * temp; break;
+25:                      case 0: sum += temp; break;
+26:                  }
+27:              }
+28:              return sum;
+29:          }
+30:          //테일러 사인 급수
+31:          public double TaylorSin(double x){
+32:              double sum = 0;
+33:              double temp = 1.0;
+34:              for (int i = 1; i <= 40; i++){
+35:                  temp *= (x / i);
+36:                  switch (i % 4){
+37:                      case 0:
+38:                      case 2: break;
+39:                      case 1: sum += temp; break;
+40:                      case 3: sum += (-1) * temp; break;
+41:                  }
+42:              }
+43:              return sum;
+44:          }
+45:          //Math.Sin()과 비교 소수 13자리 까지 일치
+46:          public void PrintSinValue() {
+47:              for (int i = 0; i <= 360; i++){
+48:                  Console.Write("{0}\t\t\t",
+49:                           TaylorSin(i * Math.PI / 180.0));
+50:                  Console.WriteLine("{0}",
+51:                      Math.Sin(i * Math.PI / 180.0));
+52:              }
+53:          }
+54:          //Math.Cos()과 비교 소수 13자리 까지 일치
+55:          public void PrintCosValue(){
+56:              for (int i = 0; i <= 360; i++){
+57:                  Console.Write("{0}\t\t\t",
+58:                           TaylorCos(i * Math.PI / 180.0));
+59:                  Console.WriteLine("{0}",
+60:                      Math.Cos(i * Math.PI / 180.0));
+61:              }
+62:          }
+63:      }
+64:  }

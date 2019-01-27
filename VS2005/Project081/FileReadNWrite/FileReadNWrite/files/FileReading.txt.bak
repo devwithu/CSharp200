@@ -1,0 +1,51 @@
+01: using System;
+02: using System.Text;//Encoding
+03: using System.IO;//FileStream, StreamReader
+04: namespace Com.JungBo.IO{
+05:     public class FileReading{
+06:         public void FileReads(string fname){
+07:             if(!File.Exists(fname)){
+08:                 Console.WriteLine("{0}이 없습니다.",fname);
+09:                 return;  //FileReads끝내기
+10:             }
+11:             FileStream fs = null;
+12:             StreamReader sr = null;
+13:             try{
+14:                 //fs = File.OpenRead(fname);
+15:                 fs = new FileStream(fname, FileMode.Open);
+16:                 sr = new StreamReader(fs, Encoding.Default);
+17:                 string message = string.Empty;
+18:                 while ((message = sr.ReadLine()) != null) {
+19:                     Console.WriteLine(message);
+20:                 }
+21:             }
+22:             catch (IOException ee){
+23:                 Console.WriteLine(ee.Message);
+24:             }
+25:             finally {
+26:                 sr.Close();
+27:                 fs.Close();
+28:             }
+29:         }//FileReads
+30:         public void FileWrites(string fname){
+31:             FileStream fs = null;
+32:             StreamWriter sw = null;
+33:             try{
+34:                 fs = new FileStream(fname, FileMode.Create);
+35:                 sw = new StreamWriter(fs, Encoding.Default);
+36:                 string message = string.Empty;
+37:                 while ((message = Console.ReadLine()) != null){
+38:                     sw.WriteLine(message);
+39:                     sw.Flush();
+40:                 }
+41:             }
+42:             catch (IOException ee){
+43:                 Console.WriteLine(ee.Message);
+44:             }
+45:             finally{
+46:                 sw.Close();
+47:                 fs.Close();
+48:             }
+49:         }//
+50:     }
+51: }

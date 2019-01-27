@@ -1,0 +1,159 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.Collections;
+004:  namespace Com.JungBo.Logic{
+005:    public class BlackJack{
+006:  List<Card> userList = new List<Card>();
+007:  List<Card> dealerList = new List<Card>();
+008:  private int userSum;
+009:  private int dealerSum;
+010:  private CardQueue queue = new CardQueue();
+011:  public BlackJack(){}
+012:  
+013:  // (Card) BlackJack 에 대한 인덱서
+014:  public Card this[int index]{
+015:      get {
+016:          if (userList.Count > index && 0 <= index){
+017:              return userList[index];
+018:          }
+019:          else{
+020:              throw new Exception("범위를 벗어났습니다.");
+021:          }
+022:      }
+023:  }// indexer
+024:  
+025:  //Plat BlackJack
+026:  public void Play(){
+027:      //카드 만들기
+028:      queue.MakeCards();
+029:      userList.Clear();    //사용자 카드 모두 제거
+030:      dealerList.Clear();  // 딜러 카드 모두 제거
+031:      // 1. 사용자가 카드를 받는다.
+032:      MakeUserOne();
+033:      // 2. 딜러가 카드를 받는다.
+034:      MakeDealerOne();
+035:      // 3. 사용자가 카드를 받는다.
+036:      MakeUserOne();
+037:      // 4. 정보를 출력한다.
+038:      PrintUsers();
+039:      PrintUserSum();
+040:      PrintDealers();            
+041:      // 4. 게임을 지속 여부를 입력받는다.
+042:      KeepGoing();
+043:  
+044:  }//Init
+045:  
+046:  // 게임의 지속 여부
+047:  private void KeepGoing(){
+048:      string str = "----- Keep going??? Yes or"+
+049:          "No.\r\nPress y or n, please. -----";
+050:      Console.WriteLine("\r\n{0}",str);
+051:      string keepGoingStr = Console.ReadLine().Trim();
+052:      if (keepGoingStr == "y" || keepGoingStr == "Y"){
+053:          MakeUserOne();
+054:          PrintUsers();
+055:          PrintUserSum();
+056:          if (userSum > 21){
+057:              Console.WriteLine("Game Over: User Lose!!!");
+058:              Environment.Exit(0);
+059:          }
+060:          // Yes 이면 계속
+061:          KeepGoing();
+062:      }
+063:      else{
+064:          // 게임 종료시
+065:          // 딜러의 카드를 userList.Count - 1 만큼, 카드를 받아서 
+066:          // 합을 구하고 비교한 후 승리자를 출력한다.
+067:          for (int i = 0; i <= userList.Count - dealerList.Count; i++){
+068:              MakeDealerOne();
+069:              if (dealerSum > 21){
+070:                  PrintDealers();
+071:                  PrintDealerSum();
+072:                  Console.WriteLine("Game Over: Dealer Lose!!!");                        
+073:                  Environment.Exit(0);
+074:              }
+075:          }
+076:          Console.WriteLine("\r\nWho is going to win???");
+077:          PrintUsers();
+078:          PrintUserSum();
+079:          PrintDealers();
+080:          PrintDealerSum();         
+081:          // 누가 이겼을까요?
+082:          if (userSum == dealerSum)
+083:              Console.WriteLine("Result: Draw...");
+084:          else if (userSum > dealerSum)
+085:              Console.WriteLine("Result: User Win!!!");
+086:          else
+087:              Console.WriteLine("Result: Dealer Win!!!");
+088:      }
+089:  }     
+090:  // 사용자 카드를 하나 만든다.
+091:  public void MakeUserOne(){
+092:      MakeOne(userList);
+093:      UserSum();
+094:  }
+095:  
+096:  // 딜러 카드를 하나 만든다.
+097:  public void MakeDealerOne(){
+098:      MakeOne(dealerList);
+099:      DealerSum();
+100:  }
+101:  // 카드 한장을 만든다.
+102:  public void MakeOne(List<Card> list){
+103:      list.Add(queue.NextCard());
+104:  }// Make        
+105:  
+106:  // 사용자의 합을 출력한다.
+107:  public void PrintUserSum(){
+108:      Console.Write("\tUserSum: {0}\r\n", userSum);
+109:  }
+110:  // Dealer 합을 출력한다.
+111:  public void PrintDealerSum(){
+112:      Console.Write("\tDealerSum: {0}\r\n", dealerSum);
+113:  }
+114:  public void UserSum(){
+115:      userSum = SumValue(userList);
+116:  }
+117:  public void DealerSum(){
+118:      dealerSum = SumValue(dealerList);
+119:  }
+120:  public int SumValue(List<Card> list){
+121:      CardValue cv = null;
+122:      int tmpSum = 0;
+123:      foreach (Card c in list){
+124:          cv = new CardValue(c);
+125:          tmpSum += cv.CardVal;                
+126:      }
+127:      // aCount 체크
+128:      for (int i = 0; i < cv.ACount; i++){
+129:          string msg = "\r\n----- Which value??? 1 or 11???" +
+130:              " \r\nPress a number what you want. -----";
+131:          Console.WriteLine(msg);
+132:          int whichOne = int.Parse(Console.ReadLine().Trim());
+133:          tmpSum += whichOne;
+134:      }
+135:      return tmpSum;
+136:  }
+137:  // 사용자 카드를 출력한다.
+138:  public void PrintUsers(){
+139:      Console.Write("User Cards: ");
+140:      Print(userList);
+141:  }
+142:  // 딜러 카드를 출력한다.
+143:  public void PrintDealers(){
+144:      Console.Write("Dealer Cards: ");
+145:      Print(dealerList);
+146:  }
+147:  // 출력용
+148:  public void Print(List<Card> list){
+149:      int i = 0;
+150:      foreach (Card c in list){
+151:          i++;
+152:          Console.Write(c);
+153:          if (i % 10 == 0){
+154:              Console.WriteLine();
+155:          }
+156:      }
+157:  }//Print
+158:    }//class
+159:  }//namespace

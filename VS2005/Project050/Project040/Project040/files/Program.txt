@@ -1,0 +1,13 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             Z z1 = new Z(3, 2);
+07:             Z z2 = new Z(3 ,- 5);
+08:             //참조타입 레퍼런스는 .ToString()이 붙는다.
+09:             Console.WriteLine(z1);//z1.ToString()
+10:             Console.WriteLine(z2);
+11:         }
+12:     }
+13: }

@@ -1,0 +1,35 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: using System.Drawing;
+05: using Com.JungBo.Drawings;
+06: namespace Progject055{
+07:     public class CableCar:Shape{
+08:         Shape[] shsf;
+09:         public CableCar(float x, float y) 
+10:             :this(x,y, Color.SkyBlue){ }
+11:         public CableCar(float x, float y, Color color)
+12:             : base(x, y, 1f,1f,color){
+13:         shsf = new Shape[5];  //부모의 타입 배열
+14: //--버스모양만들기
+15: shsf[0] = new Rectangler(x, y, 40, 20, color);//버스모양
+16: shsf[1] = new Circle(x + 8, y - 16, 10, 10, color);//뒤바퀴
+17: shsf[2] = new Circle(x + 24, y - 16, 10, 10, color);//앞바퀴
+18: shsf[3] = new Shape(x + 24 + 2, y - 16 + 1, 6,6, color);//앞바퀴안
+19: shsf[4] = new Shape(x + 8 + 2, y - 16 + 1,6,6, color);//뒤바퀴안
+20: //---
+21:         }
+22:         //버스모양 그리기
+23:         public override void Draw(Graphics g){
+24:             foreach (Shape bus in shsf){
+25:                 bus.Draw(g); 
+26:             }
+27:         }
+28:         //버스 이동시키기
+29:         public void Go(float mx, float my){
+30:             foreach (Shape bus in shsf){
+31:                 bus.Move(mx, my);
+32:             }
+33:         }
+34:     }
+35: }

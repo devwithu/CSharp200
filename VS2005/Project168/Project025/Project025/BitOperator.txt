@@ -1,0 +1,97 @@
+01:  using System;
+02:  namespace Com.JungBo.Logics{
+03:      public class BitOperator{
+04:          private int[] twoBit;
+05:          private int[] eightBit;
+06:          private int[] hxoBit;
+07:          public BitOperator(){
+08:              twoBit = new int[8 * 4];
+09:              eightBit = new int[11];
+10:              hxoBit = new int[8 * 1];
+11:          }
+12:          public void MakeTo2(int m){
+13:              int PIVOT = 1;
+14:              int n = m;
+15:              int count = twoBit.Length;
+16:              Array.Clear(twoBit, 0, count);//0으로 초기화
+17:              while (n != 0 && count > 0){
+18:                  twoBit[--count] = n & PIVOT;
+19:                  n >>= 1;
+20:              }
+21:          }
+22:          public void Show2(){
+23:              bool zeros = false;
+24:              int count = twoBit.Length;
+25:              for (int i = 0; i < count; i++){
+26:                  //zeros==true와 zeros는 동일
+27:                  if (twoBit[i] != 0 || zeros){
+28:                      Console.Write("{0}", twoBit[i]);
+29:                      zeros = true;
+30:                  }
+31:              }
+32:              Console.WriteLine("(2)");
+33:          }
+34:          public void MakeTo8(int m){
+35:              int PIVOT = 7;
+36:              int n = m;
+37:              int count = eightBit.Length;
+38:              Array.Clear(eightBit, 0, count);
+39:              while (n != 0 && count > 0){
+40:                  eightBit[--count] = n & PIVOT;
+41:                  if (count >= 2){
+42:                      n >>= 3;
+43:                  }
+44:                  else{
+45:                      PIVOT = 3;
+46:                      n >>= 3;
+47:                  }
+48:              }
+49:          }
+50:          public void Show8(){
+51:              bool zeros = false;
+52:              int count = eightBit.Length;
+53:              for (int i = 0; i < count; i++){
+54:                  if (eightBit[i] != 0 || zeros){
+55:                      Console.Write("{0}", eightBit[i]);
+56:                      zeros = true;
+57:                  }
+58:              }
+59:              Console.WriteLine("(8)");
+60:          }
+61:          public void MakeTo16(int m){
+62:              int PIVOT = 15;
+63:              int n = m;
+64:              int count = hxoBit.Length;
+65:              Array.Clear(hxoBit, 0, count);
+66:              while (n != 0 && count > 0){
+67:                  hxoBit[--count] = n & PIVOT;
+68:                  n >>= 4;
+69:              }
+70:          }
+71:          public void Show16(){
+72:              bool zeros = false;
+73:              int count = hxoBit.Length;
+74:              for (int i = 0; i < count; i++){
+75:                  if (hxoBit[i] != 0 || zeros){
+76:                      Console.Write("{0}", Tos(hxoBit[i]));
+77:                      zeros = true;
+78:                  }
+79:              }
+80:              Console.WriteLine("(16)");
+81:          }
+82:          // 10 - A, 11 -B...  16진수 10이상은 영문으로 변환해야됨
+83:          public string Tos(int m){
+84:              string s = "";
+85:              switch (m){
+86:                  case 10: s = "A"; break;
+87:                  case 11: s = "B"; break;
+88:                  case 12: s = "C"; break;
+89:                  case 13: s = "D"; break;
+90:                  case 14: s = "E"; break;
+91:                  case 15: s = "F"; break;
+92:                  default: s = string.Concat(m); break;
+93:              }
+94:              return s;
+95:          }
+96:      }
+97:  }

@@ -1,0 +1,29 @@
+01:  using System;
+02:  namespace Com.JungBo.Maths {
+03:      //다항함수
+04:      public class Funct {
+05:          private double x;//f(x)의 x
+06:          private double[] m;//6x^2-->[6,0,0]
+07:  
+08:          public Funct(double x, double[] n){
+09:              this.x = x;
+10:              m = new double[n.Length];
+11:              Array.Copy(n, 0, m, 0, n.Length);//깊은복사
+12:          }
+13:          //x를 나중에 대입
+14:          public Funct(double[] n): this(0, n){}
+15:          //x 프로퍼티
+16:          public double X{
+17:              get { return x; }
+18:              set { x = value; }
+19:          }
+20:          public double Function(){ //f(x)
+21:              int count = m.Length;
+22:              double value = 0.0;
+23:              for (int i = 0; i < count; i++){
+24:               value+=(m[i]*Math.Pow(x,count-1-i));
+25:              }
+26:              return value;
+27:          }//
+28:      }
+29:  }

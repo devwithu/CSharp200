@@ -1,0 +1,13 @@
+01:  using System;
+02:  using System.Windows.Forms;
+03:  namespace ShortestWay{
+04:      public partial class AllPath : Form{
+05:          public AllPath(){
+06:              InitializeComponent();
+07:          }
+08:          //AllPath Æû ³¡³»±â
+09:          private void button1_Click(object sender, EventArgs e){
+10:              this.Close();
+11:          }
+12:      }
+13:  }

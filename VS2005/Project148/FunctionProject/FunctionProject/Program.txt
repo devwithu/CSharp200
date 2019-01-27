@@ -1,0 +1,17 @@
+01:  using System;
+02:  using Com.JungBo.Maths;
+03:  namespace FunctionProject {
+04:   public class Program {
+05:      public static void Main(string[] args){
+06:          double[] mfunct ={-1,0,1,1 };
+07:          //f(x)= -x^3 + x + 1
+08:          Funct func = new Funct(mfunct);
+09:          double x = 3;
+10:          func.X = x;  //-27+3+1
+11:          Console.WriteLine("f({0})={1}", x, func.Function());
+12:          x = -1;
+13:          func.X = x;  //1-1+1
+14:          Console.WriteLine("f({0})={1}", x, func.Function());
+15:      }
+16:   }
+17:  }

@@ -1,0 +1,10 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace Com.JunBo.Basic {
+04:     public class Program {
+05:         public static void Main(string[] args){
+06:             TetrisRotate tr = new TetrisRotate();
+07:             tr.Print();
+08:         }
+09:     }
+10: }

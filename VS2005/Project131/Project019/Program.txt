@@ -1,0 +1,9 @@
+1:  using System;
+2:  using Com.JungBo.Logic;
+3:  namespace Com.JungBo.Basic{
+4:      public class Program{
+5:          public static void Main(string[] args){
+6:              PrimeNumber.PrintPrime(1000);
+7:          }
+8:      }
+9:  }

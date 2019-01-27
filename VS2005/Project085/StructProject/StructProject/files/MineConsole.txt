@@ -1,0 +1,77 @@
+01: using System;
+02: namespace Com.JungBo.Games{
+03:     public class MineConsole{
+04:         Block[,] board;
+05:         Position[] pos;
+06:         int boardsize = 20;
+07:         int mine = 20;
+08:         public MineConsole() { InitMine();  }
+09: 
+10:         // 보드를 초기화 한다.
+11:         private void InitMine(){
+12:             board = new Block[boardsize, boardsize];// 블록
+13:             pos = new Position[mine];  // 지뢰 위치 저장
+14:             for (int i = 0; i < boardsize; i++){
+15:                 for (int j = 0; j < boardsize; j++){
+16:                     board[i, j].bState = BombState.EMPTY;
+17:                     board[i, j].oState = OpenState.CLOSE;
+18:                     board[i, j].down = false;
+19:                 }
+20:             }
+21:             SetMine(); // 지뢰 셋팅
+22:             CalMine();  // 보드 계산
+23:         }
+24:         // 지뢰를 랜덤으로 설치한다.
+25:         private void SetMine() {
+26:             Random r = new Random();
+27:             int count = 0;
+28:             int row = 0;
+29:             int col = 0;
+30: 
+31:             while (true){
+32:                 if (count == mine) break;
+33:                 row = r.Next(boardsize);
+34:                 col = r.Next(boardsize);
+35:                 if (board[row, col].bState != BombState.BOMB){
+36:                     pos[count].row = row;
+37:                     pos[count].col = col;
+38:                     count++;
+39:                     board[row, col].bState = BombState.BOMB;
+40:                 }
+41:             }
+42:         }
+43:         // 지뢰 주변의 숫자 계산
+44:         private void CalMine(){
+45:             for (int t = 0; t < mine; t++){
+46:                 int x = pos[t].row;
+47:                 int y = pos[t].col;
+48:                 for (int i = x - 1; i <= x + 1; i++){
+49:                   for (int j = y - 1; j <= y + 1; j++){
+50:                       //자신이 폭탄이 아니고 경계밖에 있지 않다면
+51:                       if (i >= 0 && j >= 0 && i <= (boardsize - 1) &&
+52:                          j <= (boardsize - 1) &&
+53:                          board[i, j].bState != BombState.BOMB)
+54:                          board[i, j].bState++;
+55:                   }
+56:                 }
+57:             }
+58:         }
+59:         //폭탄을 설치하고, 주변의 폭탄 계산하고
+60:         public void Make(){
+61:             SetMine();
+62:             CalMine();
+63:         }
+64:         //지뢰게임 화면에 보이기
+65:         public void Print() {
+66:             for (int i = 0; i < boardsize; i++){
+67:                 for (int j = 0; j < boardsize; j++){
+68:                     //2자로 출력 enum을 int로 변환해서
+69:                     Console.Write("{0,2} ",(int)(board[i,j].bState));
+70:                 }
+71:                 Console.WriteLine();
+72:             }
+73:         }
+74: 
+75:     }
+76: 
+77: }

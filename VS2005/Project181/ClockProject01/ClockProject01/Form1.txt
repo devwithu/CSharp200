@@ -1,0 +1,71 @@
+01:  using System;
+02:  using System.Collections.Generic;
+03:  using System.ComponentModel;
+04:  using System.Data;
+05:  using System.Drawing;
+06:  using System.Text;
+07:  using System.Windows.Forms;
+08:  using System.Drawing.Drawing2D;//SmoothingMode
+09:  namespace ClockProject01{
+10:      public partial class Form1 : Form{
+11:          PointF[] sf = new PointF[4];//초침 모양
+12:          Matrix matrix = new Matrix();//회전
+13:          public Form1(){
+14:              InitializeComponent();
+15:              //-------- 아래에 쓸것.
+16:              Init();
+17:          }
+18:          //초침모양과 초침 시작위치
+19:          private void Init() {
+20:              //초심초기화
+21:              sf[0] = new PointF(0, -190);
+22:              sf[1] = new PointF(-2, -160);
+23:              sf[2] = new PointF(0, 0);
+24:              sf[3] = new PointF(2, -160);
+25:              //초심시작위치구하기
+26:              float startS = DateTime.Now.Second;
+27:              matrix.Reset();
+28:              matrix.Rotate((float)((startS - 1) * 6.0f),
+29:                  MatrixOrder.Append);
+30:              matrix.TransformPoints(sf);
+31:          }
+32:          protected override void OnPaint(PaintEventArgs pe){
+33:              Graphics g = pe.Graphics;
+34:              //----------선 연결을 깨끗하게
+35:              g.SmoothingMode = SmoothingMode.HighQuality;
+36:              g.TranslateTransform(200f,200f);//상대원점0,0
+37:              //-----------아래에 소스
+38:              DrawCircle(g);//원 그리기
+39:              DrawSecond(g);//초침 그리기
+40:              //-------건들지마 위에다 써
+41:              base.OnPaint(pe);
+42:          }
+43:          //1초마다 다시 그리기
+44:          private void timer1_Tick(object sender, EventArgs e){
+45:              string s = "     JungBo Clock ver 0.1";
+46:              int hour = DateTime.Now.Hour;
+47:              int min = DateTime.Now.Minute;
+48:              int sec = DateTime.Now.Second;
+49:              string ss = string.Format("{0}시 {1}분 {2}초",
+50:                  hour,min,sec);
+51:              s += "             " + ss;
+52:              this.Text = s;
+53:              this.Invalidate();//새로 갱신->OnPaint호출
+54:          }//
+55:          //시계의 원만들기(상대원점)
+56:          private void DrawCircle(Graphics g) {
+57:              Pen xPen = new Pen(Color.Blue, 2);
+58:              g.DrawArc(xPen,
+59:                  new Rectangle(-200, -200, 400, 400), 
+60:                  0.0f, 360.0f);//원 그리기
+61:              xPen.Dispose();
+62:          }
+63:          //1초당 초침 이동시키기
+64:          private void DrawSecond(Graphics g){
+65:              matrix.Reset();
+66:              matrix.Rotate(6.0f);
+67:              matrix.TransformPoints(sf);
+68:              g.FillPolygon(new SolidBrush(Color.BlueViolet), sf);
+69:          }
+70:      }
+71:  }

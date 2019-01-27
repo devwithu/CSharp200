@@ -1,0 +1,33 @@
+01: using System;
+02: using System.Threading;
+03: public class CakeMaker  {
+04: 	private CakePlate cake;
+05:     private string name;
+06:     Thread makerThread;
+07:     public string Name{
+08:         get { return name; }
+09:         set { name = value; }
+10:     }
+11: 	public CakeMaker(CakePlate cake){
+12: 		setCakePlate(cake);
+13: 	}
+14: 	public void setCakePlate(CakePlate cake){
+15: 		this.cake=cake;
+16: 	}
+17: 	public CakePlate getCakePlate(){
+18: 		return cake;
+19: 	}
+20:     public void run(){
+21: 		for(int i=0;i<50;i++){
+22:             Console.Write("{0}: ", name);
+23:             cake.makeBread();//빵만들기
+24: 		}
+25: Console.WriteLine("{0}:빵을 다 만들었으니 쉬자.", name);
+26: 	}
+27:     public void Start(string name) {
+28:         this.name = name;
+29:       makerThread = new Thread(new ThreadStart(run));
+30:         makerThread.Name = name;
+31:         makerThread.Start();
+32:     }
+33: }

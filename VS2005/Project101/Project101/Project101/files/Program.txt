@@ -1,0 +1,13 @@
+01: using System;
+02: using Com.JungBo.Infor;
+03: using System.IO;
+04: namespace Project101 {
+05:     public class Program {
+06:         public static void Main(string[] args){
+07:             DriverView drivew = new DriverView();
+08:             drivew.ShowDrives();
+09:             drivew.ShowComputerInfor();
+10:             drivew.ShowDriveInfor();
+11:         }
+12:     }
+13: }

@@ -1,0 +1,46 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: //Math.Abs() 사용
+05: namespace Com.JungBo.Basic{
+06:     public class Program{
+07:         public static void Main(string[] args){
+08:             Console.WriteLine("다이아몬드를 출력합니다.");
+09:             Console.Write("홀수인 정수 한개의 입력하세요: ");
+10:             int iNum = int.Parse(Console.ReadLine());//첫 번째 수 입력후 변환
+11: 
+12:             Asterisk.ShowDiamond(iNum);
+13:             Console.WriteLine();
+14:             Asterisk.ShowReverseDiamond(iNum);
+15:         }
+16:     }
+17:     public class Asterisk{
+18:         //다이아몬드형
+19:         public static void ShowDiamond(int n){
+20:             for (int i = 0; i < n; i++){
+21:                 for (int j = 0; j < Math.Abs(i - n / 2); j++){
+22:                     Console.Write(" ");
+23:                 }
+24:                 for (int k = 0; k < n - 2 * Math.Abs(i - n / 2); k++){
+25:                     Console.Write("X");
+26:                 }
+27:                 Console.WriteLine();
+28:             }
+29:         }
+30:         //공백과 X과 바뀐 다이아몬드형
+31:         public static void ShowReverseDiamond(int n){
+32:             for (int i = 0; i < n; i++){
+33:                 for (int j = 0; j < Math.Abs(i - n / 2); j++){
+34:                     Console.Write("X");
+35:                 }
+36:                 for (int k = 0; k < n - 2 * Math.Abs(i -n / 2); k++){
+37:                     Console.Write(" ");
+38:                 }
+39:                 for (int j = 0; j < Math.Abs(i - n / 2); j++){
+40:                     Console.Write("X");
+41:                 }
+42:                 Console.WriteLine();
+43:             }
+44:         }
+45:     }
+46: }

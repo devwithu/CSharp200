@@ -1,0 +1,24 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: using Com.JungBo.Logic;
+05: namespace Com.JungBo.Basic{
+06:     public class Program{
+07:         public static void Main(string[] args){
+08: 
+09:             int startNum = 1;
+10:             int endNum = 10000;
+11:             Console.WriteLine("{0}과 {1}사이의 친화수: "
+12:                 ,startNum, endNum);
+13:             UclidMath.PrintFriend(startNum, endNum);//친화수
+14: 
+15:             Console.WriteLine("{0}의 약수의 합(자신제외): {1}",
+16:                 79750, UclidMath.SumDivision(79750));
+17:             UclidMath.PrintDivision(79750);
+18: 
+19:             Console.WriteLine("{0}의 약수의 합(자신제외): {1}",
+20:                 88730, UclidMath.SumDivision(88730));
+21:             UclidMath.PrintDivision(88730);
+22:         }
+23:     }
+24: }

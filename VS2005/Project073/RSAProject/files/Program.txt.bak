@@ -1,0 +1,24 @@
+01: using System;
+02: using Com.JungBo.Logic;   //InstallmentSavings
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             
+07:             //연복리
+08:             double r = 4.6;   //연복리 4.6%
+09:             double a = 100000;//월 적금액
+10:             int year = 1;     //적금기간 년도
+11:             double result =
+12:                 InstallmentSavings.Savings(a, r, year);
+13: 
+14:             string s = "연복리 {0}%, 월 {1}원 씩 {2}년";
+15:             s += "을 입금하면 {3:#,#}원을 받는다.";
+16:             //#.# 소수점 1자리 #소수점 제거
+17:             Console.WriteLine(s,r,a,year,result);
+18:             //아래와 동일
+19:             string ss =
+20:                 string.Format(s, r, a, year, result);
+21:             Console.WriteLine(ss);
+22:         }
+23:     }
+24: }

@@ -1,0 +1,18 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{  
+03:   public class Program{
+04:      public  static void Main(string[] args){
+05:          //x + 2y + 4z = 11
+06:          //2x + 5y + 2z = 3
+07:          //4x - y + z = 8
+08:          double[,] A ={ { 1,2,4 }, { 2,5,2 }, {4,-1,1 } };
+09:          double[,] Y ={ { 11 }, { 3 }, { 8 } };
+10:          //2차원배열->1차원배열
+11:          double[] m = MatrixTrans<double>.Mat2to1(A);
+12:          MatrixTrans<double>.Print(m);
+13:          //1차원배열->2차원배열
+14:          double[,] n = MatrixTrans<double>.Mat1to2(m, 3, 3);
+15:          MatrixTrans<double>.Print(n);
+16:      }
+17:   }
+18:  }

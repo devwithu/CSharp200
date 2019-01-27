@@ -1,0 +1,22 @@
+01: using System;
+02: namespace Com.JungBo.Basic{
+03:     public class Program{
+04:         //as
+05:         public static void Main(string[] args){
+06:             string ss = "Hello! My name is Su-mi";
+07:             object obj = ss;//프로모션
+08:             //as는 타입이 틀리면 null이 됨
+09:             string tt = obj as string;//참조타입만 캐스팅
+10:             Console.WriteLine(tt);
+11:             //아래 소스와 동일
+12:             if(obj is string){//인스턴스의 타입
+13:                 string ts = (string)obj;//캐스팅
+14:                 Console.WriteLine(ts);
+15:             }
+16:             object obj1 = 23;
+17:             //int s = obj1 as int; //언박싱은 as 사용불가
+18:             int s = (int)obj1;  //언박싱은 캐스팅함
+19:             Console.WriteLine(s);
+20:         }
+21:     }
+22: }

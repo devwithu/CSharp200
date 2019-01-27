@@ -1,0 +1,30 @@
+01:  using System;
+02:  namespace Com.JungBo.Sorts{
+03:   public class Insertion{
+04:      public static void InsertSort(int[] a){
+05:          for (int i = 0; i < a.Length; i++){
+06:              int temp = a[i];
+07:              int j = i - 1;
+08:              while (j >= 0 && a[j] > temp){
+09:                  a[j + 1] = a[j];
+10:                  j--;
+11:              }
+12:              a[j + 1] = temp;
+13:              SortUtil.Print(a);
+14:          }
+15:      }//
+16:      public static void InsertSort<T>(T[] a)
+17:                                   where T : IComparable{
+18:          for (int i = 0; i < a.Length; i++){
+19:              T temp = a[i];
+20:              int j = i - 1;
+21:              while (j >= 0 && a[j].CompareTo(temp) > 0){
+22:                  a[j + 1] = a[j];
+23:                  j--;
+24:              }   
+25:              a[j + 1] = temp;
+26:              SortUtil.Print<T>(a);
+27:          }
+28:      }//
+29:   }//Insertion
+30:  }

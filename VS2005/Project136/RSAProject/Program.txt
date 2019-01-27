@@ -1,0 +1,12 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:      public class Program{
+04:          public static void Main(string[] args){
+05:              NImageArray image = new NImageArray(12);
+06:              image.Make();
+07:              image.Print();
+08:              image.Make();
+09:              image.Print();
+10:          }
+11:      }
+12:  }

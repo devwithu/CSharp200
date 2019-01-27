@@ -1,0 +1,9 @@
+1:  using System;
+2:  namespace Com.JungBo.Logic {
+3:      public class Program{
+4:          public static void Main(string[] args){
+5:              RSA rsa = new RSA();
+6:              rsa.Make();
+7:          }
+8:      }
+9:  }

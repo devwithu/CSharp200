@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ks_c_5601-1987" ?>
+<kosdaq>
+  <stock stockname="CJ" stockprice="65400" prevstockprice="-1100"/>
+  <stock stockname="CJ인터넷" stockprice="16200" prevstockprice="200"/>
+  <stock stockname="CJ홈쇼핑" stockprice="64800" prevstockprice="-1800"/>
+  <stock stockname="GS" stockprice="45000" prevstockprice="400"/>
+</kosdaq>

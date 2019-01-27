@@ -1,0 +1,21 @@
+01:  using System;
+02:  namespace Com.JungBo.Game{
+03:     public class Program{
+04:          public static void Main(string[] args){
+05:              
+06:              string yesOrNo = "Do you want to continue? (Y/N)";
+07:              string message = "";
+08:              Console.WriteLine("Play Base Ball Game!!");
+09:  
+10:              BaseBallGame game = new BaseBallGame();
+11:              game.Play();
+12:              int count = 1;
+13:              Console.WriteLine(yesOrNo);
+14:              while((message=Console.ReadLine()).ToUpper().Equals("Y")){
+15:                  Console.WriteLine("{0} ¹øÂ° Base Ball Game", count++);
+16:                  game.Play();
+17:                  Console.WriteLine(yesOrNo);
+18:              }
+19:          }
+20:      }
+21:  }

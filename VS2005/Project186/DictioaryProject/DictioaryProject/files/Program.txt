@@ -1,0 +1,14 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace DictioaryProject{
+04:     public class Program{
+05:         static void Main(string[] args){
+06:             CardDictionary dic = new CardDictionary();
+07:             dic.MakeCards();
+08:             dic.PrintCards();
+09:             Console.WriteLine("-------------------------");
+10:             dic.Suffle();
+11:             dic.PrintCards();
+12:         }
+13:     }
+14: }

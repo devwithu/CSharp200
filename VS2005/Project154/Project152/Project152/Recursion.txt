@@ -1,0 +1,43 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:   public class Recursion{
+04:      //팩토리얼
+05:      public static double Fact(double n){
+06:          if (n == 1.0 || n == 0.0){
+07:              return 1.0;
+08:          }
+09:          else{
+10:              return n * Fact(n - 1);
+11:          }
+12:      }//
+13:      //피보나치수열
+14:      public static double Pivo(double n) {
+15:          if (n == 1.0 || n == 2.0){
+16:              return 1.0;
+17:          }
+18:          else {
+19:              return Pivo(n - 1) + Pivo(n - 2);
+20:          }
+21:      }//
+22:      public static double Golden(double n) {
+23:          return Pivo(n) / Pivo(n+1);
+24:      }
+25:      public static void ShowFact(){
+26:          for (int i = 1; i <= 20; i++){
+27:           Console.WriteLine("{0,30:F}",Fact(i));
+28:          }
+29:      }//
+30:      //ShowPivo
+31:      public static void ShowPivo(){
+32:          for (int i = 3; i < 40; i++){
+33:              Console.WriteLine(Pivo(i));
+34:          }
+35:      }//
+36:      //ShowGolden
+37:      public static void ShowGolden() {
+38:          for (int i = 3; i < 40; i++){
+39:              Console.WriteLine(Golden(i));
+40:          }
+41:      }//
+42:   }
+43:  }

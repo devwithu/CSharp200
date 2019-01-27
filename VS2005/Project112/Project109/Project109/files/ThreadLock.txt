@@ -1,0 +1,70 @@
+01: using System;
+02: using System.Threading; //Thread
+03: namespace Com.JungBo.Proce3 {
+04:  public class ThreadT {
+05:     object oo = new object();
+06:     static Mutex mutex = new Mutex();
+07:     //public void Go(){
+08:     //    lock (oo){
+09:     //        for (int i = 0; i < 3000; i++){
+10:     //            if (Thread.CurrentThread.Name == "T"){
+11:     //                Console.Write("T");
+12:     //            }
+13:     //            else if (Thread.CurrentThread.Name == "S"){
+14:     //                Console.Write("S");
+15:     //            }
+16:     //            else{
+17:     //                Console.Write("M");
+18:     //            }
+19:     //        }
+20:     //    }
+21:     //}
+22:     //public void Go(){
+23:     //    lock (this){
+24:     //        for (int i = 0; i < 3000; i++){
+25:     //            if (Thread.CurrentThread.Name == "T"){
+26:     //                Console.Write("T");
+27:     //            }
+28:     //            else if (Thread.CurrentThread.Name == "S"){
+29:     //                Console.Write("S");
+30:     //            }
+31:     //            else{
+32:     //                Console.Write("M");
+33:     //            }
+34:     //        }
+35:     //    }
+36:     //}
+37:      public void Go(){
+38:          mutex.WaitOne();
+39:          for (int i = 0; i < 3000; i++){
+40:              if (Thread.CurrentThread.Name == "T"){
+41:                  Console.Write("T");
+42:              }
+43:              else if (Thread.CurrentThread.Name == "S"){
+44:                  Console.Write("S");
+45:              }
+46:              else{
+47:                  Console.Write("M");
+48:              }
+49:          }
+50:          mutex.ReleaseMutex();
+51:      }
+52:  }
+53:  public class ThreadCompete {
+54:     public void Going(){
+55:         ThreadT t = new ThreadT();
+56:        
+57:         //공유자원을 쓰레드에 위임
+58:         Thread t1 = new Thread(new ThreadStart(t.Go));
+59:         Thread t2 = new Thread(new ThreadStart(t.Go));
+60:         Thread t3 = new Thread(new ThreadStart(t.Go));
+61:         t1.Name = "T";
+62:         t2.Name = "S";
+63:         t3.Name = "M";
+64:         //쓰레드 레디 ->CLR의 관리하에 Run
+65:         t1.Start();
+66:         t2.Start();
+67:         t3.Start();
+68:     }
+69:  }
+70: }

@@ -1,0 +1,24 @@
+01: using System;
+02: using System.Collections.Generic;
+03: namespace Com.JungBo.Logic {
+04:     public class NumberGen{
+05: 
+06:         //Generic Method
+07:         public static void Shuffle<T>(T[]cards){
+08:             Random r = new Random();
+09:             int count = cards.Length;
+10:             for (int i = 0; i < count; i++){
+11:                 T t = cards[i];
+12:                 int next = r.Next(count);
+13:                 cards[i] = cards[next];
+14:                 cards[next] = t;
+15:             }
+16:         }//
+17:         public static void Print<T>(T[] n){
+18:             foreach (T tvar in n){
+19:                 Console.Write("{0}\t", tvar);
+20:             }
+21:             Console.WriteLine();
+22:         }
+23:     }//CardSort class
+24: }

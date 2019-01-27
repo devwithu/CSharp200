@@ -1,0 +1,22 @@
+01: using System;
+02: using System.Xml;
+03: using Com.JungBo.Fund;
+04: namespace Project114 {
+05:  public class Program {
+06:   public static void Main(string[] args){
+07:     string xmlfname = "../../fundxml20080612081256.xml";
+08:     string xmlfname2 = "../../fundxml20080612081255.xml";
+09:     FundXmlRead read=new FundXmlRead();
+10:     FunXmlWrite fxw = new FunXmlWrite();
+11:     //Dom으로 읽기
+12:     XmlDocument doc = read.XMLDomRead(xmlfname);
+13:     //Dom을 파일로 저장
+14:     fxw.SaveXmlDom("../../ddd.xml", doc);
+15: 
+16:     //콘솔에 출력
+17:     fxw.XMLConsoleWrite(xmlfname);
+18:     //c로 저장
+19:     fxw.XMLFileReadWrite(xmlfname, "../../c.xml");
+20:   }
+21:  }
+22: }

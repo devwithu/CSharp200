@@ -1,0 +1,37 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: 
+05: namespace Com.JungBo.Logic{
+06: public class Card{
+07:     private string cardValue; //카드값을 저장
+08:     public Card(string msg) {
+09:         //배열을 List로 만들기
+10:         List<string> decklist = new List<string>(CardList.DECK);
+11:         List<string> suitlist = new List<string>(CardList.SUIT);
+12:         //H8에서 H가 decklist에 있는가, 8이 suitlist에 있는가 확인
+13:         if (decklist.Contains(msg[0].ToString()) &&
+14:             suitlist.Contains(msg[1].ToString()))
+15:         {
+16:             this.cardValue = msg;
+17:         }
+18:         else {
+19:             throw new Exception("카드가 존재하지 안습니다.");
+20:         }
+21:     }
+22:     public string CardValue{
+23:         get { return cardValue; }
+24:     }
+25:     //string을 Card 타입으로 암시적 형변환
+26:     public static implicit operator Card(string msg){
+27:         return new Card(msg);
+28:     }
+29:     //Card 타입을 string 타입으로 명시적 형변환
+30:     public static explicit operator string(Card yc){
+31:         return yc.CardValue;
+32:     }
+33:     public override string ToString(){
+34:         return string.Format("[{0}] ", cardValue);
+35:     }
+36: }
+37: }

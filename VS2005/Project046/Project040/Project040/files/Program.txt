@@ -1,0 +1,37 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         //ArrayList
+06:         public static void Main(string[] args){
+07: 
+08:             CardList cl = new CardList();
+09:             
+10:             //cl.SUIT[3] = "kk";  //4->kk로 변경됨
+11: 
+12:             cl.MakeCard();
+13:             cl.PrintCard();//출력
+14:             Console.WriteLine("----------------------");
+15: 
+16:             cl.Sort();      //알파벳 순 정렬
+17:             cl.PrintCard();//출력
+18:             Console.WriteLine("----------------------");
+19: 
+20:             cl.ReverseCard();//뒤집어
+21:             cl.PrintCard();//출력
+22:             Console.WriteLine("----------------------");
+23: 
+24:             //object[]->string [] 변환
+25:             string[] cards = cl.ToArray();
+26:             int i = 0;
+27:             //cl.SUIT.Length-> SUIT가 public 이므로
+28:             foreach (string card in cards){
+29:                 Console.Write("{0}  ", card);
+30:                 if ((i+++1) % cl.SUIT.Length == 0){
+31:                     Console.WriteLine();
+32:                 }
+33:             }
+34:             Console.WriteLine();
+35:         }
+36:     }
+37: }

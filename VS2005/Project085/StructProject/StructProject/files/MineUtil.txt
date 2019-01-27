@@ -1,0 +1,20 @@
+01: using System;
+02: namespace Com.JungBo.Games{
+03:     public enum BombState { EMPTY = 0, ONE = 1, TWO,THREE, FOUR,
+04:     FIVE, SIX, SEVEN, EIGHT, END = 10, FLAGEND = 11, BOMB = 12 };
+05:     public enum OpenState { CLOSE = 0, OPEN, FLAG, QUESTION };
+06:     public struct Block{
+07:         public BombState bState;
+08:         public OpenState oState;
+09:         public bool down;
+10:     };
+11:     public struct Position{
+12:         public int row;
+13:         public int col;
+14:     };
+15:     public struct Order{
+16:         public int first;
+17:         public int second;
+18:         public int third;
+19:     };
+20: }

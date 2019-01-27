@@ -1,0 +1,42 @@
+01:  using System;
+02:  namespace Com.JungBo.Game{
+03:      public class Empire{
+04:          private int[] pit;//투수가 던진공
+05:          private int[] hit;//타자가 친 공
+06:          public Empire(int m) {
+07:              pit = new int[m];
+08:              hit = new int[m];
+09:          }
+10:          public Empire(): this(3){ }
+11:          //투수가 던진 공
+12:          public int[] Pit {
+13:              get { return this.pit; }
+14:              set { pit = value; }
+15:          }
+16:          //타자가 친 공
+17:          public int[] Hit{
+18:              get { return this.hit; }
+19:              set { hit = value; }
+20:          }
+21:          //스트라이크
+22:          public int Strike() {
+23:              int count = 0;
+24:              for (int i = 0; i < hit.Length; i++){
+25:                  if (hit[i] == pit[i]) { count++; }
+26:              }
+27:              return count;
+28:          }//
+29:          //볼
+30:          public int Ball(){
+31:              int count = 0;
+32:              for (int i = 0; i < hit.Length; i++){
+33:                  for (int j = 0; j <hit.Length; j++){
+34:                      if (i!=j && hit[i] == pit[j]) { 
+35:                          count++; 
+36:                      }
+37:                  }
+38:              }
+39:              return count;
+40:          }//
+41:      }
+42:  }

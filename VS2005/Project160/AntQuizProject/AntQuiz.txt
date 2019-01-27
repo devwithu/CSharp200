@@ -1,0 +1,59 @@
+01:  using System;
+02:  namespace Com.Kaoni.Game{
+03:      public class AntQuiz{
+04:      //맨 앞에 문자와 같은 문자가 연속적으로 몇 번 나오는가
+05:          public int Many(char[] cc) { 
+06:              int count=1;
+07:              for (int i = 1; i < cc.Length; i++){
+08:                  if (cc[0] == cc[i]){
+09:                      count++;
+10:                  }
+11:                  else {
+12:                      break;
+13:                  }
+14:              }
+15:              return count;
+16:          }//
+17:          //1121-> 맨앞과 같은 연속 문자 얻기--> "11"
+18:          public string PreString(string nstr) {
+19:              string ns = string.Empty;
+20:              ns = nstr.Substring(0,this.Many(nstr.ToCharArray()));
+21:              return ns;
+22:          }//
+23:          //1121-->NextString(2)  --> "21"
+24:          public string NextString(string nstr){
+25:              string ns = string.Empty;
+26:              ns = nstr.Substring(this.Many(nstr.ToCharArray()));
+27:              return ns;
+28:          }//
+29:          //1121  ==> 12 ,같은 수가 몇번(1이 2번)
+30:          public string MakeAnt(string nstr) {
+31:              int count = this.Many(nstr.ToCharArray());
+32:              string ns = nstr[0].ToString() + count.ToString();
+33:              return ns;
+34:          }//
+35:          //1121  --> 122111, 다음 개미퀴즈 만들기
+36:          public string Make(string nstr){
+37:              string ns = string.Empty;
+38:              string temp=nstr;
+39:              for (int i = 0; i<temp.Length;   ) {
+40:                  
+41:                  ns += MakeAnt(nstr);
+42:                  i += Many(nstr.ToCharArray());
+43:                  nstr = this.NextString(nstr);
+44:  
+45:              }
+46:  
+47:              return ns;
+48:          }//
+49:          //4층: 11->12->1121->122111 4층, 층수 만큼 보이기
+50:          public void AntStair(int stairs) {
+51:              string start = "11";
+52:              Console.WriteLine("{0}", start);
+53:              for (int i = 1; i <stairs; i++)
+54:              {
+55:                  Console.WriteLine("{0}", start = Make(start));
+56:              }
+57:          }//
+58:      }
+59:  }

@@ -1,0 +1,14 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Project104{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             int m=20;
+07:             int n=15;
+08:             Console.WriteLine("{0}, {1}의 최대공약수 {2}",
+09:                 m,n,Recursion.GCD(m,n));
+10:             Console.WriteLine("{0}, {1}의 최소공배수 {2}",
+11:                 m, n, Recursion.LCM(m, n));
+12:         }
+13:     }
+14: }

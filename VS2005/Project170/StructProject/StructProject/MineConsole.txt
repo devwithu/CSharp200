@@ -1,0 +1,104 @@
+001:  using System;
+002:  namespace Com.JungBo.Games{
+003:      public class MineConsole{
+004:          Block[,] board;
+005:          Position[] pos;
+006:          int boardsize = 20;
+007:          int mine = 20;
+008:          public MineConsole() { InitMine();  }
+009:          // 보드를 초기화 한다.
+010:          private void InitMine(){
+011:              board = new Block[boardsize, boardsize];// 블록
+012:              pos = new Position[mine];  // 지뢰 위치 저장
+013:              for (int i = 0; i < boardsize; i++){
+014:                  for (int j = 0; j < boardsize; j++){
+015:                      board[i, j].bState = BombState.EMPTY;
+016:                      board[i, j].oState = OpenState.CLOSE;
+017:                      board[i, j].down = false;
+018:                  }
+019:              }
+020:              SetMine(); // 지뢰 셋팅
+021:              CalMine();  // 보드 계산
+022:          }
+023:          // 지뢰를 랜덤으로 설치한다.
+024:          private void SetMine() {
+025:              Random r = new Random();
+026:              int count = 0;
+027:              int row = 0;
+028:              int col = 0;
+029:              while (true){
+030:                  if (count == mine) break;
+031:                  row = r.Next(boardsize);
+032:                  col = r.Next(boardsize);
+033:                  if (board[row, col].bState != BombState.BOMB){
+034:                      pos[count].row = row;
+035:                      pos[count].col = col;
+036:                      count++;
+037:                      board[row, col].bState = BombState.BOMB;
+038:                  }
+039:              }
+040:          }
+041:          // 주변의 지뢰 숫자 계산
+042:          private void CalMine(){
+043:              for (int t = 0; t < mine; t++){
+044:                  int x = pos[t].row;
+045:                  int y = pos[t].col;
+046:                  for (int i = x - 1; i <= x + 1; i++){
+047:                    for (int j = y - 1; j <= y + 1; j++){
+048:                        //자신이 폭탄이 아니고 경계밖에 있지 않다면
+049:                        if (i >= 0 && j >= 0 && i <= (boardsize - 1) &&
+050:                           j <= (boardsize - 1) &&
+051:                           board[i, j].bState != BombState.BOMB)
+052:                           board[i, j].bState++;
+053:                    }
+054:                  }
+055:              }
+056:          }
+057:          //폭탄을 설치하고, 주변의 폭탄 계산하고
+058:          public void Make(){
+059:              SetMine();
+060:              CalMine();
+061:              //PrintNoBomb();
+062:          }
+063:          //지뢰게임 화면에 보이기
+064:          public void Print() {
+065:              for (int i = 0; i < boardsize; i++){
+066:                  for (int j = 0; j < boardsize; j++){
+067:                      //2자로 출력 enum을 int로 변환해서
+068:                      if (board[i, j].oState == OpenState.OPEN &&
+069:                         board[i, j].bState == BombState.EMPTY){
+070:                          Console.Write("{0,2} ", " ");
+071:                      }
+072:                      else {
+073:                          Console.Write("{0,2} ", (int)(board[i, j].bState));
+074:                      }
+075:                      
+076:                  }
+077:                  Console.WriteLine();
+078:              }
+079:          }
+080:          // 재귀적으로 EMPTY일경우 열기
+081:          public void Chain_Bomb(int x, int y){   // row -> x colmn -> y
+082:             // 인덱스 범위를 벗어나지 않고 오픈상태와 깃발 상태가 아니면 
+083:              while (x >= 0 && x <= (boardsize - 1) &&
+084:                  y >= 0 && y <= (boardsize - 1) && 
+085:                  board[x, y].oState != OpenState.OPEN && 
+086:                  board[x, y].oState != OpenState.FLAG){ 
+087:                  //주변에 폭탄이 없는 곳 열기
+088:                  board[x, y].oState = OpenState.OPEN;
+089:                  //중앙을 중심으로 8방향을 검색을 한다.
+090:                  if (board[x, y].bState == BombState.EMPTY){
+091:                      Chain_Bomb(x - 1, y - 1);
+092:                      Chain_Bomb(x - 1, y);
+093:                      Chain_Bomb(x - 1, y + 1);
+094:                      Chain_Bomb(x, y - 1);
+095:                      Chain_Bomb(x, y + 1);
+096:                      Chain_Bomb(x + 1, y - 1);
+097:                      Chain_Bomb(x + 1, y);
+098:                      Chain_Bomb(x + 1, y + 1);
+099:                  }
+100:                  break;
+101:              }
+102:          }
+103:      }
+104:  }

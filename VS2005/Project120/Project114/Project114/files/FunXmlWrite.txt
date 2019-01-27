@@ -1,0 +1,40 @@
+01: using System;
+02: using System.Text;
+03: using System.Xml;
+04: using System.IO;
+05: namespace Com.JungBo.Fund {
+06:  public class FunXmlWrite {
+07:     //fname을 읽어서 savename에 저장
+08:     public void XMLFileReadWrite(string fname, string savename) {
+09:      //PI가 자동으로 붙음
+10:      using (XmlTextWriter xwr = 
+11:                new XmlTextWriter(savename, Encoding.Default)) {
+12:         XmlDocument xmlDoc = new XmlDocument();
+13:         xmlDoc.Load(fname);
+14:         ////XML에 PI가 없다면 붙일 수 있다.
+15:         //xwr.WriteProcessingInstruction("xml",
+16:         //    "version='1.0' encoding='ks_c_5601-1987'");
+17:         xwr.Formatting = Formatting.Indented;
+18:         xmlDoc.Save(xwr);
+19:      }
+20:     }//
+21:     //읽어서 콘솔에 출력
+22:     public void XMLConsoleWrite(string fname){
+23:         XmlDocument xmlDoc = new XmlDocument();
+24:         xmlDoc.Load(fname);
+25:         xmlDoc.Save(Console.Out);
+26:     }//
+27:      //Dom을 파일로 저장
+28:      public void SaveXmlDom(string fname,XmlDocument doc ){
+29:          XmlWriterSettings setting = new XmlWriterSettings();
+30:          setting.ConformanceLevel = ConformanceLevel.Auto;
+31:          setting.Encoding = System.Text.Encoding.Default;
+32:          setting.Indent = true;
+33:          using (XmlWriter xmlWriter = XmlWriter.Create(fname, setting)) { 
+34:                   doc.WriteTo(xmlWriter);
+35:                   xmlWriter.Close();
+36:          }
+37:      }//
+38:  }
+39: }
+40: 

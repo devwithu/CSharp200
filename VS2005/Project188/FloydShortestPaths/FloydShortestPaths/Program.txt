@@ -1,0 +1,18 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:   public class Program{
+04:      public static void Main(string[] args){
+05:          Floyd floy = new Floyd();
+06:          floy.PrintPath();
+07:          Console.WriteLine("-----------------------------");
+08:          floy.Distance();
+09:          floy.PrintPath();
+10:          int start = 1;//P2
+11:          int goal = 2;//P3
+12:          Console.Write("{0} -> ", floy.name[start]);
+13:          floy.Path(start, goal);
+14:          Console.Write("{0}", floy.name[goal]);
+15:          Console.WriteLine();    
+16:      }
+17:   }
+18:  }

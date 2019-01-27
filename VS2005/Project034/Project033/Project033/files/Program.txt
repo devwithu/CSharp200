@@ -1,0 +1,17 @@
+01: using System;
+02: using Com.JungBo.Logics;
+03: namespace Com.JungBo.Basic {
+04:     public class Program {
+05:         public static void Main(string[] args){
+06: 
+07:             BitConverts yak = new BitConverts();
+08:             yak.MakeTo2(67);
+09:             yak.MakeTo2(-67);
+10:             yak.MakeTo2(123);
+11:             yak.MakeTo2(-123);
+12: 
+13:             int[] m = yak.MakeTo2es(67);
+14:             BitConverts.Print(m);
+15:         }
+16:     }
+17: }

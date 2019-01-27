@@ -1,0 +1,100 @@
+001:  using System;
+002:  namespace Com.JungBo.Logic{
+003:      public class MyCarendar{
+004:          private int[] RYEAR =
+005:      { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+006:          private int[] LYEAR =
+007:      { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+008:          //서기 1년 1월 1일부터 year-1년 12월 31일까지
+009:          public int TotalDay(int year){
+010:              int total = 0;
+011:              for (int i = 1; i < year; i++){
+012:                  if (IsLeapYear(i)){
+013:                      total += 366;
+014:                  }
+015:                  else{
+016:                      total += 365;
+017:                  }
+018:              }
+019:              return total;
+020:          }//TotalDate
+021:          public int TotalDay(int year, int month){
+022:              int total = this.TotalDay(year);
+023:              for (int i = 1; i < month; i++){
+024:                  if (this.IsLeapYear(year)){
+025:                      total += LYEAR[i - 1];
+026:                  }
+027:                  else{
+028:                      total += RYEAR[i - 1];
+029:                  }
+030:              }
+031:              return total;
+032:          }//TotalDate
+033:          public int TotalDay(int year, int month, int day){
+034:              int total = this.TotalDay(year,month)+day;
+035:              return total;
+036:          }//TotalDate
+037:          public int Days(int year, int month){
+038:              if (IsLeapYear(year)){
+039:                  return LYEAR[month - 1];
+040:              }
+041:              else{
+042:                  return RYEAR[month - 1];
+043:              }
+044:          }
+045:          public void PrintCalendar(int year, int month){
+046:              string str = "------ {0}년 ------ {1}월--------";
+047:              Console.WriteLine(str, year, month);
+048:              String s = "일\t월\t화\t수\t목\t금\t토";
+049:              Console.WriteLine(s);
+050:              //-1:경과일 1:월요일대한 기준 
+051:              int startOfWeek = (TotalDay(year, month, 1) - 1 + 1) % 7;
+052:              for (int i = 0; i < startOfWeek; i++){
+053:                  Console.Write("\t");
+054:              }
+055:              for (int i = 1; i <= Days(year, month); i++){
+056:                  Console.Write("{0}\t", i);
+057:                  if ((startOfWeek + i) % 7 == 0){
+058:                      Console.WriteLine();
+059:                  }
+060:              }
+061:              Console.WriteLine();
+062:          }
+063:          
+064:          //어떤 일이 들어가면 그날부터 오늘까지 지난 날 수
+065:          public int HowLongDay(int fyear, int fmonth, int fday,
+066:              int tyear, int tmonth, int tday){
+067:              int Date = this.TotalDay(tyear, tmonth, tday);
+068:              Date= Date - this.TotalDay(fyear, fmonth, fday);
+069:              return Date;
+070:          }//HowLongDay
+071:          public string ToDate(int date){
+072:              string sdate = "일";
+073:              switch (date){
+074:                  case 0: sdate = "일"; break;
+075:                  case 1: sdate = "월"; break;
+076:                  case 2: sdate = "화"; break;
+077:                  case 3: sdate = "수"; break;
+078:                  case 4: sdate = "목"; break;
+079:                  case 5: sdate = "금"; break;
+080:                  case 6: sdate = "토"; break;
+081:              }
+082:              return sdate;
+083:          }//ToDate
+084:          public bool IsLeapYear(int year) {
+085:              bool isL = false;
+086:              if (((year % 4 == 0) && (year % 100 != 0))
+087:                                     || (year % 400 == 0)){
+088:                  isL = true;
+089:              }
+090:              return isL;
+091:          }//IsLeapYear(int year)
+092:          //년도 찍으면 1월부터 12까지
+093:          public void PrintCalendar(int year){
+094:              for (int month = 1; month <= 12; month++){
+095:                  PrintCalendar(year, month);
+096:              }
+097:              Console.WriteLine();
+098:          }
+099:      }//class MyCarendar
+100:  }

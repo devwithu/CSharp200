@@ -1,0 +1,86 @@
+01:  using System;
+02:  using System.Windows.Forms;
+03:  namespace Kaoni.Metro{
+04:      public partial class Form1 : Form{
+05:          public int startStation; //승차역
+06:          public int endStation;   //하차역
+07:          public int payMoney;     //지하철 요금 1~2구역
+08:          public int blockStation; //1, 2, 3호선
+09:          public string picName; //각 역의 그림pic0~36
+10:          public Form1(){
+11:              InitializeComponent();            
+12:          }
+13:          public void SettingNum(Object picName){
+14:              Floyd fd = new Floyd();  //플로이드
+15:              //pic33에서 pic을 제거-> "33" ->33
+16:              int val = int.Parse(picName.ToString().Replace("pic",""));
+17:              if (txtStart.Text == ""){
+18:                  txtStart.Text = val.ToString();
+19:                  //그림에 해당하는 역 0~36
+20:                  txtStartStation.Text = fd.name[val];
+21:              }
+22:              else if (txtEnd.Text == ""){
+23:                  if (txtStart.Text.Trim() == val.ToString().Trim()){
+24:    MessageBox.Show("같은역을 선택하셨습니다. 처음부터 다시 선택하십시요");
+25:                      txtStart.Text = "";
+26:                      txtEnd.Text = "";
+27:                      txtStartStation.Text = "";
+28:                      txtEndStation.Text = "";
+29:                  }
+30:                  else{
+31:                      txtEnd.Text = val.ToString();
+32:                      txtEndStation.Text = fd.name[val];
+33:                      //여기서 경로를 가져옴!!
+34:                      fd.Distance();   //최단경로 만들기
+35:                      //시작하는 역-> 역 이름을 갖아온다.
+36:                      lblView.Text = fd.name[int.Parse(txtStart.Text)] + "▶";
+37:                      fd.pathSt = "";
+38:                      fd.pathln = 2;
+39:                      fd.pathTime = 2;
+40:                      fd.test = "";
+41:                      //전역은 몇호선 인가
+42:                      fd.preLine = fd.line[int.Parse(txtStart.Text)];
+43:                      //경로안의 역의 수
+44:                      fd.totstation = 1;
+45:                      //몇 번 갈아탔나
+46:                      fd.changeLine = 0;
+47:                      //기본요금
+48:                      payMoney = 1100;
+49:                      //현재 몇호선
+50:                      blockStation = 1;
+51:                      //경유 역 모두 붙이기
+52:       lblView.Text += fd.Path(int.Parse(txtStart.Text), int.Parse(txtEnd.Text)) +
+53:                  fd.name[int.Parse(txtEnd.Text)].ToString();
+54:                      //호선을 갈아탈 경우환승 8분추가, 호선변경
+55:                      if (fd.line[int.Parse(txtEnd.Text)] != 0 &&
+56:                          fd.line[int.Parse(txtEnd.Text)] != fd.preLine){
+57:                          fd.pathTime += 8;
+58:                          fd.changeLine += 1;
+59:                      }
+60:        //소요시간
+61:       lblView.Text += "\n\n소요시간 : 약 " + fd.pathTime.ToString() + "분";
+62:       lblView.Text += "\n\n총 " + fd.totstation.ToString() + "개의 역을 지납니다.";
+63:        lblView.Text += "\n\n총 " + fd.changeLine.ToString() + "번 환승합니다.";
+64:                      //경유한 역의 수가 8개가 너머가면 가격이 올라간다.
+65:                      if (fd.totstation > 8){
+66:                          payMoney = 1300;
+67:                          blockStation = 2;
+68:                      }
+69:                      lblView.Text += "\n\n금액 : " + payMoney.ToString()
+70:                          + " (" + blockStation + "구간 현금기준)";
+71:                  }
+72:              }
+73:              else if (txtStart.Text != "" && txtEnd.Text != ""){
+74:                  txtStart.Text = val.ToString();
+75:                  txtStartStation.Text = fd.name[val];
+76:                  txtEnd.Text = "";
+77:                  txtEndStation.Text = "";
+78:              }
+79:          }
+80:          //각 picXXX 픽처박스를 클릭하면 호출된다.-->중요!!
+81:          private void pic00_Click(object sender, EventArgs e){
+82:              PictureBox pd = sender as PictureBox;
+83:              SettingNum(pd.Name);   
+84:          }
+85:      }
+86:  }

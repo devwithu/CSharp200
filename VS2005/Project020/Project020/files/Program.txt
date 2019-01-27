@@ -1,0 +1,14 @@
+01: 
+02: namespace Com.JungBo.Basic{
+03:     public class Program{
+04:         public static void Main(string[] args){
+05:             //2~100 짝수의 합
+06:             int iEvenSum = Numbers.SumOfEven(100);
+07:             //1~99 홀수의 합
+08:             int iOddSum = Numbers.SumOfOdd(100);
+09:             //using 없을 경우
+10:             System.Console.WriteLine("2~100 짝수의 합 :{0}",iEvenSum);
+11:             System.Console.WriteLine("1~99 홀수의 합 :{0}", iOddSum);
+12:         }
+13:     }
+14: }

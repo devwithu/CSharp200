@@ -1,0 +1,11 @@
+01:  using System;
+02:  using Com.JungBo.Logic;
+03:  namespace Project152{
+04:   public class Program{
+05:      public static void Main(string[] args){
+06:          Recursion.ShowPivo();
+07:          Recursion.ShowGolden();
+08:          Recursion.ShowFact();
+09:      }
+10:   }
+11:  }

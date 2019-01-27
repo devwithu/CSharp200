@@ -1,0 +1,38 @@
+01: using System;
+02: using System.Text;//Encoding
+03: using System.IO;//FileStream, StreamWriter
+04: namespace Com.JungBo.IO{
+05:     public class FileWriting{
+06:         public void FileReads(string fname){
+07:             if (!File.Exists(fname)){
+08:                 Console.WriteLine("{0}이 없습니다.", fname);
+09:                 return;  //FileReads끝내기
+10:             }
+11:             using (FileStream fs =
+12:                 new FileStream(fname, FileMode.Open, FileAccess.Read)){
+13:                 using (StreamReader sr =
+14:                     new StreamReader(fs, Encoding.Default)){
+15:                     string message = string.Empty;
+16:                     while ((message = sr.ReadLine()) != null){
+17:                         Console.WriteLine(message);
+18:                     }
+19:                 }
+20:             }
+21:         }//FileReads2
+22:         public void FileWrites(string fname){
+23:             using(FileStream fs =
+24:                 //새로 만들기(FileMode.CreateNew), 
+25:                 //있으면 내용를 지우기(FileMode.Truncate)
+26:                 new FileStream(fname, FileMode.Create)){
+27:                 using (StreamWriter sw = 
+28:                     new StreamWriter(fs, Encoding.Default)){
+29:                         string message = string.Empty;
+30:                         while ((message = Console.ReadLine()) != null){
+31:                             sw.WriteLine(message);
+32:                             sw.Flush();
+33:                         }
+34:                 }
+35:             }
+36:         }//
+37:     }
+38: }

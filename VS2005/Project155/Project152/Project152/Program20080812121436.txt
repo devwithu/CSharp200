@@ -1,0 +1,11 @@
+01:  using System;
+02:  using Com.JungBo.Logic;
+03:  namespace Project154{
+04:   public class Program{
+05:      public static void Main(string[] args){
+06:          int tray = 3;
+07:          HanoiArray hanoi = new HanoiArray(tray);
+08:          hanoi.show();
+09:      }
+10:   }
+11:  }

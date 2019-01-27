@@ -1,0 +1,101 @@
+001:  using System;
+002:  namespace Com.JungBo.Logic{
+003:    public class HanoiArray{
+004:      int  tray=3;
+005:      int bar=3;
+006:      int [,] rings;
+007:      public HanoiArray(int tray){
+008:  	    this.tray=tray;
+009:  	    rings=new int[tray,bar];
+010:  	    for(int i=0;i<rings.GetLength(0);i++){
+011:  		    int x=2*i+1;
+012:  		    rings[i,0]=x;
+013:  	    }
+014:      }
+015:      public int[,] GetRings(){
+016:  	    return rings;
+017:      }      	
+018:      public  void MoveHanoi(int [,] a,int num, 
+019:                                char ringA,char ringB,char ringC){
+020:  	    if(num==1){
+021:  		    ShowHanoi(a,ringA,ringB);
+022:  	    }else {
+023:  		    MoveHanoi(a,num-1,ringA,ringC,ringB);
+024:  		    ShowHanoi(a,ringA,ringB);
+025:  		    MoveHanoi(a,num-1,ringC,ringB,ringA);
+026:  	    }
+027:      }
+028:      public void show() {
+029:          ShowHanoi(this.rings);
+030:          MoveHanoi(this.rings, tray, 'a', 'b', 'c');
+031:      }
+032:      public   void  ShowHanoi(int [,] a, char ringA,char ringB){
+033:  	    int aa=0;
+034:  	    int ab=1;
+035:  	    switch(ringA){
+036:  		    case 'a': aa=0;break;
+037:  		    case 'b': aa=1;break;
+038:  		    case 'c': aa=2;break;
+039:  	    }
+040:  	    switch(ringB){
+041:  		    case 'a': ab=0;break;
+042:  		    case 'b': ab=1;break;
+043:  		    case 'c': ab=2;break;
+044:  	    }
+045:      	
+046:  	    Console.WriteLine(ringA+" bar쪽에 있던 링이 "
+047:                                           +ringB+" bar쪽으로 이동");
+048:  	    Puts(a,aa,ab);
+049:      	
+050:  	    for(int i=0;i<a.GetLength(0);i++){
+051:  		    Console.Write("[\t");
+052:              for (int j = 0; j < a.GetLength(1); j++)
+053:              {
+054:  			    Console.Write(a[i,j]+"\t");
+055:  		    }
+056:  		    Console.WriteLine("]");
+057:  	    }
+058:          Console.WriteLine("==================================");
+059:      }
+060:      public   void  ShowHanoi(int [,] a){
+061:  
+062:          for (int i = 0; i < a.GetLength(0); i++)
+063:          {
+064:  		    Console.Write("[\t");
+065:              for (int j = 0; j < a.GetLength(1); j++)
+066:              {
+067:  			    Console.Write(a[i,j]+"\t");
+068:  		    }
+069:  		    Console.WriteLine("]");
+070:  	    }
+071:          Console.WriteLine("================================");
+072:      }
+073:      public   int   HasTray(int [,] a,int bar){
+074:  	    int no=-1;
+075:          for (int i = 0; i < a.GetLength(0); i++)
+076:          {
+077:  		    if(a[i,bar]!=0){
+078:  			    no=i;
+079:  			    break;
+080:  		    }
+081:  	    }
+082:  	    return no;
+083:      }
+084:      // change(a,2,2,0,0);==> 2,2의 값을 0,0으로 이동 
+085:      //2,2의 값을 0으로 
+086:      private void Change(int [,] a,int aa,int ab,int ba,int bb){
+087:          Console.WriteLine("({0},{1})==>({2},{3})",aa,ab,ba,bb);
+088:  	    a[ba,bb]=a[aa,ab];
+089:  	    a[aa,ab]=0;
+090:      }//
+091:      public  void Puts(int [,]a,int barA, int barB){
+092:        if(HasTray(a,barA)!=-1){
+093:  	    if(HasTray(a,barB)!=-1){
+094:  		    Change(a,HasTray(a,barA),barA,HasTray(a,barB)-1,barB);
+095:  	    }else{
+096:  		    Change(a,HasTray(a,barA),barA,a.GetLength(0)-1,barB);
+097:  	    }
+098:        }
+099:      }//
+100:    }
+101:  }

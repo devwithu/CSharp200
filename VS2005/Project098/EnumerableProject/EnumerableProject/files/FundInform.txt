@@ -1,0 +1,41 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Collections;
+04: namespace Com.JungBo.Infor{
+05:     public class FundInform {
+06:         //펀드 일일정보
+07:         private string[] fundM ={
+08: "CJ,65300,-2000","CJ인터넷,16200,-100","CJ홈쇼핑,63500,-1400",
+09: "GS,43000,-2600","GS건설,114500,-4000","KCC,426000,-12500",
+10: "KT,45000,0","KT&G,89500,-600","KTF,27700,350",
+11: "LG,73600,-1100","LG디스플레이,40800,-900","LG생활건강,218000,3500",
+12: "LG전자,110500,500","LG텔레콤,7630,110","LG패션,26300,-450",
+13: "LG화학,92200,-800","LIG손해보험,23050,50","LS,73300,2300",
+14: "NHN,157500,-5100","POSCO,490000,-20000","S-Oil,62600,100",
+15: "SK,116500,-1500","SK에너지,103500,-2500","SK텔레콤,177000,-2500"
+16: };
+17:         public IEnumerable<string> GetAllFunds(){
+18:             foreach (string fs in fundM){
+19:                 //차례대로 리턴
+20:                 yield return fs;
+21:             }
+22:         }
+23:         public void PrintFunds1(){
+24:             foreach (string fs in GetAllFunds()){
+25:                 Console.WriteLine(fs);
+26:             }
+27:         }
+28:         public void PrintFunds2(){
+29:             IEnumerator<string> ie = GetAllFunds().GetEnumerator();
+30:             while (ie.MoveNext()){
+31:                 Console.WriteLine(ie.Current);
+32:             }
+33:         }
+34:         public void PrintFunds3(){
+35:             IEnumerator ie = fundM.GetEnumerator();
+36:             while (ie.MoveNext()){
+37:                 Console.WriteLine(ie.Current as string);
+38:             }
+39:         }
+40:     }
+41: }

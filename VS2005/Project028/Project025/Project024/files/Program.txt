@@ -1,0 +1,13 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             Console.Write("n이 짝수면 n/2 ");
+07:             Console.WriteLine("n이 홀수면 n*3+1로 1만들기.");
+08:             Console.Write("정수를 입력하세요: ");
+09:             int num = int.Parse(Console.ReadLine());
+10:             Numbers.MakeOne(num);
+11:         }
+12:     }
+13: }

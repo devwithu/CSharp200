@@ -1,0 +1,30 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:      public class Program{
+04:          public static void Main(string[] args){
+05:              //row+inversion+location=> 홀수면 가능
+06:              int row = 4;
+07:              Lotto lot = new Lotto(row * row);
+08:              lot.Remake();
+09:              //일차원 배열 만들기(서로 다른 수)
+10:              int[] n = lot.Ball();
+11:              MatrixTrans<int>.Print(n);
+12:              //2차원 배열로 변환
+13:              int[,] m = MatrixTrans<int>.Mat1to2(n, row, row);
+14:              MatrixTrans<int>.Print(m);
+15:              SixTeenInvert siv = new SixTeenInvert(m);
+16:              //뒤집어 진 수 IVN 구하기
+17:              siv.InvertNumbers();
+18:              Console.WriteLine("IVN : {0}",siv.InverNum);
+19:              //0이나 16이 있는 위치
+20:              Console.WriteLine("0(16)이 있는 행: {0}",siv.ZeroRow());
+21:              Console.WriteLine("행의수 : {0}",row);
+22:              if (!siv.IsPossible()){
+23:                  Console.WriteLine("완성이 불가능한 퍼즐입니다.");
+24:              }
+25:              else {
+26:                  Console.WriteLine("완성이 가능한 퍼즐입니다.");
+27:              }
+28:          }
+29:      }
+30:  }

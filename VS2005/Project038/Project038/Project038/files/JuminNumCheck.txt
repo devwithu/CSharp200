@@ -1,0 +1,44 @@
+01: using System;
+02: namespace Com.JungBo.Logic{
+03:     public class JuminNumCheck{
+04: 
+05:         public void NumCount(string jumins, out int count) {
+06:             int num = 0;
+07:             for (int i = 0; i < jumins.Length; i++){
+08:                 char c = jumins[i]; //'1' string get indexer
+09:                 if (char.IsDigit(c)){
+10:                     num++;
+11:                 }
+12:             }
+13:             count = num;
+14:         }
+15:         //123456-1234567-> 1234561234567
+16:         public void ToInt2(string jumins){
+17:             int count;
+18:             int jucount = 0;
+19:             NumCount(jumins,out count);//count 구하기
+20:             char[] jumin = new char[count];
+21:             char[] cc = jumins.ToCharArray();//'1','2','3'
+22:             for (int i = 0; i < cc.Length; i++){
+23:                  if (char.IsDigit(cc[i])){
+24:                    jumin[jucount++] = cc[i]; 
+25:                 }
+26:             }
+27:             string ss = new string(jumin);//char배열을 string으로
+28:             Console.WriteLine(ss);
+29:         }//
+30:         //123456-1234567-> 1234561234567
+31:         public void ToInt3(string jumins){
+32:             string ss = string.Empty;
+33:             char[] cc = jumins.ToCharArray();//'1','2','3'
+34:             for (int i = 0; i < cc.Length; i++){
+35:                 if (char.IsDigit(cc[i]))
+36:                 {
+37:                     ss += cc[i];
+38:                     //ss = string.Concat(ss, cc[i]);
+39:                 }
+40:             }
+41:             Console.WriteLine(ss);
+42:         }//
+43:     }//class
+44: }//

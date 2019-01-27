@@ -1,0 +1,25 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06: 
+07:             Z z1 = new Z(4, 4);
+08:             Console.WriteLine("z1\t{0}", z1);
+09:             Z z2 = new Z(3, -5);
+10:             Console.WriteLine("z2\t{0}", z2);
+11:             //Z1과 내용이 동일하지만 다른 객체
+12:             Z z3 = new Z(z1);
+13:             z2.X = 4;
+14:             z2.Y = 4;
+15:             //같은 개체는 없지만  equals 오버라이딩하여 
+16:             //내용이 같으면 같은개체가 되도록 했다.
+17:             Console.WriteLine(z3 == z1);  
+18:             Console.WriteLine(z3.Equals(z1));
+19:             Console.WriteLine("{0}의 복사생성자: {1}", z1, z3);
+20:             Console.WriteLine(z2 == z1);
+21:             Console.WriteLine(z2.Equals(z1));
+22: 
+23:         }
+24:     }
+25: }

@@ -1,0 +1,13 @@
+01: using System;
+02: using Com.JungBo.Infor;
+03: namespace Project104{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             FileSearcher fsr = new FileSearcher();
+07:             //재귀를 돌면서 하위디렉토리의 정보 모두 출력
+08:             //재귀는 많은 시간이 걸릴 수 있다.
+09:             fsr.InforView(
+10: @"C:\Documents and Settings\Administrator\My Documents");
+11:         }
+12:     }
+13: }

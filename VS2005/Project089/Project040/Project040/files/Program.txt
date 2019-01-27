@@ -1,0 +1,25 @@
+01: using System;
+02: using Com.JungBo.Logic;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             //사전 키값과 설명(값)
+07:             string[,] dickey ={{"go","가다, (…하러) 가다"},
+08:         {"eat","먹다, 파괴하다"},{"kill","죽이다"}};
+09:             AlphaDictionary adic = new AlphaDictionary();
+10:             //사전에 영어단어 대입하기
+11:             adic.Add(dickey[0, 0], dickey[0, 1]);
+12:             adic.Add(dickey[1, 0], dickey[1, 1]);
+13:             adic.Add(dickey[2, 0], dickey[2, 1]);
+14:             //인덱서 adic[i]사용
+15:             Console.WriteLine(adic["go"]);  //키값이  go
+16:             string mean = adic["kill"];//키값이  kill
+17:             Console.WriteLine(mean);
+18: 
+19:             string[] keys = adic.Keys();//모든 키값 얻어오기
+20:             foreach (string key in keys){
+21:                 Console.WriteLine("{0} : {1}",key, adic[key]);
+22:             }
+23:         }
+24:     }
+25: }

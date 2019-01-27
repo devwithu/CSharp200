@@ -1,0 +1,20 @@
+01: using System;
+02: using System.IO;
+03: using Com.JungBo.Infor;
+04: namespace Project102 {
+05:     public class Program {
+06:         public static void Main(string[] args){
+07: 
+08:             DirectoryView dirview = new DirectoryView();
+09:             dirview.ViewDetailDirectory("C:\\Program Files");
+10:             //새로운 디렉토리 만들기
+11:             Directory.CreateDirectory("c:\\hello3");
+12:             //c:\\hellos를 만들고 파일 한개 이상을 넣자.
+13:             DirectoryWorking work = new DirectoryWorking();
+14:             work.Make("c:\\hello", "c:\\hellos");
+15:             work.ViewDirectories("c:\\bea");
+16:             //파일지우기
+17:             //Directory.Delete("c:\\hellos");
+18:         }
+19:     }
+20: }

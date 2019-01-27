@@ -1,0 +1,63 @@
+01: using System;
+02: namespace Com.JunBo.Logic{
+03:     //인터페이스를 구현한다.
+04:     public class OddMagicSquare:IMagic{
+05:         private int[,] mabang;//2차원 배열 선언
+06: 
+07:         public OddMagicSquare(int n) {
+08:             this.mabang = new int[n, n];//생성, 초기화
+09:         }//생성자
+10:         public OddMagicSquare():this(3){
+11:         }//생성자
+12: 
+13:         public virtual void Make() {
+14:             int top = mabang.GetLength(0)-1;
+15:             int x = 0;
+16:             int y = top / 2;
+17:             mabang[x, y] = 1;
+18:             for (int i = 2; i <= (top + 1) * (top+1); i++){
+19:                 int tempX = x;
+20:                 int tempY = y;
+21: 
+22:                 if (x - 1 < 0){
+23:                     x = top;
+24:                 }
+25:                 else {
+26:                     x--;
+27:                 }
+28:                 if (y - 1 < 0){
+29:                     y = top;
+30:                 }
+31:                 else{
+32:                     y--;
+33:                 }
+34: 
+35:                 if(mabang[x,y]!=0){
+36:                     x = tempX + 1;
+37:                     y = tempY;
+38:                 }
+39:                 mabang[x, y] = i;
+40:             }
+41: 
+42:         }//Make
+43:         //row의 합을 구한다.
+44:         protected int SumRow(int row){
+45:             int count = mabang.GetLength(1);
+46:             int total = 0;
+47:             for (int i = 0; i < count; i++){
+48:                 //row는 변함없이 col만 변한다.
+49:                 total += this.mabang[row, i];
+50:             }
+51:             return total;
+52:         }//SumRow
+53:         public virtual void Print(){
+54:             for (int i = 0; i < mabang.GetLength(0); i++){
+55:                 for (int j = 0; j < mabang.GetLength(1); j++){
+56:                     Console.Write("{0}\t", mabang[i, j]);
+57:                 }
+58:                 //row의 합 출력
+59:                 Console.Write("R:{0}\n",SumRow(i));
+60:             }
+61:         }//Print
+62:     }//class
+63: }//namespace

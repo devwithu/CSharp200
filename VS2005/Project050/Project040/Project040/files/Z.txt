@@ -1,0 +1,27 @@
+01: using System;
+02: namespace Com.JungBo.Maths{
+03:     //생성자
+04:     public class Z{
+05:         //중요한 데이터-> 멤버필드 z=x+yi
+06:         private double x;    //실수부
+07:         private double y;    //허수부
+08:         //외부에서 입력받아 초기화-> 생성자
+09:         public Z(double x, double y){
+10:             this.x = x;
+11:             this.y = y;
+12:         }
+13:         //생성자 오버로딩->이미 존재하는 것을 이용
+14:         public Z():this(0.0, 0.0){}
+15:         //중요한 데이터 변경없이 보여주기
+16:         public override string ToString(){
+17:             if (y < 0){
+18:                 return string.Format("({0} - {1}i)",
+19:                     x, Math.Abs(y));
+20:             }
+21:             else{
+22:                 return string.Format("({0} + {1}i)",
+23:                     x,  y);
+24:             }
+25:         }
+26:     }//class
+27: }

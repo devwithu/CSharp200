@@ -1,0 +1,31 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:      public class Program{
+04:          public static void Main(string[] args){
+05:              RSA rsa = new RSA();
+06:              rsa.Make();
+07:  
+08:              //N, E 공개
+09:              RsaEncode ren = new RsaEncode(rsa.N, rsa.E);
+10:              //암화화 시키기 위해 숫자로 변환한다.
+11:              int[] h = Korean.ToBits("놀러가요 Hello!!");
+12:              for (int i = 0; i < h.Length; i++){
+13:                  Console.Write(h[i] + "\t");
+14:              }
+15:              Console.WriteLine();
+16:              ren.SetP(h);//암호화
+17:              ren.PrintAlpha();//암호화된 숫자 출력하기
+18:              //암호화된 숫자를 얻어서
+19:              int[] m = ren.GepC();
+20:              //해독한다.
+21:              int[] rm = rsa.ToPS(m);
+22:              for (int i = 0; i < rm.Length; i++){
+23:                 Console.Write(rm[i] + "\t");
+24:              }
+25:              Console.WriteLine();
+26:              //숫자를 한글로 변환시킨다.
+27:              string sss = Korean.ToKorea(rm);
+28:              Console.WriteLine(sss);
+29:          }
+30:      }
+31:  }

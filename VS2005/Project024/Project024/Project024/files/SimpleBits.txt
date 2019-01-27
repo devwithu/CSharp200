@@ -1,0 +1,48 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Text;
+04: 
+05: namespace Com.JungBo.Maths {
+06:     //비트 연산자
+07:     public class SimpleBits {
+08: 
+09:         public const int MASK02=1;//1
+10:         //양수에 대한 진수변환
+11:         public static string TenToBinary(int n) {
+12:             string s = "";
+13:             for (int i = 0; i < 32; i++){
+14:                 int aa = n & MASK02;
+15:                 s = aa + s;
+16:                 n /= 2;
+17:             }
+18:             return s;
+19:         }//
+20:         public static string BosuForOne(int n){
+21:             string s = "";
+22:             for (int i = 0; i < 32; i++){
+23:                 int aa = (n & MASK02) ^ MASK02;
+24:                 s = aa + s;
+25:                 n /= 2;
+26:             }
+27:             return s;
+28:         }//
+29:         public static string BosuForTwo(int n){
+30:             string s = "";
+31:             bool first = false;
+32:             for (int i = 0; i < 32; i++){
+33:                 int aa = 0;
+34:                 if ((n & MASK02)==1 && !first){//first!=true
+35:                     aa = (n & MASK02);
+36:                     first = true;
+37:                 }
+38:                 else if (first){//first==true
+39:                     aa = (n & MASK02) ^ MASK02;
+40:                 }
+41:                 
+42:                 s = aa + s;
+43:                 n /= 2;
+44:             }
+45:             return s;
+46:         }//
+47:     }
+48: }

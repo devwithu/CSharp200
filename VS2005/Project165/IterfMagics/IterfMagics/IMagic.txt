@@ -1,0 +1,9 @@
+1:  using System;
+2:  namespace Com.JungBo.Logic{
+3:      public interface IMagic{
+4:          bool IsCheck();
+5:          void Print();
+6:          void Prints();
+7:          void Make();
+8:      }
+9:  }

@@ -1,0 +1,154 @@
+001:  using System;
+002:  using System.Collections.Generic;
+003:  using System.ComponentModel;
+004:  using System.Data;
+005:  using System.Drawing;
+006:  using System.Text;
+007:  using System.Windows.Forms;
+008:  using System.Drawing.Drawing2D;
+009:  namespace ClockWin {
+010:      public partial class Form1 : Form {
+011:          byte[,] colors =  {{255, 0, 0}, {0, 255, 0}, {0, 0, 255},
+012:  							{255, 255, 0}, {255, 0, 255}, {0, 255, 255},
+013:  							{0, 128, 255}, {0, 255, 128}, {255, 0, 128}, 
+014:  							{128, 0, 255}, {255, 128, 0}, {128, 255, 0}};
+015:          Random r = new Random(DateTime.Now.Millisecond);
+016:          //초침, 분침, 시침
+017:          PointF[] hf = new PointF[4];
+018:          PointF[] sf = new PointF[4];
+019:          PointF[] mf = new PointF[4];
+020:          Matrix matrix = new Matrix();//회전용
+021:          //시계 시간표시용
+022:          Matrix rotateMatrix = new Matrix();   
+023:          public Form1(){
+024:              InitializeComponent();
+025:              //-------------------
+026:              Init();
+027:          }
+028:          private void Init() {
+029:              //시침
+030:              hf[0] = new PointF(0, -120);
+031:              hf[1] = new PointF(-7, -100);
+032:              hf[2] = new PointF(0, 0);
+033:              hf[3] = new PointF(7, -100);
+034:              //분침
+035:              mf[0] = new PointF(0, -170);
+036:              mf[1] = new PointF(-5, -150);
+037:              mf[2] = new PointF(0, 0);
+038:              mf[3] = new PointF(5, -150);
+039:              //시침
+040:              sf[0] = new PointF(0, -190);
+041:              sf[1] = new PointF(-2, -160);
+042:              sf[2] = new PointF(0, 0);
+043:              sf[3] = new PointF(2, -160);
+044:              float startH = DateTime.Now.Hour;
+045:              float startM = DateTime.Now.Minute;
+046:              float startS = DateTime.Now.Second;
+047:              //---시침 초기화
+048:              matrix.Reset();
+049:              matrix.Rotate((float)((startH * 60f * 60f) /
+050:                                     120.0f + startM * 0.5f),
+051:                  MatrixOrder.Append);
+052:              matrix.TransformPoints(hf);
+053:              //---분침 초기화
+054:              matrix.Reset();
+055:              matrix.Rotate((float)((startM * 60f) / 10.0f ), 
+056:                  MatrixOrder.Append);
+057:              matrix.TransformPoints(mf);
+058:              matrix.Reset();
+059:              //---초침 초기화
+060:              matrix.Rotate((float)((startS-1) * 6.0f), 
+061:                  MatrixOrder.Append);
+062:              matrix.TransformPoints(sf);
+063:          }
+064:          protected override void OnPaint(PaintEventArgs pe){
+065:              Graphics g = pe.Graphics;
+066:              g.SmoothingMode =SmoothingMode.HighQuality;
+067:              //상대원점 200,200->0,0으로 만들기
+068:              g.TranslateTransform(200f,200f);
+069:              //-------------------------------
+070:              Render(g);
+071:              DrawOutterCircle(g);
+072:              DrawHour(g);
+073:              DrawMinute(g);
+074:              DrawSecond(g);
+075:              //---------------------
+076:              base.OnPaint(pe);
+077:          }
+078:          //1초마다 시침 이동시키고 그리기
+079:          private void DrawHour(Graphics g){
+080:              matrix.Reset();
+081:              matrix.Rotate(1.0f/120.0f);
+082:              matrix.TransformPoints(hf);
+083:              g.FillPolygon(new SolidBrush(Color.Red), hf);
+084:          }
+085:          //1초마다 분침 이동시키고 그리기
+086:          private void DrawMinute(Graphics g){
+087:              matrix.Reset();
+088:              matrix.Rotate(1.0f / 10.0f);
+089:              matrix.TransformPoints(mf);
+090:              g.FillPolygon(new SolidBrush(Color.DarkRed), mf);
+091:          }
+092:          //1초마다 초침 이동시키고 그리기
+093:          private void DrawSecond(Graphics g){
+094:              matrix.Reset();
+095:              matrix.Rotate(6.0f);
+096:              matrix.TransformPoints(sf);
+097:              g.FillPolygon(new SolidBrush(Color.BlueViolet), sf);
+098:          }
+099:          private void DrawOutterCircle(Graphics g){
+100:              //원 그리기)
+101:              Pen xPen2 = new Pen(
+102:                 // Color.Blue, 2);
+103:                FromRGB(r.Next(0, colors.GetLength(0))), 2);
+104:              g.DrawArc(xPen2,
+105:                 new Rectangle(-195, -195, 390, 390), 0.0f, 360.0f);
+106:              xPen2.Dispose();
+107:              //원 그리기
+108:              Pen xPen = new Pen(
+109:                  Color.Blue, 2);
+110:              g.DrawArc(xPen,
+111:                  new Rectangle(-200, -200, 400, 400), 0.0f, 360.0f);
+112:              xPen.Dispose();
+113:              //------------
+114:              GraphicsPath path = new GraphicsPath();
+115:              for (int i = 1; i <= 12; i++){
+116:                  rotateMatrix.Reset();//회전 초기화
+117:                  path.Reset();
+118:                  path.AddString(i.ToString(), 
+119:                      this.Font.FontFamily, 1, 20,
+120:                      new PointF(10.0F, -190.0F),  
+121:                      //문자 길이만큼 각도가 벗어난다.
+122:                      //0.0F, -190.0F-->10.0F, -190.0F                         
+123:                      new StringFormat(
+124:                      StringFormatFlags.DirectionRightToLeft));
+125:                  //30도 씩 돌려서 12, 1, 2, ~11 표시
+126:                  rotateMatrix.RotateAt(30.0F*i,new PointF(0f, 0.0F));
+127:                  path.Transform(rotateMatrix);
+128:                  g.FillPath(new SolidBrush(
+129:                      FromRGB(r.Next(0, colors.GetLength(0)))), path);
+130:              }
+131:              path.Dispose();
+132:          }
+133:          //배열에서 색 선택
+134:          private Color FromRGB(int m ){ 
+135:              Color col=Color.FromArgb(colors[m,0],
+136:                  colors[m,1],colors[m,2]);
+137:              return col;
+138:          }
+139:          //흰색으로 시계를 지우고 청소
+140:          private void Render(Graphics g) {
+141:               g.FillRectangle(
+142:                new SolidBrush(Color.White),
+143:                -200f, -200f, this.Width, this.Height);
+144:          }
+145:          //1초마다 각 시분침초를 이동시키고 그린다.
+146:          private void timer1_Tick(object sender, EventArgs e){
+147:              string s = "    JungBo Clock ver 0.3";
+148:              this.Text = s + "                       "
+149:                  +DateTime.Now.Hour+"시 "+DateTime.Now.Minute
+150:                  +"분 "+DateTime.Now.Second+"초";
+151:              this.Invalidate();//이벤트가 일어나면 자동으로 OnPaint
+152:          }//
+153:      }
+154:  }

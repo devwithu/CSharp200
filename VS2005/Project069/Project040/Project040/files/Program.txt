@@ -1,0 +1,58 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         
+06:         public static void Main(string[] args){
+07: 
+08:             ZLists zlist = new ZLists();
+09: 
+10:             zlist.Add(new Z(1,2));
+11:             zlist.Add(new Z(3, 3));
+12:             zlist.Add(new Z(5, 7));
+13:             zlist.Add(new Z(9, 8));
+14:             zlist.Add(new Z(2, 6));
+15:             zlist.Add(new Z(8, 6));
+16:             zlist.PrintZList();
+17: 
+18:             bool isC = zlist.Contains(new Z(5, 7));
+19:             Console.WriteLine(isC);
+20: 
+21:             zlist.Remove(new Z(5, 7));
+22:             zlist.RemoveAt(2);
+23:             zlist.PrintZList();
+24: 
+25:             Console.WriteLine("--------------------");
+26:             //indexer 이용
+27:             Z z3=zlist[3];
+28:             Console.WriteLine(z3);
+29:             zlist[4] = new Z(4,-8);
+30:             Console.WriteLine("--------------------");
+31:             zlist.PrintZList();
+32:             //예외처리---------------------------
+33:             try{
+34:                 Z zz = zlist[7];//가져오지 못한다.
+35:                 Console.WriteLine(zz);
+36:             }
+37:             catch (IndexOutOfRangeException ex){
+38:                 Console.WriteLine(ex.Message);
+39:             }
+40:             catch (Exception ex){
+41: 
+42:                 Console.WriteLine(ex.Message);
+43:             }
+44: 
+45:             try{
+46:                 zlist[7] = new Z(-5, -8); //넣지 못한다.
+47:             }
+48:             catch (Exception  ex)
+49:             {
+50: 
+51:                 Console.WriteLine(ex.Message);
+52:             }
+53:            
+54:            
+55:             zlist.PrintZList();
+56:         }
+57:     }
+58: }

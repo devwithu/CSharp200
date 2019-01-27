@@ -1,0 +1,17 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06: 
+07:             int[] mm ={ 1, 3, 5, 7, 9 };
+08:             int[] nn ={ 2, 4, 6, 8, 0 };
+09:             int[] kk ={ 1, 2, 3, 4, 5 };
+10:             HKArray.Clear(kk, -3);
+11:             HKArray.PrintArray(kk);
+12:             HKArray.SwapArray(mm, nn);
+13:             HKArray.PrintArray(nn);
+14:             HKArray.PrintArray(mm);
+15:         }
+16:     }
+17: }

@@ -1,0 +1,2787 @@
+<html>
+<head>
+<script language="javascript" src="/js/ttl.js"></script>
+<meta name="keywords" content="한국경제신문, 경제신문, 신문, 한국경제, 경제, 한경, 한경닷컴, The Korea Economic Daily, Korea Economy, KED, ked, 뉴스, 일간지, 증권, 주식, 주식시세, 금융, 부동산, 산업, 국제, 자동차, 골프, 외환, 환율, 교육, 창업, 취업, 대출, 보험, 투자, 지표, 해외, 칼럼, 스타워즈, 밸류에이션, 시장, 컨센서스, 컨설팅, 재테크, 분양, 아파트, 원룸, 이사, 경매, 펀드, 예금, 적금, 카드, 원자재, 머니, 수입차, 레이싱걸, 부킹, 골프장, 자기계발, 부자, news, stock, finance, estate, industry, international, car, golf, exchange, education, job, scout, insurance, market, consensus, valuation, fund, card">
+<meta http-equiv="Content-type content=text/html;" charset="euc-kr">
+<meta http-equiv="Cache-Control content=No-Cache">
+<meta http-equiv="Pragma content=No-Cache">
+<meta http-equiv="refresh" content="300">
+<script language="javascript" src="/js/hk_common.js"></script>
+<link rel="stylesheet" href="/css/hk_common.css" type="text/css">
+<link rel="stylesheet" href="/css/hk_2007.css" type="text/css">
+</head>
+<body style="margin-left:10">
+
+<table width="981" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td>
+
+<!-- @@@@@ 상단시작 @@@@@ -->
+<!-- Top Start -->
+<table width="980" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="260">
+		
+		<!-- 제호 시작 -->
+		<p style="margin:0 0 0 5">
+		<table width="255" height="61" border="0" cellpadding="0" cellspacing="0">
+		<col width="160"><col width="95">
+		<tr valign="top">
+			<td><a href="http://www.hankyung.com" target="_top"><img src="/img/top_title_news.gif" width="160" height="61" border="0"></a></td>
+			<td style="padding:19 0 0 10">
+			<!-- 날짜 -->
+			2008.7.31 (목)<br>
+			<p style="margin:2 0 0 0">
+			<!-- 날씨 -->
+			<SCRIPT language=javascript >
+<!--
+function openzip(idref)
+{
+	var window_left = screen.width -20;
+	var window_top = screen.height -20;
+	ref="/admin/board/notice/notice_view.html?code=infonotice004&sid=144&id="+idref ;
+	open(ref,"","top=0, left=0, status=yes, scrollbars=yes, height=" + window_top + ", width=" + window_left);
+}
+
+
+	var scrollerwidthtc_news=85
+	var scrollerheighttc_news=11
+	var scrollerbgcolortc_news=''  
+	var scrollerbackgroundtc_news=''
+	var numtc_news=2
+	var scrollspeedtc_news=2300
+	var waitingtimetc_news=30
+	
+	var messagestc_news=new Array() 
+	
+	function move1tc_news(whichlayer){
+		tlayertc_news=eval(whichlayer) 
+		if (tlayertc_news.top>0&&tlayertc_news.top<=numtc_news){
+			tlayertc_news.top=0
+			setTimeout("move1tc_news(tlayertc_news)",scrollspeedtc_news)
+			setTimeout("move2tc_news(document.main.document.secondtc_news)",scrollspeedtc_news)  
+			return
+		}  
+		if (tlayertc_news.top>=tlayertc_news.document.height*-1){  
+			tlayertc_news.top-=numtc_news
+			setTimeout("move1tc_news(tlayertc_news)",waitingtimetc_news) 
+		} else{ 
+			tlayertc_news.top=scrollerheighttc_news 
+			tlayertc_news.document.write(messagestc_news[itc_news])
+			tlayertc_news.document.close()
+			if (i==messagestc_news.length-1)
+				itc_news=0
+			else
+				itc_news++
+		}
+	}
+	
+	function move2tc_news(whichlayer){  
+		tlayer2tc_news=eval(whichlayer)  
+		if (tlayer2tc_news.top>0&&tlayer2tc_news.top<=numtc_news){  
+			tlayer2tc_news.top=0  
+			setTimeout("move2tc_news(tlayer2tc_news)",scrollspeedtc_news)  
+			setTimeout("move1tc_news(document.main.document.firsttc_news)",scrollspeedtc_news)  
+			return  
+		}  
+		if (tlayer2tc_news.top>=tlayer2tc_news.document.height*-1){  
+			tlayer2tc_news.top-=numtc_news
+			setTimeout("move2tc_news(tlayer2tc_news)",waitingtimetc_news)  
+		} else{  
+			tlayer2tc_news.top=scrollerheighttc_news  
+			tlayer2tc_news.document.write(messagestc_news[itc_news])  
+			tlayer2tc_news.document.close()  
+			if (itc_news==messagestc_news.length-1)  
+				itc_news=0  
+			else  
+				itc_news++  
+		}  
+	}  
+	
+	function move3tc_news(whichdiv){  
+		tdivtc_news=eval(whichdiv)  
+		if (tdivtc_news.style.pixelTop>0&&tdivtc_news.style.pixelTop<=numtc_news){  
+			tdivtc_news.style.pixelTop=0  
+			setTimeout("move3tc_news(tdivtc_news)",scrollspeedtc_news)  
+			setTimeout("move4tc_news(secondtc_news2)",scrollspeedtc_news)  
+			return  
+		}  
+		if (tdivtc_news.style.pixelTop>=tdivtc_news.offsetHeight*-1){  
+			tdivtc_news.style.pixelTop-=numtc_news
+			setTimeout("move3tc_news(tdivtc_news)",waitingtimetc_news)  
+		} else{
+			tdivtc_news.style.pixelTop=scrollerheighttc_news
+			tdivtc_news.innerHTML=messagestc_news[itc_news]
+			if (itc_news==messagestc_news.length-1)  
+				itc_news=0  
+			else  
+				itc_news++  
+		}  
+	}  
+	
+	function move4tc_news(whichdiv){
+		tdiv2tc_news=eval(whichdiv)  
+		if (tdiv2tc_news.style.pixelTop>0&&tdiv2tc_news.style.pixelTop<=numtc_news){  
+			tdiv2tc_news.style.pixelTop=0  
+			setTimeout("move4tc_news(tdiv2tc_news)",scrollspeedtc_news)  
+			setTimeout("move3tc_news(firsttc_news2)",scrollspeedtc_news)  
+			return  
+		}  
+		if (tdiv2tc_news.style.pixelTop>=tdiv2tc_news.offsetHeight*-1){  
+			tdiv2tc_news.style.pixelTop-=numtc_news  
+			setTimeout("move4tc_news(secondtc_news2)",waitingtimetc_news)  
+		} else{
+			tdiv2tc_news.style.pixelTop=scrollerheighttc_news  
+			tdiv2tc_news.innerHTML=messagestc_news[itc_news]  
+			if (itc_news==messagestc_news.length-1)  
+				itc_news=0
+			else
+				itc_news++
+		} 
+	} 
+	
+	function onmouse_eventtc_news(){
+		numtc_news=0
+	}
+	
+	function mouseout_eventtc_news(){
+		numtc_news=1
+	}
+
+	function startscrolltc_news(){  
+		if (document.all){  
+			move3tc_news(firsttc_news2) 
+			secondtc_news2.style.top=scrollerheighttc_news 
+			secondtc_news2.style.visibility='visible'
+		} else if (document.layers){  
+			document.main.visibility='show'  
+			move1tc_news(document.main.document.firsttc_news)  
+			document.main.document.secondtc_news.top=scrollerheighttc_news+numtc_news
+			document.main.document.secondtc_news.visibility='show'  
+		}
+	}
+//-->
+
+
+</script>
+
+<!-- 메인이미지 롤링 Start -->
+<script language="javascript" src="http://www.hankyung.com/common/inc/weather.js"></script>
+<SCRIPT language="javascript" >
+if (messagestc_news.length>2) itc_news=2 
+else itc_news=0  
+
+if (messagestc_news.length == 1) messagestc_news[1] = messagestc_news[0];
+
+if (document.all){
+	document.writeln('<span id="main2tc_news" style="position:relative;width:'+scrollerwidthtc_news+';height:'+scrollerheighttc_news+';overflow:hiden;background-color:'+scrollerbgcolortc_news+' ;background-image:url('+scrollerbackgroundtc_news+')">')
+	document.writeln('<div onMouseOver="onmouse_eventtc_news()" onMouseOut="mouseout_eventtc_news()" style="position:absolute;width:'+scrollerwidthtc_news+';height:'+scrollerheighttc_news+';clip:rect(0 '+scrollerwidthtc_news+' '+scrollerheighttc_news+' 0);left:0;top:0">')
+	document.writeln('<div id="firsttc_news2" style="position:absolute;width:'+scrollerwidthtc_news+';left:0;top:1;" align=center valign=bottom>')
+	document.write(messagestc_news[0])
+	document.writeln('</div>')
+	document.writeln('<div id="secondtc_news2" style="position:absolute;width:'+scrollerwidthtc_news+';left:0;top:0;visibility:hidden" align=center valign=bottom>')
+	document.write(messagestc_news[1])
+	document.writeln('</div>')
+	document.writeln('</span>')
+}
+startscrolltc_news()
+</SCRIPT><br>
+			</td>
+		</tr>
+		</table>
+
+		<!-- 로그인 및 PDF보기 시작 -->
+		<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td><script language="Javascript" src="http://www.hankyung.com/common/inc/log_js.php"></script></td>
+	<td width="5"></td>
+	<td><a href="http://pdf.hankyung.com/epaper/" target="_top"><img src="/img/btn_pdf.gif" width="100" height="19" border="0"></a></td>
+</tr>
+</table>
+
+	</td>
+	<td width="420" style="padding-top:10">		
+		
+		<!-- 배너 시작 -->
+		<p style="margin:0 30">
+		<IFRAME WIDTH=360 HEIGHT=70 NORESIZE SCROLLING=No FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 SRC="http://advs.hankyung.com/RealMedia/ads/adstream_sx.ads/www.hankyung.com/index@Top"><A HREF="http://advs.hankyung.com/RealMedia/ads/click_nx.ads/www.hankyung.com/index@Top"><IMG SRC="http://advs.hankyung.com/RealMedia/ads/adstream_nx.ads/www.hankyung.com/index@Top"></a></IFRAME>
+
+	</td>
+	<td width="300" style="padding-top:10">		
+		
+		<!-- 계열사 시작 -->
+		<table width="295" height="22" border="0" cellpadding="0" cellspacing="0" bgcolor="#F2F2F2">
+<tr>
+	<td class="ac f11 dm sp01 gc" style="padding-top:3">
+	<a href="http://www.wowtv.co.kr/" target="_top">한국경제TV</a> &nbsp;|&nbsp;
+	<a href="http://www.kbizweek.com/" target="_top">한경비즈니스</a> &nbsp;|&nbsp;
+	<a href="http://www.hankyungbp.com/" target="_top">한경BP</a> &nbsp;|&nbsp;
+	<a href="http://ac.hankyung.com/" target="_top">한경아카데미</a><br>
+	</td>
+</tr>
+</table>
+
+		<p style="margin:8 0 0 0">
+		<!-- 특집배너 시작 -->
+		<!-- #include virtual="/common/inc/top_special.html"-->
+		<iframe src="http://www.hankyung.com/pdsdata/advs/ad/ad_top_right.html" width="295" height="40" frameborder="0" scrolling="no"></iframe>
+
+	</td>
+</tr>
+<tr><td height="10" colspan="3"></td></tr>
+</table>
+<!-- Top End -->
+<script language="javascript" src="/js/hk_menu.js"></script>
+<script language="javascript">hk_menu(1,0)</script>
+<!-- @@@@@ 상단끝 @@@@@ -->
+
+<table width="980" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="260">
+		<!-- @@@@@ 본문좌측 시작 @@@@@ -->
+		
+		<p style="margin:5 0 0 0">
+		<!-- 기자 블로그 / 한경PCC 시작 -->
+		<table width="260" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><img src="/img/home_writerblog_btop02.gif" width="260" height="6" border="0"></td></tr>
+		<tr valign="top">
+			<td background="/img/home_writerblog_bbody02.gif">
+				<p style="margin:2 8">
+				<table width="244" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top">
+					<td height="213" background="/img/home_writerblog_bg02.gif">
+						<!-- 기자 블로그 시작 -->
+						<p style="margin:12 5 0 5">
+						<table width="234" border="0" cellpadding="0" cellspacing="0">
+						<tr valign="top">
+							<td class="al3"><a href="http://blog.hankyung.com/new/blogreporter_list.php" target="_blank"><b style="color:#254D88" class="sp01">기자블로그</b></a></td>
+						</tr>
+						<tr><td height="2"></td></tr>
+						<tr><td height="1" class="bg65"></td></tr>
+						<tr valign="top">
+							<td style="padding:13 0 0 4">
+								<table width="230" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td>
+
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://blog.hankyung.com/wonkis/118681" target="_blank">
+[임원기] 시험대 오른 다음 위기관리능력 </a><p style="margin:4 0 0 0">
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://blog.hankyung.com/hakp/118647" target="_blank">
+[박성만] 꽃밭에서 나비와 잠자리가 놀다 </a><p style="margin:4 0 0 0">
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://blog.hankyung.com/donghuip/118993" target="_blank">
+[박동휘] 위기 맞은 아고라의 다음 </a><p style="margin:4 0 0 0">
+
+	</td>
+</tr>
+</table>
+							</td>
+						</tr>
+						</table>
+						<!-- 기자 블로그 끝 -->
+
+						<!-- 한경PCC 시작 -->
+						<p style="margin:11 5 0 5">
+						<table width="234" border="0" cellpadding="0" cellspacing="0">
+						<tr valign="top">
+							<td class="al3"><b style="color:#254D88" class="sp01">한경PCC</b></td>
+						</tr>
+						<tr><td height="2"></td></tr>
+						<tr><td height="1" class="bg65"></td></tr>
+						<tr valign="top">
+							<td style="padding:12 0 0 4">
+								<table width="230" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td>
+<!--
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://www.hankyung.com/board/view.php?id=_column_76_1&no=260&ch=ft" target="_top">
+<b> 2008년 여름 휴가 재테크 전략 </b></a><p style="margin:4 0 0 0">
+
+
+
+-->
+
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://www.hankyung.com/board/view.php?id=land_report&no=511&ch=land" target="_top">
+[X-파일] 이명박 정부의 운명은… </a><p style="margin:4 0 0 0">
+
+
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://www.hankyung.com/board/view.php?id=_column_76_1&no=267&ch=ft" target="_top">
+[재테크] 좋은 돈 나쁜 돈 이상한 돈 </font></a><p style="margin:4 0 0 0">
+
+
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://www.hankyung.com/board/view.php?id=_column_129_1&no=72&ch=stock" target="_top">
+[증권] 중소형주에 관심을… </a><p style="margin:4 0 0 0">
+
+
+<!--
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://www.hankyung.com/board/view.php?id=land_report&ch=land&no=510&page=1&sn=&ss=&sc=&old_no=&old_id=land_report&skin=&keyword=&category=&tag=&sel_order=&desc=desc&cmt_page=1&cmt_order=&cmt_desc=asc" target="_top">
+[부동산] 이명박 정부엔 부동산이 없다 </a><p style="margin:4 0 0 0">
+-->
+
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://www.hankyung.com/board/view.php?id=_column_252_1&no=17&ch=comm1" target="_top">
+[칼럼] 세상은 나의 행복을 닮아간다</font></a><p style="margin:4 0 0 0">
+
+
+<!--
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://www.hankyung.com/board/view.php?id=kang_ho_young&no=6&ch=auto" target="_top">
+[자동차] 오바마는 미국차를 아는가 </a><p style="margin:4 0 0 0">
+
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://blog.hankyung.com/soosup/105288" target="_blank">
+[블로그] 꿈을 낚는 어부 파블로 이야기</a><p style="margin:4 0 0 0">
+
+
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<img src="/img/icon_blog.gif" width="37" height="12" border="0" align="absmiddle" style="margin:0 0 2 2">
+<a href="http://blog.hankyung.com/leejc123/88614" target="_blank">
+ MB,이기고도 진게임 </a><p style="margin:4 0 0 0">
+
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<img src="/img/icon_blog.gif" width="37" height="12" border="0" align="absmiddle" style="margin:0 0 2 2">
+<a href="http://blog.hankyung.com/yeah11/88527" target="_blank">
+ 대한전선의 '꿩먹고 알먹고' M&A </a><p style="margin:4 0 0 0">
+-->
+	</td>
+</tr>
+</table>
+
+<!--
+<img src="/img/bl_org01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+<a href="http://www.hankyung.com/board/view.php?id=column_invite&no=32&ch=comm" target="_top">
+[초청] <font style="letter-spacing:-1px">마케팅 2.0에서 발견한 이상한 암호</font></a><p style="margin:4 0 0 0">
+-->
+							</td>
+						</tr>
+						</table>
+						<!-- 한경PCC 끝 -->
+					</td>
+				</tr>
+				</table>
+				
+				
+			</td>
+		</tr>
+		<tr><td><img src="/img/home_writerblog_bbot01.gif" width="260" height="6" border="0"></td></tr>
+		</table>
+		<!-- 기자 블로그 / 한경PCC 끝 -->
+
+		<p style="margin:8 0 0 0">
+		<!-- 연예/스포츠 시작 -->
+		<table width="260" border="0" cellpadding="0" cellspacing="0" style="border:solid 6px #ECF1F7">
+		<tr valign="top">
+			<td>
+				<table width="248" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top">
+					<td style="position:relative">
+<div id='newlayer' style='position:absolute; visibility:visible; top:4px; left:93px; width:22px; height:13px;'>
+<table width="22" height="13" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td><img src="/img/enternews_new_layer01.gif" width="22" height="13" border="0"></td>
+</tr>
+</table>
+</div>
+						<p style="margin:7 8 0 8">
+						<table width="232" border="0" cellpadding="0" cellspacing="0" style="background-repeat:repeat-x;" background="/img/home_kisarank_line01.gif">
+						<tr valign="top">
+							<td width="4"></td>
+							<td width="45"><a href="/news/enternews/" target="_top"><img src="/img/tab_home_enternews01_on.gif" width="45" height="25" border="0" name="enternews01" onMouseOver="javascript:enternewsView('enternews01');"></a></td>
+							<td width="45"><a href="/news/enternews/" target="_top"><img src="/img/tab_home_enternews02_off.gif" width="45" height="25" border="0" name="enternews02" onMouseOver="javascript:enternewsView('enternews02');"></a></td>
+							<td width="138" class="ar4"><p style="margin:11 0 0 0"><a href="/news/enternews/" target="_top"><img src="/img/btn_more01.gif" width="31" height="8" border="0"><br></a></td>
+						</tr>
+						</table>
+
+<script language="javascript">
+function enternewsView(layer)
+{
+	if(layer=='enternews01'){
+		MM_swapImage('enternews01','','/img/tab_home_enternews01_on.gif',1);
+		MM_swapImage('enternews02','','/img/tab_home_enternews02_off.gif',1);
+		MM_showHideLayers('enternewslayer01','','show','enternewslayer02','','hide');
+	}else{
+		MM_swapImage('enternews01','','/img/tab_home_enternews01_off.gif',1);
+		MM_swapImage('enternews02','','/img/tab_home_enternews02_on.gif',1);
+		MM_showHideLayers('enternewslayer01','','hide','enternewslayer02','','show');
+		document.getElementById('enternewslayer02').style.display = '';
+	}
+}
+</script>
+
+						<table width="232" border="0" cellpadding="0" cellspacing="0">
+						<tr valign="top">
+							<td height="121" style="padding:12 0 6 4">
+								<div id="enternewslayer01" style="position:absolute; display:block; width:232;">
+								<!-- 연예 시작 -->
+								<table width="228" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="90" height="55">
+		<div id='enterp0' style='position:absolute; display:none; width:90px; height:55px'>
+		<table width="90" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084737&sid=8399&nid=105&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008073084737_2008073065043.jpg" width="88" height="53" style="border:1px solid #D0D0D0"></A></td></tr>
+		</table>
+		</div>
+		<div id='enterp1' style='position:absolute; display:none; width:90px; height:55px'>
+		<table width="90" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073086947&sid=8399&nid=105&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008073086947_2008073065093.jpg" width="88" height="53" style="border:1px solid #D0D0D0"></A></td></tr>
+		</table>
+		</div>
+		<div id='enterp2' style='position:absolute; display:none; width:90px; height:55px'>
+		<table width="90" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073066047&sid=8399&nid=105&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008073066047_2008072962073.jpg" width="88" height="53" style="border:1px solid #D0D0D0"></A></td></tr>
+		</table>
+		</div>
+	</td>
+	<td width="128" height="55" style="padding-left:10">
+		<p style="margin-top:5">
+		<div id='enter0' style='position:absolute; display:none; width:128px; height:55px'>
+		<b class="sp01"><img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084737&sid=8399&nid=105&ltype=1" target="_self" >소희, '유고걸' 중독? </A><p style="margin-top:4"></b>
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073086947&sid=8399&nid=105&ltype=1" target="_self" >폭시, 새 M/V 수위?</A><p style="margin-top:4">
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073066047&sid=8399&nid=105&ltype=1" target="_self" >고현정 "조인성은…"</A><p style="margin-top:4">
+		</div>
+		<div id='enter1' style='position:absolute; display:none; width:128px; height:55px'>
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084737&sid=8399&nid=105&ltype=1" target="_self" >소희, '유고걸' 중독? </A><p style="margin-top:4">
+		<b class="sp01"><img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073086947&sid=8399&nid=105&ltype=1" target="_self" >폭시, 새 M/V 수위?</A><p style="margin-top:4"></b>
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073066047&sid=8399&nid=105&ltype=1" target="_self" >고현정 "조인성은…"</A><p style="margin-top:4">
+		</div>
+		<div id='enter2' style='position:absolute; display:none; width:128px; height:55px'>
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084737&sid=8399&nid=105&ltype=1" target="_self" >소희, '유고걸' 중독? </A><p style="margin-top:4">
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073086947&sid=8399&nid=105&ltype=1" target="_self" >폭시, 새 M/V 수위?</A><p style="margin-top:4">
+		<b class="sp01"><img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073066047&sid=8399&nid=105&ltype=1" target="_self" >고현정 "조인성은…"</A><p style="margin-top:4"></b>
+		</div>
+	</td>
+</tr>
+<tr><td colspan="2" height="10"></td></tr>
+<tr>
+	<td colspan="2">
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073081377&sid=8399&nid=105&ltype=1" target="_self" >옥주현, '내년 4월 결혼설' 전면 부인 </A><p style="margin-top:4">
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073083507&sid=8399&nid=105&ltype=1" target="_self" >최송현, 최근 사진…‘한결 편안해진 모습’</A><p style="margin-top:6">
+	</td>
+</tr>
+</table>
+								<!-- 연예 끝 -->
+								</div>
+
+								<div id="enternewslayer02" style="position:absolute; display:none; width:232;">
+								<!-- 스포츠 시작 -->
+								<table width="228" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="90" height="55">
+		<div id='sportp0' style='position:absolute; display:none; width:90px; height:55px'>
+		<table width="90" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807306043f&sid=8398&nid=105&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/200807306043f_2008073062613.jpg" width="88" height="53" style="border:1px solid #D0D0D0"></A></td></tr>
+		</table>
+		</div>
+		<div id='sportp1' style='position:absolute; display:none; width:90px; height:55px'>
+		<table width="90" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807306364f&sid=8398&nid=105&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/200807306364f_2008073062883.jpg" width="88" height="53" style="border:1px solid #D0D0D0"></A></td></tr>
+		</table>
+		</div>
+		<div id='sportp2' style='position:absolute; display:none; width:90px; height:55px'>
+		<table width="90" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072944211&sid=8398&nid=105&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008072944211_2008072960693.jpg" width="88" height="53" style="border:1px solid #D0D0D0"></A></td></tr>
+		</table>
+		</div>
+	</td>
+	<td width="128" height="55" style="padding-left:10">
+		<p style="margin-top:5">
+		<div id='sport0' style='position:absolute; display:none; width:128px; height:55px'>
+		<b class="sp01"><img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807306043f&sid=8398&nid=105&ltype=1" target="_self" >이천수, K리그 복귀?</A><p style="margin-top:4"></b>
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807306364f&sid=8398&nid=105&ltype=1" target="_self" >美 농구, 金 노려</A><p style="margin-top:4">
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072944211&sid=8398&nid=105&ltype=1" target="_self" >골프 3대쇼!</A><p style="margin-top:4">
+		</div>
+		<div id='sport1' style='position:absolute; display:none; width:128px; height:55px'>
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807306043f&sid=8398&nid=105&ltype=1" target="_self" >이천수, K리그 복귀?</A><p style="margin-top:4">
+		<b class="sp01"><img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807306364f&sid=8398&nid=105&ltype=1" target="_self" >美 농구, 金 노려</A><p style="margin-top:4"></b>
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072944211&sid=8398&nid=105&ltype=1" target="_self" >골프 3대쇼!</A><p style="margin-top:4">
+		</div>
+		<div id='sport2' style='position:absolute; display:none; width:128px; height:55px'>
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807306043f&sid=8398&nid=105&ltype=1" target="_self" >이천수, K리그 복귀?</A><p style="margin-top:4">
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807306364f&sid=8398&nid=105&ltype=1" target="_self" >美 농구, 金 노려</A><p style="margin-top:4">
+		<b class="sp01"><img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072944211&sid=8398&nid=105&ltype=1" target="_self" >골프 3대쇼!</A><p style="margin-top:4"></b>
+		</div>
+	</td>
+</tr>
+<tr><td colspan="2" height="10"></td></tr>
+<tr>
+	<td colspan="2">
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807295911f&sid=8398&nid=105&ltype=1" target="_self" >'박성화호' 카메룬전 D-9, 부상 경계령</A><p style="margin-top:4">
+		<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=200807295889f&sid=8398&nid=105&ltype=1" target="_self" >'폭군' 이제동, 박수범에게 1-2 패배</A><p style="margin-top:6">
+	</td>
+</tr>
+</table>
+								<!-- 스포츠 끝 -->
+								</div>
+
+<script language="javascript">
+var random = Math.floor(Math.random() * 3) + 1;
+
+var obj00 = document.getElementById('enternewslayer01');
+var obj01 = document.getElementById('enter0');
+var obj02 = document.getElementById('enterp0');
+var obj03 = document.getElementById('enter1');
+var obj04 = document.getElementById('enterp1');
+var obj05 = document.getElementById('enter2');
+var obj06 = document.getElementById('enterp2');
+
+var obj10 = document.getElementById('enternewslayer02');
+var obj11 = document.getElementById('sport0');
+var obj12 = document.getElementById('sportp0');
+var obj13 = document.getElementById('sport1');
+var obj14 = document.getElementById('sportp1');
+var obj15 = document.getElementById('sport2');
+var obj16 = document.getElementById('sportp2');
+
+if(random == 1){
+	obj01.style.display = '';
+	obj02.style.display = '';
+	obj11.style.display = '';
+	obj12.style.display = '';
+}else if(random == 2){
+	obj03.style.display = '';
+	obj04.style.display = '';
+	obj13.style.display = '';
+	obj14.style.display = '';
+}else if(random == 3){
+	obj05.style.display = '';
+	obj06.style.display = '';
+	obj15.style.display = '';
+	obj16.style.display = '';
+}
+</script>
+							</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+		<!-- 연예/스포츠 끝 -->
+
+		<!-- 베이징올림픽 시작 -->
+		<p style="margin:-2 0 0 0">
+		<script language="javascript">
+function calcDday()
+{
+  var today = new Date();
+  var ddays = new Date('08-08-2008'); // 월-일-년
+  var dday  = parseInt((ddays-today)/60/60/24/1000) + 1;
+
+  if (dday > 0)
+  {
+    document.getElementById('ddaybg').src = '/news/beijing2008/img/bnr_beijing_home02.gif';
+    document.getElementById('ddayNum').innerHTML = dday;
+  }
+  else
+  {
+    document.getElementById('ddaybg').src = '/news/beijing2008/img/bnr_beijing_home04.gif';
+    var dday  = parseInt((today - ddays)/60/60/24/1000) + 1;
+    document.getElementById('ddayNum').innerHTML = dday;
+  }
+}
+</script>
+
+<table width="260" border="0" cellpadding="0" cellspacing="0" style="border:solid 6px #ECF1F7">
+<tr valign="top">
+	<td>
+		<!-- D - Day 시작 -->
+		<table width="248" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="89"><a href="http://www.hankyung.com/news/piecefile/hand/index_01071108.html" target="_top"><img src="/news/beijing2008/img/bnr_beijing_home01.gif" width="89" height="25" border="0"></a></td>
+			<td width="159" style="border:solid 1px #DCDCDC; border-left:none;">
+				<table width="158" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top">
+					<td style="padding:4 0 0 0" class="f14 dm sp02 b ac"><a href="http://www.hankyung.com/news/piecefile/hand/index_01071108.html" target="_top"><img id="ddaybg" src="/news/beijing2008/img/bnr_beijing_home02.gif" height="13" border="0" align="absmiddle" style="margin:0 4 2 0"></a><a href="http://www.hankyung.com/news/piecefile/hand/index_01071108.html" id="ddayNum" target="_top" style="color:#EF3E2C"></a><a href="http://www.hankyung.com/news/piecefile/hand/index_01071108.html" target="_top"><img src="/news/beijing2008/img/bnr_beijing_home03.gif" height="13" border="0" align="absmiddle" style="margin:0 0 2 4"></a></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+		<!-- D - Day 끝 -->
+	</td>
+</tr>
+</table>
+<script> calcDday() </script>
+		<!-- 베이징올림픽 끝 -->
+
+		<table width="260" border="0" cellpadding="0" cellspacing="0">
+		<tr bgcolor="#ECF1F7" valign="top">
+			<td style="padding:12 14 0 14">
+				<!-- 동영상 뉴스 시작 -->
+				<SCRIPT LANGUAGE="JavaScript">
+<!--
+function tv_vod_detail_hk2(num) //TV/VOD 종목동영상
+{
+	var win = window.open('http://www.wownet.co.kr/export/hankyung/tv_vod_player.asp?ctcode='+num,'wowtv_detail','scrollbars=no,width=660,height=445');
+	win.focus();
+}
+
+//-->
+</SCRIPT>
+
+<table width="232" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="39"><a href="http://www.wowtv.co.kr/" target="_blank"><img src="/img/ttl_home_wow01.gif" width="39" height="36" border="0"></a></td>
+	<td width="193" style="padding:5 0 0 10" class="f11 dm g7 sp01">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><b>증권</b> <span style="width:11"></span><font style="color:#CDCDCD">|</font> <a href="javascript:tv_vod_detail_hk2('15')" class="g7">오늘의 투자전략</a> <font style="color:#CDCDCD">|</font> <a href="javascript:tv_vod_detail_hk2('20')" class="g7">종목상담</a><p style="margin-top:5">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><b>부동산</b> <font style="color:#CDCDCD">|</font> <a href="javascript:tv_vod_detail_hk2('25')" class="g7">모델하우스 <font style="color:#CDCDCD">|</font> 매물 <font style="color:#CDCDCD">|</font> 국민고충</a><p style="margin-top:4">
+	</td>
+</tr>
+<tr><td height="6" colspan="2"></td></tr>
+<tr><td height="1" class="bg65" colspan="2"></td></tr>
+</table>
+				<!-- 동영상 뉴스 끝 -->
+
+				<p style="margin:15 0 0 0">
+				<!-- 경제교실 시작 -->
+				<table width="232" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top">
+					<td width="49"><!--<a href="/nie/" target="_top"><img src="/img/ttl_home_nie02.gif" width="43" height="34" border="0" style="margin:0 0 0 12"></a><p style="margin:4 0 0 0"><img src="/img/ttl_home_nie03.jpg" width="61" height="37" border="0" style="margin:0 0 0 4">--><a href="/nie/" target="_top"><img src="/img/ttl_home_nie05.gif" width="39" height="56" border="0" style="margin:0 0 0 2"></a></td>
+					<td width="183" style="padding:2 0 0 0">
+						<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="/board/list.php?id=saengle&ch=news" target="_top">[현승윤]</a> <a href="/board/view.php?id=saengle&no=93&ch=news" target="_top">무역적자는 세계위...</a><p style="margin-top:4">
+
+						<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="/board/list.php?id=newscatch&ch=news" target="_top">[이호기]</a> <a href="/board/view.php?id=newscatch&no=11&ch=news" target="_top">노원구 아파트 이상...</a><p style="margin-top:4">
+
+						<!-- #include virtual="/news/piecefile/auto/011508_02.inc"-->
+
+						<p style="margin:3 0 0 0">
+						<table width="178" border="0" cellpadding="0" cellspacing="0">
+						<tr bgcolor="#DEE6EF">
+							<td style="color:#CDCDCD" class="td19 f11 dm ac sp01"><a href="/nie/quiz/index.php?quizid=Financial_Quiz" target="_top" class="g7">재테크퀴즈</a> | <a href="/nie/quiz/index.php?quizid=OXEconomic_Quiz" target="_top" class="g7">경제퀴즈OX</a> | <a href="/community/ecartoon_main.php" target="_top" class="g7">경제만화</a></td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td height="15" colspan="2"></td></tr>
+				<tr><td height="1" class="bg65" colspan="2"></td></tr>
+				</table>
+				<!-- 경제교실 끝 -->
+
+				<!-- 한경·경찰청 캠페인 시작 -->
+				<p style="margin:10 6 6 6">
+				<table width="220" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><a href="http://www.hankyung.com/news/app/newslist.php?sid=01062050&nid=000&type=1" target="_top"><img src="/img/bnr_policecampaign01_220.gif" width="220" height="10" border="0"></a></td></tr>
+				</table>
+				<!-- 한경·경찰청 캠페인 끝 -->
+
+				<!-- 선플운동 시작 -->
+				<p style="margin:10 0 4 0">
+				<table width="232" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="1" class="bg65" colspan="2"></td></tr>
+				<tr><td height="14" colspan="2"></td></tr>
+				<tr valign="top">
+					<td width="49"><a href="http://www.sunfull.or.kr/" target="_blank"><img src="/img/ttl_home_sunfull01.gif" width="43" height="32" border="0" style="margin:0 0 0 2"></a></td>
+					<td width="183">
+						<p style="margin:3 0 0 0">
+						<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072446878&sid=01040206&nid=004&ltype=1" target="_self" >박지성, `악성댓글 추방` </A><p style="margin-top:4">
+<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072439191&sid=01040206&nid=004&ltype=1" target="_self" >박지성, 善플 캠페인 어시스</A><p style="margin-top:4">
+					</td>
+				</tr>
+				</table>
+				<!-- 선플운동 끝 -->
+			</td>
+		</tr>
+		</table>
+
+		<table width="260" border="0" cellpadding="0" cellspacing="0" style="border:solid 6px #ECF1F7">
+		<tr valign="top">
+			<td>
+				<!-- 화제의뉴스 시작 -->
+				<p style="margin:15 8 0 8">
+				<table width="232" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td class="al3"><a href="/news/hotnews/" target="_top"><b style="color:#254D88" class="sp01">화제의 뉴스</b></a></td>
+					<td class="ar4"><a href="/news/hotnews/" target="_top"><img src="/img/btn_more01.gif" width="31" height="8" border="0" align="absmiddle" style="margin:1 0 0 0"></a></td>
+				</tr>
+				<tr><td height="2" colspan="2"></td></tr>
+				<tr><td height="1" bgcolor="#9BB6D2" colspan="2"></td></tr>
+				</table>
+
+				<table width="232" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td style="padding:12 0 0 4">
+						<b class="sp01"><img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073063388&sid=01062010&nid=100&ltype=1" target="_self" >e-베이 경매, `일본의 신무기를 팝</A><p style="margin-top:4"></b>
+						<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073088408&sid=01050601&nid=100&ltype=1" target="_self" >英법원 "시크교 학생은 학교서 팔찌 </A><p style="margin-top:4">
+						<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072948651&sid=01062011&nid=100&ltype=1" target="_self" >서태지와 삼성의 만남 … 8집 10만</A><p style="margin-top:4">
+						<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072810638&sid=01062012&nid=100&ltype=1" target="_self" >소형차 타면 연료비 평생 3천만원 절</A><p style="margin-top:4">
+					</td>
+				</tr>
+				</table>
+				<!-- 화제의뉴스 끝 -->
+
+				<p style="margin:11 8 0 8">
+				<!-- 가장 많이 본 기사 시작 -->
+				<table width="232" border="0" cellpadding="0" cellspacing="0" background="/img/home_kisarank_line01.gif">
+<tr>
+	<td width="90" valign="top" style="padding:8 0 0 3"><a href="/news/kisarank/" target="_top"><b style="color:#254D88" class="sp01">많이 본 기사</b></a></td>
+	<td width="139" class="vb"><a href="/news/kisarank/index.php?section=all" target="_top" onMouseOver="javascript:MM_swapImage('rank01','','/news/img/tab_news_rank07_on.gif',1);MM_swapImage('rank02','','/news/img/tab_news_rank08_off.gif',1);MM_swapImage('rank03','','/news/img/tab_news_rank09_off.gif',1);MM_showHideLayers('ranklayer01','','show','ranklayer02','','hide','ranklayer03','','hide');"><img src="/news/img/tab_news_rank07_on.gif" width="45" height="25" border="0" name="rank01"></a><a href="/news/kisarank/index.php?section=photo" target="_top" onMouseOver="javascript:MM_swapImage('rank01','','/news/img/tab_news_rank07_off.gif',1);MM_swapImage('rank02','','/news/img/tab_news_rank08_on.gif',1);MM_swapImage('rank03','','/news/img/tab_news_rank09_off.gif',1);MM_showHideLayers('ranklayer01','','hide','ranklayer02','','show','ranklayer03','','hide');"><img src="/news/img/tab_news_rank08_off.gif" width="45" height="25" border="0" name="rank02"></a><a href="/news/kisarank/index.php?section=105" target="_top" onMouseOver="javascript:MM_swapImage('rank01','','/news/img/tab_news_rank07_off.gif',1);MM_swapImage('rank02','','/news/img/tab_news_rank08_off.gif',1);MM_swapImage('rank03','','/news/img/tab_news_rank09_on.gif',1);MM_showHideLayers('ranklayer01','','hide','ranklayer02','','hide','ranklayer03','','show');"><img src="/news/img/tab_news_rank09_off.gif" width="45" height="25" border="0" name="rank03"></a></td>
+</tr>
+</table>
+
+<table width="232" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td style="padding:12 0 0 4" height="110">
+		<!-- 전체 -->
+		<div id="ranklayer01" style="position:absolute; visibility:visible; width:100%; height:97px">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><!---->
+	
+<script language='javascript'>
+function popWin(url,winname,wwidth,wheight, scrollbar, resizable) {
+    var conWidth = wwidth; conHeight = wheight;
+
+    if(wwidth == null && wheight == null) {
+        conWidth = 100;
+        wHeight = 150;
+    }
+    conWidth = (screen.Width) / 2 - conWidth;
+    conHeight = (screen.Height) / 2 - conHeight;
+    focusWin= window.open(url,winname,'left=20' + ',top=20' + ',width=' + wwidth + ',height=' + wheight + ',scrollbars=' + scrollbar + ',resizable=' + resizable);
+    focusWin.focus();
+}
+</script>
+	<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008072948501&sid=010305&menu=0', 'rank', 960, 650, 'no', 'yes');">서울 아파트값 `6억의 희비` </a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008072957018&sid=all&menu=0', 'rank', 960, 650, 'no', 'yes');">특전사 해상침투훈련 </a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008072448111&sid=&menu=0', 'rank', 960, 650, 'no', 'yes');">[행복한 性] 노래방에서 위로받는 ...</a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008073061956&sid=0102&menu=0', 'rank', 960, 650, 'no', 'yes');">연기금 매수세 강한 종목 30選 - 하나...</a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008073081746&sid=0102&menu=0', 'rank', 960, 650, 'no', 'yes');">금호그룹株, 시장불신 `쇼크` </a><p style='margin-top:4'>
+
+</td>
+		</tr>
+		</table>
+		</div>
+				
+		<!-- 포토 -->
+		<div id="ranklayer02" style="position:absolute; visibility:hidden; width:100%; height:97px">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><!--[포토.그래픽.카툰]-->
+	
+<script language='javascript'>
+function popWin(url,winname,wwidth,wheight, scrollbar, resizable) {
+    var conWidth = wwidth; conHeight = wheight;
+
+    if(wwidth == null && wheight == null) {
+        conWidth = 100;
+        wHeight = 150;
+    }
+    conWidth = (screen.Width) / 2 - conWidth;
+    conHeight = (screen.Height) / 2 - conHeight;
+    focusWin= window.open(url,winname,'left=20' + ',top=20' + ',width=' + wwidth + ',height=' + wheight + ',scrollbars=' + scrollbar + ',resizable=' + resizable);
+    focusWin.focus();
+}
+</script>
+	<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008072957018&sid=0001&menu=1', 'rank', 960, 650, 'no', 'yes');">특전사 해상침투훈련 </a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008073081571&sid=01071108&menu=1', 'rank', 960, 650, 'no', 'yes');">응원은 맡겨주세요 </a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008073084851&sid=0001&menu=1', 'rank', 960, 650, 'no', 'yes');">깜찍한 학생발명품 </a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008073073828&sid=010620&menu=1', 'rank', 960, 650, 'no', 'yes');">경찰관 기동대 창설 </a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008073068708&sid=010620&menu=1', 'rank', 960, 650, 'no', 'yes');">노고단 하늘정원 </a><p style='margin-top:4'>
+
+</td>
+		</tr>
+		</table>
+		</div>
+
+		<!-- 연예 -->
+		<div id="ranklayer03" style="position:absolute; visibility:hidden; width:100%; height:97px">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><!--[연예가산책]-->
+	
+<script language='javascript'>
+function popWin(url,winname,wwidth,wheight, scrollbar, resizable) {
+    var conWidth = wwidth; conHeight = wheight;
+
+    if(wwidth == null && wheight == null) {
+        conWidth = 100;
+        wHeight = 150;
+    }
+    conWidth = (screen.Width) / 2 - conWidth;
+    conHeight = (screen.Height) / 2 - conHeight;
+    focusWin= window.open(url,winname,'left=20' + ',top=20' + ',width=' + wwidth + ',height=' + wheight + ',scrollbars=' + scrollbar + ',resizable=' + resizable);
+    focusWin.focus();
+}
+</script>
+	<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=200807306172f&sid=8399&menu=2', 'rank', 960, 650, 'no', 'yes');">쿨 유리,  사귀는 사람 있냐  질문...</a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008073066047&sid=8399&menu=2', 'rank', 960, 650, 'no', 'yes');">고현정 솔직 입담 화제 “조인성 가...</a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008073084737&sid=8399&menu=2', 'rank', 960, 650, 'no', 'yes');">‘원더걸스’ 안소희도 ‘유고걸’ 중...</a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=200807107044f&sid=8399&menu=2', 'rank', 960, 650, 'no', 'yes');">김정균, 결혼 9년만에 파경‥전 부...</a><p style='margin-top:4'>
+<img src='/img/bl_gray01.gif' width='2' height='2' border='0' align='absmiddle' style='margin:0 5 4 0'><a href="javascript:popWin('http://www.hankyung.com/news/kisarank/index_rank.php?aid=2008072938507&sid=8320&menu=2', 'rank', 960, 650, 'no', 'yes');">에이트 주희, 비키니룩 이어 맥심 화...</a><p style='margin-top:4'>
+
+</td>
+		</tr>
+		</table>
+		</div>
+	</td>
+</tr>
+</table>
+				<!-- 가장 많이 본 기사 끝 -->
+			</td>
+		</tr>
+		</table>
+
+		<p style="margin:8 0 0 0">
+		<!-- 광고 배너 시작 -->
+		<IFRAME WIDTH=260 HEIGHT=180 NORESIZE SCROLLING=No FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 SRC="http://advs.hankyung.com/RealMedia/ads/adstream_sx.ads/www.hankyung.com/index@Box"><A HREF="http://advs.hankyung.com/RealMedia/ads/click_nx.ads/www.hankyung.com/index@Box"><IMG SRC="http://advs.hankyung.com/RealMedia/ads/adstream_nx.ads/www.hankyung.com/index@Box"></a></IFRAME>
+		<!-- 광고 배너 끝 -->
+
+		<p style="margin:8 0 0 0">
+		<table width="260" border="0" cellpadding="0" cellspacing="0" style="border:solid 6px #ECF1F7">
+		<tr valign="top">
+			<td>
+				<p style="margin:15 0 8 9">
+				<!-- 한경 블루칩멤버스 시작 -->
+				<table width="239" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top">
+					<td width="47"><a href="/etc/bluechip/" target="_top"><img src="/img/ttl_home_bluechip02.gif" width="41" height="43" border="0" style="margin:1 0 0 0"></a></td>
+					<td width="192">
+						<!-- #include virtual="/appinc/piecefile/bluechip_home.html"-->
+						<!--<p style="margin-top:4">-->
+						<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="/board/view.php?id=bluechip_members&no=141&ch=info" target="_top"><b class='sp01'>현대모비스 `깜짝 실적` </b></a>
+<p style="margin-top:4">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="/board/view.php?id=bluechip_members&no=140&ch=info" target="_top">두산重, 시원한 2Q "장기적 안...</a>
+<p style="margin-top:4">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="/board/view.php?id=bluechip_members&no=139&ch=info" target="_top">LG전자, 휴대폰 호조로 최대 ...</a>
+<p style="margin-top:4">
+
+					</td>
+				</tr>
+				</table>
+				<!-- 한경 블루칩멤버스 끝 -->
+			</td>
+		</tr>
+		</table>
+
+		<table width="260" border="0" cellpadding="0" cellspacing="0" style="border:solid 6px #ECF1F7">
+		<tr valign="top">
+			<td bgcolor="#ECF1F7">
+				<table width="248" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top">
+					<td>
+						<p style="margin:8 0 0 0">
+						<!-- 부동산직거래장터 시작 -->
+						<table width="248" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td class="al5"><a href="/landplus/offering/trade.php" target="_top"><b style="color:#254D88" class="sp01">부동산 직거래 장터</b></a></td>
+						</tr>
+						<tr><td height="2"></td></tr>
+						<tr><td height="1" bgcolor="#9BB6D2"></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr bgcolor="#FFFFFF">
+					<td valign="top">
+						<p style="margin:12 12 0 12">
+						<table width="224" border="0" cellpadding="0" cellspacing="0">
+						<tr valign="top">
+							<td style="padding:0 4">
+								<table width="216" border="0" cellpadding="0" cellspacing="0">
+								<col width="100"><col width="16"><col width="100">
+								<tr valign="top">
+									<td><a href="/landplus/offering/trade_view.php?sc=land&sf=Y&stc=&idkey=100000000763&page=&gubun=premium"><img src="/pdsdata/upload/landplus/trade/yu14710_20080723022000_100000001008_2" width="98" height="58" border="0" class="bdr01"><p style="margin-top:5" class="f11 dm sp01 ac he14">경북 영양군 수비면 <font style="color:#808080">16,000</font></a></td>
+<td></td><td><a href="/landplus/offering/trade_view.php?sc=single&sf=Y&stc=&idkey=100000000802&page=&gubun=premium"><img src="/pdsdata/upload/landplus/trade/wjhdkim_20080617120833_100000000891_2" width="98" height="58" border="0" class="bdr01"><p style="margin-top:5" class="f11 dm sp01 ac he14">경기 양평군 서종면 <font style="color:#808080">110,000</font></a></td>
+
+								</tr>
+								</table>
+							</td>
+						</tr>
+						<tr><td height="6"></td></tr>
+						<tr><td height="1" bgcolor="#E9E9E9"></td></tr>
+						</table>
+
+						<p style="margin:10 12 8 12">
+						<table width="224" border="0" cellpadding="0" cellspacing="0">
+						<tr><td><img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="/landplus/offering/trade_view.php?sc=apt&sf=Y&stc=&idkey=100000000826&page=&gubun=new" target="_top">[아파트]&nbsp;서울 강서구 등촌2동&nbsp; 45,000</a><p style="margin-top:4">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="/landplus/offering/trade_view.php?sc=single&sf=Y&stc=&idkey=100000000824&page=&gubun=new" target="_top">[다가구]&nbsp;충북 청원군 오창면&nbsp; 60,000</a><p style="margin-top:4">
+</td></tr>
+						</table>
+						<!-- 부동산직거래장터 끝 -->
+					<td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td bgcolor="#ECF1F7">
+				<table width="248" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top">
+					<td>
+						<p style="margin:20 0 0 0">
+						<!-- 오늘의 한마디 시작 -->
+						<table width="248" border="0" cellpadding="0" cellspacing="0" background="/img/home_kisarank_line01.gif">
+						<tr>
+							<td width="139" valign="top" style="padding:8 0 0 5"><b style="color:#254D88" class="sp01">오늘의 한마디</b></td>
+							<td width="104" class="vb"><a href="/board/list.php?id=e_japanese&ch=etc" target="_top"><img src="/img/tab_home_language05_on.gif" width="50" height="25" border="0" name="language01" onMouseOver="javascript:MM_swapImage('language01','','/img/tab_home_language05_on.gif',1);MM_swapImage('language02','','/img/tab_home_language06_off.gif',1);MM_showHideLayers('languagelayer01','','show','languagelayer02','','hide');"></a><a href="/board/list.php?id=e_chinese&ch=etc" target="_top"><img src="/img/tab_home_language06_off.gif" width="50" height="25" border="0" name="language02" onMouseOver="javascript:MM_swapImage('language01','','/img/tab_home_language05_off.gif',1);MM_swapImage('language02','','/img/tab_home_language06_on.gif',1);MM_showHideLayers('languagelayer01','','hide','languagelayer02','','show');"></a></td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				<tr bgcolor="#FFFFFF">
+					<td valign="top" style="padding:12 12 10 12">
+						<table width="224" border="0" cellpadding="0" cellspacing="0">
+						<tr valign="top">
+							<td height="39">
+
+								<div id="languagelayer01" style="position:absolute; visibility:visible; width:224;">
+								<table width="224" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td class="dm">
+										<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 6 4 0"><a href="/board/list.php?id=e_japanese&ch=etc&no=463" target="_top"><b>花(はな)より&#22243;子(だんご)</b></a>
+<p style="margin:4 0 0 10">
+<a href="/board/list.php?id=e_japanese&ch=etc&no=463" target="_top">꽃보다 경단</a>
+
+									</td>
+								</tr>
+								</table>
+								</div>
+								
+								<div id="languagelayer02" style="position:absolute; visibility:hidden; width:224;">
+								<table width="224" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td class="dm">
+										<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 6 4 0"><a href="/board/list.php?id=e_chinese&ch=etc&no=465" target="_top"><b>&#20272;&#35745;</b></a>
+<p style="margin:4 0 0 10">
+<a href="/board/list.php?id=e_chinese&ch=etc&no=465" target="_top">어림잡아 셈하다</a>
+
+									</td>
+								</tr>
+								</table>
+								</div>
+
+							</td>
+						</tr>
+						</table>
+
+						<table width="224" border="0" cellpadding="0" cellspacing="0">
+						<tr bgcolor="#F6F6F6">
+							<td>
+								<p style="margin:0 0 0 23">
+								<table width="200" border="0" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<td width="112" class="td25 f11 dm sp01"><img src="/img/home_language_arw01.gif" width="2" height="3" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="/news/app/newslist.php?sid=01174001&nid=103&type=1" target="_top" style="color:#808080">비즈니스 유머</a></td>
+									<td width="88" class="td25 f11 dm sp01"><img src="/img/home_language_arw01.gif" width="2" height="3" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="/board/list.php?id=english&ch=comm" target="_top" style="color:#808080">므흣한영어</a></td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+						</table>
+						<!-- 오늘의 한마디 끝 -->
+					<td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td bgcolor="#ECF1F7">
+				<!-- 기획/특집 시작 -->
+				<table width="248" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td>
+		<p style="margin:20 0 0 0">
+		<table width="248" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="al5"><a href="/news/special/" target="_top"><b style="color:#254D88" class="sp01">기획/특집</b></a></td>
+		</tr>
+		<tr><td height="2"></td></tr>
+		<tr><td height="1" bgcolor="#9BB6D2"></td></tr>
+		</table>
+	</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+	<td valign="top">
+		<p style="margin:12 12 5 12">
+		<table width="224" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<a href="news/app/newslist.php?sid=01190322&nid=102&type=1" target="_top"><b>여름 부동산 투자 전략</b></a>
+				<p style="margin-top:4">
+				<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072823411&sid=01190322&nid=102&ltype=1" target="_self" >은평뉴타운 2지구 관심</A><p style="margin-top:4">
+				
+			</td>
+		</tr>
+		</table>
+	<td>
+</tr>
+</table>
+				<!-- 기획/특집 끝 -->
+			</td>
+		</tr>
+		<tr valign="top">
+			<td bgcolor="#ECF1F7">
+				<!-- 사설/칼럼 시작 -->
+				<table width="248" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="top">
+					<td>
+						<p style="margin:20 0 0 0">
+						<table width="248" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td class="al5"><a href="/news/column/" target="_top"><b style="color:#254D88" class="sp01">사설/칼럼</b></a></td>
+						</tr>
+						<tr><td height="2"></td></tr>
+						<tr><td height="1" bgcolor="#9BB6D2"></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr bgcolor="#FFFFFF">
+					<td valign="top">
+						<p style="margin:12 12 0 12">
+						<table width="224" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td>
+								<!-- 사설 -->
+								<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084991&sid=011710&nid=103&ltype=1" target="_self" >[사설] (31일자) 국회는 도대체 무슨</A><p style="margin-top:4">
+								<!-- 칼럼 -->
+								<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073080331&sid=011720&nid=103&ltype=1" target="_self" >[추창근 칼럼] 왜 정권교체 했는지 답답</A><p style="margin-top:4">
+								<!-- 취재여록 -->
+								<!-- #include virtual="/news/piecefile/auto/01176001_01.inc"-->	
+							</td>
+						</tr>
+						</table>
+
+						<p style="margin:3 12 10 12">
+						<table width="224" border="0" cellpadding="0" cellspacing="0">
+						<tr bgcolor="#F6F6F6">
+							<td style="color:#CDCDCD" class="td25 f11 dm ac"><a href="/news/app/newslist.php?sid=01173001&nid=103&type=1" target="_top" style="color:#808080">기고</a> | <a href="/news/app/newslist.php?sid=01173003&nid=103&type=1" target="_top" style="color:#808080">천자칼럼</a> | <a href="/news/app/newslist.php?sid=01173004&nid=103&type=1" target="_top" style="color:#808080">한경에세이</a> | <a href="/news/app/newslist.php?sid=01176001&nid=103&type=1" target="_top" style="color:#808080">취재여록</a></td>
+						</tr>
+						</table>
+						<!-- 오늘의 한마디 끝 -->
+					<td>
+				</tr>
+				</table>
+				<!-- 사설/칼럼 끝 -->
+			</td>
+		</tr>
+		</table>
+		<!-- @@@@@ 본문좌측 끝 @@@@@ -->
+	</td>
+	<td width="420" style="padding:0 30">
+		<!-- @@@@@ 본문중앙 시작 @@@@@ -->
+
+<!-- @@@@@ 남북정상회담 @@@@@ -->
+<!--
+<p style="margin-top:5">
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td><a href="http://www.hankyung.com/news/app/newslist.php?aid=2007080883407&nid=000&sid=01061036&type=1" target="_top"><img src="http://www.hankyung.com/pdsdata/News/file/summittalk.jpg" width="360" border="0"></a></td>
+</tr>
+<tr><td height="7"></td></tr>
+</table>
+-->
+<!-- @@@@@ 남북정상회담 @@@@@ -->
+
+<!-- 대한민국 우주에 서다 배너 시작 -->
+<!-- #include virtual="/common/piecefile/01040411_00.inc" -->
+<!-- 대한민국 우주에 서다 배너 끝 -->
+
+		<!-- TOP 시작 -->
+		
+		<!-- TOP 끝 -->
+
+		<!-- TOP(이미지) 시작 -->
+		
+		<!-- TOP(이미지) 끝 -->
+
+		<!-- TOP(이미지+2) 시작 -->
+		
+		<!-- TOP(이미지+2) 끝 -->
+		
+		<!-- TOP + 2 시작 -->
+		
+		<!-- TOP + 2 끝 -->
+		
+		<!-- TOP 타이틀 시작 -->
+		
+		<!-- TOP 타이틀 끝 -->
+		
+		<!-- TOP 타이틀 + 이미지 시작 -->
+		
+		<!-- TOP 타이틀 + 이미지 끝 -->
+		
+		<!-- TOP 타이틀 + 이미지 + 2 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<col width="70"><col width="281">
+<tr valign="top">
+	<td colspan="2">
+		<p style="margin:12 0 0 0" class="arti_ttl">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084761&sid=010201&nid=000&ltype=1" target="_self" ><img src="/photo/title/RealMainTopTitle.gif?1217434744755" border=0></A><p style="margin-top:0">
+	</td>
+</tr>
+<tr valign="top">
+	<td style="padding:12 0 0 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084761&sid=010201&nid=000&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008073084761_2008073065772.jpg" width="68" height="72" style="border:1px solid #D0D0D0" align="left" hspace="0" vspace="0" style="margin-right:9"></A></td>
+	<td>
+		<p style="margin:13 0 0 0" class="arti_txt">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084761&sid=010201&nid=000&ltype=1" target="_self" >앞으로 코스피지수가 1500선 초반까지 떨어질 경우 '쌍바닥'으로 보고 저점매수</A>...&nbsp;&nbsp;<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084761&sid=010201&nid=000&ltype=1" target="_self" ></A>
+		<p style="margin:7 0 0 0">
+		<img src="http://www.hankyung.com/img/news_re01.gif" width="8" height="7" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073085221&sid=010201&nid=000&ltype=1" target="_self" >개인 선물 공격적 매수, 코스피 하루만에 반등</A><p style="margin-top:4">
+		<img src="http://www.hankyung.com/img/news_re01.gif" width="8" height="7" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084011&sid=010501&nid=000&ltype=1" target="_self" >해외펀드 '쏠림' … 위험분산 해야</A><p style="margin-top:4">
+	</td>
+</tr>
+</table>
+		<!-- TOP 타이틀 + 이미지 + 2 끝 -->
+		
+		<!-- TOP 타이틀 + 2 시작 -->
+		
+		<!-- TOP 타이틀 + 2 끝 -->
+
+		<!-- TOP(배너) 시작 -->
+		
+		<!-- TOP(배너) 끝 -->
+
+		<!-- TOP 관련기사 시작 -->
+		
+		<!-- TOP 관련기사 끝 -->
+
+<!-- 남북정상회담 게시판 시작 -->
+<!--
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td style="padding:0 0 0 3"><img src="http://www.hankyung.com/img/news_re01.gif" width="8" height="7" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/board/list.php?id=summittalk&ch=news" target="_top"><font color=#4F83D1><b>[자유게시판] 2차 남북정상회담에 바란다</b></font></A><p style="margin-top:4"></td>
+</tr>
+</table>
+-->
+<!-- 남북정상회담 게시판 끝 -->
+
+		
+		<p style="margin-top:8">
+		<!-- 증시속보 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0" background="/img/news_realtime_mid02.gif">
+<tr>
+	<td width="1"><img src="/img/news_realtime_left02.gif" width="1" height="27" border="0"></td>
+	<td width="29"><a href="javascript:popWin('/news/realtime/index.php?menu=0&Real=1','real', 960,760,'no','yes')"><img src="/img/ttl_home_realtime01.gif" width="20" height="11" border="0" style="margin:0 0 0 9"></a></td>
+	<td width="264" valign="top" style="padding:6 0 0 8">
+		<!-- 증시속보 -->
+		<script language="JavaScript">
+var htmlstr = "", flag=true, imgflag=false, mouse=1, speed=1, wait=2500, temp=0, height=22, amount=22;
+var ctnt=new Array(), startPanel=0, n_panel=0, i=0, j=0, count=1;
+</script>
+
+<script language="JavaScript">
+ctnt[0]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073086616&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >유성티에스아이, 전북 소재 부동산 37억에</A><p style="margin-top:0">';
+ctnt[1]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073085176&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >동아회원권, ㈜이창명에 2.5억 출자</A><p style="margin-top:0">';
+ctnt[2]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073081346&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >상화마이크로, 3자배정 3억 유상증자</A><p style="margin-top:0">';
+ctnt[3]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073079586&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >한화證 이현규, 유니텍전자 연일 `러브콜`</A><p style="margin-top:0">';
+ctnt[4]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073081746&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >금호그룹株, 시장불신 `쇼크`</A><p style="margin-top:0">';
+ctnt[5]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073080806&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >나흘 만에 반등.. 뉴욕 훈풍에 ‘방긋’</A><p style="margin-top:0">';
+ctnt[6]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073080276&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >유가 하락 ->`친디아펀드` 회생</A><p style="margin-top:0">';
+ctnt[7]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073075306&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >코스닥, 뉴욕발 훈풍에 상승.. 우주관련株</A><p style="margin-top:0">';
+ctnt[8]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073081126&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >코스피 하루만에 반등..금호그룹주 급락</A><p style="margin-top:0">';
+ctnt[9]='<img src="http://www.hankyung.com/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073081166&sid=01022003&nid=001&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_top" >SKC, 2분기 영업익 163억..9.4%</A><p style="margin-top:0">';
+</script>
+
+<script language="JavaScript">
+function startText() {
+  for (i=0; i<ctnt.length; i++) insertText(i);
+  window.setTimeout("scroll()",wait);
+}
+function scroll() {
+  if (mouse && flag) {
+    for (i=0;i<ctnt.length;i++) {
+      temp++;
+      tmp = document.getElementById('scroll_area'+i).style;
+      tmp.top = parseInt(tmp.top)-speed;
+      if (parseInt(tmp.top) <= height*(-1)) {
+        tmp.top = height*(ctnt.length-1);
+      }
+      if (temp>(amount-1)*ctnt.length) {
+        flag=false;
+        temp=0;
+        window.setTimeout("flag=true;temp=0;imgflag=true;",wait);
+      }
+    }
+  }
+  window.setTimeout("scroll()",1);
+}
+function insertText(i) {
+  htmlstr='<div style="position:absolute; overflow:hidden; text-indent:-8px; padding-left:8px; width:314px; height:22px; left:0px; top:'+(height*i+2)+'px" id="scroll_area'+i+'">\n';
+  htmlstr+=ctnt[i]+'\n'+'</div>\n';
+  document.write(htmlstr);
+}
+</script>
+<div style="height:22px; width:314px; position:absolute; overflow:hidden;" onMouseover="mouse=0" onMouseout="mouse=1" id="scroll_div">
+<script language="JavaScript">startText();</script>
+</div>
+	</td>
+	<td width="57"><a href="javascript:popWin('/news/realtime/index.php?menu=0&Real=1','real', 960,760,'no','yes')" target="_top"><img src="/img/ttl_home_realtime02.gif" width="49" height="11" border="0"></a></td>
+	<td width="1"><img src="/img/news_realtime_right02.gif" width="1" height="27" border="0"></td>
+</tr>
+</table>
+		<!-- 증시속보 끝 -->
+
+		<!-- 월드IT쇼 시작 -->
+		<!--
+		<p style="margin:8 0 0 0">
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="302"><a href="http://www.wisexpo.co.kr/kor/index.php" target="_blank"><img src="/news/img/bnr_itworld_left01_080616.jpg" width="302" height="25" border="0"></a></td>
+			<td width="58" background="/news/img/bnr_itworld_right01_080616.jpg"><a href="/news/app/newslist.php?sid=01190715&nid=004&type=1" target="_top"><img src="/news/img/btn_itworld01_080616.gif" width="49" height="10" border="0" align="absmiddle" style="margin:2 0 0 0"></a></td>
+		</tr>
+		</table>
+		-->
+		<!-- 월드IT쇼 끝 -->
+
+		<!-- 메인 서브1 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:16 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084061&sid=01023004&nid=000&ltype=1" target="_self" >"8월에도 안도랠리 이어질듯"</A><p style="margin-top:10">
+		<A HREF="javascript:popWin(&#39;http://www.hankyung.com/news/realtime/index.php?aid=2008073081746&sid=01022003&nid=000&menu=1&Real=1&#39;,&#39;real&#39;, 960,760,&#39;no&#39;,&#39;yes&#39;);" target="_self" >금호그룹株, 시장불신 '쇼크'</A><p style="margin-top:10">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073085761&sid=01012014&nid=000&ltype=1" target="_self" >너무 다른 휴가 ‥ 신나게 떠나고…등떠밀려 쉬고…</A><p style="margin-top:10">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073091951&sid=01062002&nid=000&ltype=1" target="_self" ><font class=kisa>서울교육감 공정택씨 당선…MB 교육정책 '탄력'</font></A><p style="margin-top:10">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084091&sid=01061002&nid=000&ltype=1" target="_self" >정종환 국토장관 "집값 좀 더 빠질 가능성 있다"</A><p style="margin-top:10">
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브1 끝 -->
+
+		<!-- 선택! 4·9 총선(면편집) 시작 -->
+		
+		<!-- 선택! 4·9 총선(면편집) 끝 -->
+
+		<!-- 베이징올림픽 시작 -->
+		
+		<!-- 베이징올림픽 끝 -->
+
+		<!-- 플러스알파(주말판) 시작 -->
+		
+		<!-- 플러스알파(주말판) 끝 -->
+
+		<p style="margin-top:5">
+		<!-- 배너5종시작 -->
+		
+		
+		
+		
+		
+		<!-- 배너5종 끝 -->
+
+		<p style="margin-top:2">
+		<!-- 포토/연애/레이싱모델/금병매/건강 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0" style="background-repeat:repeat-x;" background="/img/home_kisarank_line01.gif">
+<tr valign="top">
+	<td width="4"></td>
+	<td width="45"><a href="javascript:MM_swapImage('photo01','','/img/tab_home_photo09_on.gif',1);MM_swapImage('photo02','','/img/tab_home_photo10_off.gif',1);MM_swapImage('photo03','','/img/tab_home_photo11_off.gif',1);MM_showHideLayers('photolayer01','','show','photo_more01','','show','photolayer02','','hide','photo_more02','','hide','photolayer03','','hide','photo_more03','','hide');"><img src="/img/tab_home_photo09_on.gif" width="45" height="25" border="0" name="photo01"></a></td>
+	<td width="45"><a href="javascript:MM_swapImage('photo01','','/img/tab_home_photo09_off.gif',1);MM_swapImage('photo02','','/img/tab_home_photo10_on.gif',1);MM_swapImage('photo03','','/img/tab_home_photo11_off.gif',1);MM_showHideLayers('photolayer01','','hide','photo_more01','','hide','photolayer02','','show','photo_more02','','show','photolayer03','','hide','photo_more03','','hide');"><img src="/img/tab_home_photo10_off.gif" width="45" height="25" border="0" name="photo02"></a></td>
+	<td width="70"><a href="javascript:MM_swapImage('photo01','','/img/tab_home_photo09_off.gif',1);MM_swapImage('photo02','','/img/tab_home_photo10_off.gif',1);MM_swapImage('photo03','','/img/tab_home_photo11_on.gif',1);MM_showHideLayers('photolayer01','','hide','photo_more01','','hide','photolayer02','','hide','photo_more02','','hide','photolayer03','','show','photo_more03','','show');"><img src="/img/tab_home_photo11_off.gif" width="70" height="25" border="0" name="photo03"></a></td>
+	<td width="160"></td>
+	<td width="36">
+	<div id="photo_more01" style="position:absolute; visibility:visible; width:31px; height:8px"><p style="margin-top:11"><a href="/news/photonews/" target="_top"><img src="/img/btn_more01.gif" width="31" height="8" border="0"></a></div>
+	<div id="photo_more02" style="position:absolute; visibility:hidden; width:31px; height:8px"><p style="margin-top:11"><a href="/news/enternews/" target="_top"><img src="/img/btn_more01.gif" width="31" height="8" border="0"></a></div>
+	<div id="photo_more03" style="position:absolute; visibility:hidden; width:31px; height:8px"><p style="margin-top:11"><a href="/autoplus/racingmodel.html" target="_top"><img src="/img/btn_more01.gif" width="31" height="8" border="0"></a></div>
+	</td>
+</tr>
+</table>
+
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr><td height="12"></td></tr>
+<tr>
+	<td height="90" valign="top" style="padding:0 13">
+
+		<div id="photolayer01" style="position:absolute; visibility:visible; width:332px">
+		<!-- 포토 시작 -->
+		<table width="332" border="0" cellpadding="0" cellspacing="0">
+		<tr valign="top">
+			<td width="102">
+				<table width="102" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073092298&sid=01071108&nid=930&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008073092298_2008073066032.jpg" width="100" height="60" style="border:1px solid #D0D0D0"></A><p style="margin:7 0 0 0" class="arti_photo he14 ac"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073092298&sid=01071108&nid=930&ltype=1" target="_self" >차례로 입장하는 남북</A></td></tr>
+				</table>
+			</td>
+			<td width="13"></td>
+			<td width="102">
+				<table width="102" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073081571&sid=01071108&nid=930&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008073081571_2008073065022.jpg" width="100" height="60" style="border:1px solid #D0D0D0"></A><p style="margin:7 0 0 0" class="arti_photo he14 ac"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073081571&sid=01071108&nid=930&ltype=1" target="_self" >응원은 맡겨주세요</A></td></tr>
+				</table>
+			</td>
+			<td width="13"></td>
+			<td width="102">
+				<table width="102" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073083551&sid=010620&nid=930&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008073083551_2008073065062.jpg" width="100" height="60" style="border:1px solid #D0D0D0"></A><p style="margin:7 0 0 0" class="arti_photo he14 ac"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073083551&sid=010620&nid=930&ltype=1" target="_self" >무더위 식히는 청계천</A></td></tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+		<!-- 포토 끝 -->
+		</div>
+
+		<div id="photolayer02" style="position:absolute; visibility:hidden; width:332px">
+		<!-- 연예 시작 -->
+		<table width="332" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="102">
+		<table width="102" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072938507&sid=8320&nid=105&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008072938507_2008072959002.jpg" width="100" height="60" style="border:1px solid #D0D0D0"></A><p style="margin:7 0 0 0" class="arti_photo he14 ac"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072938507&sid=8320&nid=105&ltype=1" target="_self" >주희, 인어공주 hot!</A></td></tr>
+		</table>
+	</td>
+	<td width="13"></td>
+	<td width="102">
+		<table width="102" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072808687&sid=8399&nid=105&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008072808687_2008072855652.jpg" width="100" height="60" style="border:1px solid #D0D0D0"></A><p style="margin:7 0 0 0" class="arti_photo he14 ac"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072808687&sid=8399&nid=105&ltype=1" target="_self" >채은정 "누드집될 뻔"</A></td></tr>
+		</table>
+	</td>
+	<td width="13"></td>
+	<td width="102">
+		<table width="102" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072679307&sid=8320&nid=105&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008072679307_2008072651872.jpg" width="100" height="60" style="border:1px solid #D0D0D0"></A><p style="margin:7 0 0 0" class="arti_photo he14 ac"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072679307&sid=8320&nid=105&ltype=1" target="_self" >청순글래머 김유림!</A></td></tr>
+		</table>
+	</td>
+</tr>
+</table>
+		<!-- 연예 끝 -->
+		</div>
+		
+		<div id="photolayer03" style="position:absolute; visibility:hidden; width:332px">
+		<!-- 레이싱모델 시작 -->
+		
+		<table width="332" border="0" cellpadding="0" cellspacing="0">
+		<tr valign="top">
+<td width="102">
+				<table width="102" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><table width="100" height="60" border="0" cellpadding="0" cellspacing="0" background="/pdsdata/autoplus/photo/42/thumb/30713_2.jpg" class="BG_CENTER"><tr><td><a href="/autoplus/racingirl_view.php?id=30713"><img src="/img/sp.gif" width="100" height="60" style="border:1px solid #D0D0D0"></A></td></tr></table><p style="margin:7 0 0 0" class="arti_photo he14 ac"><A HREF="/autoplus/racingirl_view.php?id=30713" target="_self" >미소가 예쁜 킥스프...</A></td></tr>
+				</table>
+			</td><td width="13"></td><td width="102">
+				<table width="102" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><table width="100" height="60" border="0" cellpadding="0" cellspacing="0" background="/pdsdata/autoplus/photo/42/thumb/33135_2.jpg" class="BG_CENTER"><tr><td><a href="/autoplus/racingirl_view.php?id=33135"><img src="/img/sp.gif" width="100" height="60" style="border:1px solid #D0D0D0"></A></td></tr></table><p style="margin:7 0 0 0" class="arti_photo he14 ac"><A HREF="/autoplus/racingirl_view.php?id=33135" target="_self" >패션모델 출신 레이싱...</A></td></tr>
+				</table>
+			</td><td width="13"></td><td width="102">
+				<table width="102" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><table width="100" height="60" border="0" cellpadding="0" cellspacing="0" background="/pdsdata/autoplus/photo/42/thumb/32934_2.jpg" class="BG_CENTER"><tr><td><a href="/autoplus/racingirl_view.php?id=32934"><img src="/img/sp.gif" width="100" height="60" style="border:1px solid #D0D0D0"></A></td></tr></table><p style="margin:7 0 0 0" class="arti_photo he14 ac"><A HREF="/autoplus/racingirl_view.php?id=32934" target="_self" >외국인 레이싱걸 등장...</A></td></tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+
+		<!-- 레이싱모델 끝 -->
+		</div>
+
+	</td>
+</tr>
+</table>
+
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr><td height="1" class="bg65"></td></tr>
+</table>
+		<!-- 포토/연애/레이싱걸/금병매/건강 끝 -->
+
+		<!-- 메인 서브2 탑기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:19 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073082801&sid=010401&nid=000&ltype=1" target="_self" >살아남기 위해 '생존형 동맹'그들이 뭉쳤다</A><p style="margin-top:13">
+	</td>
+</tr>
+</table>
+
+<p style="margin:-8 0 0 0">
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:0 0 3 2" class="arti_elation">
+		<img src="http://www.hankyung.com/img/news_re01.gif" width="8" height="7" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073082521&sid=01012014&nid=000&ltype=1" target="_self" >대기업 투자의욕이 식어간다</A><p style="margin-top:4">
+		
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브2 탑기사 끝 -->
+
+		<!-- 메인 서브2 서브기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:7 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084171&sid=01030211&nid=000&ltype=1" target="_self" >광교신도시 특별공급 대상자 크게 늘듯</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084921&sid=01012014&nid=000&ltype=1" target="_self" >우이~신설 경전철 연내 民資 착공</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073085281&sid=01062051&nid=000&ltype=1" target="_self" >불법 촛불시위자 100만~500만원 벌금</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084111&sid=01062002&nid=000&ltype=1" target="_self" >투표율 15.4% … 대표성 논란</A><p style="margin-top:13">
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브2 서브기사 끝 -->
+
+		<!-- 다산경영상 시작 -->
+		
+		<!-- 다산경영상 끝 -->
+
+		<!-- 메인 서브3 탑기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:0 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084931&sid=010401&nid=000&ltype=1" target="_self" >대한항공 조종사 노조 "임금동결" … 설립후 처음</A><p style="margin-top:13">
+	</td>
+</tr>
+</table>
+
+<p style="margin:-8 0 0 0">
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:0 0 3 2" class="arti_elation">
+		<img src="http://www.hankyung.com/img/news_re01.gif" width="8" height="7" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073083421&sid=01062001&nid=000&ltype=1" target="_self" >대우조선 노조 "매각실사 수용"</A><p style="margin-top:4">
+		
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브3 탑기사 끝 -->
+
+		<!-- 메인 서브3 서브기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:7 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073081461&sid=010801&nid=000&ltype=1" target="_self" >신한금융의 힘! ‥ 2분기 당기순이익 27.6% 증가</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073081671&sid=01012014&nid=000&ltype=1" target="_self" >한전 899억 상여금 과다지급…경영실적 부풀려</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073080991&sid=010801&nid=000&ltype=1" target="_self" >금융공기업 입사만 있고 퇴사는 없다</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073081061&sid=01010802&nid=000&ltype=1" target="_self" >"아침엔 금리 더 준대요" </A><p style="margin-top:13">
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브3 서브기사 끝 -->
+
+		<p style="margin-top:5">
+		<!-- People 이 사람 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="220" style="color:#CDCDCD" class="arti_pipe al3 vb"><a href="/news/app/newslist.php?sid=01063004&nid=100&type=1" target="_top"><b style="color:#254D88" class="f12 g sp01">피플 이사람</b></a> | <a href="/news/app/newslist.php?sid=01063001&nid=006&type=1" target="_top">인사</a> | <a href="/news/app/newslist.php?sid=01063002&nid=006&type=1" target="_top">동정</a> | <a href="/news/app/newslist.php?sid=01063003&nid=006&type=1" target="_top">부고</a></td>
+			<form name="searchForm_p" action="http://people.hankyung.com/person.asp" method="post" target="_top">
+			<td width="140" class="ar5"><input type="text" name="txtname" onMouseDown="this.style.backgroundImage='';" onKeyDown="this.style.backgroundImage='';" style="border:solid 1px #DDDDDD; background-image:url(/img/bnr_home_inputpeople01.gif); background-repeat:no-repeat; width:100; height:18" align="absmiddle"><input type="image" name="submit" src="/img/btn_search09.gif" width="30" height="16" border="0" align="absmiddle" style="margin-left:4"></td>
+			</form>
+		</tr>
+		<tr><td height="2" colspan="2"></td></tr>
+		<tr><td height="1" bgcolor="#9BB6D2" colspan="2"></td></tr>
+		<tr class="bg48">
+			<td colspan="2" style="padding:10">
+				<table width="340" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="70"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073079811&sid=01063004&nid=006&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008073079811_2008073065832.jpg" width="68" height="72" style="border:1px solid #D0D0D0"></A></td>
+	<td width="261" style="padding-left:9">
+		<p style="margin-top:11" class="b">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073079811&sid=01063004&nid=006&ltype=1" target="_self" >"한국 크는만큼 우리 자부심도 커져요"</A>
+		<p style="margin-top:6" class="he18">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073079811&sid=01063004&nid=006&ltype=1" target="_self" >재외동포재단이 지난 29일부터 내달 1일까지 진행하는 '세계 한인 차세대 대회'에 참가</A>...&nbsp;&nbsp;<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073079811&sid=01063004&nid=006&ltype=1" target="_self" ></A>
+	</td>
+</tr>
+</table>
+			</td>
+		</tr>
+		<tr><td height="1" class="bg65" colspan="2"></td></tr>
+		</table>
+		<!-- People 이 사람 끝 -->
+
+		<!-- 메인 서브4 탑기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:19 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084841&sid=010801&nid=000&ltype=1" target="_self" >금융인맥 '파워시프트' 외국계출신 전성시대</A><p style="margin-top:13">
+	</td>
+</tr>
+</table>
+
+<p style="margin:-8 0 0 0">
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:0 0 3 2" class="arti_elation">
+		<img src="http://www.hankyung.com/img/news_re01.gif" width="8" height="7" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073086291&sid=010801&nid=000&ltype=1" target="_self" >씨티ㆍ도이치뱅크ㆍ리먼 등 'CEO 산실'로</A><p style="margin-top:4">
+		
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브4 탑기사 끝 -->
+
+		<!-- 메인 서브4 서브기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:7 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073085041&sid=01041302&nid=000&ltype=1" target="_self" >기아차 '모하비' 지구촌 힘찬 질주</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073085391&sid=01012014&nid=000&ltype=1" target="_self" >한국, 근무는 年700시간 더 하는데 생산성은?</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073085301&sid=01012014&nid=000&ltype=1" target="_self" >DDA협상 결국 농산물에 걸려 좌초</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084371&sid=01010801&nid=000&ltype=1" target="_self" >론스타 '손배訴카드'로 정부 압박</A><p style="margin-top:13">
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브4 서브기사 끝 -->
+
+		<!-- 메인 서브5 탑기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:0 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073085481&sid=01061001&nid=000&ltype=1" target="_self" >휴가마친 李대통령 독도 해법은</A><p style="margin-top:13">
+	</td>
+</tr>
+</table>
+
+<p style="margin:-8 0 0 0">
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:0 0 3 2" class="arti_elation">
+		<img src="http://www.hankyung.com/img/news_re01.gif" width="8" height="7" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084531&sid=010610&nid=000&ltype=1" target="_self" >힐 차관보 “독도표기 적절한 방안 검토”</A><p style="margin-top:4">
+		<img src="http://www.hankyung.com/img/news_re01.gif" width="8" height="7" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073087137&sid=01073202&nid=000&ltype=1" target="_self" >日우익 "독도 그림 걸리면 전시장 폭파 위협"</A><p style="margin-top:4">
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브5 탑기사 끝 -->
+
+		<!-- 메인 서브5 서브기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:7 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073081201&sid=01051002&nid=000&ltype=1" target="_self" >[Issue Analysis] 美재정적자 내년 사상최대 전망</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084831&sid=01040202&nid=000&ltype=1" target="_self" >[IT이슈 따라잡기] 디지털 저작권 해제 MP3 논란</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073082671&sid=010405&nid=000&ltype=1" target="_self" >한국 베니건스는 정상 영업</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073082091&sid=010501&nid=000&ltype=1" target="_self" >금융사 자산상각 3분기도 이어질듯</A><p style="margin-top:13">
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브5 서브기사 끝 -->
+
+		<!-- 산업 이건 왜 시작 -->
+		
+		<!-- 산업 이건 왜 끝 -->
+
+		<!-- 메인 서브6 탑기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr><td height="1"></td></tr>
+<tr><td height="1" class="bg65"></td></tr>
+<tr>
+	<td style="padding:16 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073081901&sid=01040205&nid=000&ltype=1" target="_self" >'검색 짬짜면' NAGooleVER 등장</A><p style="margin-top:13">
+	</td>
+</tr>
+</table>
+
+<p style="margin:-8 0 0 0">
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:0 0 3 2" class="arti_elation">
+		<img src="http://www.hankyung.com/img/news_re01.gif" width="8" height="7" border="0" align="absmiddle" style="margin:0 5 4 0"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084711&sid=01040104&nid=000&ltype=1" target="_self" >구글,中ㆍ日이어 한국에 '공습경보'</A><p style="margin-top:4">
+		
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브6 탑기사 끝 -->
+
+		<!-- 메인 서브6 서브기사 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td style="padding:7 0 0 7" class="arti_li02">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073076991&sid=010701&nid=000&ltype=1" target="_self" >골프 패키지 괜찮네! </A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073071821&sid=01191215&nid=000&ltype=1" target="_self" >[크리스티 박의 '시너지골프'] 토핑·팻샷 교정</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073079631&sid=01051202&nid=000&ltype=1" target="_self" >마지막 주자…주제가… 쉿! 일급비밀이야</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073084201&sid=010401&nid=000&ltype=1" target="_self" >국제 항공노선 9월부터 대폭 감축</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073077541&sid=01062002&nid=000&ltype=1" target="_self" >"2008 수능 원점수 공개하라"</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073083261&sid=01062002&nid=000&ltype=1" target="_self" >서울대 '자유전공' 157명 뽑는다</A><p style="margin-top:13">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008073077381&sid=010620&nid=000&ltype=1" target="_self" >서울 뚝섬한강공원 수변레저 메카로 탈바꿈</A><p style="margin-top:13">
+		
+		
+	</td>
+</tr>
+</table>
+		<!-- 메인 서브6 서브기사 끝 -->
+
+		<!-- 플러스알파(평일판) 시작 -->
+		<p style="margin-top:4">
+<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td width="57" style="padding:0 0 0 3" class="vb"><a href="/news/plusalpha/" target="_top"><b style="color:#254D88" class="f12 g sp01">스페셜+α</b></td>
+	<td width="303" style="color:#CDCDCD" class="arti_pipe ar5 sp01 vb"><a href="/news/app/newslist.php?sid=011607&nid=101&type=1" target="_top">행복한 性</a> | <a href="/news/app/newslist.php?sid=011624&nid=101&type=1" target="_top">스타일 톡톡</a></td>
+</tr>
+<tr><td height="2" colspan="2"></td></tr>
+<tr><td height="1" bgcolor="#9BB6D2" colspan="2"></td></tr>
+<tr class="bg48">
+	<td colspan="2" style="padding:10 10 8 10">
+		<table width="340" border="0" cellpadding="0" cellspacing="0">
+		<tr valign="top">
+			<td width="90"><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072448111&sid=010620&nid=101&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008072448111_2008072551403.jpg" width="88" height="53" style="border:1px solid #D0D0D0"></A></td>
+			<td width="240" style="padding-left:9">
+				<p style="margin:5 0 0 0" class="b">
+				<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072448111&sid=010620&nid=101&ltype=1" target="_self" >노래방에서 위로받는 아내들 </A>
+				<p style="margin:2 0 0 0" class="he18">
+				<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072448111&sid=010620&nid=101&ltype=1" target="_self" >'용모 단정, 침식 제공, 초보 환영, 월수 보장.' 이런 말은 어디선가 많이 </A>...&nbsp;&nbsp;<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072448111&sid=010620&nid=101&ltype=1" target="_self" ></A>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<tr><td height="1" class="bg31" colspan="2"></td></tr>
+</table>
+		<!-- 플러스알파(평일판) 끝 -->
+
+		<p style="margin-top:14">
+		<!-- 주간섹션 시작 -->
+		<table width="360" border="0" cellpadding="0" cellspacing="0" style="background-repeat:repeat-x;" background="/img/home_kisarank_line01.gif">
+		<tr valign="top">
+			<td width="151" style="padding:8 0 0 3"><b style="color:#254D88" class="sp01">주간섹션</b></td>
+			<td width="50"><a href="/news/app/newslist.php?sid=011810&nid=102&type=1" target="_top"><img src="/img/tab_home_special09_on.gif" width="50" height="25" border="0" name="special01" style="cursor:hand;" onMouseOver="javascript:MM_swapImage('special01','','/img/tab_home_special09_on.gif',1);MM_swapImage('special02','','/img/tab_home_special10_off.gif',1);MM_swapImage('special03','','/img/tab_home_special11_off.gif',1);MM_swapImage('special04','','/img/tab_home_special12_off.gif',1);MM_showHideLayers('speciallayer01','','show','speciallayer02','','hide','speciallayer03','','hide','speciallayer04','','hide');"></a></td>
+			<td width="50"><a href="/news/app/newslist.php?sid=011830&nid=102&type=1" target="_top"><img src="/img/tab_home_special10_off.gif" width="50" height="25" border="0" name="special02" style="cursor:hand;" onMouseOver="javascript:MM_swapImage('special01','','/img/tab_home_special09_off.gif',1);MM_swapImage('special02','','/img/tab_home_special10_on.gif',1);MM_swapImage('special03','','/img/tab_home_special11_off.gif',1);MM_swapImage('special04','','/img/tab_home_special12_off.gif',1);MM_showHideLayers('speciallayer01','','hide','speciallayer02','','show','speciallayer03','','hide','speciallayer04','','hide');"></a></td>
+			<td width="50"><a href="/news/app/newslist.php?sid=011820&nid=102&type=1" target="_top"><img src="/img/tab_home_special11_off.gif" width="50" height="25" border="0" name="special03" style="cursor:hand;" onMouseOver="javascript:MM_swapImage('special01','','/img/tab_home_special09_off.gif',1);MM_swapImage('special02','','/img/tab_home_special10_off.gif',1);MM_swapImage('special03','','/img/tab_home_special11_on.gif',1);MM_swapImage('special04','','/img/tab_home_special12_off.gif',1);MM_showHideLayers('speciallayer01','','hide','speciallayer02','','hide','speciallayer03','','show','speciallayer04','','hide');"></a></td>
+			<td width="50"><a href="/news/app/newslist.php?sid=011840&nid=102&type=1" target="_top"><img src="/img/tab_home_special12_off.gif" width="50" height="25" border="0" name="special04" style="cursor:hand;" onMouseOver="javascript:MM_swapImage('special01','','/img/tab_home_special09_off.gif',1);MM_swapImage('special02','','/img/tab_home_special10_off.gif',1);MM_swapImage('special03','','/img/tab_home_special11_off.gif',1);MM_swapImage('special04','','/img/tab_home_special12_on.gif',1);MM_showHideLayers('speciallayer01','','hide','speciallayer02','','hide','speciallayer03','','hide','speciallayer04','','show');"></a></td>
+			<td width="4"></td>
+		</tr>
+		</table>
+
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td height="65" style="padding:10 10 0 10" valign="top">
+
+				<div id="speciallayer01" style="position:absolute; visibility:visible; width:340px">
+				<table width="340" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072572031&sid=011810&nid=102&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008072572031_2008072855293.jpg" width="88" height="53" style="border:1px solid #D0D0D0" align="left" hspace="0" vspace="0" style="margin-right:10"></A></td>
+	<td width="100%">
+		<p style="margin-top:4" class="b">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072572031&sid=011810&nid=102&ltype=1" target="_self" >거품 빠지는 강남 Buy or Sel</A>
+		<p style="margin-top:2" class="he18">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072572031&sid=011810&nid=102&ltype=1" target="_self" >서울 강남(江南).한국 사람이라면 한번쯤 이곳에서의 내집 마련을 꿈꿔보게 마련이</A>...&nbsp;&nbsp;<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072572031&sid=011810&nid=102&ltype=1" target="_self" ></A>
+	</td>
+</tr>
+</table>
+				</div>
+
+				<div id="speciallayer02" style="position:absolute; visibility:hidden; width:340px">
+				<table width="340" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072560361&sid=011830&nid=102&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008072560361_2008072855583.jpg" width="88" height="53" style="border:1px solid #D0D0D0" align="left" hspace="0" vspace="0" style="margin-right:10"></A></td>
+	<td width="100%">
+		<p style="margin-top:4" class="b">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072560361&sid=011830&nid=102&ltype=1" target="_self" >`러시아 상트 페테르부르크` … `예</A>
+		<p style="margin-top:2" class="he18">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072560361&sid=011830&nid=102&ltype=1" target="_self" >여름은 북유럽 여행의 계절이다. 싱그러운 녹색 자연과 이국 문화를 즐기며 자연스</A>...&nbsp;&nbsp;<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072560361&sid=011830&nid=102&ltype=1" target="_self" ></A>
+	</td>
+</tr>
+</table>
+				</div>
+
+				<div id="speciallayer03" style="position:absolute; visibility:hidden; width:340px">
+				<table width="340" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072813491&sid=011820&nid=102&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008072813491_2008072960633.jpg" width="88" height="53" style="border:1px solid #D0D0D0" align="left" hspace="0" vspace="0" style="margin-right:10"></A></td>
+	<td width="100%">
+		<p style="margin-top:4" class="b">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072813491&sid=011820&nid=102&ltype=1" target="_self" >夏~夏~ 디지털기기 쿨하게 질러봐?</A>
+		<p style="margin-top:2" class="he18">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072813491&sid=011820&nid=102&ltype=1" target="_self" >
+
+휴대용 디지털기기 업체들이 여름 휴가철을 맞아 다양한 가격 할인 이벤트와</A>...&nbsp;&nbsp;<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072813491&sid=011820&nid=102&ltype=1" target="_self" ></A>
+	</td>
+</tr>
+</table>
+				</div>
+
+				<div id="speciallayer04" style="position:absolute; visibility:hidden; width:340px">
+				<table width="340" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td><A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072312131&sid=011840&nid=102&ltype=1" target="_self"><img src="http://www.hankyung.com/photo/200807/2008072312131_2008072446313.jpg" width="88" height="53" style="border:1px solid #D0D0D0" align="left" hspace="0" vspace="0" style="margin-right:10"></A></td>
+	<td width="100%">
+		<p style="margin-top:4" class="b">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072312131&sid=011840&nid=102&ltype=1" target="_self" >상반기 국산차 판매 순위 알아보니…</A>
+		<p style="margin-top:2" class="he18">
+		<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072312131&sid=011840&nid=102&ltype=1" target="_self" >
+잘 팔리는 차들은 다 그만한 이유를 갖고 있다. 가격대비 탁월한 성능이나 감각</A>...&nbsp;&nbsp;<A HREF="http://www.hankyung.com/news/app/newsview.php?aid=2008072312131&sid=011840&nid=102&ltype=1" target="_self" ></A>
+	</td>
+</tr>
+</table>
+				</div>
+
+			</td>
+		</tr>
+		</table>
+		<!-- 주간섹션 끝 -->
+
+		<!-- @@@@@ 본문중앙 끝 @@@@@ -->
+	</td>
+	<td width="300">
+		<!-- @@@@@@ 본문우측 시작 @@@@@@ -->
+		<script language='javascript'>
+	function bgSet(i) {
+
+		document.getElementById("bg"+i).style.backgroundImage = 'url(/img/home_jisu_bgimg01_on.gif)';
+	}
+	function bgClr(i) {
+		document.getElementById("bg"+i).style.backgroundImage= 'url(/img/home_jisu_bgimg01_off.gif)';
+	}
+</script>
+<p style="margin:5 0 0 0">
+<!-- 지수(현재가) 시작 -->
+<table width="300" border="0" cellpadding="0" cellspacing="0" style="background-repeat:repeat-x;" background="/img/home_right_line01.gif">
+<tr valign="top">
+	<td width="45"><img src="/img/tab_home_jisu04_on.gif" width="45" height="25" border="0" name="jisu01" style="cursor:hand;" onMouseOver="javascript:MM_swapImage('jisu01','','/img/tab_home_jisu04_on.gif',1);MM_swapImage('jisu02','','/img/tab_home_jisu05_off.gif',1);MM_swapImage('jisu03','','/img/tab_home_jisu06_off.gif',1);MM_showHideLayers('jisulayer01','','show','jisulayer02','','hide','jisulayer03','','hide');MM_showHideLayers('tabjisulayer01','','show','tabjisulayer02','','hide','tabjisulayer03','','hide','tabjisulayer04' ,'','hide');"></td>
+	<td width="45"><img src="/img/tab_home_jisu05_off.gif" width="45" height="25" border="0" name="jisu02" style="cursor:hand;" onMouseOver="javascript:MM_swapImage('jisu01','','/img/tab_home_jisu04_off.gif',1);MM_swapImage('jisu02','','/img/tab_home_jisu05_on.gif',1);MM_swapImage('jisu03','','/img/tab_home_jisu06_off.gif',1);MM_showHideLayers('jisulayer01','','hide','jisulayer02','','show','jisulayer03','','hide');MM_showHideLayers('tabjisulayer01','','hide','tabjisulayer02','','hide','tabjisulayer03','','hide','tabjisulayer04' ,'','hide');"></td>
+	<td width="45"><img src="/img/tab_home_jisu06_off.gif" width="45" height="25" border="0" name="jisu03" style="cursor:hand;" onMouseOver="javascript:MM_swapImage('jisu01','','/img/tab_home_jisu04_off.gif',1);MM_swapImage('jisu02','','/img/tab_home_jisu05_off.gif',1);MM_swapImage('jisu03','','/img/tab_home_jisu06_on.gif',1);MM_showHideLayers('jisulayer01','','hide','jisulayer02','','hide','jisulayer03','','show');MM_showHideLayers('tabjisulayer01','','hide','tabjisulayer02','','hide','tabjisulayer03','','hide','tabjisulayer04' ,'','hide');"></td>
+	<td width="160" style="padding:2 5 0 0" class="ar">
+<script language="JavaScript">
+<!--
+function codesearch() {
+	var csearch_page = "/stockplus/codesearch.php";
+	csearch_page += "?sval=" + csform.sval.value + '&return=http://www.hankyung.com/stockplus/snapshot/snapshot.php?';
+	var csearchwin = window.open(csearch_page,"csw","width=300,height=350,scrollbars=yes,resizable=yes");
+	csearchwin.focus();
+	return;
+}
+//-->
+</script>
+<form name="csform" onSubmit="javascript:codesearch(); return false;">
+	<input type="text" name="sval" onMouseDown="this.style.backgroundImage='';" onKeyDown="this.style.backgroundImage='';" style="border:solid 1px #DDDDDD; background-image:url(/img/bnr_home_inputjisu01.gif); background-repeat:no-repeat; width:80; height:18" align="absmiddle">
+	<input type="image" name="submit" src="/img/btn_search10.gif" width="30" height="16" border="0" align="absmiddle"></td>
+</form>
+</tr>
+</table>
+
+<table width="300" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td height="104" style="border:solid 1px #D4D4D4; border-top:none; border-bottom:none;">
+		<table width="298" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				
+<div id="jisulayer03" style="position:absolute; visibility:hidden; width:298px">
+<p style="margin:5 4 0 3">
+<table width="293" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="ar1 f11 dm" colspan="7">07/30 (현지시간기준)</td></tr>
+<tr><td height="6" colspan="7"></td></tr>
+<tr valign="top">
+	<td width="68" class="ac">
+		<table width="54" border="0" cellpadding="0" cellspacing="0">
+		<tr><td class="ac sp01 dm f11 td19 bg46">일본니케이</td></tr>
+		</table>
+	</td>
+	<td width="7" rowspan="5"></td>
+	<td width="68" class="ac">
+		<table width="50" border="0" cellpadding="0" cellspacing="0">
+		<tr><td class="ac sp01 dm f11 td19 bg46">홍콩항셍</td></tr>
+		</table>
+	</td>
+	<td width="7" rowspan="5"></td>
+	<td width="68" class="ac">
+		<table width="50" border="0" cellpadding="0" cellspacing="0">
+		<tr><td class="ac sp01 dm f11 td19 bg46">대만가권</td></tr>
+		</table>
+	</td>
+	<td width="7" rowspan="5"></td>
+	<td width="68" class="ac">
+		<table width="50" border="0" cellpadding="0" cellspacing="0">
+		<tr><td class="ac sp01 dm f11 td19 bg46">중국상해B</td></tr>
+		</table>
+	</td>
+</tr>
+<tr><td height="6" colspan="7"></td></tr>
+<tr height="36">
+	<a href="http://global.hankyung.com/hankyung/worl_secu/a14010.jsp?chkPage=2"><td class="wh b ac f11 dm sp01 td34" background="/img/home_usa_arrow_up01.gif" style="cursor:hand;">+208.34</td></a>
+	<a href="http://global.hankyung.com/hankyung/worl_secu/a14010.jsp?chkPage=2"><td class="wh b ac f11 dm sp01 td34" background="/img/home_usa_arrow_up01.gif" style="cursor:hand;">+432.60</td></a>
+	<a href="http://global.hankyung.com/hankyung/worl_secu/a14010.jsp?chkPage=2"><td class="wh b ac f11 dm sp01 td34" background="/img/home_usa_arrow_up01.gif" style="cursor:hand;">+57.26</td></a>
+	<a href="http://global.hankyung.com/hankyung/worl_secu/a14010.jsp?chkPage=2"><td class="wh b ac f11 dm sp01 td34" background="/img/home_usa_arrow_dw01.gif" style="cursor:hand;">-1.35</td></a>
+</tr>
+<tr><td height="4" colspan="7"></td></tr>
+<tr valign="top">
+	<td class="f11 dm ac">13,367.79</td>
+	<td class="f11 dm ac">22,690.60</td>
+	<td class="f11 dm ac">7,071.73</td>
+	<td class="f11 dm ac">212.37</td>
+</tr>
+</table>
+</div>
+
+						 		
+<div id="jisulayer02" style="position:absolute; visibility:hidden; width:298px">
+<p style="margin:5 4 0 3">
+<table width="293" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="ar1 f11 dm" colspan="7">07/29 (현지시간기준)</td></tr>
+<tr><td height="6" colspan="7"></td></tr>
+<tr valign="top">
+	<td width="68" class="ac">
+		<table width="50" border="0" cellpadding="0" cellspacing="0">
+		<tr><td class="ac sp01 dm f11 td19 bg46">다우존스</td></tr>
+		</table>
+	</td>
+	<td width="7" rowspan="5"></td>
+	<td width="68" class="ac">
+		<table width="50" border="0" cellpadding="0" cellspacing="0">
+		<tr><td class="ac sp01 dm f11 td19 bg46">나스닥</td></tr>
+		</table>
+	</td>
+	<td width="7" rowspan="5"></td>
+	<td width="68" class="ac">
+		<table width="50" border="0" cellpadding="0" cellspacing="0">
+		<tr><td class="ac sp01 dm f11 td19 bg46">S&P 500</td></tr>
+		</table>
+	</td>
+	<td width="7" rowspan="5"></td>
+	<td width="68" class="ac">
+		<table width="50" border="0" cellpadding="0" cellspacing="0">
+		<tr><td class="ac sp01 dm f11 td19 bg46">반도체</td></tr>
+		</table>
+	</td>
+</tr>
+<tr><td height="6" colspan="7"></td></tr>
+<tr height="36">
+	<a href="http://global.hankyung.com/hankyung/worl_secu/a14010.jsp?chkPage=3"><td class="wh b ac f11 dm sp01 td34" background="/img/home_usa_arrow_up01.gif"  style="cursor:hand;">+56.92</td></a>
+	<a href="http://global.hankyung.com/hankyung/worl_secu/a14010.jsp?chkPage=3"><td class="wh b ac f11 dm sp01 td34" background="/img/home_usa_arrow_dw01.gif" style="cursor:hand;">-13.31</td></a>
+	<a href="http://global.hankyung.com/hankyung/worl_secu/a14010.jsp?chkPage=3"><td class="wh b ac f11 dm sp01 td34" background="/img/home_usa_arrow_up01.gif" style="cursor:hand;">+5.65</td></a>
+	<a href="http://global.hankyung.com/hankyung/worl_secu/a14010.jsp?chkPage=3"><td class="wh b ac f11 dm sp01 td34" background="/img/home_usa_arrow_up01.gif" style="cursor:hand;">+0.81</td></a>
+</tr>
+<tr><td height="4" colspan="7"></td></tr>
+<tr valign="top">
+	<td class="f11 dm ac">11,454.48</td>
+	<td class="f11 dm ac">2,306.31</td>
+	<td class="f11 dm ac">1,268.84</td>
+	<td class="f11 dm ac">339.93</td>
+</tr>
+</table>
+</div>
+
+
+				
+<div id="jisulayer01" style="position:absolute; visibility:visible; width:298px">
+<p style="margin:8">
+<table width="282" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="130">
+
+		<table width="130" border="0" cellpadding="0" cellspacing="0">
+		<tr height="22">
+			<td id="bg1" background="/img/home_jisu_bgimg01_on.gif" onMouseOver="javascript:bgSet('1');javascript:bgClr('2');javascript:bgClr('3');javascript:bgClr('4'); MM_showHideLayers('tabjisulayer01','','show','tabjisulayer02','','hide','tabjisulayer03','','hide','tabjisulayer04' ,'','hide');" >
+				<table width="130" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="39" style="color:#626262" class="td22 ar f11 dm sp01">코스피</td>
+					<td width="46" class="td22 ar6 f11 dm"><span id="kospi_last"><font color="#F13C3C">1,577.70</font></span></td>
+					<td width="37" class="td22 ar7 f11 dm"><span id="kospi_change"><font color="#F13C3C">▲10.50</font></span></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		<tr height="22">
+			<td id="bg2" background="/img/home_jisu_bgimg01_off.gif" onMouseOver="javascript:bgSet('2');javascript:bgClr('1');javascript:bgClr('3');javascript:bgClr('4'); MM_showHideLayers('tabjisulayer01','','hide','tabjisulayer02','','show','tabjisulayer03','','hide','tabjisulayer04' ,'','hide');" >
+				<table width="130" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="39" style="color:#626262" class="td22 ar f11 dm sp01">코스닥</td>
+					<td width="46" class="td22 ar6 f11 dm fdw"><span id="kosdaq_last"><font color="#F13C3C">538.53</font></span></td>
+					<td width="37" class="td22 ar7 f11 dm fdw"><span id="kosdaq_change"><font color="#F13C3C">▲3.17</font></span></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		<tr height="22">
+			<td id="bg3" background="/img/home_jisu_bgimg01_off.gif" onMouseOver="javascript:bgSet('3');javascript:bgClr('1');javascript:bgClr('2');javascript:bgClr('4'); MM_showHideLayers('tabjisulayer01','','hide','tabjisulayer02','','hide','tabjisulayer03','','show','tabjisulayer04' ,'','hide');" >
+				<table width="130" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="39" style="color:#626262" class="td22 ar f11 dm sp01">선물</td>
+					<td width="46" class="td22 ar6 f11 dm fup"><span id="future_last"><font color="#F13C3C">203.70</font></span></td>
+					<td width="37" class="td22 ar7 f11 dm fup"><span id="future_change"><font color="#F13C3C">▲2.70</font></span></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		<tr height="22">
+			<td id="bg4" background="/img/home_jisu_bgimg01_off.gif" onMouseOver="javascript:bgSet('4');javascript:bgClr('1');javascript:bgClr('2');javascript:bgClr('3'); MM_showHideLayers('tabjisulayer01','','hide','tabjisulayer02','','hide','tabjisulayer03','','hide','tabjisulayer04' ,'','show');" >
+				<table width="130" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="39" style="color:#626262" class="td22 ar f11 dm sp01">환율</td>
+					<td width="46" class="td22 ar6 f11 dm fup"><span id="exrate_last"><font color="#F13C3C">1,013.50</font></span></td>
+					<td width="37" class="td22 ar7 f11 dm fup"><span id="exrate_change"><font color="#F13C3C">▲4.70</font></span></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+	<td width="152" height="88">
+		<div id="tabjisulayer01" style="position:absolute; visibility:visible; width:152px; height:86px;">
+		<table width="152" border="0" cellpadding="0" cellspacing="0">
+		<tr><td height="86" style="border:solid 1px #A2C8F0; border-left:none;"><a href="/stockplus/stockinfo/marketfluct.php" target="_top" id="kospi_chart"><img id="kospi_chart_img" src="http://www.hankyung.com/appinc/piecefile/kospi_home.gif" width="151" height="86" border="0"></a></td></tr>
+		</table>
+		</div>
+
+		<div id="tabjisulayer02" style="position:absolute; visibility:hidden; width:152px; height:86px;">
+		<table width="152" border="0" cellpadding="0" cellspacing="0">
+		<tr><td height="86" style="border:solid 1px #A2C8F0; border-left:none;"><a href="/stockplus/stockinfo/marketfluct.php?jkind=2&class=2" target="_top" id="kosdaq_chart"><img id="kosdaq_chart_img" src="http://www.hankyung.com/appinc/piecefile/kosdaq_home.gif" width="151" height="86" border="0"></a></td></tr>
+		</table>
+		</div>
+
+		<div id="tabjisulayer03" style="position:absolute; visibility:hidden; width:152px; height:86px;">
+		<table width="152" border="0" cellpadding="0" cellspacing="0">
+		<tr><td height="86" style="border:solid 1px #A2C8F0; border-left:none;"><a href="/stockplus/stockinfo/fcurrent.php" target="_top" id="future_chart"><img id="future_chart_img" src="http://www.hankyung.com/appinc/piecefile/future_home.gif" width="151" height="86" border="0"></a></td></tr>
+		</table>
+		</div>
+
+		<div id="tabjisulayer04" style="position:absolute; visibility:hidden; width:152px; height:86px;">
+		<table width="152" border="0" cellpadding="0" cellspacing="0">
+		<tr><td height="86" style="border:solid 1px #A2C8F0; border-left:none;"><a href="/ftplus/snapshot_a.php" target="_top" id="exrate_chart"><img id="exrate_chart_img" src="http://www.hankyung.com/appinc/piecefile/exrate_home.gif" width="151" height="86" border="0"></a></td></tr>
+		</table>
+		</div>		
+	</td>
+</tr>
+</table>
+</div>
+
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<tr><td><img src="/img/home_right_line02.gif" width="300" height="1" border="0"></td></tr>
+</table>
+<!-- 지수(현재가) 끝 -->
+
+<p style="margin:8 0 0 0">
+<!-- 광고 배너 시작 -->
+<table width="300" border="0" cellpadding="0" cellspacing="0">
+<tr><td><IFRAME WIDTH=300 HEIGHT=180 NORESIZE SCROLLING=No FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 SRC="http://advs.hankyung.com/RealMedia/ads/adstream_sx.ads/www.hankyung.com/index@Rec"><A HREF="http://advs.hankyung.com/RealMedia/ads/click_nx.ads/www.hankyung.com/index@Rec"><IMG SRC="http://advs.hankyung.com/RealMedia/ads/adstream_nx.ads/www.hankyung.com/index@Rec"></a></IFRAME></td></tr>
+</table>
+<!-- 광고 배너 끝 -->
+
+<p style="margin:8 0 0 0">
+<!-- 알림/이벤트 시작 -->
+<table width="300" border="0" cellpadding="0" cellspacing="0" style="border:solid 1px #CDDCEB">
+<tr bgcolor="E9EFF6">
+	<td class="td23 al9"><a href="http://event.hankyung.com/" target="_blank"><b style="color:#254D88" class="sp01">알림/이벤트</b></a></td>
+	<td class="ar10"><a href="http://event.hankyung.com/" target="_blank"><img src="/img/btn_more01.gif" width="31" height="8" border="0" style="margin:3 0 0 0"></a></td>
+</tr>
+<tr>
+	<td colspan="2" style="padding:12 0 5 0">
+		<!-- <b>[알<font color="white">알</font>림]</b> -->
+<table width="296" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td style="padding:0 5 0 17" class="idt7" colspan="2">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0">[<a href="http://www.hankyung.com/board/view.php?id=land_notice&no=38&ch=land" target="_self">이벤트</a>]
+<a href="http://www.hankyung.com/board/view.php?id=land_notice&no=38&ch=land" target="_self">부동산Plus 가 새로워졌습니다!</a><p style="margin-top:4">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0">[<a href="http://event.hankyung.com/index_sub.php?pname=notice.notice_view&BbsType=NOTICE&idkey=100000000409" target="event">알　림</a>]
+<a href="http://event.hankyung.com/index_sub.php?pname=notice.notice_view&BbsType=NOTICE&idkey=100000000409" target="event">온라인 제휴/마케팅 경력 모집 공고</a><p style="margin-top:4">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0">[<a href="http://www.hankyung.com/board/view.php?id=readbook&no=145&ch=comm" target="_self">이벤트</a>]
+<a href="http://www.hankyung.com/board/view.php?id=readbook&no=145&ch=comm" target="_self">책읽는 직장인 3주년 기념이벤트 </a><p style="margin-top:4">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0">[<a href="http://www.hankyung.com/board/list.php?id=richlife&category=5&ch=ft&skin=ftplus_richlife" target="_self">이벤트</a>]
+<a href="http://www.hankyung.com/board/list.php?id=richlife&category=5&ch=ft&skin=ftplus_richlife" target="_self">댓글 달고 바보투자클럽 받으세요</a><p style="margin-top:4">
+</tr>
+</table>
+	</td>
+</tr>
+</table>
+<!-- 알림/이벤트 끝 -->
+
+<p style="margin:8 0 0 0">
+<!-- 배너 시작 -->
+<table width="300" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="147" height="20">
+		<div id='bnrleft0' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><a href="http://event.hankyung.com/index_sub.php?pname=ing_event.ing_view&idkey=100000000491" target="_blank"><img src="http://www.hankyung.com/adimg/bnr/bnr_home_blogevent01.jpg" width="147" height="20" border="0" name="left"></a></td></tr>
+		</table>
+		</div>
+		<div id='bnrleft1' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><a href="http://www.hankyung.com/board/view.php?id=autoplus_notice&ch=auto&no=43" target="_top"><img src="http://www.hankyung.com/adimg/bnr/bnr_home_nim.jpg" width="147" height="20" border="0" name="left"></a></td></tr>
+		</table>
+		</div>
+		<div id='bnrleft2' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><!--<a href="http://www.hankyung.com/board/view.php?id=stock_notice&ch=stock&no=3&category=2" target="_top"><img src="http://www.hankyung.com/adimg/bnr/bnr_home_stockevent.jpg" width="147" height="20" border="0" name="left"></a></td></tr>
+		<tr><td><a href="http://ystarwars.hankyung.com/" target="_blank"><img src="http://www.hankyung.com/adimg/bnr/bnr_home_ystarwars.gif" width="147" height="20" border="0" name="left"></a>--></td></tr>
+		</table>
+		</div>
+		<div id='bnrleft3' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td></td></tr>
+		</table>
+		</div>
+		<div id='bnrleft4' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td></td></tr>
+		</table>
+		</div>
+	</td>
+	<td width="6"></td>
+	<td width="147" height="20">
+		<div id='bnrright0' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><a href="http://starwars.hankyung.com/" target="_top"><img src="http://www.hankyung.com/adimg/bnr/bnr_home_starwars.gif" width="147" height="20" border="0" name="right"></a></td></tr>
+		</table>
+		</div>
+		<div id='bnrright1' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><a href="http://event.hankyung.com/index_sub.php?pname=ing_event.ing_view&idkey=100000000491" target="_blank"><img src="http://www.hankyung.com/adimg/bnr/bnr_home_blogevent02.jpg" width="147" height="20" border="0" name="right"></a></td></tr>
+		</table>
+		</div>
+		<div id='bnrright2' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td></td></tr>
+		</table>
+		</div>
+		<div id='bnrright3' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td></td></tr>
+		</table>
+		</div>
+		<div id='bnrright4' style='position:absolute; visibility:visible; width:147px; height:20px'>
+		<table width="147" border="0" cellpadding="0" cellspacing="0">
+		<tr><td></td></tr>
+		</table>
+		</div>
+	</td>
+</tr>
+</table>
+
+<script language="javascript">
+function getElementsByName_iefix(tag, name) {
+ var elem = document.getElementsByTagName(tag);
+ var arr = new Array();
+ for(i = 0,iarr = 0; i < elem.length; i++) {
+	  att = elem[i].getAttribute("name");
+	  if(att == name) {
+		   arr[iarr] = elem[i];
+		   iarr++;
+	  }
+ }
+ return iarr;
+}
+
+function bnr_left(){  	
+	num=Math.floor(Math.random()*getElementsByName_iefix('img', 'left'));
+	if (num == 0){
+	   showlayer("bnrleft0");	
+	   hidelayer("bnrleft1");
+	   hidelayer("bnrleft2");
+	   hidelayer("bnrleft3");
+	   hidelayer("bnrleft4");
+	}else if(num == 1){
+	   hidelayer("bnrleft0");	
+	   showlayer("bnrleft1");
+	   hidelayer("bnrleft2");
+	   hidelayer("bnrleft3");
+	   hidelayer("bnrleft4");
+	}else if(num == 2){
+	   hidelayer("bnrleft0");	
+	   hidelayer("bnrleft1");
+	   showlayer("bnrleft2");
+	   hidelayer("bnrleft3");
+	   hidelayer("bnrleft4");
+	}else if(num == 3){
+	   hidelayer("bnrleft0");	
+	   hidelayer("bnrleft1");
+	   hidelayer("bnrleft2");
+	   showlayer("bnrleft3");
+	   hidelayer("bnrleft4");
+	}else if(num == 4){
+	   hidelayer("bnrleft0");	
+	   hidelayer("bnrleft1");
+	   hidelayer("bnrleft2");
+	   hidelayer("bnrleft3");
+	   showlayer("bnrleft4");
+	}else{
+	   showlayer("bnrleft0");	
+	   hidelayer("bnrleft1");
+	   hidelayer("bnrleft2");
+	   hidelayer("bnrleft3");
+	   hidelayer("bnrleft4");
+	}	
+}
+function bnr_right(){  	
+	num=Math.floor(Math.random()*getElementsByName_iefix('img', 'right'));
+	if (num == 0){
+	   showlayer("bnrright0");	
+	   hidelayer("bnrright1");
+	   hidelayer("bnrright2");
+	   hidelayer("bnrright3");
+	   hidelayer("bnrright4");
+	}else if(num == 1){
+	   hidelayer("bnrright0");	
+	   showlayer("bnrright1");
+	   hidelayer("bnrright2");
+	   hidelayer("bnrright3");
+	   hidelayer("bnrright4");
+	}else if(num == 2){
+	   hidelayer("bnrright0");	
+	   hidelayer("bnrright1");
+	   showlayer("bnrright2");
+	   hidelayer("bnrright3");
+	   hidelayer("bnrright4");
+	}else if(num == 3){
+	   hidelayer("bnrright0");	
+	   hidelayer("bnrright1");
+	   hidelayer("bnrright2");
+	   showlayer("bnrright3");
+	   hidelayer("bnrright4");
+	}else if(num == 4){
+	   hidelayer("bnrright0");	
+	   hidelayer("bnrright1");
+	   hidelayer("bnrright2");
+	   hidelayer("bnrright3");
+	   showlayer("bnrright4");
+	}else{
+	   showlayer("bnrright0");	
+	   hidelayer("bnrright1");
+	   hidelayer("bnrright2");
+	   hidelayer("bnrright3");
+	   hidelayer("bnrright4");  
+	}	
+}
+function hidelayer(lay) {
+	document.all[lay].style.visibility = "hidden";
+}
+function showlayer(lay) {
+	document.all[lay].style.visibility = "visible";
+}
+</script>
+<script>bnr_left();</script>
+<script>bnr_right();</script>
+<!-- 배너 끝 -->
+
+<p style="margin:8 0 0 0">
+<!-- 채널PLUS 시작 -->
+<table width="300" border="0" cellpadding="0" cellspacing="0" style="border:solid 1px #CDDCEB">
+<tr bgcolor="E9EFF6">
+	<td class="td23 al9"><b style="color:#254D88" class="sp01">채널</b><img src="/img/ttl_home_plus01.gif" width="27" height="5" border="0" style="margin:0 0 4 3"></td>
+</tr>
+<tr valign="top">
+	<td style="padding:12 9 5 10">
+		<!-- 증권Plus 시작 -->
+		<table width="279" border="0" cellpadding="0" cellspacing="0">
+<tr class="bg46">
+	<td class="td19 b sp01 al7"><a href="/stockplus/" target="_top">증권</a><img src="/img/icon_home_plus01.gif" width="6" height="6" border="0" align="absmiddle" style="margin:0 0 4 3"></td>
+	<td style="color:#CDCDCD" class="td20 arti_pipe sp01 ar6"><a href="http://starwars.hankyung.com" target="_top">스타워즈</a> | <a href="http://global.hankyung.com/hankyung/worl_secu/a15010.jsp" target="_top">해외증시</a>  
+</tr>
+<tr valign="top">
+	<td style="padding:10 7 0 4" colspan="2">
+		<table width="268" border="0" cellpadding="0" cellspacing="0">
+		<col width="52"><col width="10"><col width="206">
+		<tr valign="top">
+			<td><a href="http://www.hankyung.com/board/view.php?id=_column_129_1&ch=stock&no=72" target="_top"><img src="http://www.hankyung.com/pdsdata/stockplus/file/ljw.jpg" width="50" height="53" border="0" class="bdr01"></a></td>
+			<td></td>
+			<td style="padding:4 0 7 6" class="idt6">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=stock_notice&ch=stock&no=2&page=2&sn=&ss=&sc=&old_no=&old_id=stock_notice&skin=&keyword=&category=&tag=&sel_order=&desc=desc&cmt_page=1&cmt_order=&cmt_desc=asc&category=2"><span style="letter-spacing: 0px;">[전격출간!!] 주식투자 베스트비법</span></a><p style="margin-top:4">
+                                           <img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=today_tuja&ch=stock&no=25087"><span style="letter-spacing:-1px;"><b>증권사 거품전망 `어닝쇼크` 불렀다</b></span></a><p style="margin-top:4">
+				<!--<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://starwars.hankyung.com/" target="_top"><span style="letter-spacing: -1px;">스타워즈 주간1위 하나대투 김재흥 차장</span></a><p style="margin-top:4">-->
+
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/stockplus/investinfo/kpsi.php" target="_top"><span style="letter-spacing:-1px;">[8월증시전망 요약]이중바닥의 KOSPI..
+<span></a><p style="margin-top:4">
+
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+		<!-- 증권Plus 끝 -->
+
+		<p style="margin:7 0 0 0">
+		<!-- 부동산Plus 시작 -->
+		<table width="279" border="0" cellpadding="0" cellspacing="0">
+<tr class="bg46">
+	<td class="td19 b sp01 al7"><a href="/landplus/" target="_top">부동산</a><img src="/img/icon_home_plus01.gif" width="6" height="6" border="0" align="absmiddle" style="margin:0 0 4 4"></td>
+	<td style="color:#CDCDCD" class="td20 arti_pipe sp01 ar6"><a href="http://neonet.hankyung.com/novo-hankyung/view/community/CommunityIndex.neo">참여마당</a>ㅣ<a href="http://yesapt.hankyung.com/?pid=001">전문가상담</a></td>
+</tr>
+<tr valign="top">
+	<td style="padding:10 7 0 4" colspan="2">
+		<table width="268" border="0" cellpadding="0" cellspacing="0">
+		<col width="52"><col width="10"><col width="206">
+		<tr valign="top">
+			<td><a href="http://www.hankyung.com/board/view.php?id=_column_268_1&no=4&ch=land"  target="_top"><img src="http://www.hankyung.com/pdsdata/column/268/photo_1" width="50" height="53" border="0" class="bdr01"></a></td>
+			<td></td>
+			<td style="padding:4 0 7 6" class="idt6">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=_column_268_1&no=4&ch=land" target="_top"><B>재개발 투자지역 선정 방법</B></a><p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=land_specialist&ch=land&no=233&page=1&sn=&ss=&sc=&old_no=233&old_id=land_specialist&skin=&keyword=&category=1&tag=&sel_order=&desc=desc&cmt_page=1&cmt_order=&cmt_desc=asc&tags=" target="_top">내 전세 보증금 안전할까? </a><p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://serve.hankyung.com/counsel/specialist_consult_content.asp?svc_code=100089&counsel_seq=1208&srch_cat=&srch_val=&srch_cp=1" target="_top">[상담] 내집마련 (안양,수원,용인)</a><p style="margin-top:4">
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+		<!-- 부동산Plus 끝 -->
+
+		<p style="margin:7 0 0 0">
+		<!-- 재테크Plus 시작 -->
+		<table width="279" border="0" cellpadding="0" cellspacing="0">
+<tr class="bg46">
+	<td class="td19 b sp01 al7"><a href="/ftplus/" target="_top">재테크</a><img src="/img/icon_home_plus01.gif" width="6" height="6" border="0" align="absmiddle" style="margin:0 0 4 3"></td>
+	<td style="color:#CDCDCD" class="td20 arti_pipe sp01 ar6"><a href="http://bohumplaza.hankyung.com/" target="_top" >추천보험</a> | <a href="http://www.hankyung.com/ftplus/consult/" target="_top">재테크상담</a></td>
+</tr>
+<tr valign="top">
+	<td style="padding:10 7 0 4" colspan="2">
+		<table width="268" border="0" cellpadding="0" cellspacing="0">
+		<col width="52"><col width="10"><col width="206">
+		<tr valign="top">
+			<td><a href="http://www.hankyung.com/board/list.php?id=richlife&ch=ft&category=5" target="_top">
+<img src="http://www.hankyung.com/pdsdata/ftplus/file/home_pro_babo.jpg" width="50" height="53" border="0" class="bdr01"></a></td>
+			<td></td>
+			<td style="padding:4 0 7 6" class="idt6">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=_column_76_1&no=267&ch=ft" target="_top"><span style="letter-spacing:0px"><b>좋은 돈 나쁜 돈 이상한 돈 </b></span></a>
+<p style="margin-top:4">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=richlife&no=103&ch=ft&category=5&skin=ftplus_richlife" target="_top"><span style="letter-spacing:-1">투자금액 중 30%는 반드시 현금 보유하라</span></a>
+<p style="margin-top:4">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=jaetech_point&no=3695&ch=ft" target="_top"><span style="letter-spacing:0px">민영의료보험 보장 30% 축소될 듯</span></a>
+<p style="margin-top:4">
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+		<!-- 재테크Plus 끝 -->
+
+		<p style="margin:7 0 0 0">
+		<!-- 자동차Plus 시작 -->
+		<table width="279" border="0" cellpadding="0" cellspacing="0">
+<tr class="bg46">
+	<td class="td19 b sp01 al7"><a href="/autoplus/" target="_top">자동차</a><img src="/img/icon_home_plus01.gif" width="6" height="6" border="0" align="absmiddle" style="margin:0 0 4 4"></td>
+	<td style="color:#CDCDCD" class="td20 arti_pipe sp01 ar6"><a href="http://www.hankyung.com/board/list.php?id=cartech119&ch=auto" target="_top">차테크</a> | <a href="http://www.hankyung.com/autoplus/racingirl_list.php" target="_top">레이싱모델</a></td>
+</tr>
+<tr valign="top">
+	<td style="padding:10 7 0 4" colspan="2">
+		<table width="268" border="0" cellpadding="0" cellspacing="0">
+		<col width="90"><col width="10"><col width="168">
+		<tr valign="top">
+			<td><a href="http://www.hankyung.com/board/view.php?id=new_car_news&ch=auto&no=7377" target="_top"><img src="http://www.hankyung.com/pdsdata/bbs3/new_car_news/thumb/737_4" width="88" height="53" border="0" class="bdr01"></a></td>
+			<td></td>
+			<td style="padding:4 0 7 6" class="idt6">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=new_car_news&ch=auto&no=737" target="_top"><b>포르쉐, 뉴911타르가 공개 </b></a><p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=gallery_home&ch=auto&no=3335&page=1&sn=&ss=&sc=&old_no=&old_id=gallery_home&skin=&keyword=&category=&tag=&sel_order=&desc=desc&cmt_page=1&cmt_order=&cmt_desc=asc" target="_top">소나타 수출용풀옵션 사진</a><p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/autoplus/article_view.php?id=33986&page=2" target="_top">스테이츠맨 후속 출시</a><p style="margin-top:4">
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+		<!-- 자동차Plus 끝 -->
+
+		<p style="margin:7 0 0 0">
+		<!-- 골프Plus 시작 -->
+		<table width="279" border="0" cellpadding="0" cellspacing="0">
+<tr class="bg46">
+	<td class="td19 b sp01 al7"><a href="/golfplus/" target="_top">골프</a><img src="/img/icon_home_plus01.gif" width="6" height="6" border="0" align="absmiddle" style="margin:0 0 4 3"></td>
+	<td style="color:#CDCDCD" class="td20 arti_pipe sp01 ar6"><a href="http://plusmall.golfsky.com" target="_top">쇼핑몰</a> | <a href="http://www.hankyung.com/golfplus/lesson.html" target="_top">동영상</a></td>
+</tr>
+<tr valign="top">
+	<td style="padding:10 7 0 4" colspan="2">
+		<table width="268" border="0" cellpadding="0" cellspacing="0">
+		<col width="52"><col width="10"><col width="206">
+		<tr valign="top">
+			<td><a href="http://www.hankyung.com/board/view.php?id=golf_vod_cyj&no=5&ch=golf" target="_top"><img src="http://www.hankyung.com/pdsdata/golfplus/file/96.jpg" width="50" height="53" border="0" class="bdr01"></a></td>
+			<td></td>
+			<td style="padding:4 0 7 6" class="idt6">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=golf_vod_cyj&no=5&ch=golf" target="_top"><b>펴진 채 올라가기, 던져 주기!</b></a><p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=_column_187_1&no=155&ch=golf" target="_top">라운드 도중 마인드 컨트롤①</a><p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=golf_100&no=74&ch=golf" target="_top">하나, 둘 … 그리고 넣기</a><p style="margin-top:4">
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+		<!-- 골프Plus 끝 -->
+
+		<p style="margin:7 0 0 0">
+		<!-- 커뮤니티 시작 -->
+		<table width="279" border="0" cellpadding="0" cellspacing="0">
+		<tr class="bg46">
+			<td class="td19 b sp01 al7"><a href="/community/" target="_top">커뮤니티</a></td>
+			<td style="color:#CDCDCD" class="td20 arti_pipe sp01 ar6"><a href="http://www.hankyung.com/board/list.php?id=theme_5&ch=comm" target="_top">사진</a> | <a href="http://www.hankyung.com/board/list.php?id=janggun&category=2&ch=comm" target="_top">장군의아들</a></td>
+		</tr>
+		<tr valign="top">
+			<td style="padding:10 3 0 4" colspan="2">
+				
+<table width="272" border="0" cellpadding="0" cellspacing="0">
+<col width="52"><col width="10"><col width="210">
+<tr valign="top">
+  <td><a href="/community/column.php?c_class=230&ch=comm3" target="_top"><img src="/pdsdata/column/230/photo_1" width="50" height="53" border="0" class="bdr01"></a></td>
+  <td></td>
+  <td style="padding:4 0 7 0">
+    <a href="/community/column.php?c_class=230&ch=comm3" target="_top"><b>정희섭의 글로벌시대의 여행</b></a><p style="margin-top:4">
+
+    <img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="/board/view.php?id=_column_230_1&no=42&ch=comm3" target="_top">수퍼 컴퓨터 유감 </a><p style="margin-top:4">
+
+    <img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="/board/view.php?id=_column_230_1&no=41&ch=comm3" target="_top">글로벌 리더의 마법</a><p style="margin-top:4">
+
+  </td>
+</tr>
+</table>
+
+				<table width="272" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+						<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="/board/view.php?id=_column_252_1&no=17&ch=comm1" target="_top">[최규상] 세상은 나의 행복을 닮아간다</a><p style="margin-top:4">
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="/board/view.php?id=_column_261_1&no=166&ch=comm4" target="_top">[김종태] 길</a><p style="margin-top:4">
+
+						<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=mylifebook&no=6&ch=comm" target="_top">[이벤트] 난 힘들때 ○○○을 찾는다!</a><p style="margin-top:4">
+
+<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://www.hankyung.com/board/view.php?id=community_event&no=175&ch=comm" target="_top">[이벤트] 세일즈맨 도움 필요할땐 언제?</a><p style="margin-top:4">
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+		<!-- 커뮤니티 끝 -->
+
+		<p style="margin:7 0 0 0">
+		<!-- 헬스한경 시작 -->
+		<table width="279" border="0" cellpadding="0" cellspacing="0">
+<tr class="bg46">
+	<td class="td19 b sp01 al7"><a href="http://health.hankyung.com/" target="_top">헬스한경</a></td>
+	<td style="color:#CDCDCD" class="td20 arti_pipe sp01 ar6"><a href="http://health.hankyung.com/health/counsel/" target="_top">의료상담</a> | <a href="http://health.hankyung.com/health/column/" target="_top">헬스칼럼</a> </td>
+</tr>
+<tr valign="top">
+	<td style="padding:10 7 0 4" colspan="2">
+		<table width="268" border="0" cellpadding="0" cellspacing="0">
+		<col width="52"><col width="10"><col width="206">
+		<tr valign="top">
+			<td><a href="http://health.hankyung.com/" target="_top"><img src="http://www.hankyung.com/pdsdata/health/home_pro_img4.jpg" width="50" eight="53" border="0" class="bdr01"></a></td>
+			<td></td>
+			<td style="padding:4 0 7 6" class="idt6">
+			<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://health.hankyung.com/news/app/newsview.php?aid=200807293232b&ltype=3&nid=280&sid=1005" target="_top"><span style="letter-spacing:-1px"><b>열대야, 잠못이루는 이유 따로 있다?</b></span></a>
+                                <p style="margin-top:4">
+                                <img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://health.hankyung.com/news/app/newsview.php?aid=200807308363b&ltype=3&nid=280&sid=1005" target="_top"><span style="letter-spacing:-1px">잠을 잘자야 기억력 '쑥쑥'...사실이네</span></a>
+                                <p style="margin-top:4">
+                                <img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://health.hankyung.com/news/app/newsview.php?aid=2008072933687&ltype=3&nid=280&sid=1001" target="_top"><span style="letter-spacing:0px">수능보다 허리 통증이 더 무서워…</span></a>
+                                
+                              
+                                                                                                                             
+                               
+                                                               </td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+		<!-- 헬스한경 끝 -->
+
+		<p style="margin:7 0 0 0">
+		<!-- 창업센터 시작 -->
+		<table width="279" border="0" cellpadding="0" cellspacing="0">
+<tr class="bg46">
+	<td class="td19 b sp01 al7"><a href="/changup/" target="_top">창업센터</a>
+</td>
+	<td style="color:#CDCDCD" class="td20 arti_pipe sp01 ar6"><a href="http://bizplace.hankyung.com/item/item_main.html" target="_top">창업아이템</a> | <a href="http://www.hankyung.com/changup/guide/" target="_top">가이드</a>
+</td>
+</tr>
+<tr valign="top">
+	<td style="padding:10 7 0 4" colspan="2">
+		<table width="268" border="0" cellpadding="0" cellspacing="0">
+		<col width="52"><col width="10"><col width="206">
+		<tr valign="top">
+			<td><a href="http://bizplace.hankyung.com/content/content_view.html?seq_no=5482&b_code=b_content1&page=1" target="_top">
+                                    <img src="http://www.hankyung.com/pdsdata/changup/data/6ch.jpg" width="50" height="53" border="0" class="bdr01"></a>
+                                </td>
+			<td></td>
+			<td style="padding:4 0 7 6" class="idt6">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://bizplace.hankyung.com/content/content_view.html?seq_no=5482&b_code=b_content1&page=1" target="_top"><b>잘 되는 가게는 다 이유가 있다</b>
+<!--<font size="1">무료</font>--> </a> 
+                                           <p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://bizplace.hankyung.com/content/content_view.html?seq_no=5159&b_code=b_content3&page=1" target="_top">성공 프랜차이즈 신화의 주역</a><p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0"><a href="http://bizplace.hankyung.com/content/content_view.html?seq_no=5241&b_code=b_content3&page=1" target="_top">아이스크림 아닌 문화를 맛보세요</a><p style="margin-top:4">
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+		<!-- 창업센터 끝 -->
+	</td>
+</tr>
+</table>
+
+<!-- 세상만사 시작 -->
+<!--
+<p style="margin:8 0 0 0">
+<table width="300" border="0" cellpadding="0" cellspacing="0" style="border:solid 1px #CDDCEB">
+<tr bgcolor="E9EFF6">
+	<td class="td23 al9"><a href="http://www.hankyung.com/board/list.php?id=theme_5&ch=comm" target="_top"><b style="color:#254D88" class="sp01">사진콘테스트</b></a></td>
+	</td>
+</tr>
+<tr valign="top">
+	<td style="padding:9 25 9 28">--><!-- #include virtual="/board/piecefile/comm_right_wphoto.html"--><!--</td>
+</tr>
+</table>
+
+<script>
+  function switchlayer(layer_id, total_no, show_no)
+  {
+    for(i=1; i<=total_no; i++)
+    {
+      var lid = layer_id + i;
+      var f = document.getElementById(lid);
+
+      if (i == show_no)
+      {
+        document.getElementById(lid).style.visibility = 'visible';
+      }
+      else
+      {
+        document.getElementById(lid).style.visibility = 'hidden';
+      }
+
+    }
+  }
+</script>
+-->
+<!-- 세상만사 끝 -->
+
+<p style="margin:8 0 0 0">
+<!-- 메디컬코리아 대상 배너 시작 -->
+<table width="300" border="0" cellpadding="0" cellspacing="0">
+<tr><td><a href="http://www.medicalkorea.co.kr/" target="_blank"><img src="/adimg/bnr/bnr_medicalkorea_080721.gif" width="300" height="25" border="0"></a></td></tr>
+</table>
+<!-- 메디컬코리아 대상 배너 끝 -->
+
+<!-- 쁘띠갤러리 배너 시작 -->
+<p style="margin:8 0 0 0">
+<table width="300" border="0" cellpadding="0" cellspacing="0">
+<tr><td><a href="http://www.petitgallery.net/" target="_blank"><img src="/adimg/bnr/bnr_petitgallery_080312.jpg" width="300" height="25" border="0"></a></td></tr>
+</table>
+<!-- 쁘띠갤러리 배너 끝 -->
+
+<!--
+<script language='javascript' src='/js/home_jisu.js'></script>
+<script language='javascript'>
+document.domain = 'hankyung.com';
+comet1.setBackend('http://realsise.hankyung.com/stockplus/home_jisu_backend.php');
+</script>
+-->
+
+<iframe src="http://realsise.hankyung.com/stockplus/home_jisu_ajax2.html" width="0" height="0"></iframe>
+<script>
+document.domain = 'hankyung.com';
+</script>
+
+		<!-- @@@@@@ 우측 끝 @@@@@@ -->
+	</td>
+</tr>
+</table>
+
+<!-- @@@@@ 하단시작 @@@@@ -->
+<p style="margin-top:20">
+<!-- 한경 서비스 시작 -->
+<table width="980" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="3" height="49" background="/img/home_bottom_bg01.gif"></td>
+	<td style="color:#FFFFFF" class="td29 ac" background="/img/home_bottom_bg02.gif">
+		<a href="/dic/" target="_top" style="color:#FFFFFF">경제용어사전</a>
+		|<a href="http://mobilepopup.hankyung.com/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">모바일재테크</a>
+		|<a href="http://pdf.hankyung.com/hkshb/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">하버드비즈니스</a>
+		|<a href="http://nribiz.hankyung.com/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">노무라리포트</a>
+		|<a href="http://kisreport.hankyung.com/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">기업분석보고서</a>
+		|<a href="http://people.hankyung.com/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">인물정보</a>
+		|<a href="http://money.hankyung.com/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">한경머니</a>
+		|<a href="http://fortune.hankyung.com/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">운세</a>
+		|<a href="http://www.hankyung.com/cp/weather/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">날씨</a>
+		|<a href="http://pr.hankyung.com/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">보도자료</a>
+		|<a href="http://www.hankyung.com/board/list.php?id=vpr&ch=news" target="_top" style="color:#FFFFFF; margin:0 0 0 4">동영상 보도자료</a>
+		|<a href="http://www.hankyung.com/board/list.php?id=gongsi&ch=etc" target="_top" style="color:#FFFFFF; margin:0 0 0 4">공시최고·제권판결</a>
+		<!--|<a href="http://job.hankyung.com/" target="_top" style="color:#FFFFFF; margin:0 0 0 4">취업</a>-->
+	</td>
+	<td width="3" height="49" background="/img/home_bottom_bg01.gif"></td>
+</tr>
+</table>
+<!-- 한경 서비스 끝 -->
+
+<!-- 바로가기 및 배너 시작 -->
+<table width="980" border="0" cellpadding="0" cellspacing="0" style="border:solid 3px #88ABCC; border-top:none">
+<tr valign="top">
+	<td width="692" style="padding:0 25 13 22">
+		<!-- 바로가기 시작 -->
+		<table width="645" border="0" cellpadding="0" cellspacing="0">
+		<col width="260"><col width="25"><col width="360">
+		<tr valign="top">
+			<td rowspan="3">
+				<!-- 교육센터 시작 -->
+				<table width="260" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="al5"><a href="http://www.hankyung.com/edu/" target="_top"><b style="color:#254D88" class="sp01">한경닷컴 교육센터</b></a></td></tr>
+<tr><td height="2"></td></tr>
+<tr><td height="1" class="bg32"></td></tr>
+<tr>
+	<td style="padding:12 5 0 5">
+		<table width="250" border="0" cellpadding="0" cellspacing="0">
+		<tr valign="top">
+			<td width="90"><a href="http://hkworld.hankyung.com/hkworld.html" target="_top"><img src="http://www.hankyung.com/pdsdata/edu/main/consulting2.gif" width="88" height="53" style="border:1px solid #D0D0D0"></a></td>
+			<td width="150" style="padding-left:10">		
+				<p style="margin-top:4">				
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+				<a href="http://hkworld.hankyung.com/hkworld.html" target="_top">경영컨설턴트 명품강좌</a>
+			
+				<p style="margin:2 0 0 7" class="he18">
+				전략기획/마케팅/HR 등<br>
+				9월개강,6주,19:30-22:10
+			</td>
+		</tr>
+		<tr><td height="5" colspan="2"></td></tr>
+		<tr valign="top">
+			<td width="90"><a href="http://www.hankyung.com/edu/ccs/" target="_top"><img src="http://www.hankyung.com/pdsdata/edu/main/careercoaching_02.gif" width="88" height="53" style="border:1px solid #D0D0D0"></a></td>
+			<td width="150" style="padding-left:10">	
+				<p style="margin:4 0 0 0">				
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+				<a href="http://www.hankyung.com/edu/ccs/c2training.html" target="_top">커리어코치 양성과정</a>
+                                	<p style="margin:4 0 0 0">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+				<a href="http://www.hankyung.com/edu/ccs/c3high.html" target="_top">커리어코치 고급과정</a> 
+				<p style="margin:4 0 0 0">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 0 4 0">
+				<a href="http://www.hankyung.com/edu/ccs/c1vp.html" target="_top">커리어 비전 플래닝</a> 
+			</td>
+		</tr>
+		<tr><td height="6" colspan="2"></td></tr>
+		<tr valign="top">
+			<td colspan="2">
+                                           <p style="margin-top:4">
+                                           <b><img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://hkworld.hankyung.com/hkworld_img.htm" target="_top">비즈니스특강_이미지메이킹(8/12)</a></b>
+                                           <p style="margin-top:4">
+                                           <img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://hkworld.hankyung.com/hkworld_shrd.htm" target="_top">전략적 HRD 역량강화코스(8/28-29)</a>
+
+							</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+				<!-- 교육센터 끝 -->
+			</td>
+			<td rowspan="3"></td>
+			<td>
+				<!-- 한경사업/행사 시작 -->
+				<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="al5"><a href="http://event.hankyung.com" target="_blank"><b style="color:#254D88" class="sp01">한경 사업/행사</b></a></td></tr>
+<tr><td height="2"></td></tr>
+<tr><td height="1" class="bg32"></td></tr>
+<tr>
+	<td style="padding:12 5 0 5">
+		<table width="350" border="0" cellpadding="0" cellspacing="0">
+		<tr valign="top">
+			<td width="90"><a href="http://event.hankyung.com/index_sub.php?pname=event.event_view&idkey=100000000528" target="event"><img src="http://www.hankyung.com/pdsdata/event/data/528.gif" width="88" height="53" style="border:1px solid #D0D0D0"></a></td>
+			<td width="251" style="padding-left:9">
+				<p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://event.hankyung.com/index_sub.php?pname=event.event_view&idkey=100000000528" target="event"><b>제8회 모바일기술대상</b></a><p style="margin-top:4">
+				<p style="margin:2 0 0 7" class="he18">
+				<a href="http://event.hankyung.com/index_sub.php?pname=event.event_view&idkey=100000000528" target="event">모바일산업의 핵심기술과 관련 우수 제품..</a><br>
+				<a href="http://event.hankyung.com/index_sub.php?pname=event.event_view&idkey=100000000528" target="event">접수기간 : 2008년 7월 29일 ~ 9월 12일</a>
+			</td>
+		</tr>
+		</table>
+
+		<p style="margin:7 0 0 0">
+		<table width="350" border="0" cellpadding="0" cellspacing="0">
+		<col width="168"><col width="182">
+		<tr valign="top">
+			<td colspan="2">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://event.hankyung.com/index_sub.php?pname=event.event_view&idkey=100000000527" target="event">생애재무설계 전국순회 강연회 - 시골의사 박경철,우재룡..</a><p style="margin-top:4">
+				<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://event.hankyung.com/index_sub.php?pname=event.event_view&idkey=100000000519" target="event">2008 대한민국 가치창조경영대상 - 접수기간:7/14 ~ 8/22</a><p style="margin-top:4">
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+				<!-- 한경사업/행사 끝 -->
+			</td>
+		</tr>
+		<tr><td height="13" colspan="3"></td></tr>
+		<tr valign="top">
+			<td>
+				<!-- 동영상 비법강좌 시작 -->
+				<table width="360" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="al5" colspan="2"><a href="http://vipup.hankyung.com" target="_top"><b style="color:#254D88" class="sp01">동영상 비법강좌</b></a></td></tr>
+<tr><td height="3" colspan="2"></td></tr>
+<tr><td height="1" class="bg32" colspan="2"></td></tr>
+<tr>
+	<td style="padding:12 0 0 5">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://vipup.hankyung.com/Category/index.asp?cate_code=A02001&cate_name=재테크%20>%20증권" target="_top">[무료]장외주식 대박예상 5</a><p style="margin-top:4">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://vipup.hankyung.com/Category/index.asp?cate_code=A02002&cate_name=재테크%20>%20펀드" target="_top">[무료]거치식 펀드투자 비법</a><p style="margin-top:4">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://vipup.hankyung.com/Category/index.asp?cate_code=A04001&cate_name=생활/건강%20>%20건강/성" target="_top">[무료]만성피로 진단·치료</a><p style="margin-top:4">
+	</td>
+	<td style="padding:12 0 0 0">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://vipup.hankyung.com/Category/index.asp?cate_code=A02005&cate_name=재테크%20>%20부동산" target="_top">[부동산]아파트시장 전망</a><p style="margin-top:4">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://vipup.hankyung.com/Category/index.asp?cate_code=A03001&cate_name=직무/학습%20>%20기획/발표" target="_top">[기획/발표]기획 제안능력 향상</a><p style="margin-top:4">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 5 4 0"><a href="http://vipup.hankyung.com/Category/index.asp?cate_code=A03002&cate_name=직무/학습%20>%20마케팅/영업" target="_top">[마케팅/영업]충성 고객 만들기</a><p style="margin-top:4">
+	</td>
+</tr>
+</table>
+				<!-- 동영상 비법강좌 끝 -->
+			</td>
+		</tr>
+		</table>
+		<!-- 바로가기 끝 -->
+	</td>
+	<td width="282" style="padding:15 22 10 0">
+		<!-- 배너 시작 -->
+		<table width="260" height="160" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><iframe src="http://www.hankyung.com/pdsdata/advs/ad/ad_home_vod.html" width="260" height="180" frameborder="0" scrolling="no"></iframe></td></tr>
+		</table>
+		<!-- 배너 끝 -->
+
+		<!-- 스폰서 광고 시작 -->
+		<p style="margin-top:4">
+		<table width="260" border="0" cellpadding="0" cellspacing="0">
+		<tr valign="top">
+			<td width="88"><a href="http://www.winnet.co.kr" target="_blank"><img src="/img/bnr_sponser_dongbu01.gif" width="84" height="22" border="0"></a></td>
+			<td width="88"><a href="http://www.sec.co.kr/index.jsp?COMM_006=ContentsTemplate_001&dispNo=003008&curDepth=2&html=/pr/family/family.html" target="_blank"><img src="/img/bnr_sponser_samsung01.gif" width="84" height="22" border="0"></a></td>
+			<td width="84"><a href="http://kr.koreanair.com/" target="_blank"><img src="/img/bnr_sponser_koreanair01.gif" width="84" height="22" border="0"></a></td>
+		</tr>
+		</table>
+		<!-- 스폰서 광고 끝 -->
+	</td>
+</tr>
+</table>
+<!-- 바로가기 및 배너 끝 -->
+
+<p style="margin:2 0 0 0">
+<!-- 패밀리 사이트 시작 -->
+<table width="980" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td height="35" class="ac">
+		<a href="http://ac.hankyung.com/" target="_blank"><img src="/img/bnr_family_ac01.gif" width="83" height="21" border="0" align="absmiddle"></a>
+		<img src="/img/news_line04.gif" width="1" height="35" border="0" align="absmiddle" style="margin:0 16">
+		<a href="http://www.hiceo.co.kr/" target="_blank"><img src="/img/bnr_family_hiceo01.gif" width="55" height="15" border="0" align="absmiddle"></a>
+		<img src="/img/news_line04.gif" width="1" height="35" border="0" align="absmiddle" style="margin:0 16">
+		<a href="http://www.sgsgi.com/" target="_blank"><img src="/img/bnr_family_sgsgi01.gif" width="100" height="13" border="0" align="absmiddle"></a>
+		<img src="/img/news_line04.gif" width="1" height="35" border="0" align="absmiddle" style="margin:0 16">
+		<a href="http://www.prosumero.com/" target="_blank"><img src="/img/bnr_family_prosumer01.gif" width="67" height="14" border="0" align="absmiddle"></a>
+		<img src="/img/news_line04.gif" width="1" height="35" border="0" align="absmiddle" style="margin:0 16">
+		<a href="http://value.hankyung.com/" target="_blank"><img src="/img/bnr_family_value01.gif" width="76" height="23" border="0" align="absmiddle"></a>
+	</td>
+</tr>
+</table>
+<!-- 패밀리 사이트 끝 -->
+
+<!-- @@ 공통 풋터 @@ -->
+<!-- p style="margin-top:30" -->
+<!-- 한국경제신문 시작 -->
+<table width="980" border="0" cellpadding="0" cellspacing="0">
+<tr><td valign="top" height="1" bgcolor="#DDDDDD" colspan="2"></td></tr>
+<tr>
+	<td width="620" class="td36 al15" style="color:#CDCDCD">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 8 4 0"><b class="g4">한국경제신문</b>
+		<a href="http://www.hankyung.com/etc/ked/" target="_ked" style="margin:0 0 0 4">회사소개</a>
+		|<a href="http://english.hankyung.com/" target="_blank" style="margin:0 0 0 4">English</a>
+		|<a href="http://www.hankyung.com/etc/ked/ked.html" target="_ked" style="margin:0 0 0 4">편집국</a>
+		|<a href="http://moneyplus.hankyung.com/" target="_blank" style="margin:0 0 0 4">구독신청</a>
+		|<a href="http://www.hankyung.com/etc/ked/ad.html" target="_ked" style="margin:0 0 0 4">신문광고문의</a>
+		|<a href="http://www.hankyung.com/etc/info/ombudsman.html" target="_top" style="margin:0 0 0 4">고충처리</a>
+		|<a href="http://recruit.hankyung.com" target="_blank" style="margin:0 0 0 4">채용안내</a>
+		|<a href="http://www.hankyung.com/etc/ked/feedback.html" target="_ked" style="margin:0 0 0 4">기사제보</a>
+	</td>
+	<td width="360" style="td36">
+		<img src="/img/bl_gray01.gif" width="2" height="2" border="0" align="absmiddle" style="margin:0 4 4 0">
+<script language='javascript'>
+function familysite(sel) {
+if( sel.value == "" ) return;
+else window.open(sel.value, 'family_site');
+}
+</script>
+		<select style="width:150; height:20; color:#444444" name="familysite" onchange="javascript:familysite(this);">
+			<option value="" selected>계열사</option>
+			<option value="http://www.wownet.co.kr/">한국경제TV</option>
+			<option value="http://www.kbizweek.com/">한경비즈니스</option>
+			<option value="http://bp.hankyung.com/">한경BP</option>
+			<option value="http://www.intojob.co.kr/">한경디스코</option>
+		</select><br>
+	</td>
+</tr>
+</table>
+<!-- 한국경제신문 끝 -->
+
+<!-- 한경닷컴 시작 -->
+<table width="980" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2" height="1" bgcolor="#DDDDDD"></td></tr>
+<tr><td colspan="2" height="10"></td></tr>
+<tr valign="top">
+	<td width="114"><p style="margin:0 0 0 20"><a href="http://www.hankyung.com/" target="_top"><img src="/img/ci_hklogo_bottom.gif" width="84" height="31" border="0"><br></a></td>
+	<td width="866">
+		<p style="margin-top:2; color:#CDCDCD">
+		<a href="http://www.hankyung.com/etc/hkdc/" target="_hkdc">회사소개</a>
+		|<a href="http://www.hankyung.com/etc/hkdc/ad_01.html" target="_hkdc" style="margin:0 0 0 4">인터넷광고문의</a>
+		|<a href="http://www.hankyung.com/etc/hkdc/cooperation.html" target="_hkdc" style="margin:0 0 0 4">제휴문의</a>
+		|<a href="http://www.hankyung.com/etc/info/privacy.html" target="_top" style="margin:0 0 0 4">개인정보취급방침</a>
+		|<a href="http://www.hankyung.com/etc/info/legal.html" target="_top" style="margin:0 0 0 4">이용자 약관</a>
+		|<a href="http://www.hankyung.com/etc/info/contract.html" target="_top" style="margin:0 0 0 4">법적고지</a>
+		|<a href="http://www.hankyung.com/etc/info/webmaster.html" target="_top" style="margin:0 0 0 4">웹마스터문의</a>
+		|<a href="http://www.hankyung.com/etc/info/sitemap.html" target="_top" style="margin:0 0 0 4">사이트맵</a>
+		|<a href="http://rss.hankyung.com/" target="_top"><img src="/img/btn_rss01.gif" width="28" height="13" border="0" align="absmiddle" style="margin:0 0 3 5"></a>
+		<p style="margin-top:3" class="f11 dm">
+		Copyright ㈜한경닷컴 All rights reserved. 한경닷컴의 모든 컨텐츠(기사)는 저작권법의 보호를 받는 바, 무단 전재·복사·배포 등을 금합니다.
+	</td>
+</tr>
+<tr><td height="20" colspan="2"></td></tr>
+</table>
+<!-- 한경닷컴 끝 -->
+<!-- @@ 공통 풋터 @@ -->
+<!-- @@@@@ 하단끝 @@@@@ -->
+
+<!-- 팝업 시작 -->
+<!-- 팝업 시작 -->
+<script language="javascript">
+<!--
+// 님님님 이벤트
+if ( getCookie( "080730" ) != "done" ) { window.open('http://www.hankyung.com/popup/080730.html','080730','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=314,left=10,top=10');
+}
+-->
+</script>
+<!-- 팝업 끝 -->
+<!-- 팝업 끝 -->
+
+<!-- @@@@@ TI 광고 영역 @@@@@ -->
+<div name="ad_ti" style="position:absolute; z-index:50; top:0px; left:0px;">
+<script language="JavaScript1.1" src="http://advs.hankyung.com/RealMedia/ads/adstream_jx.ads/www.hankyung.com/index@Ti"></script>
+</div>
+
+
+	</td>
+	<td valign="top" style="position:relative">
+		<div name="ad_popunder2" style="position:absolute; z-index:49; top:90px; left:15px;"><table width="80" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+	<td width="80">
+		<div id='bnrballoon0' style='position:absolute; visibility:visible; width:80px; height:100px'>
+		<table width="80" border="0" cellpadding="0" cellspacing="0">
+		<tr><td><a href="http://event.hankyung.com/index_sub.php?pname=ing_event.ing_view&idkey=100000000491" target="_blank"><img src="/adimg/bnr/bnr_balloon_blogevent01.jpg" width="80" height="100" border="0" name="balloon"></a></td></tr>
+		</table>
+		</div>
+		<div id='bnrballoon1' style='position:absolute; visibility:visible; width:80px; height:100px'>
+		<table width="80" border="0" cellpadding="0" cellspacing="0">
+		<tr><td></td></tr>
+		</table>
+		</div>
+	</td>
+</tr>
+</table>
+
+<script language="javascript">
+function getElementsByName_iefix(tag, name) {
+ var elem = document.getElementsByTagName(tag);
+ var arr = new Array();
+ for(i = 0,iarr = 0; i < elem.length; i++) {
+	  att = elem[i].getAttribute("name");
+	  if(att == name) {
+		   arr[iarr] = elem[i];
+		   iarr++;
+	  }
+ }
+ return iarr;
+}
+
+function bnr_balloon(){  	
+	num=Math.floor(Math.random()*getElementsByName_iefix('img', 'balloon'));
+	if (num == 0){
+	   showlayer("bnrballoon0");	
+	   hidelayer("bnrballoon1");
+	}else if(num == 1){
+	   hidelayer("bnrballoon0");	
+	   showlayer("bnrballoon1");
+	}else{
+	   showlayer("bnrballoon0");	
+	   hidelayer("bnrballoon1");
+	}	
+}
+function hidelayer(lay) {
+	document.all[lay].style.visibility = "hidden";
+}
+function showlayer(lay) {
+	document.all[lay].style.visibility = "visible";
+}
+</script>
+<script>bnr_balloon();</script></div>
+	</td>
+</tr>
+</table>
+
+</body>
+</html>

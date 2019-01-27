@@ -1,0 +1,39 @@
+01: using System;
+02: using System.Threading; //Thread
+03: namespace Com.JungBo.Proce{
+04:     public class ThreadH{
+05:         public void Print(){
+06:             for (int i = 0; i < 3000; i++){
+07:                 Console.Write("Q");
+08:             }
+09:         }
+10:         public void Go(){
+11:             Thread tt = new Thread(new ThreadStart(Print));
+12:             tt.Start();
+13:             for (int i = 0; i < 3000; i++){
+14:                 Console.Write("H");
+15:                 if (i == 100){
+16:                     //1) 100/1000초 동안 쓰레드 정지
+17:                     Thread.Sleep(100);
+18: 
+19:                     //2) 쓰레드 작업을 끝낸다.
+20:                     //Thread.CurrentThread.Abort();//H를 끝낸다.
+21:                 }
+22:             }
+23:         }
+24:     }
+25:     public class ThreadCompete{
+26:         public void Going() {
+27:             ThreadH h = new ThreadH();
+28:             //쓰레드에 위임
+29:             Thread t2 = new Thread(new ThreadStart(h.Go));
+30:             //3) 우선순위를 결정할 수 있다.
+31:             //t2.Priority = ThreadPriority.Highest;
+32:             //쓰레드 레디 ->CLR의 관리하에 Run
+33:             t2.Start();
+34:             for (int i = 0; i < 3000; i++){
+35:                 Console.Write("M");
+36:             }
+37:         }
+38:     }
+39: }

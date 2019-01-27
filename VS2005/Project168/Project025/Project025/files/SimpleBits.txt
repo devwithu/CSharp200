@@ -1,0 +1,51 @@
+01: using System;
+02: namespace Com.JungBo.Maths {
+03:     //쉬프트 연산자
+04:     public class SimpleBits {
+05: 
+06:         public const int MASK08 = 7; // 111
+07:         public const int MASK083 = 3;//  11
+08:         public const int MASK16 = 15;//1111
+09: 
+10:         //10진수를 16진수로 진수변환
+11:         public static string TenToHexa(int n) {
+12:             string s = "";
+13:             for (int i = 0; i < 8; i++){
+14:                 int aa = n & MASK16;
+15:                 s = Tosixteen(aa) + s;
+16:                 n >>= 4;
+17:             }
+18:             return s;
+19:         }//
+20:         //0~15 사이의 수를 16진수로 바꾸기
+21:         public static string Tosixteen(int m){
+22:             string s = "";
+23:             switch (m){
+24:                 case 10: s = "A"; break;
+25:                 case 11: s = "B"; break;
+26:                 case 12: s = "C"; break;
+27:                 case 13: s = "D"; break;
+28:                 case 14: s = "E"; break;
+29:                 case 15: s = "F"; break;
+30:                 default: s = m.ToString(); break;
+31:             }
+32:             return s;
+33:         }
+34:         //10진수를 8진수로 진수변환
+35:         public static string TenToOcta(int n){
+36:             string s = "";
+37:             for (int i = 0; i < 32/3 +1; i++){
+38:                 int aa = 0;
+39:                 if (i < 32 / 3){
+40:                     aa = n & MASK08;
+41:                 }
+42:                 else {
+43:                     aa = n & MASK083;
+44:                 }
+45:                 s = aa + s;
+46:                 n >>= 3;
+47:             }
+48:             return s;
+49:         }//
+50:     }
+51: }

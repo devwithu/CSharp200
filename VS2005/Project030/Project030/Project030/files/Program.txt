@@ -1,0 +1,15 @@
+01: using System;
+02: using Com.JungBo.Logics;
+03: namespace Com.JungBo.Basic {
+04:     public class Program {
+05:         public static void Main(string[] args){
+06: 
+07:             int[] mm ={ 6,3,8,9,2,1,4,7,5};
+08:             Console.WriteLine("정렬전---------");
+09:             Bubble.Print(mm);
+10:             Console.WriteLine("정렬후---------");
+11:             Bubble.AscSort(mm);
+12:             Bubble.Print(mm);
+13:         }
+14:     }
+15: }

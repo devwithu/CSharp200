@@ -1,0 +1,21 @@
+01: using System;
+02: namespace Com.JungBo.Basic{
+03:     public class Program{
+04:         public static void Main(string[] args){
+05:             int iNum1 = 29;
+06:             int iNum2 = 9;
+07: 
+08:             int iNum3 = iNum1 + iNum2;
+09:             int iNum4 = iNum1 - iNum2;
+10:             int iNum5 = iNum1 * iNum2;
+11:             int iNum6 = iNum1 / iNum2;//3*9+2
+12:             int iNum7 = iNum1 % iNum2;//3*9+2
+13: 
+14:             Console.WriteLine("µ¡¼À:{0}+{1}={2}", iNum1, iNum2, iNum3);
+15:             Console.WriteLine("»¬¼À:{0}-{1}={2}", iNum1, iNum2, iNum4);
+16:             Console.WriteLine("°ö¼À:{0}*{1}={2}", iNum1, iNum2, iNum5);
+17:             Console.WriteLine("³ª´°¼À:{0}/{1}={2}", iNum1, iNum2, iNum6);
+18:             Console.WriteLine("³ª¸ÓÁö:{0}%{1}={2}", iNum1, iNum2, iNum7);
+19:         }
+20:     }
+21: }

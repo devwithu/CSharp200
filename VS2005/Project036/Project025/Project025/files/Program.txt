@@ -1,0 +1,25 @@
+01: using System;
+02: using Com.JungBo.Maths;
+03: 
+04: namespace Com.JungBo.Basic{
+05:     public class Program{
+06:         public static void Main(string[] args){
+07: 
+08:             int ten = 68;
+09:             string s2 = SimpleBits.TenToBinary(ten);
+10:             Console.WriteLine("10진수 {0}--> 2진수: {1}",
+11:                 ten, s2);
+12:            
+13:             string sb1 = SimpleBits.BosuForOne(ten);
+14:             Console.WriteLine("{0}에 대한 1의보수 : {1}",
+15:                 ten, sb1);
+16: 
+17:             string sb2 = SimpleBits.BosuForTwo(ten);
+18:             Console.WriteLine("{0}에 대한 2의보수 : {1}",
+19:                 ten, sb2);
+20:             string sb3 = SimpleBits.BosuForTwo2(ten);
+21:             Console.WriteLine("{0}에 대한 2의보수 : {1}",
+22:                 ten, sb3);
+23:         }
+24:     }
+25: }

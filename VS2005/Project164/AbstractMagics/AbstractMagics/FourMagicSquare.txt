@@ -1,0 +1,106 @@
+001:  using System;
+002:  namespace Com.JungBo.Logic{
+003:      public class FourMagicSquare : AbstractMagic{
+004:  
+005:          public FourMagicSquare(int n):base(n) { }
+006:          public FourMagicSquare() : this(4) { }
+007:  
+008:          public  override void Make()
+009:          {
+010:              LeftToRight();
+011:              //Reverse();
+012:              Change();
+013:          }//Make
+014:          //접근제한자 -->private
+015:          /// <summary>
+016:          /// 4X4일때 1부터 16까지 1씩 증가하며 16칸을 채운다.
+017:          /// 같은 방법으로
+018:          /// nXn일때 1부터 n*n까지 1씩 증가하며 16칸을 채운다.
+019:          /// </summary>
+020:          private void LeftToRight()
+021:          {
+022:              int count = this.top + 1;
+023:              for (int i = 0; i < count; i++)
+024:              {
+025:                  for (int j = 0; j < count; j++)
+026:                  {
+027:                      this.mabang[i, j] = i * count + j + 1;
+028:                  }
+029:              }
+030:          }
+031:          /// <summary>
+032:          /// 4X4일때 16부터 1까지 1씩 감소하며 조건에 알맍은 칸을 채운다.
+033:          /// 같은 방법으로
+034:          /// nXn일때  n*n 부터 1까지 1씩 감소하며 조건에 알맍은 칸을 채운다.
+035:          /// </summary>
+036:          private void Reverse()
+037:          {
+038:              int count = this.top + 1;
+039:              for (int i = 0; i < count; i++)
+040:              {
+041:                  for (int j = 0; j < count; j++)
+042:                  {
+043:  
+044:                      if ((i >= 0 && i < count / 4) ||
+045:                          (i >= count / 4 * 3 && i < count))
+046:                      {
+047:                          if (j >= count / 4 && j < count / 4 * 3)
+048:                          {
+049:                              this.mabang[i, j] =
+050:                                  count * count - (i * count + j);
+051:                          }
+052:                      }
+053:                      else
+054:                      {
+055:                          if ((j >= 0 && j < count / 4) ||
+056:                           (j >= count / 4 * 3 && j < count))
+057:                          {
+058:                              this.mabang[i, j] =
+059:                                     count * count - (i * count + j);
+060:                          }
+061:                      }
+062:  
+063:                  }
+064:              }
+065:          }//
+066:  
+067:          public void Change()
+068:          {
+069:              int count = this.top + 1;
+070:              for (int i = 0; i < count; i++)
+071:              {
+072:                  for (int j = 0; j < count / 2; j++)
+073:                  {
+074:  
+075:                      if ((i >= 0 && i < count / 4) ||
+076:                          (i >= count / 4 * 3 && i < count))
+077:                      {
+078:                          if (j >= count / 4 && j < count / 4 * 3)
+079:                          {
+080:                              int temp = this.mabang[i, j];
+081:                              this.mabang[i, j] =
+082:                                  this.mabang[top - i, top - j];
+083:                              this.mabang[top - i, top - j] = temp;
+084:  
+085:                          }
+086:                      }
+087:                      else
+088:                      {
+089:                          if ((j >= 0 && j < count / 4) ||
+090:                           (j >= count / 4 * 3 && j < count))
+091:                          {
+092:                              int temp = this.mabang[i, j];
+093:                              this.mabang[i, j] =
+094:                                  this.mabang[top - i, top - j];
+095:                              this.mabang[top - i, top - j] = temp;
+096:                          }
+097:                      }
+098:  
+099:                  }
+100:              }
+101:          }
+102:  
+103:  
+104:  
+105:      }
+106:  }

@@ -1,0 +1,46 @@
+01: using System;
+02: using Com.JungBo.Exc;  //UnFittalbeException
+03: namespace Com.JungBo.Maths{
+04:     public class Fraction{
+05:         private int bunja; //분자
+06:         private int bunmo; //분모
+07: 
+08:         //생성자-분모가 0일 수 없다. 
+09:         public Fraction(int bunja, int bunmo) {
+10:             if(bunmo==0){
+11:              throw new UnFittalbeException("분모가 0일수 없습니다.");
+12:             }
+13:             else if (bunja == 0){
+14:                 this.bunmo = 1;
+15:             }
+16:             else {
+17:                 this.bunja = bunja;
+18:                 this.bunmo = bunmo;
+19:             }
+20:         }//
+21: 
+22:         public Fraction(Fraction bs): this(bs.Bunja, bs.Bunmo){}
+23:         public Fraction(): this(0, 1){}
+24: 
+25:         public int Bunja{
+26:             get { return bunja; }
+27:             set { this.bunja = value; }
+28: 
+29:         }
+30:         public int Bunmo{
+31:             get { return bunmo; }
+32:             set {
+33:                 if (value == 0){
+34:                     throw 
+35:                   new UnFittalbeException("분모가 0일수 없습니다.");
+36:                 }
+37:                 else {
+38:                     this.bunmo = value; 
+39:                 }
+40:             }
+41:         }
+42:         public override string ToString(){
+43:             return string.Format("{0}/{1}", bunja, bunmo);
+44:         }//
+45:     }
+46: }

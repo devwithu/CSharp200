@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="WinBlackJack.Gamer" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Gamer.cs</FileName>
+      <HashCode>AAAAAAAAAAAABAgACAAAAAQAAAAEAIAEAAACBAIAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinBlackJack.Dealer">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Gamer.cs</FileName>
+      <HashCode>IAAAAAAAAAAABAAAAAACAAAAAAAAAEAAgAACAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinBlackJack.Player">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Gamer.cs</FileName>
+      <HashCode>CIAAIAQAAAAEBAAAAIAAAAAAAAAAAAAAAAACgAgAACA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinBlackJack.GamerComparer">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Gamer.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+</ClassDiagram>

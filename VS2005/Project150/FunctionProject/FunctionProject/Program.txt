@@ -1,0 +1,14 @@
+01:  using System;
+02:  using Com.JungBo.Maths;
+03:  namespace FunctionProject {
+04:   public class Program {
+05:    public static void Main(string[] args){
+06:  
+07:      //Srqt(2)의 추측값 1.5를 이용->1.42xxx
+08:      Console.WriteLine(YenaMath.Sqrt(2,1.5));
+09:  
+10:      //Srqt(10)의 추측값 3를 이용->3.16xxx
+11:      Console.WriteLine(YenaMath.Sqrt(1000, 3));
+12:    }
+13:   }
+14:  }

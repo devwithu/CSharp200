@@ -1,0 +1,12 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:      public class EvenMain{
+04:          public static void Main(string[] args){
+05:              EvenWithPrime ev = new EvenWithPrime();
+06:              //30을 이루는 소수들
+07:              ev.PrintNums(8);
+08:              //30을 이루는 두 소수
+09:              //ev.Print2Num(30);
+10:          }
+11:      }
+12:  }

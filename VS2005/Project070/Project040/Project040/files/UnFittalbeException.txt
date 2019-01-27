@@ -1,0 +1,11 @@
+01: using System;
+02: namespace Com.JungBo.Exc{
+03:     //사용자가 만든 예외
+04:     public class UnFittalbeException:ApplicationException{
+05:         public UnFittalbeException(string message)
+06:         :base(message){ }
+07: 
+08:         public UnFittalbeException()
+09:         :this("0이나 음수가 올수 없습니다."){ }
+10:     }
+11: }

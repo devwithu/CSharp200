@@ -1,0 +1,5 @@
+1: namespace Com.JunBo.Logic {
+2:     public interface IMagic{
+3:         void Print();
+4:     }
+5: }

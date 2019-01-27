@@ -1,0 +1,44 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.ComponentModel;
+04: using System.Data;
+05: using System.Drawing;
+06: using System.Text;
+07: using System.Windows.Forms;
+08: 
+09: namespace Program002{
+10:     public partial class Form1 : Form{
+11:         public Form1(){
+12:             InitializeComponent();
+13:             //-----------이곳에 초기화----------------//
+14:             this.Clear();  //메서드호출
+15:         }
+16:         //반복되는 행위를 메서드로 만든다.
+17:         //텍스트와 라벨 초기화, 메서드선언
+18:         private void Clear(){
+19:             this.txtNum1.Text = "";//텍스트박스 청소
+20:             this.txtNum2.Text = "";
+21:             this.txtResult.Text = "";
+22:             this.lbResult.Text = "Ready";//라벨 초기화
+23:         }
+24:         //숫자형 문자열을 숫자로 형변환, 메서드선언
+25:         private double Calculator(string sx, string sy){
+26:             double x  = double.Parse(sx.Trim());
+27:             double y = double.Parse(sy.Trim());
+28:             return (x + y);
+29:         }
+30:         private void btnAdd_Click(object sender, EventArgs e){
+31:             //텍스트박스에서 숫자형 문자열을 겟프로퍼티로 얻는다.
+32:             //Calculator()이용 덧셈한다.
+33:             //메서드 호출
+34:             double num = Calculator(this.txtNum1.Text, this.txtNum2.Text);
+35: 
+36:             //숫자를 문자열로 형변환시킨다.
+37:             this.txtResult.Text = num.ToString();
+38:             this.lbResult.Text = "+";
+39:         }
+40:         private void btnClear_Click(object sender, EventArgs e){
+41:             this.Clear();//텍스트박스, 라벨 청소와 초기화
+42:         }
+43:     }
+44: }

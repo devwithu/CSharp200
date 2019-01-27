@@ -1,0 +1,11 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic {
+03:  public class Program{
+04:      public static void Main(string[] args){
+05:          Console.WriteLine("Twin---------------");
+06:          PrimeNumber.PrintTwinPrime(1000000, 1002000);
+07:          Console.WriteLine("Cousin---------------");
+08:          PrimeNumber.PrintCousinPrime(1000000, 1002000);
+09:      }
+10:  }
+11:  }

@@ -1,0 +1,78 @@
+01: using System;
+02: using System.Text;//StringBuilder
+03: namespace Com.JungBo.School{
+04:     public class YenaGrade : ICloneable,IComparable{
+05:         private double kor;
+06:         private double eng;
+07:         private double math;
+08:         private double total;
+09:         private double avg;
+10: 
+11:         public YenaGrade(double kor, double eng, double math) {
+12:             this.kor = kor;
+13:             this.eng = eng;
+14:             this.math = math;
+15:             GetAvg();
+16:         }
+17:         public YenaGrade() : this(0.0, 0.0, 0.0) { }
+18: 
+19:         private void GetTotal() {
+20:             this.total = (this.kor + this.eng + this.math);
+21:         }
+22:         private void GetAvg() {
+23:             GetTotal();
+24:             this.avg= this.total / 3.0;
+25:         }
+26:         public double Kor{
+27:             get { return kor; }
+28:             set { kor = value;GetAvg();}
+29:         }
+30:         public double Eng{
+31:             get { return eng; }set { eng = value;}
+32:         }
+33:         public double Math{
+34:             get { return math; }
+35:             set { math = value;GetAvg();}
+36:         }
+37:         public double Total{
+38:             get {return total; }
+39:         }
+40:         public double Avg{
+41:             get {return avg; }
+42:         }
+43:         public override string ToString(){
+44:             GetAvg();
+45:             StringBuilder sb = new StringBuilder();
+46:             //.## 소수점 2자리
+47:             sb.Append(string.Format("[국어 {0:.##},", this.kor))
+48:             .Append(string.Format("영어 {0:.##},", this.eng))
+49:             .Append(string.Format("수학 {0:.##},", this.math))
+50:             .Append(string.Format("총점 {0:.##},", this.Total))
+51:             .Append(string.Format("평균 {0:.##}]", this.Avg));
+52:             return sb.ToString();
+53:         }//
+54:         //깊은 복사
+55:         public  object Clone(){
+56:             return new YenaGrade(this.kor,this.eng,this.math);
+57:         }
+58:         //IComparable 구현
+59:         public int CompareTo(object obj){
+60:             YenaGrade yg2 = obj as YenaGrade;
+61:             if (avg > yg2.Avg){
+62:                 return -1; //yg2 가 작다.
+63:             }
+64:             else if (avg< yg2.Avg){
+65:                 return 1;//yg2 가 크다.
+66:             }
+67:             else{//평균이 같을경우 국어점수로 판단
+68:                 if (kor > yg2.Kor){
+69:                     return -1; //yg2 가 작다.
+70:                 }
+71:                 else if (kor < yg2.Kor){
+72:                     return 1;//yg2 가 크다.
+73:                 }
+74:                 else return 0;
+75:             }
+76:         }
+77:     }
+78: }

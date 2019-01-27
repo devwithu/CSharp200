@@ -1,0 +1,54 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:      //x + 2y + 4z = 11
+04:      //2x + 5y + 2z = 3
+05:      //4x - y + z = 8
+06:      public class GausJordan {
+07:          double[,] a ={{ 1, 2, 4 },{ 2, 5, 2 },{4, -1,1}};
+08:          double[] y ={ 11,3,8 };
+09:          private int n;
+10:          public GausJordan(){
+11:              n = a.GetLength(0);
+12:          }//
+13:          public void GetGaus(){
+14:              this.PrintGaus(); 
+15:              double delta=0;
+16:              for (int k = 0; k < n; k++){
+17:                  for (int i = 0; i < n; i++){
+18:                      delta = a[i, k] / a[k, k];
+19:                      for (int j = k; j < n; j++){
+20:                          if (i != k && j == k){
+21:                              a[i, j] = 0.0;
+22:                          }
+23:                          else if (i != k && j > k){
+24:                              a[i, j] -= delta * a[k, j];
+25:                          }
+26:                      }
+27:                      if (i != k){
+28:                          y[i] -= delta * y[k];
+29:                      }
+30:                  }
+31:                  Console.WriteLine();
+32:                  this.PrintGaus();
+33:              }
+34:              Console.WriteLine();
+35:              for (int k = 0; k < n; k++){
+36:               Console.WriteLine("X{0} = {1}",(k+1),y[k]/a[k,k]);
+37:              }
+38:          }//
+39:          private void PrintGaus() {
+40:              for (int i = 0; i < n; i++){
+41:                  for (int j = 0; j < n; j++){
+42:                      Console.Write("{0} X{1}\t",
+43:                          a[i, j]>=0?a[i,j].ToString():
+44:                          string.Format("({0})",a[i,j]),(j+1));
+45:                      if (j != n - 1){
+46:                          Console.Write(" +\t");
+47:                      }                    
+48:                  }
+49:                  Console.Write(" = ");
+50:                  Console.WriteLine(y[i]);
+51:              }
+52:          }//
+53:      }
+54:  }

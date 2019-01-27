@@ -1,0 +1,53 @@
+01: using System;
+02: using System.Text;//Encoding
+03: using System.IO;//FileStream, StreamReader
+04: namespace Com.JungBo.IO{
+05:     public class FileReading{
+06:         public void FileReads(string fname){
+07:             if(!File.Exists(fname)){
+08:                 Console.WriteLine("{0}이 없습니다.",fname);
+09:                 return;  //FileReads끝내기
+10:             }
+11:             FileStream fs = null;
+12:             StreamReader sr = null;
+13:             try{
+14:                 //fs = File.OpenRead(fname);
+15:                 //fs = new FileStream(fname, FileMode.Open);
+16:                 fs = new FileStream(fname, FileMode.Open, FileAccess.Read);
+17:                 sr = new StreamReader(fs, Encoding.Default);
+18:                 string message = string.Empty;
+19:                 while ((message = sr.ReadLine()) != null) {
+20:                     Console.WriteLine(message);
+21:                 }
+22:             }
+23:             catch (IOException ee){
+24:                 Console.WriteLine(ee.Message);
+25:             }
+26:             finally {
+27:                 sr.Close();
+28:                 fs.Close();
+29:             }
+30:         }//FileReads
+31:         public void FileWrites(string fname){
+32:             FileStream fs = null;
+33:             StreamWriter sw = null;
+34:             try{
+35:                 //fs = new FileStream(fname, FileMode.Create);
+36:                 fs = new FileStream(fname, FileMode.Create,FileAccess.Write);
+37:                 sw = new StreamWriter(fs, Encoding.Default);
+38:                 string message = string.Empty;
+39:                 while ((message = Console.ReadLine()) != null){
+40:                     sw.WriteLine(message);
+41:                     sw.Flush();
+42:                 }
+43:             }
+44:             catch (IOException ee){
+45:                 Console.WriteLine(ee.Message);
+46:             }
+47:             finally{
+48:                 sw.Close();
+49:                 fs.Close();
+50:             }
+51:         }//
+52:     }
+53: }

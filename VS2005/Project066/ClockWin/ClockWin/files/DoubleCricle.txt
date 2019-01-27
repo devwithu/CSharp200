@@ -1,0 +1,23 @@
+01: using System;
+02: using System.Drawing;
+03: 
+04: namespace Com.JungBo.Drawings{
+05:     public class DoubleCricle:Shape{
+06:         public DoubleCricle(float x, float y, float width, 
+07:             float height, Color color)
+08:             :base(x,y,width,height,color){}
+09:         public DoubleCricle(float x, float y, float width,
+10:             float height): base(x, y, width, height) { }
+11:         public new void Draw(Graphics g){
+12:         //public override void Draw(Graphics g){
+13:             Pen xPen = new Pen(color, 1);
+14:             g.DrawArc(xPen,
+15:               new RectangleF(x, y, 
+16:               width, height), 0.0f, 360.0f);
+17:             g.DrawArc(xPen,
+18:               new RectangleF(x-5, y-5,
+19:               width+10, height+10), 0.0f, 360.0f);
+20:             xPen.Dispose();
+21:         }
+22:     }
+23: }

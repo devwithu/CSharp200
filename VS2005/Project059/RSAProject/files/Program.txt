@@ -1,0 +1,25 @@
+01: using System;
+02: using Com.JungBo.Logic;   //RSA
+03: namespace Com.JungBo.Basic{
+04:     public class Program{
+05:         public static void Main(string[] args){
+06:             int seed = 239; //97,157,167, 239
+07:             //p< SEED <qÀÎ ¼Ò¼ö p,q
+08:             RSA rsa = new RSA(seed);
+09:             rsa.Make();
+10:             Console.WriteLine(rsa);
+11:             rsa.Make();
+12:             Console.WriteLine(rsa);
+13:             rsa.Make();
+14:             Console.WriteLine(rsa);
+15:             rsa.Make();
+16:             Console.WriteLine(rsa);
+17:             rsa.Make();
+18:             Console.WriteLine(rsa);
+19:             rsa.Make();
+20:             Console.WriteLine(rsa);
+21:             rsa.Make();
+22:             Console.WriteLine(rsa);
+23:         }
+24:     }
+25: }

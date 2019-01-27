@@ -1,0 +1,177 @@
+001:  using System;
+002:  namespace Com.JungBo.Logic{
+003:   public class FourMagicSquare{
+004:      private int[ , ] mabang;//2차원 배열 선언
+005:      private int top;//n-1
+006:      public FourMagicSquare() :this(4){ }//기본생성자
+007:      public FourMagicSquare(int n){
+008:          this.Init(n);
+009:      }//생성자
+010:  //마방진 row의 수를 받아서 rowXrow 2차원 배열을 생성한다.
+011:      public void Init(int n) {
+012:          this.top = n - 1;
+013:          this.mabang = new int[n, n];//생성, 초기화
+014:      }
+015:      public void Make() {
+016:          LeftToRight();
+017:          Reverse();
+018:          //Change();
+019:      }//Make
+020:      //nXn일때 1부터 n*n까지 1씩 증가하며 16칸을 채운다.
+021:      private void LeftToRight() {
+022:          int count = this.top + 1;
+023:          for (int i = 0; i < count; i++){
+024:              for (int j = 0; j < count; j++){
+025:                  this.mabang[i, j] = i * count + j + 1;
+026:              }
+027:          }
+028:      }
+029:      //nXn일때  n*n 부터 1까지 1씩 감소하며 
+030:      //조건에 알맍은 칸을 채운다.
+031:      private void Reverse() {
+032:          int count = this.top + 1;
+033:          for (int i = 0; i < count; i++){
+034:              for (int j = 0; j < count; j++){
+035:                  if ((i >= 0 && i < count / 4) ||
+036:                      (i >= count / 4 * 3 && i < count)){
+037:                      if (j >= count / 4 && j < count / 4 * 3){
+038:                          this.mabang[i, j] =
+039:                              count * count - (i * count + j);
+040:                      }
+041:                  }
+042:                  else {
+043:                      if ((j >= 0 && j < count / 4) ||
+044:                       (j >= count / 4 * 3 && j < count)) {
+045:                           this.mabang[i, j] =
+046:                                  count * count - (i * count + j);
+047:                      }
+048:                  }
+049:              }
+050:          }
+051:      }//
+052:      public void Change() {
+053:          int count = this.top + 1;
+054:          for (int i = 0; i < count; i++){
+055:              for (int j = 0; j < count/2; j++){
+056:                  if ((i >= 0 && i < count / 4) ||
+057:                      (i >= count / 4 * 3 && i < count)){
+058:                      if (j >= count / 4 && j < count / 4 * 3){
+059:                          int temp = this.mabang[i, j];
+060:                          this.mabang[i, j] =
+061:                              this.mabang[top - i, top - j];
+062:                          this.mabang[top - i, top - j] = temp;
+063:                              
+064:                      }
+065:                  }
+066:                  else{
+067:                      if ((j >= 0 && j < count / 4) ||
+068:                       (j >= count / 4 * 3 && j < count)){
+069:                          int temp = this.mabang[i, j];
+070:                          this.mabang[i, j] =
+071:                              this.mabang[top - i, top - j];
+072:                          this.mabang[top - i, top - j] = temp;
+073:                      }
+074:                  }
+075:              }
+076:          }
+077:      }
+078:  
+079:      public bool IsCheck(){
+080:          bool isC = true;
+081:          int count = top + 1;
+082:          int[] ic = new int[2 * count + 2];
+083:          for (int k = 0; k < count; k++){
+084:              ic[k] = SumRow(k);
+085:              ic[k + count] = SumCol(k);
+086:          }//
+087:          ic[2 * count] = SumDiago();
+088:          ic[2 * count + 1] = SumAntiDiago();
+089:          for (int i = 1; i < ic.Length; i++){
+090:              if (ic[0] != ic[i]){
+091:                  isC = false;
+092:                  break;
+093:              }
+094:          }
+095:          return isC;
+096:      }//
+097:      public int SumRow(int row)
+098:      {
+099:          int count = this.top + 1;
+100:          int total = 0;
+101:          for (int i = 0; i < count; i++)
+102:          {
+103:              total += this.mabang[row, i];
+104:          }
+105:          return total;
+106:      }
+107:      public int SumCol(int col)
+108:      {
+109:          int count = this.top + 1;
+110:          int total = 0;
+111:          for (int i = 0; i < count; i++)
+112:          {
+113:              total += this.mabang[i, col];
+114:          }
+115:          return total;
+116:      }
+117:      public int SumDiago()
+118:      { //대각선
+119:          int count = this.top + 1;
+120:          int total = 0;
+121:          for (int i = 0; i < count; i++)
+122:          {
+123:              total += this.mabang[i, i];
+124:          }
+125:          return total;
+126:      }
+127:      public int SumAntiDiago()
+128:      {//역대각선
+129:          int count = this.top + 1;
+130:          int total = 0;
+131:          for (int i = 0; i < count; i++)
+132:          {
+133:              total += this.mabang[i, count - i - 1];
+134:          }
+135:          return total;
+136:      }
+137:      public void Print()
+138:      {
+139:          int count = top + 1;
+140:  
+141:          for (int i = 0; i < count; i++)
+142:          {
+143:              for (int j = 0; j < count; j++)
+144:              {
+145:                  Console.Write("{0}\t", mabang[i, j]);
+146:              }
+147:              Console.WriteLine();
+148:          }
+149:          Console.WriteLine("Successs?  {0}",
+150:                                       this.IsCheck());
+151:      }//Print
+152:      public void Prints()
+153:      {
+154:          int count = top + 1;
+155:  
+156:          for (int i = 0; i < count; i++)
+157:          {
+158:              for (int j = 0; j < count; j++)
+159:              {
+160:                  Console.Write("\t{0}", mabang[i, j]);
+161:              }
+162:              Console.Write("\tR:{0}\n", SumRow(i));
+163:          }
+164:          Console.Write("A:{0}", SumAntiDiago());
+165:          for (int j = 0; j < count; j++)
+166:          {
+167:  
+168:              Console.Write("\tC:{0}", SumCol(j));
+169:  
+170:          }
+171:          Console.Write("\tD:{0}\n", SumDiago());
+172:  
+173:          Console.WriteLine("Successs?  {0}",
+174:                                       this.IsCheck());
+175:      }//Prints
+176:   }
+177:  }

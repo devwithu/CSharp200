@@ -1,0 +1,50 @@
+01: using System;
+04: using System.Collections;   //ArrayList 때문에 using
+05: namespace Com.JungBo.Logic{
+06:     //IEnumerator 과 static 메서드, static 변수
+07:     public class CardList{
+08:         // 카드 순서 (♠ > ◆ > ♥ > ♣)
+09:         public  static string[] DECK ={ "S","D","H","C"};
+10:         public  static string[] SUIT 
+11:         ={ "A","2","3","4","5","6","7","8","9","T","J","Q","K" };
+12: 
+13:         //중요한 데이터 멤버
+14:         ArrayList list = new ArrayList(10);//처음 Capacity 10
+15: 
+16:         public void MakeCard() {
+17:             list.Clear();//list 비우기
+18:             foreach (string deck in DECK){
+19:                 foreach (string suit in SUIT){
+20:                     //SA,S2, S3, .... 대입
+21:                     //list에 채우기
+22:                     list.Add(string.Concat(deck,suit));
+23:                 }
+24:             }
+25:         }//
+26:         public void PrintCard(){
+27:             int i = 0;
+28:             IEnumerator iters = list.GetEnumerator();
+29:             while(iters.MoveNext()){
+30:                 string cards = iters.Current as string;
+31:                 Console.Write("{0}  ", cards);
+32:                 if ((i++ + 1) % SUIT.Length == 0)
+33:                 {
+34:                     Console.WriteLine();
+35:                 }
+36:             }
+37:         }//
+38: 
+39:         public string[] ToArray(){
+40: 
+41:             object[] objs = list.ToArray();
+42: 
+43:             string[] strs = new string[objs.Length];
+44: 
+45:             for (int i = 0; i < objs.Length; i++){
+46:                 strs[i] = objs[i] as string;
+47:             }
+48:             return strs;
+49:         }
+50: 
+51:     }//class
+52: }

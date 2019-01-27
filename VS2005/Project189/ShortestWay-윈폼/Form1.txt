@@ -1,0 +1,54 @@
+01:  using System;
+02:  using System.Windows.Forms;
+03:  using Com.JungBo.Logic;
+04:  namespace ShortestWay{
+05:      public partial class Form1 : Form{
+06:          public Form1(){
+07:              InitializeComponent();
+08:          }
+09:          private void button1_Click(object sender, EventArgs e){
+10:              Floyd fl = new Floyd();
+11:              try{
+12:                  // 입력 필드가 입력되었는지 확인
+13:                  this.CheckFields();
+14:                  // 최단거리 메트릭스 계산
+15:                  fl.Distance();
+16:                  // 입력된 출발 / 도착지로 계산
+17:                  // 리턴되는 결과 문자열 받음
+18:                  // 결과 출력
+19:                  lblOutput.Text =
+20:                      fl.name[comboBox1.SelectedIndex] + " -> "
+21:                      + fl.Path(comboBox1.SelectedIndex, comboBox2.SelectedIndex)
+22:                      + fl.name[comboBox2.SelectedIndex];
+23:              }
+24:              catch (Exception ee){
+25:                  MessageBox.Show(ee.Message);
+26:              }
+27:          }
+28:          private bool CheckFields(){
+29:              bool ret = false;
+30:              if (comboBox1.SelectedIndex == -1){
+31:                  throw new Exception("출발지를 선택해 주세요.");
+32:              }
+33:              else if (comboBox2.SelectedIndex == -1){
+34:                  throw new Exception("도착지를 선택해 주세요.");
+35:              }
+36:              else{
+37:                  ret = true;
+38:              }
+39:              return ret;
+40:          }
+41:          private void button2_Click(object sender, EventArgs e){
+42:              Floyd fl = new Floyd();
+43:              AllPath ap = new AllPath();//새로운 윈폼
+44:              try{
+45:                  fl.Distance();
+46:                  ap.richTextBox1.Text = fl.PrintPath();
+47:                  ap.Show();//새로운 폼
+48:              }
+49:              catch (Exception ee){
+50:                  MessageBox.Show(ee.Message);
+51:              }
+52:          }//
+53:      }
+54:  }

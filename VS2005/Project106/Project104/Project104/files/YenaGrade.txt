@@ -1,0 +1,54 @@
+01: using System;
+02: using System.Text;//StringBuilder
+03: namespace Com.JungBo.School{
+04: public class YenaGrade : ICloneable{
+05:  private double kor;  //국어
+06:  private double eng;  //영어
+07:  private double math;  //수학
+08:  private double total; //평균
+09:  private double avg; //총점
+10: 
+11:  public YenaGrade(double kor, double eng, double math) {
+12:     this.kor = kor;this.eng = eng;this.math = math;
+13:     GetAvg();
+14:  }
+15:  public YenaGrade() : this(0.0, 0.0, 0.0) { }
+16: 
+17:  private void GetTotal() {
+18:     this.total = (this.kor + this.eng + this.math);
+19:  }
+20:  private void GetAvg() {
+21:     GetTotal();this.avg= this.total / 3.0;
+22:  }
+23:  public double Kor{
+24:     get { return kor; }set { kor = value;GetAvg();}
+25:  }
+26:  public double Eng{
+27:     get { return eng; }set { eng = value;}
+28:  }
+29:  public double Math{
+30:     get { return math; }set { math = value;GetAvg();}
+31:  }
+32:  public double Total{
+33:     get {return total; }
+34:  }
+35:  public double Avg{
+36:     get {return avg; }
+37:  }
+38:  public override string ToString(){
+39:     GetAvg();
+40:     StringBuilder sb = new StringBuilder();
+41:     //.## 소수점 2자리 Format
+42:     sb.Append(string.Format("[국어 {0:.##},", this.kor))
+43:     .Append(string.Format("영어 {0:.##},", this.eng))
+44:     .Append(string.Format("수학 {0:.##},", this.math))
+45:     .Append(string.Format("총점 {0:.##},", this.Total))
+46:     .Append(string.Format("평균 {0:.##}]", this.Avg));
+47:     return sb.ToString();
+48:  }//
+49: //깊은 복사
+50:  public  object Clone(){
+51:     return new YenaGrade(this.kor,this.eng,this.math);
+52:  }
+53: }
+54: }

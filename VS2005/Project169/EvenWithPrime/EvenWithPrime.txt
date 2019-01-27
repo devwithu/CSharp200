@@ -1,0 +1,79 @@
+01:  using System;
+02:  namespace Com.JungBo.Logic{
+03:   public class EvenWithPrime{
+04:      private int count;
+05:      private int originNum;
+06:      //소수의 합이 짝수를 이룰 경우
+07:      public void PrintNums(int num){
+08:          count = 0;  //멤버필드로 0으로 초기화
+09:          this.originNum = num;
+10:          int startNum = 2;
+11:          int endNum=0;
+12:          String st = String.Empty;
+13:          if ((num %2!= 0)||PrimeNumber.IsPrime(num/2)){
+14:              endNum = num / 2;
+15:          }
+16:          else{
+17:              endNum = (num / 2) - 1;
+18:          }
+19:          for (int i = startNum; i <= endNum; i++){
+20:              if (PrimeNumber.IsPrime(i)) {
+21:                  st = i.ToString();
+22:                  PrintNumsCheck(i, num, st);
+23:              }
+24:          }
+25:          Console.WriteLine("갯수 :" + count);
+26:      }//
+27:      //PrintNums을 호출
+28:      private void PrintNumsCheck(int startNum,int num,string st){
+29:          int n = num - startNum;
+30:          if (PrimeNumber.IsPrime(n)){
+31:              count++;
+32:              Console.WriteLine("{0}= {1} + {2}",
+33:                           originNum, st, n.ToString());
+34:              PrintNums(startNum, n, st);
+35:              st = String.Empty;
+36:          }
+37:          else{
+38:              PrintNums(startNum, n, st);
+39:          }
+40:      }//
+41:      //PrintNumsCheck을 호출
+42:      private void PrintNums(int startNum, int num, string st){
+43:          int endNum = num;
+44:          String st_keep = st;
+45:          if ((num % 2 != 0)||PrimeNumber.IsPrime(num / 2)){
+46:              endNum = num / 2;
+47:          }
+48:          else{
+49:              endNum = (num / 2) - 1;
+50:          }
+51:          for (int i = startNum; i <= endNum; i++){
+52:              if (PrimeNumber.IsPrime(i)){
+53:                  st += " + " + i.ToString();
+54:                  PrintNumsCheck(i, num, st);
+55:                  st = st_keep;
+56:              }
+57:          }
+58:      }//
+59:      //2개의 소수의 합으로 이루어 질 경우를 출력
+60:      public void Print2Num(int num){
+61:          int startNum = 2;
+62:          int endNum;
+63:          if ((num % 2 != 0) ||PrimeNumber.IsPrime(num / 2)){
+64:              endNum = num / 2;
+65:          }
+66:          else{
+67:              endNum = (num / 2) - 1;
+68:          }
+69:          for (int i = startNum; i <= endNum; i++){
+70:              if (PrimeNumber.IsPrime(i)
+71:                    && PrimeNumber.IsPrime(num - i)){
+72:                  Console.Write("{0}= ", num);
+73:                  Console.Write(i);
+74:                  Console.WriteLine(" + " + (num - i));
+75:              }
+76:          }
+77:      }//
+78:   }
+79:  }

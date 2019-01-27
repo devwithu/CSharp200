@@ -1,0 +1,38 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.ComponentModel;
+04: using System.Data;
+05: using System.Drawing;
+06: using System.Text;
+07: using System.Windows.Forms;
+08: using System.Drawing.Drawing2D; //SmoothingMode
+09: using Com.JungBo.Drawings;
+10: namespace Progject055{
+11:     public partial class Form1 : Form{
+12:         public Form1(){
+13:             InitializeComponent();
+14:         }
+15:         protected override void OnPaint(PaintEventArgs pe){
+16:             Graphics g = pe.Graphics;
+17:             g.SmoothingMode = SmoothingMode.HighQuality;
+18:             //상대원점  만들기
+19:             g.TranslateTransform(0, 0);
+20:             //------------여기서
+21:             DrawShape(g);
+22:             //------------여기만 건들 것.
+23:             base.OnPaint(pe);
+24:         }
+25:         public void DrawShape(Graphics g) {
+26:             Shape sh1 = new Shape(100, 200, 30,40, Color.Blue);
+27:             Circle cir1 = new Circle(30, 80, 60, 30, Color.Black);
+28:             Rectangler rec1 = new Rectangler(20, 80, 50, 50, Color.Brown);
+29:             sh1.DrawShape(g);
+30:             cir1.DrawCircle(g);
+31:             rec1.DrawRectangler(g);
+32:             rec1.Move(50, 50);  //사작형(50,50) 이동
+33:             rec1.DrawRectangler(g);
+34:             rec1.Move(50, 50);  //사작형(50,50) 이동
+35:             rec1.DrawRectangler(g);
+36:         }
+37:     }
+38: }

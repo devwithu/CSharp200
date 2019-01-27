@@ -1,0 +1,40 @@
+01: using System;
+02: using System.Collections.Generic;
+03: using System.Drawing;
+04: namespace Com.JungBo.Drawings{
+05: 
+06:     public class ShapeList{
+07:         List<Shape> list = new List<Shape>(10);
+08: 
+09:         bool isNew = false;//new 오버라이드인가?
+10:         public ShapeList(){
+11:         }
+12:         public void Clear() {
+13:             list.Clear();
+14:         }
+15:         public void Add(Shape sh) {
+16:             list.Add(sh);
+17:         }
+18:         public bool IsNew{
+19:             get { return isNew; }
+20:             set { isNew = value; }
+21:         }
+22:         public void PrintShape(Graphics g) {
+23:             
+24:             foreach (Shape shs in list){
+25:                 if (!isNew){  //override 오버라이드이면
+26:                     shs.Draw(g);
+27:                 }else {//new 오버라이드이면 
+28:                     if (shs is DoubleCricle){
+29:                         DoubleCricle dcd = shs as DoubleCricle;
+30:                         dcd.Draw(g);
+31:                     }
+32:                     else{
+33:                         shs.Draw(g);
+34:                     }
+35:                 }
+36:             }
+37:         }//
+38: 
+39:     }
+40: }

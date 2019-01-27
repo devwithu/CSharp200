@@ -1,0 +1,24 @@
+01:  using System;
+02:  using System.Web;
+03:  using System.Web.Services;
+04:  using System.Web.Services.Protocols;
+05:  [WebService(Namespace = "http://www.infopub.co.kr/Calculator/")]
+06:  [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+07:  public class Service : System.Web.Services.WebService{
+08:      public Service () {
+09:          //디자인된 구성 요소를 사용하는 경우 다음 줄의 주석 처리를 제거합니다. 
+10:          //InitializeComponent(); 
+11:      }
+12:      [WebMethod]
+13:      public double Calculator(double x, double y, string opp){
+14:          double z = 0.0;//사칙연산결과를 저장할 임수 변수
+15:          //사칙연산이 어떤 것인가 판별
+16:          switch (opp){
+17:              case "+": z = x + y; break;
+18:              case "-": z = x - y; break;
+19:              case "x": z = x * y; break;
+20:              case "/": z = x / y; break;
+21:          }
+22:          return z;//사칙연산에 알맞은 값을 리턴한다.
+23:      }//
+24:  }

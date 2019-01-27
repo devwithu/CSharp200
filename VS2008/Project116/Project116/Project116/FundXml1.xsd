@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+        attributeFormDefault="unqualified" 
+        elementFormDefault="qualified" 
+        targetNamespace="http://itcampus.hankyung.com/fund.xsd" 
+        xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="kosdaq">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" name="stock">
+          <complexType>
+            <sequence>
+              <element name="stockname" type="string" />
+              <element name="stockprice" type="unsignedInt" />
+              <element name="prevstockprice" type="short" />
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
