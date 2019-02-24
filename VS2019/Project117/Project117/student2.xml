@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="euc-kr" ?>
+<students>
+  <student pid="s001001">
+    <name>홍길동</name>
+  </student>
+  <student pid="s001002">
+    <name>장길산</name>
+  </student>
+</students>

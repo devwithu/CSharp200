@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="euc-kr" ?>
+<students>
+  <student pid="s001001">
+홍길동
+<address>서울</address>
+  </student>
+  <student pid="s001002">
+장길산
+<address>서울</address>
+  </student>
+</students>
